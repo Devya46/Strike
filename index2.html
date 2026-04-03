@@ -1,0 +1,1662 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>Strike | Webinars & Stock Market Analytics Platform</title>
+    <style>
+      /* ---------- RESET & BASE ---------- */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family:
+          "Inter",
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          Roboto,
+          Arial,
+          sans-serif;
+      }
+
+      body {
+        background: #f8fafc;
+        color: #0f172a;
+        line-height: 1.45;
+      }
+
+      /* FULL WIDTH BACKGROUND SECTIONS */
+      .section-wrapper {
+        width: 100%;
+      }
+
+      .container {
+        max-width: 1350px;
+        margin: 0 auto;
+        padding: 0 40px;
+      }
+
+      /* Hero Section */
+      .hero-section {
+        background: #ffffff;
+        width: 100%;
+      }
+      .hero {
+        padding: 48px 0 32px;
+      }
+      .hero h1 {
+        font-size: 36px;
+        font-weight: 800;
+        margin-bottom: 8px;
+        color: #0a1f44;
+      }
+      .breadcrumb {
+        color: #5b6e8c;
+        font-size: 14px;
+        margin-bottom: 32px;
+      }
+      .hero-content {
+        display: flex;
+        gap: 48px;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+      .hero-left {
+        flex: 0.6;
+        min-width: 280px;
+      }
+      .hero-left h2 {
+        font-size: 28px;
+        margin-bottom: 18px;
+        color: #0f2b5c;
+      }
+      .hero-left p {
+        color: #334155;
+        margin-bottom: 24px;
+        line-height: 1.5;
+        font-size: 16px;
+      }
+      .form-box {
+        background: #f1f5f9;
+        padding: 28px;
+        border-radius: 24px;
+      }
+      /* Added form-description text above email input */
+      .form-description {
+        font-size: 14px;
+        color: #2c3e66;
+        margin-bottom: 16px;
+        font-weight: 500;
+        line-height: 1.4;
+        background: #e6edf6;
+        padding: 12px 16px;
+        border-radius: 16px;
+        text-align: center;
+      }
+      .form-box input {
+        width: 100%;
+        padding: 14px 18px;
+        border: 1px solid #cbd5e1;
+        border-radius: 60px;
+        margin-bottom: 16px;
+        font-size: 15px;
+        transition: 0.2s;
+      }
+      .form-box input:focus {
+        outline: none;
+        border-color: #2f6bff;
+      }
+      .form-box button {
+        width: 100%;
+        background: #2f6bff;
+        color: white;
+        padding: 14px;
+        border: none;
+        border-radius: 60px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: 0.2s;
+      }
+      .form-box button:hover {
+        background: #1a4fdd;
+        transform: translateY(-2px);
+      }
+      .hero-right {
+        flex: 1;
+        background: linear-gradient(145deg, #eef2ff, #e0e8f5);
+        border-radius: 28px;
+        height: 420px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+      }
+      .play-icon {
+        width: 70px;
+        height: 70px;
+        background: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+        transition: 0.2s;
+      }
+      .play-icon:hover {
+        transform: scale(1.05);
+      }
+      .play-icon::after {
+        content: "▶";
+        color: #2f6bff;
+        font-size: 26px;
+        margin-left: 4px;
+      }
+
+      /* Webinar Section */
+      .webinar-section {
+        background: #f8fafc;
+        width: 100%;
+      }
+      .webinar-content {
+        padding: 24px 0 56px;
+      }
+      .controls-bar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 20px;
+        margin-bottom: 32px;
+      }
+      .tabs-group {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+      .tab-btn {
+        background: #eef2ff;
+        border: none;
+        padding: 10px 24px;
+        border-radius: 40px;
+        font-weight: 600;
+        font-size: 14px;
+        cursor: pointer;
+        color: #1e293b;
+        transition: 0.2s;
+      }
+      .tab-btn:hover {
+        background: #e0e8f5;
+      }
+      .tab-btn.active {
+        background: #2f6bff;
+        color: white;
+      }
+      .webinar-stats {
+        font-size: 13px;
+        background: #eef2ff;
+        padding: 5px 12px;
+        border-radius: 30px;
+        color: #2c3e66;
+        font-weight: 500;
+      }
+      .search-area {
+        display: flex;
+        gap: 10px;
+      }
+      .search-area input {
+        padding: 10px 20px;
+        border-radius: 40px;
+        border: 1px solid #cbd5e1;
+        width: 240px;
+        font-size: 14px;
+        transition: 0.2s;
+      }
+      .search-area input:focus {
+        outline: none;
+        border-color: #2f6bff;
+      }
+      .search-area button {
+        background: #2f6bff;
+        border: none;
+        padding: 0 22px;
+        border-radius: 40px;
+        color: white;
+        font-weight: 600;
+        cursor: pointer;
+        transition: 0.2s;
+      }
+      .search-area button:hover {
+        background: #1a4fdd;
+      }
+
+      .webinar-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+        gap: 28px;
+        margin-top: 16px;
+      }
+      .web-card {
+        background: white;
+        border-radius: 24px;
+        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+        border: 1px solid #e2e8f0;
+        transition: 0.25s;
+      }
+      .web-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 28px -12px rgba(0, 0, 0, 0.1);
+      }
+      .card-img {
+        height: 160px;
+        background: linear-gradient(135deg, #b9cef0, #d9e4fc);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 42px;
+      }
+      .card-content {
+        padding: 20px;
+      }
+      .card-content h3 {
+        font-size: 18px;
+        margin-bottom: 10px;
+        font-weight: 700;
+        color: #0f172a;
+      }
+      .card-content p {
+        font-size: 13px;
+        color: #475569;
+        margin-bottom: 16px;
+        line-height: 1.45;
+      }
+      .instructor {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 13px;
+        font-weight: 500;
+        border-top: 1px solid #ecf3fa;
+        padding-top: 14px;
+        margin-top: 6px;
+      }
+      .avatar-small {
+        width: 28px;
+        height: 28px;
+        background: #cbddee;
+        border-radius: 50%;
+      }
+      .enrolled {
+        color: #2f6bff;
+        font-size: 12px;
+        font-weight: 600;
+        margin-left: auto;
+      }
+
+      /* MOBILE TAB FIX */
+      @media (max-width: 768px) {
+        .tabs-group {
+          width: 100%;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 8px;
+        }
+
+        /* First 3 tabs in one line */
+        .tabs-group .tab-btn:nth-child(1),
+        .tabs-group .tab-btn:nth-child(2),
+        .tabs-group .tab-btn:nth-child(3) {
+          flex: 1;
+          text-align: center;
+          padding: 8px 10px;
+          font-size: 12px;
+        }
+
+        /* Popular goes to next line center */
+        .tabs-group .tab-btn:nth-child(4) {
+          width: 100%;
+          text-align: center;
+          margin-top: 5px;
+        }
+
+        /* OPTIONAL: if more tabs exist → hide them */
+        .tabs-group .tab-btn:nth-child(n + 5) {
+          display: none;
+        }
+      }
+
+      /* ========== UPDATED TESTIMONIAL SECTION: NO SHADOW + AUTOSCROLL ========== */
+      .testimonial-section {
+        background: #f1f5fe;
+        width: 100%;
+      }
+      .testimonial-content {
+        padding: 64px 0;
+        text-align: center;
+      }
+      .testimonial-content h2 {
+        font-size: 32px;
+        margin-bottom: 48px;
+        color: #0a1f44;
+      }
+
+      /* Slider Wrapper for 3 cards visible at once, scroll one by one */
+      .testimonial-slider-wrapper {
+        position: relative;
+        max-width: 100%;
+        margin: 0 auto;
+        overflow: hidden;
+        padding: 0 10px;
+      }
+
+      .slider-container-advanced {
+        overflow: hidden;
+        width: 100%;
+      }
+
+      .slider-track-advanced {
+        display: flex;
+        transition: transform 0.5s cubic-bezier(0.25, 0.9, 0.4, 1.1);
+        will-change: transform;
+      }
+
+      .testi-card {
+        flex: 0 0 33.333%; /* Exactly 3 cards visible on desktop */
+        padding: 0 16px;
+        box-sizing: border-box;
+      }
+
+      /* REMOVED SHADOW - no box-shadow, only border for subtle definition */
+      .testi-inner {
+        background: white;
+        border-radius: 28px;
+        padding: 28px;
+        text-align: left;
+        border: 1px solid #e2e8f0;
+        transition: 0.2s;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        min-height: 280px;
+      }
+      .testi-inner:hover {
+        transform: translateY(-3px);
+        border-color: #cbd5e1;
+      }
+      .testi-header {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        margin-bottom: 16px;
+        flex-wrap: wrap;
+      }
+      .testi-avatar {
+        width: 52px;
+        height: 52px;
+        background: #b9cee6;
+        border-radius: 50%;
+        flex-shrink: 0;
+      }
+      .testi-name h4 {
+        font-size: 16px;
+        margin-bottom: 2px;
+        color: #0f172a;
+      }
+      .testi-name span {
+        font-size: 12px;
+        color: #5b6e8c;
+      }
+      .rating {
+        margin-left: auto;
+        color: #f5b042;
+        font-weight: 700;
+      }
+      .testi-inner p {
+        font-size: 14px;
+        color: #1e2a44;
+        line-height: 1.55;
+        margin: 12px 0;
+        flex: 1;
+      }
+      .footer-text {
+        font-size: 11px;
+        color: #8ba0bc;
+        margin-top: 12px;
+        padding-top: 12px;
+        border-top: 1px solid #ecf3fa;
+      }
+
+      /* Navigation arrows */
+      .slider-nav {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin-top: 40px;
+      }
+      .slider-arrow {
+        background: white;
+        border: 1px solid #cbd5e1;
+        border-radius: 60px;
+        width: 44px;
+        height: 44px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        font-size: 24px;
+        font-weight: bold;
+        color: #2f6bff;
+        transition: 0.2s;
+      }
+      .slider-arrow:hover {
+        background: #2f6bff;
+        color: white;
+        border-color: #2f6bff;
+        transform: scale(1.05);
+      }
+      .dots-advanced {
+        margin-top: 28px;
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+      }
+      .dot-advanced {
+        width: 10px;
+        height: 10px;
+        background: #cbd5e1;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: 0.2s;
+      }
+      .dot-advanced.active {
+        background: #2f6bff;
+        width: 28px;
+        border-radius: 10px;
+      }
+
+      /* Responsive: Tablet: Show 2 cards */
+      @media (max-width: 1024px) and (min-width: 769px) {
+        .testi-card {
+          flex: 0 0 50%;
+        }
+      }
+
+      /* Mobile: Show 1 card */
+      @media (max-width: 768px) {
+        .testi-card {
+          flex: 0 0 100%;
+        }
+        .testimonial-content h2 {
+          font-size: 26px;
+        }
+        .testi-inner {
+          padding: 20px;
+        }
+        .slider-arrow {
+          width: 38px;
+          height: 38px;
+          font-size: 20px;
+        }
+      }
+      /* FAQ Section */
+      .faq-section {
+        background: white;
+        width: 100%;
+      }
+      .faq-content {
+        padding: 64px 0;
+      }
+      .faq-content h2 {
+        text-align: center;
+        font-size: 32px;
+        margin-bottom: 48px;
+        color: #0a1f44;
+      }
+      .faq-grid {
+        max-width: 1000px;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+      .faq-item {
+        background: #f9fbfe;
+        border-radius: 20px;
+        border: 1px solid #e9edf2;
+        overflow: hidden;
+        transition: 0.2s;
+      }
+      .faq-question {
+        padding: 18px 26px;
+        font-weight: 700;
+        font-size: 17px;
+        display: flex;
+        justify-content: space-between;
+        cursor: pointer;
+        background: white;
+        color: #0f2b5c;
+      }
+      .faq-question:hover {
+        background: #fafcff;
+      }
+      .faq-icon {
+        font-size: 22px;
+        transition: 0.2s;
+        color: #2f6bff;
+      }
+      .faq-answer {
+        max-height: 0;
+        padding: 0 26px;
+        overflow: hidden;
+        transition: 0.35s ease;
+        font-size: 14px;
+        color: #2c3e66;
+        line-height: 1.5;
+      }
+      .faq-item.active .faq-answer {
+        max-height: 380px;
+        padding: 0 26px 24px 26px;
+      }
+      .faq-item.active .faq-icon {
+        transform: rotate(180deg);
+      }
+
+      /* ---------- CTA SECTION - 2-COLUMN LAYOUT ---------- */
+      .cta-section-new {
+        background: radial-gradient(circle at top left, #122a5c, #081a3a);
+        color: #fff;
+        width: 100%;
+      }
+
+      .cta-inner {
+        max-width: 1350px;
+        margin: 0 auto;
+        padding: 60px 40px;
+        display: flex;
+        flex-direction: row;
+        gap: 60px;
+        align-items: flex-start;
+      }
+
+      /* LEFT COLUMN - 45% */
+      .cta-left-new {
+        flex: 0 0 45%;
+        max-width: 45%;
+      }
+
+      .logo-text {
+        font-size: 20px;
+        font-weight: 700;
+        margin-bottom: 5px;
+        color: white;
+      }
+
+      .sub-logo {
+        color: #4da3ff;
+        font-size: 12px;
+        margin-bottom: 20px;
+        letter-spacing: 1px;
+      }
+
+      /* CHART IMAGE */
+      .chart {
+        background: #0b1f44;
+        border-radius: 12px;
+        padding: 12px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+      }
+
+      .chart img {
+        width: 100%;
+        border-radius: 8px;
+        display: block;
+      }
+
+      /* FEATURES */
+      .features {
+        margin-top: 16px;
+        font-size: 13px;
+        color: #bcd1ff;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+      }
+
+      .features span {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+      }
+
+      /* BUTTON */
+      .cta-btn-new {
+        margin-top: 24px;
+        width: 100%;
+        background: #2f6bff;
+        padding: 14px;
+        border: none;
+        color: #fff;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: 700;
+        font-size: 16px;
+        transition: 0.2s;
+      }
+
+      .cta-btn-new:hover {
+        background: #1a4fdd;
+        transform: translateY(-2px);
+      }
+
+      .small-text {
+        text-align: center;
+        margin-top: 10px;
+        font-size: 12px;
+        color: #aaa;
+      }
+
+      /* RIGHT COLUMN - 55% - Icon and text same line on desktop */
+      .cta-right-new {
+        flex: 0 0 55%;
+        max-width: 55%;
+      }
+
+      .cta-right-new h2 {
+        font-size: 32px;
+        margin-bottom: 12px;
+        color: white;
+        font-weight: 700;
+      }
+
+      .cta-right-new > p {
+        color: #cfd9ff;
+        margin-bottom: 32px;
+        font-size: 15px;
+        line-height: 1.5;
+      }
+
+      /* LIST ITEMS - Icon and text on same line */
+      .list-item {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 24px;
+      }
+
+      .icon-check {
+        width: 22px;
+        height: 22px;
+        background: transparent;
+        border: 2px solid #2f6bff;
+        border-radius: 50%;
+        margin-right: 14px;
+        position: relative;
+        flex-shrink: 0;
+        margin-top: 2px;
+      }
+
+      .icon-check::after {
+        content: "✓";
+        position: absolute;
+        font-size: 12px;
+        top: 2px;
+        left: 5px;
+        color: #2f6bff;
+        font-weight: bold;
+      }
+
+      .text-content {
+        flex: 1;
+      }
+
+      .text-content h4 {
+        margin: 0;
+        font-size: 16px;
+        color: white;
+        font-weight: 600;
+      }
+
+      .text-content p {
+        margin: 4px 0 0;
+        font-size: 13px;
+        color: #b0c4ff;
+        line-height: 1.4;
+      }
+
+      /* REVIEW BOX */
+      .review {
+        margin-top: 32px;
+        background: rgba(255, 255, 255, 0.08);
+        padding: 20px 24px;
+        border-radius: 12px;
+        border-left: 3px solid #2f6bff;
+      }
+
+      .stars {
+        color: #ffc107;
+        margin-bottom: 10px;
+        font-size: 16px;
+        letter-spacing: 2px;
+      }
+
+      .review p {
+        font-size: 14px;
+        color: #e8f0ff;
+        margin-bottom: 10px;
+        font-style: italic;
+        line-height: 1.5;
+      }
+
+      .review span {
+        font-size: 12px;
+        color: #8ba3d4;
+        display: block;
+      }
+
+      /* STATS SECTION - Desktop: 4 columns same line */
+      .stats-new {
+        background: #06142e;
+        display: flex;
+        justify-content: space-around;
+        padding: 32px 40px;
+        text-align: center;
+        flex-wrap: wrap;
+        gap: 30px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .stat-item {
+        flex: 1;
+        min-width: 100px;
+      }
+
+      .stat-item h3 {
+        margin: 0;
+        font-size: 28px;
+        font-weight: 700;
+        color: white;
+      }
+
+      .stat-item p {
+        margin: 8px 0 0;
+        font-size: 13px;
+        color: #8ba3cc;
+      }
+
+      /* ========== RESPONSIVE ========== */
+      @media (max-width: 768px) {
+        .container {
+          padding: 0 20px;
+        }
+        .hero h1 {
+          font-size: 28px;
+        }
+        .hero-left h2 {
+          font-size: 24px;
+        }
+        .hero-content {
+          flex-direction: column;
+        }
+        .hero-left,
+        .hero-right {
+          width: 100%;
+        }
+        .webinar-grid {
+          grid-template-columns: 1fr;
+        }
+        .controls-bar {
+          flex-direction: column;
+          align-items: stretch;
+        }
+        .search-area {
+          justify-content: stretch;
+        }
+        .search-area input {
+          width: 100%;
+        }
+        .tabs-group {
+          justify-content: center;
+        }
+        .faq-content {
+          padding: 48px 0;
+        }
+        .faq-content h2 {
+          font-size: 26px;
+        }
+        .faq-question {
+          font-size: 15px;
+          padding: 16px 20px;
+        }
+        .faq-item.active .faq-answer {
+          padding: 0 20px 20px 20px;
+        }
+        .cta-inner {
+          flex-direction: column;
+          padding: 40px 24px;
+          gap: 40px;
+        }
+        .cta-left-new {
+          flex: 0 0 100%;
+          max-width: 100%;
+        }
+        .cta-right-new {
+          flex: 0 0 100%;
+          max-width: 100%;
+        }
+        .cta-right-new h2 {
+          font-size: 26px;
+        }
+        .list-item {
+          display: flex;
+          align-items: flex-start;
+          margin-bottom: 20px;
+        }
+        .icon-check {
+          margin-right: 14px;
+          flex-shrink: 0;
+        }
+        .text-content h4 {
+          font-size: 15px;
+        }
+        .text-content p {
+          font-size: 12px;
+        }
+        .stats-new {
+          display: flex;
+          justify-content: center;
+          gap: 20px;
+          padding: 25px 20px;
+        }
+        .stat-item:last-child {
+          display: none;
+        }
+        .stat-item {
+          flex: 1;
+          min-width: 80px;
+        }
+        .stat-item h3 {
+          font-size: 22px;
+        }
+        .features {
+          justify-content: center;
+          text-align: center;
+        }
+        .review {
+          padding: 16px;
+        }
+      }
+      @media (max-width: 480px) {
+        .cta-inner {
+          padding: 32px 20px;
+        }
+        .cta-right-new h2 {
+          font-size: 24px;
+        }
+        .list-item {
+          margin-bottom: 18px;
+        }
+        .icon-check {
+          width: 20px;
+          height: 20px;
+          margin-right: 12px;
+        }
+        .icon-check::after {
+          font-size: 10px;
+          top: 1px;
+          left: 4px;
+        }
+        .text-content h4 {
+          font-size: 14px;
+        }
+        .text-content p {
+          font-size: 11px;
+        }
+        .review {
+          padding: 14px;
+        }
+        .stars {
+          font-size: 14px;
+        }
+        .review p {
+          font-size: 12px;
+        }
+        .stats-new {
+          gap: 15px;
+          padding: 20px 15px;
+        }
+        .stat-item h3 {
+          font-size: 20px;
+        }
+        .stat-item p {
+          font-size: 11px;
+        }
+      }
+      @media (min-width: 769px) and (max-width: 1024px) {
+        .cta-inner {
+          gap: 40px;
+          padding: 50px 30px;
+        }
+        .cta-right-new h2 {
+          font-size: 28px;
+        }
+        .stats-new {
+          padding: 28px 30px;
+          gap: 20px;
+        }
+        .stat-item h3 {
+          font-size: 24px;
+        }
+        .stat-item:last-child {
+          display: flex;
+          flex-direction: column;
+        }
+      }
+      @media (min-width: 1025px) {
+        .stat-item:last-child {
+          display: flex;
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Hero Section -->
+    <div class="section-wrapper hero-section">
+      <div class="container">
+        <div class="hero">
+          <h1>Webinar Title</h1>
+          <div class="breadcrumb">Strike / Webinars</div>
+          <div class="hero-content">
+            <div class="hero-left">
+              <h2>Learn Stock Analysis with Live Webinars</h2>
+              <p>
+                Join our live webinars covering topics from advanced stock
+                market fundamentals to technical analysis. Get notified about
+                upcoming sessions.
+              </p>
+              <div class="form-box">
+                <!-- Added description text above email input -->
+                <div class="form-description">
+                  📧 Get notified about upcoming sessions — be the first to
+                  know!
+                </div>
+                <input
+                  type="email"
+                  id="newsletterEmail"
+                  placeholder="Your email address"
+                />
+                <button id="heroNotifyBtn">Signup for Upcoming Webinars</button>
+              </div>
+            </div>
+            <div class="hero-right">
+              <div class="play-icon"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Webinar Section -->
+    <div class="section-wrapper webinar-section">
+      <div class="container">
+        <div class="webinar-content">
+          <div class="controls-bar">
+            <div class="tabs-group">
+              <button class="tab-btn active" data-filter="all">
+                All Webinars
+              </button>
+              <button class="tab-btn" data-filter="upcoming">Upcoming</button>
+              <button class="tab-btn" data-filter="past">Past Webinars</button>
+              <button class="tab-btn" data-filter="popular">Popular</button>
+            </div>
+            <div class="webinar-stats" id="webinarCount">
+              6 webinars available
+            </div>
+            <div class="search-area">
+              <input
+                type="text"
+                id="webSearch"
+                placeholder="Search webinars..."
+              />
+              <button id="searchWebBtn">Search</button>
+            </div>
+          </div>
+
+          <div class="webinar-grid" id="webinarGrid">
+            <div
+              class="web-card"
+              data-title="Learn Stock Analysis with Live Webinars"
+              data-cat="upcoming popular"
+            >
+              <div class="card-img">📊</div>
+              <div class="card-content">
+                <h3>Learn Stock Analysis with Live Webinars</h3>
+                <p>
+                  Ready to move beyond the buzz and see real results with AI?
+                  This course covers the fundamentals of working with stock data
+                  and technical tools.
+                </p>
+                <div class="instructor">
+                  <div class="avatar-small"></div>
+                  <span>Charles Russell Severance</span
+                  ><span class="enrolled">1,929,605 enrolled</span>
+                </div>
+              </div>
+            </div>
+            <div
+              class="web-card"
+              data-title="Advanced Technical Analysis"
+              data-cat="upcoming"
+            >
+              <div class="card-img">📈</div>
+              <div class="card-content">
+                <h3>Advanced Technical Analysis</h3>
+                <p>
+                  Master chart patterns, indicators, and market psychology. Get
+                  actionable insights from professional traders.
+                </p>
+                <div class="instructor">
+                  <div class="avatar-small"></div>
+                  <span>Rohit Srivastava</span
+                  ><span class="enrolled">892k enrolled</span>
+                </div>
+              </div>
+            </div>
+            <div
+              class="web-card"
+              data-title="Fundamental Analysis Masterclass"
+              data-cat="popular"
+            >
+              <div class="card-img">🏦</div>
+              <div class="card-content">
+                <h3>Fundamental Analysis Masterclass</h3>
+                <p>
+                  Learn to evaluate financial statements, ratios, and economic
+                  moats. Perfect for long-term investors.
+                </p>
+                <div class="instructor">
+                  <div class="avatar-small"></div>
+                  <span>Strike Research Team</span
+                  ><span class="enrolled">1.2M enrolled</span>
+                </div>
+              </div>
+            </div>
+            <div
+              class="web-card"
+              data-title="Options Trading Strategies"
+              data-cat="popular"
+            >
+              <div class="card-img">🎯</div>
+              <div class="card-content">
+                <h3>Options Trading Strategies</h3>
+                <p>
+                  From beginners to experts — learn covered calls, straddles,
+                  and risk management techniques.
+                </p>
+                <div class="instructor">
+                  <div class="avatar-small"></div>
+                  <span>Tejas Shah</span
+                  ><span class="enrolled">678k enrolled</span>
+                </div>
+              </div>
+            </div>
+            <div
+              class="web-card"
+              data-title="Intraday & Scalping Tactics"
+              data-cat="upcoming"
+            >
+              <div class="card-img">⚡</div>
+              <div class="card-content">
+                <h3>Intraday & Scalping Tactics</h3>
+                <p>
+                  High-probability setups for day trading. Real-time examples
+                  and risk control.
+                </p>
+                <div class="instructor">
+                  <div class="avatar-small"></div>
+                  <span>Rikin Jariwala</span
+                  ><span class="enrolled">450k enrolled</span>
+                </div>
+              </div>
+            </div>
+            <div
+              class="web-card"
+              data-title="Sentiment Indicators & Scanners"
+              data-cat="past"
+            >
+              <div class="card-img">📡</div>
+              <div class="card-content">
+                <h3>Sentiment Indicators & Scanners</h3>
+                <p>
+                  Unlock market edge using Strike's proprietary diffusion
+                  indicators and heatmaps.
+                </p>
+                <div class="instructor">
+                  <div class="avatar-small"></div>
+                  <span>Strike Team</span
+                  ><span class="enrolled">310k enrolled</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TESTIMONIAL SECTION: No shadow + Autoscroll (one by one, loops) -->
+    <div class="section-wrapper testimonial-section">
+      <div class="container">
+        <div class="testimonial-content">
+          <h2>What Our Traders Say</h2>
+          <div class="testimonial-slider-wrapper">
+            <div class="slider-container-advanced">
+              <div class="slider-track-advanced" id="testiTrackAdvanced">
+                <!-- 7 testimonial cards with consistent size, no shadow -->
+                <div class="testi-card">
+                  <div class="testi-inner">
+                    <div class="testi-header">
+                      <div class="testi-avatar"></div>
+                      <div class="testi-name">
+                        <h4>Dr. Rajesh Gupta</h4>
+                        <span>Doctor by Profession; Trader by Passion</span>
+                      </div>
+                      <div class="rating">5.0 ⭐</div>
+                    </div>
+                    <p>
+                      "Strike Money has completely transformed how I approach
+                      trading. The sentiment indicators and advanced scanners
+                      give me the edge I need to make informed decisions. The
+                      platform is intuitive and the analytics are incredibly
+                      powerful."
+                    </p>
+                    <div class="footer-text">
+                      Strike Money user · March 2, 2021
+                    </div>
+                  </div>
+                </div>
+                <div class="testi-card">
+                  <div class="testi-inner">
+                    <div class="testi-header">
+                      <div class="testi-avatar"></div>
+                      <div class="testi-name">
+                        <h4>Rikin Jariwala</h4>
+                        <span>Working Professional</span>
+                      </div>
+                      <div class="rating">5.0 ⭐</div>
+                    </div>
+                    <p>
+                      "Strike Money has completely transformed how I approach
+                      trading. The sentiment indicators and advanced scanners
+                      give me the edge I need to make informed decisions. The
+                      platform is intuitive and the analytics are incredibly
+                      powerful."
+                    </p>
+                    <div class="footer-text">
+                      Strike Money user · March 2, 2021
+                    </div>
+                  </div>
+                </div>
+                <div class="testi-card">
+                  <div class="testi-inner">
+                    <div class="testi-header">
+                      <div class="testi-avatar"></div>
+                      <div class="testi-name">
+                        <h4>Tejas Shah</h4>
+                        <span>Full-time Trader</span>
+                      </div>
+                      <div class="rating">5.0 ⭐</div>
+                    </div>
+                    <p>
+                      "Strike Money has completely transformed how I approach
+                      trading. The sentiment indicators and advanced scanners
+                      give me the edge I need to make informed decisions. The
+                      platform is intuitive and the analytics are incredibly
+                      powerful."
+                    </p>
+                    <div class="footer-text">
+                      Strike Money user · March 2, 2021
+                    </div>
+                  </div>
+                </div>
+                <div class="testi-card">
+                  <div class="testi-inner">
+                    <div class="testi-header">
+                      <div class="testi-avatar"></div>
+                      <div class="testi-name">
+                        <h4>Neha Mehta</h4>
+                        <span>Equity Research Analyst</span>
+                      </div>
+                      <div class="rating">5.0 ⭐</div>
+                    </div>
+                    <p>
+                      "The webinars and tools at Strike are unmatched. I've
+                      improved my portfolio returns significantly using the
+                      sentiment indicators and weekly market insights. Highly
+                      recommended!"
+                    </p>
+                    <div class="footer-text">
+                      Verified Trader · Jan 15, 2024
+                    </div>
+                  </div>
+                </div>
+                <div class="testi-card">
+                  <div class="testi-inner">
+                    <div class="testi-header">
+                      <div class="testi-avatar"></div>
+                      <div class="testi-name">
+                        <h4>Amit Khanna</h4>
+                        <span>Derivatives Trader</span>
+                      </div>
+                      <div class="rating">4.9 ⭐</div>
+                    </div>
+                    <p>
+                      "Strike’s options analytics and heatmaps are next-level.
+                      The educational webinars taught me advanced strategies
+                      that I now apply daily. A must-have for serious traders."
+                    </p>
+                    <div class="footer-text">
+                      Strike Pro Member · Nov 8, 2023
+                    </div>
+                  </div>
+                </div>
+                <div class="testi-card">
+                  <div class="testi-inner">
+                    <div class="testi-header">
+                      <div class="testi-avatar"></div>
+                      <div class="testi-name">
+                        <h4>Priya Srinivasan</h4>
+                        <span>Portfolio Manager</span>
+                      </div>
+                      <div class="rating">5.0 ⭐</div>
+                    </div>
+                    <p>
+                      "Finally a platform that combines institutional-grade data
+                      with a clean UI. The real-time scanners and expert
+                      webinars give us the confidence to execute trades."
+                    </p>
+                    <div class="footer-text">
+                      Finance Professional · Feb 20, 2024
+                    </div>
+                  </div>
+                </div>
+                <div class="testi-card">
+                  <div class="testi-inner">
+                    <div class="testi-header">
+                      <div class="testi-avatar"></div>
+                      <div class="testi-name">
+                        <h4>Saurabh Jain</h4>
+                        <span>Active Investor</span>
+                      </div>
+                      <div class="rating">5.0 ⭐</div>
+                    </div>
+                    <p>
+                      "I’ve tried many tools, but Strike’s diffusion indicators
+                      and technical analysis webinars made all the difference.
+                      My trading accuracy improved by 40% in just months."
+                    </p>
+                    <div class="footer-text">
+                      Strike Community · Dec 5, 2023
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="slider-nav">
+              <div class="slider-arrow" id="prevArrow">←</div>
+              <div class="slider-arrow" id="nextArrow">→</div>
+            </div>
+            <div class="dots-advanced" id="dotsAdvanced"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQ Section -->
+    <div class="section-wrapper faq-section">
+      <div class="container">
+        <div class="faq-content">
+          <h2>Frequently Asked Questions</h2>
+          <div class="faq-grid">
+            <div class="faq-item">
+              <div class="faq-question">
+                Who founded Strike?<span class="faq-icon">⌄</span>
+              </div>
+              <div class="faq-answer">
+                Rohit Srivastava, the founder and market strategist of
+                Indiacharts.com, is the driving force behind Strike. Rohit has
+                over 30 years of experience in understanding market trends and
+                making the most of them. Rohit, with Strike, brings his
+                extensive experience and expertise in stock market trading and
+                analysis to a wider audience, revolutionizing the way investors
+                approach the stock market.
+              </div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-question">
+                When is Strike founded?<span class="faq-icon">⌄</span>
+              </div>
+              <div class="faq-answer">
+                Strike was founded in 2023 as an all-in-one stock market
+                analytical & research platform.
+              </div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-question">
+                Where is the Strike Headquarters?<span class="faq-icon">⌄</span>
+              </div>
+              <div class="faq-answer">
+                Strike operates primarily in India with a global reach.
+                Headquarters located in Mumbai, India.
+              </div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-question">
+                Who are the Researchers in Strike?<span class="faq-icon"
+                  >⌄</span
+                >
+              </div>
+              <div class="faq-answer">
+                Strike houses a dedicated team of market analysts, data
+                scientists, and SEBI-registered research analysts providing
+                institutional-grade insights.
+              </div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-question">
+                What are the Services of Strike?<span class="faq-icon">⌄</span>
+              </div>
+              <div class="faq-answer">
+                Strike offers analytics tools, scanners, futures & options data,
+                sentiment indicators, diffusion indicators, heatmaps, stock
+                market guides, technical & fundamental analysis, and educational
+                webinars.
+              </div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-question">
+                How does Strike help for Technical Analysis?<span
+                  class="faq-icon"
+                  >⌄</span
+                >
+              </div>
+              <div class="faq-answer">
+                Strike provides advanced charting tools, pattern recognition,
+                indicators, and real-time data to help traders spot trends and
+                execute trades confidently.
+              </div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-question">
+                How to Join Strike Team?<span class="faq-icon">⌄</span>
+              </div>
+              <div class="faq-answer">
+                You can join via the official Strike website career section or
+                email your resume to careers@strike.money
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA Section - 2-Column Layout with Stats Section -->
+    <div class="cta-section-new">
+      <div class="cta-inner">
+        <div class="cta-left-new">
+          <div class="logo-text">Strike</div>
+          <div class="sub-logo">PROFESSIONAL TRADING PLATFORM</div>
+          <div class="chart">
+            <img
+              src="https://www.strike.money/v2/_next/static/media/futures.d9d4dd4e.avif"
+              alt="Market Chart"
+            />
+          </div>
+          <div class="features">
+            <span>• Real-time market data</span>
+            <span>• Advanced charting tools</span>
+            <span>• Institutional-grade analytics</span>
+          </div>
+          <button class="cta-btn-new" id="ctaBtnNew">Start Trading Now</button>
+          <div class="small-text">Join thousands of traders worldwide</div>
+        </div>
+        <div class="cta-right-new">
+          <h2>Get Market Insights Delivered Quickly</h2>
+          <p>
+            Join 100,000+ traders receiving our exclusive newsletter with market
+            analysis, trading strategies, and actionable insights.
+          </p>
+          <div class="list-item">
+            <div class="icon-check"></div>
+            <div class="text-content">
+              <h4>Weekly Market Analysis</h4>
+              <p>Expert insights on market trends and opportunities</p>
+            </div>
+          </div>
+          <div class="list-item">
+            <div class="icon-check"></div>
+            <div class="text-content">
+              <h4>Exclusive Trading Strategies</h4>
+              <p>Proven techniques from professional traders</p>
+            </div>
+          </div>
+          <div class="list-item">
+            <div class="icon-check"></div>
+            <div class="text-content">
+              <h4>Free Trading Guide (Worth ₹7,999)</h4>
+              <p>Comprehensive beginner to advanced trading guide</p>
+            </div>
+          </div>
+          <div class="list-item">
+            <div class="icon-check"></div>
+            <div class="text-content">
+              <h4>Early Access to New Content</h4>
+              <p>Be the first to read our latest articles</p>
+            </div>
+          </div>
+          <div class="review">
+            <div class="stars">★★★★★</div>
+            <p>
+              "Strike's newsletter completely transformed my trading approach.
+              The insights are invaluable!"
+            </p>
+            <span>— Amit Sharma, Active Trader</span>
+          </div>
+        </div>
+      </div>
+      <div class="stats-new">
+        <div class="stat-item">
+          <h3>50K+</h3>
+          <p>Active Traders</p>
+        </div>
+        <div class="stat-item">
+          <h3>$2.5B+</h3>
+          <p>Trading Volume</p>
+        </div>
+        <div class="stat-item">
+          <h3>150+</h3>
+          <p>Markets Covered</p>
+        </div>
+        <div class="stat-item">
+          <h3>24/7</h3>
+          <p>Support Available</p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // TAB + SEARCH + FILTER for webinars (unchanged)
+      const webCards = document.querySelectorAll(".web-card");
+      const tabBtns = document.querySelectorAll(".tab-btn");
+      const searchInputWeb = document.getElementById("webSearch");
+      const searchBtn = document.getElementById("searchWebBtn");
+      const webinarCountSpan = document.getElementById("webinarCount");
+      function filterWebinars() {
+        let activeFilter =
+          document
+            .querySelector(".tab-btn.active")
+            ?.getAttribute("data-filter") || "all";
+        let searchTerm = searchInputWeb.value.toLowerCase();
+        let visibleCount = 0;
+        webCards.forEach((card) => {
+          let title = card.getAttribute("data-title").toLowerCase();
+          let cat = card.getAttribute("data-cat");
+          let matchesFilter =
+            activeFilter === "all" || (cat && cat.includes(activeFilter));
+          let matchesSearch = title.includes(searchTerm);
+          if (matchesFilter && matchesSearch) {
+            card.style.display = "block";
+            visibleCount++;
+          } else {
+            card.style.display = "none";
+          }
+        });
+        webinarCountSpan.innerText = `${visibleCount} webinars available`;
+      }
+      tabBtns.forEach((btn) =>
+        btn.addEventListener("click", () => {
+          tabBtns.forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
+          filterWebinars();
+        }),
+      );
+      searchBtn.addEventListener("click", filterWebinars);
+      searchInputWeb.addEventListener("keyup", (e) => {
+        if (e.key === "Enter") filterWebinars();
+      });
+      filterWebinars();
+
+      // FAQ Accordion
+      document.querySelectorAll(".faq-item").forEach((item) => {
+        item
+          .querySelector(".faq-question")
+          .addEventListener("click", () => item.classList.toggle("active"));
+      });
+      document.getElementById("heroNotifyBtn").addEventListener("click", () => {
+        let email = document.getElementById("newsletterEmail").value;
+        if (email && email.includes("@"))
+          alert(`✅ You'll receive webinar updates at ${email}`);
+        else alert("Please enter a valid email address");
+      });
+      document
+        .getElementById("ctaBtnNew")
+        .addEventListener("click", () =>
+          alert(
+            "🚀 Start your trading journey with Strike — analytics, scanners & expert insights!",
+          ),
+        );
+
+      // ----- TESTIMONIAL SLIDER: NO SHADOW, AUTOSCROLL (LOOP) -----
+      const trackAdv = document.getElementById("testiTrackAdvanced");
+      const cardsAdv = Array.from(document.querySelectorAll(".testi-card"));
+      const totalCards = cardsAdv.length;
+      let visibleCount = 3;
+      let currentIndex = 0;
+      let cardWidthPercent = 0;
+      let autoScrollInterval;
+      const AUTO_SCROLL_DELAY = 5000; // 5 seconds
+
+      function updateVisibleCount() {
+        if (window.innerWidth <= 768) visibleCount = 1;
+        else if (window.innerWidth <= 1024) visibleCount = 2;
+        else visibleCount = 3;
+        updateSliderParams();
+      }
+
+      function updateSliderParams() {
+        cardWidthPercent = 100 / visibleCount;
+        cardsAdv.forEach((card) => {
+          card.style.flex = `0 0 ${cardWidthPercent}%`;
+        });
+        let maxIndex = Math.max(0, totalCards - visibleCount);
+        if (currentIndex > maxIndex) currentIndex = maxIndex;
+        applyTransform();
+        updateDotsAdv();
+      }
+
+      function applyTransform() {
+        let shiftPercent = currentIndex * cardWidthPercent;
+        trackAdv.style.transform = `translateX(-${shiftPercent}%)`;
+      }
+
+      function goNext() {
+        let maxIndex = totalCards - visibleCount;
+        if (currentIndex < maxIndex) {
+          currentIndex++;
+          applyTransform();
+          updateDotsAdv();
+          resetAutoScroll();
+        } else {
+          // Loop back to first slide
+          currentIndex = 0;
+          applyTransform();
+          updateDotsAdv();
+          resetAutoScroll();
+        }
+      }
+
+      function goPrev() {
+        if (currentIndex > 0) {
+          currentIndex--;
+          applyTransform();
+          updateDotsAdv();
+          resetAutoScroll();
+        } else {
+          // Loop to last slide
+          currentIndex = totalCards - visibleCount;
+          applyTransform();
+          updateDotsAdv();
+          resetAutoScroll();
+        }
+      }
+
+      function updateDotsAdv() {
+        const maxPossible = totalCards - visibleCount;
+        const dotCount = maxPossible + 1;
+        const container = document.getElementById("dotsAdvanced");
+        container.innerHTML = "";
+        for (let i = 0; i < dotCount; i++) {
+          let dot = document.createElement("span");
+          dot.classList.add("dot-advanced");
+          if (i === currentIndex) dot.classList.add("active");
+          dot.addEventListener("click", () => {
+            currentIndex = i;
+            applyTransform();
+            updateDotsAdv();
+            resetAutoScroll();
+          });
+          container.appendChild(dot);
+        }
+      }
+
+      function startAutoScroll() {
+        if (autoScrollInterval) clearInterval(autoScrollInterval);
+        autoScrollInterval = setInterval(() => {
+          goNext();
+        }, AUTO_SCROLL_DELAY);
+      }
+
+      function resetAutoScroll() {
+        if (autoScrollInterval) {
+          clearInterval(autoScrollInterval);
+          startAutoScroll();
+        }
+      }
+
+      window.addEventListener("resize", () => {
+        updateVisibleCount();
+        resetAutoScroll();
+      });
+
+      document.getElementById("prevArrow").addEventListener("click", goPrev);
+      document.getElementById("nextArrow").addEventListener("click", goNext);
+
+      updateVisibleCount();
+      startAutoScroll();
+    </script>
+  </body>
+</html>

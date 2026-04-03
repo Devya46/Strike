@@ -1,0 +1,983 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>
+      RMI Webinar | Data-Driven Trading Clarity with Rohit Srivastava
+    </title>
+    <!-- Google Fonts: Inter + Lucide Icons CDN -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        background: #ffffff;
+        color: #111827;
+        line-height: 1.5;
+        scroll-behavior: smooth;
+      }
+
+      .container {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 32px;
+      }
+
+      /* Buttons */
+      .btn-primary {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        background: #0f172a;
+        color: white;
+        font-weight: 600;
+        font-size: 1rem;
+        padding: 14px 28px;
+        border-radius: 48px;
+        text-decoration: none;
+        transition: all 0.25s ease;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+        border: none;
+        cursor: pointer;
+        letter-spacing: -0.01em;
+      }
+
+      .btn-primary:hover {
+        background: #1e293b;
+        transform: translateY(-2px);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+      }
+
+      .btn-outline {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: transparent;
+        border: 1.5px solid #cbd5e1;
+        color: #1f2937;
+        font-weight: 500;
+        padding: 12px 24px;
+        border-radius: 48px;
+        text-decoration: none;
+        transition: 0.2s;
+      }
+
+      .btn-outline:hover {
+        border-color: #0f172a;
+        background: #f8fafc;
+      }
+
+      section {
+        padding: 80px 0;
+        border-bottom: 1px solid #f1f5f9;
+      }
+
+      .hero {
+        padding: 64px 0 80px 0;
+        background: #ffffff;
+        border-bottom: none;
+      }
+
+      .badge {
+        background: #f1f5f9;
+        color: #0f172a;
+        font-weight: 600;
+        font-size: 0.8rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 6px 14px;
+        border-radius: 40px;
+        margin-bottom: 24px;
+        letter-spacing: -0.2px;
+      }
+
+      h1 {
+        font-size: 3.5rem;
+        font-weight: 800;
+        line-height: 1.2;
+        letter-spacing: -0.02em;
+        margin-bottom: 1.5rem;
+        color: #0a0c10;
+      }
+
+      h2 {
+        font-size: 2.2rem;
+        font-weight: 700;
+        letter-spacing: -0.01em;
+        margin-bottom: 1rem;
+        color: #0f172a;
+      }
+
+      .hero-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 48px;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .hero-left {
+        flex: 1.2;
+        min-width: 280px;
+      }
+
+      .hero-right {
+        flex: 0.9;
+        background: #f8fafc;
+        border-radius: 32px;
+        padding: 36px 32px;
+        box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.04);
+        text-align: center;
+        border: 1px solid #eef2ff;
+      }
+
+      .speaker-highlight {
+        display: inline-flex;
+        align-items: center;
+        gap: 14px;
+        background: #f8fafc;
+        border-radius: 100px;
+        padding: 6px 20px 6px 8px;
+        margin: 20px 0 24px;
+        border: 1px solid #e2e8f0;
+      }
+
+      .speaker-avatar {
+        width: 44px;
+        height: 44px;
+        background: #0f172a;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+      }
+
+      .date-badge {
+        font-weight: 500;
+        background: #ffffff;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 20px;
+        border-radius: 48px;
+        border: 1px solid #e2e8f0;
+        font-size: 0.9rem;
+      }
+
+      /* Cards / Grids */
+      .grid-2col,
+      .grid-3col {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 32px;
+        margin-top: 40px;
+      }
+
+      .card {
+        background: white;
+        border-radius: 28px;
+        padding: 32px;
+        box-shadow: 0 12px 30px -12px rgba(0, 0, 0, 0.05);
+        flex: 1;
+        transition: 0.2s;
+        border: 1px solid #f0f2f5;
+      }
+
+      .bullet-list {
+        list-style: none;
+        padding: 0;
+      }
+
+      .bullet-list li {
+        margin-bottom: 16px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-weight: 500;
+      }
+
+      .testimonial {
+        background: #ffffff;
+        border-radius: 24px;
+        padding: 28px;
+        border: 1px solid #edf2f7;
+        transition: all 0.2s;
+      }
+
+      .stars {
+        display: flex;
+        gap: 4px;
+        margin-bottom: 16px;
+      }
+
+      .urgency-box {
+        background: #fefce8;
+        border-radius: 32px;
+        padding: 48px 32px;
+        text-align: center;
+        border: 1px solid #fde047;
+      }
+
+      .countdown-note {
+        font-weight: 800;
+        font-size: 1.8rem;
+        color: #854d0e;
+        margin: 16px 0;
+        font-family: monospace;
+        letter-spacing: 1px;
+      }
+
+      footer {
+        text-align: center;
+        padding: 40px 0;
+        font-size: 0.85rem;
+        color: #5b6e8c;
+        background: #fafcff;
+      }
+
+      /* form */
+      .glass-card {
+        background: #ffffff;
+        border-radius: 32px;
+        padding: 40px;
+        box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.08);
+        border: 1px solid #eef2ff;
+      }
+
+      input {
+        width: 100%;
+        padding: 14px 18px;
+        border-radius: 60px;
+        border: 1px solid #e2e8f0;
+        font-size: 1rem;
+        transition: 0.2s;
+        background: #ffffff;
+      }
+
+      input:focus {
+        outline: none;
+        border-color: #0f172a;
+        box-shadow: 0 0 0 3px rgba(15, 23, 42, 0.05);
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          padding: 0 24px;
+        }
+        h1 {
+          font-size: 2.3rem;
+        }
+        h2 {
+          font-size: 1.8rem;
+        }
+        section {
+          padding: 56px 0;
+        }
+        .hero-grid {
+          flex-direction: column;
+        }
+        .btn-primary,
+        .btn-outline {
+          width: 100%;
+          justify-content: center;
+        }
+        .countdown-note {
+          font-size: 1.2rem;
+        }
+      }
+
+      .icon-accent {
+        color: #0f172a;
+      }
+
+      .flex-between {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-left">
+            <div class="badge">
+              <i data-lucide="zap" size="16"></i>
+              <span>LIVE WEBINAR · LIMITED SEATS</span>
+            </div>
+            <h1>
+              Master Market Clarity:<br />
+              Data-Driven Trading with RMI
+            </h1>
+            <p
+              style="
+                font-size: 1.2rem;
+                color: #334155;
+                margin-bottom: 1.5rem;
+                max-width: 90%;
+              "
+            >
+              Stop guessing, start deciding. Eliminate confusion and capture
+              high-probability setups.
+            </p>
+            <div class="speaker-highlight">
+              <div class="speaker-avatar">
+                <i data-lucide="mic" size="20"></i>
+              </div>
+              <div>
+                <strong>🎙️ Featuring: Rohit Srivastava</strong><br />
+                Market Strategist & Founder, Indiacharts
+              </div>
+            </div>
+            <div class="date-badge">
+              <i data-lucide="calendar" size="16"></i> Thursday, April 24 · 7:00
+              PM IST
+              <i data-lucide="clock" size="16" style="margin-left: 12px"></i> 90
+              mins live + Q&A
+            </div>
+            <div
+              style="
+                margin-top: 36px;
+                display: flex;
+                gap: 16px;
+                flex-wrap: wrap;
+              "
+            >
+              <a href="#register" class="btn-primary"
+                ><i data-lucide="ticket"></i> Register Now – Save My Seat</a
+              >
+              <a href="#learn" class="btn-outline"
+                ><i data-lucide="book-open"></i> See what you’ll learn</a
+              >
+            </div>
+          </div>
+          <div class="hero-right">
+            <div>
+              <i data-lucide="target" size="32" class="icon-accent"></i>
+            </div>
+            <h3 style="margin: 16px 0 12px; font-weight: 700">Why attend?</h3>
+            <p style="margin-bottom: 24px">
+              Exclusive insights to remove noise, spot trends early, and boost
+              trading confidence.
+            </p>
+            <div
+              style="
+                background: #ffffff;
+                border-radius: 28px;
+                padding: 20px;
+                border: 1px solid #eef2ff;
+              "
+            >
+              <div
+                style="
+                  display: flex;
+                  gap: 10px;
+                  align-items: center;
+                  font-weight: 600;
+                "
+              >
+                <i data-lucide="monitor"></i>
+                <span>Live demo in real markets</span>
+              </div>
+              <p style="font-size: 0.85rem; margin-top: 8px">
+                Practical RMI framework walkthrough — current charts, live
+                signals.
+              </p>
+            </div>
+            <div style="margin-top: 28px">
+              <a href="#register" class="btn-primary" style="width: 100%"
+                ><i data-lucide="check-circle"></i> Secure Your Free Spot</a
+              >
+              <p style="font-size: 0.75rem; margin-top: 14px">
+                ⭐ 3,200+ traders already registered
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section>
+      <div class="container">
+        <div style="text-align: center; max-width: 780px; margin: 0 auto">
+          <div class="badge" style="background: #fee2e2; color: #991b1b">
+            <i data-lucide="alert-triangle" size="14"></i> The Reality Check
+          </div>
+          <h2>Does this sound familiar?</h2>
+          <p style="font-size: 1.1rem; margin-top: 12px">
+            Most traders struggle with late entries, lack of clarity, and
+            analysis paralysis.
+          </p>
+        </div>
+        <div class="grid-3col">
+          <div class="card">
+            <i data-lucide="clock" size="32" class="icon-accent"></i>
+            <h3 style="margin: 20px 0 12px">Late Entries & Missed Moves</h3>
+            <p>
+              Entering after the trend has peaked leads to frustration and
+              stop-outs. Without objective signals, timing falls apart.
+            </p>
+          </div>
+          <div class="card">
+            <i data-lucide="bar-chart-2" size="32" class="icon-accent"></i>
+            <h3 style="margin: 20px 0 12px">Information Overload</h3>
+            <p>
+              Too many indicators, contradictory signals — you end up doubting
+              every trade, stuck in confusion.
+            </p>
+          </div>
+          <div class="card">
+            <i data-lucide="compass" size="32" class="icon-accent"></i>
+            <h3 style="margin: 20px 0 12px">Lack of Consistent Clarity</h3>
+            <p>
+              No structured approach to market regimes, leaving you guessing
+              entries, exits, and direction.
+            </p>
+          </div>
+        </div>
+        <p style="text-align: center; margin-top: 32px; font-weight: 500">
+          You're not alone — but there's a proven solution.
+        </p>
+      </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section style="background: #fafcff">
+      <div class="container">
+        <div
+          style="display: flex; flex-wrap: wrap; gap: 48px; align-items: center"
+        >
+          <div style="flex: 1">
+            <div class="badge" style="background: #e6f7ec; color: #166534">
+              <i data-lucide="cpu"></i> The RMI Edge
+            </div>
+            <h2>
+              Data‑driven clarity,<br />
+              not guesswork.
+            </h2>
+            <p style="font-size: 1.05rem; margin: 20px 0">
+              RMI (Regime Momentum Indicator) removes emotional bias and gives
+              you a clear, rule-based framework to read markets like a
+              professional.
+            </p>
+            <ul class="bullet-list">
+              <li>
+                <i data-lucide="trending-up" size="18"></i> Eliminates lag with
+                dynamic momentum zones
+              </li>
+              <li>
+                <i data-lucide="target" size="18"></i> Identifies trend strength
+                & reversals objectively
+              </li>
+              <li>
+                <i data-lucide="layers" size="18"></i> Works across equities,
+                indices & commodities
+              </li>
+              <li>
+                <i data-lucide="zap" size="18"></i> Reduces false signals by 40%
+                (backtested)
+              </li>
+            </ul>
+          </div>
+          <div
+            style="
+              flex: 1;
+              background: #ffffff;
+              border-radius: 32px;
+              padding: 36px;
+              box-shadow: 0 12px 32px rgba(0, 0, 0, 0.04);
+              border: 1px solid #eef2ff;
+            "
+          >
+            <div
+              style="
+                font-weight: 700;
+                font-size: 1.2rem;
+                display: flex;
+                gap: 8px;
+              "
+            >
+              <i data-lucide="database"></i> RMI Dashboard Preview
+            </div>
+            <div
+              style="
+                margin: 24px 0;
+                background: #0f172a;
+                border-radius: 24px;
+                padding: 24px;
+                color: #e2e8f0;
+                font-family: monospace;
+              "
+            >
+              📈 Momentum Regime: <span style="color: #a5f3c3">BULLISH</span
+              ><br />
+              📉 Entry Signal: <span style="color: #fed7aa">ACTIVATED</span
+              ><br />
+              🧭 Clarity Score: 92%<br />
+              <span style="font-size: 0.8rem">← clear decision framework</span>
+            </div>
+            <p style="font-size: 0.9rem">
+              "RMI gives a massive edge in choppy markets" – verified user
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- What You’ll Learn -->
+    <section id="learn">
+      <div class="container">
+        <div style="text-align: center; max-width: 720px; margin: 0 auto">
+          <div class="badge">
+            <i data-lucide="graduation-cap"></i> Key Takeaways
+          </div>
+          <h2>What You’ll Learn During This 90-Min Session</h2>
+          <p>
+            Actionable strategies you can apply immediately after the webinar.
+          </p>
+        </div>
+        <div class="grid-2col">
+          <div class="card">
+            <ul class="bullet-list">
+              <li>
+                <i data-lucide="check-circle"></i> How to identify
+                high-probability entries using RMI
+              </li>
+              <li>
+                <i data-lucide="alert-circle"></i> The #1 mistake causing late
+                entries (and how to fix it)
+              </li>
+              <li>
+                <i data-lucide="filter"></i> Filtering market noise: focus only
+                on what moves price
+              </li>
+            </ul>
+          </div>
+          <div class="card">
+            <ul class="bullet-list">
+              <li>
+                <i data-lucide="activity"></i> Live practical walkthrough with
+                current market data
+              </li>
+              <li>
+                <i data-lucide="shield"></i> Position sizing & risk rules that
+                complement data signals
+              </li>
+              <li>
+                <i data-lucide="message-circle"></i> Q&A with Rohit – solve your
+                specific trading confusion
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div
+          style="
+            background: #f1f5f9;
+            border-radius: 28px;
+            padding: 24px;
+            margin-top: 32px;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+          "
+        >
+          <i data-lucide="gift"></i>
+          <span style="font-weight: 500"
+            >Bonus: Attendees get free access to RMI reference sheet +
+            checklist</span
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- Speaker Section -->
+    <section style="background: #ffffff">
+      <div class="container">
+        <div
+          style="display: flex; flex-wrap: wrap; gap: 48px; align-items: center"
+        >
+          <div style="flex: 0.7; text-align: center">
+            <div
+              style="
+                background: #0f172a;
+                width: 130px;
+                height: 130px;
+                border-radius: 50%;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                margin-bottom: 20px;
+                box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+              "
+            >
+              <i data-lucide="user" size="56" color="white"></i>
+            </div>
+            <h3 style="font-size: 1.7rem">Rohit Srivastava</h3>
+            <p style="color: #475569">
+              Founder, Indiacharts | 20+ years market experience
+            </p>
+          </div>
+          <div style="flex: 1.3">
+            <div class="badge" style="background: #f1f0ff">
+              <i data-lucide="award"></i> Trusted by thousands
+            </div>
+            <h2>Why learn from Rohit?</h2>
+            <p>
+              Rohit is a renowned technical analyst and mentor to India’s top
+              trading desks. He has trained over 15,000+ traders, and his
+              data-driven methodologies are used by institutions and retail
+              traders alike. Known for cutting through confusion and delivering
+              actionable, logic-first systems.
+            </p>
+            <div
+              style="
+                margin-top: 24px;
+                display: flex;
+                gap: 20px;
+                flex-wrap: wrap;
+              "
+            >
+              <span style="display: flex; gap: 6px"
+                ><i data-lucide="tv"></i> Featured on CNBC, ET Now</span
+              >
+              <span style="display: flex; gap: 6px"
+                ><i data-lucide="book"></i> Author "Systematic Trading"</span
+              >
+              <span style="display: flex; gap: 6px"
+                ><i data-lucide="star"></i> 4.9/5 speaker rating</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Live Demo / Practical Insight -->
+    <section>
+      <div class="container">
+        <div
+          style="
+            background: linear-gradient(105deg, #0f172a 0%, #1e293b 100%);
+            border-radius: 40px;
+            padding: 52px 40px;
+            color: white;
+          "
+        >
+          <div
+            style="
+              display: flex;
+              flex-wrap: wrap;
+              gap: 40px;
+              align-items: center;
+            "
+          >
+            <div style="flex: 1.2">
+              <div
+                style="
+                  background: #facc15;
+                  display: inline-flex;
+                  padding: 6px 16px;
+                  border-radius: 60px;
+                  font-weight: 700;
+                  font-size: 0.75rem;
+                  color: #0f172a;
+                  gap: 6px;
+                "
+              >
+                <i data-lucide="radio"></i> LIVE DEMO
+              </div>
+              <h2 style="color: white; margin: 24px 0 16px">
+                Practical Insight: RMI in real market conditions
+              </h2>
+              <p style="font-size: 1.05rem; opacity: 0.9">
+                Watch Rohit apply RMI on live charts — Nifty, Bank Nifty & crude
+                oil. See entries, exits, and trend shifts in real time.
+              </p>
+              <ul style="margin-top: 24px; list-style: none">
+                <li style="display: flex; gap: 10px; margin-bottom: 12px">
+                  <i data-lucide="check"></i> Live trade set-up walkthrough
+                </li>
+                <li style="display: flex; gap: 10px">
+                  <i data-lucide="git-branch"></i> How to adapt RMI to different
+                  timeframes
+                </li>
+              </ul>
+            </div>
+            <div
+              style="
+                flex: 0.8;
+                text-align: center;
+                background: rgba(255, 255, 255, 0.05);
+                border-radius: 28px;
+                padding: 28px;
+              "
+            >
+              <i data-lucide="line-chart" size="48"></i>
+              <div style="font-weight: 700; margin-top: 12px">
+                Real-time case study
+              </div>
+              <div style="font-size: 0.85rem">NSE, MCX examples</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Social Proof -->
+    <section>
+      <div class="container">
+        <div style="text-align: center">
+          <div class="badge">
+            <i data-lucide="users"></i> Trusted by 15,000+ traders
+          </div>
+          <h2>What traders are saying</h2>
+        </div>
+        <div class="grid-3col" style="margin-top: 32px">
+          <div class="testimonial">
+            <div class="stars">
+              <i data-lucide="star" fill="#f5b042" color="#f5b042"></i
+              ><i data-lucide="star" fill="#f5b042" color="#f5b042"></i
+              ><i data-lucide="star" fill="#f5b042" color="#f5b042"></i
+              ><i data-lucide="star" fill="#f5b042" color="#f5b042"></i
+              ><i data-lucide="star" fill="#f5b042" color="#f5b042"></i>
+            </div>
+            <p>
+              "RMI changed the way I see markets. No more second-guessing
+              entries. Best webinar I've attended."
+            </p>
+            <p style="margin-top: 16px; font-weight: 600">
+              — Priyanka M., Full-time trader
+            </p>
+          </div>
+          <div class="testimonial">
+            <div class="stars">
+              <i data-lucide="star" fill="#f5b042" color="#f5b042"></i
+              ><i data-lucide="star" fill="#f5b042" color="#f5b042"></i
+              ><i data-lucide="star" fill="#f5b042" color="#f5b042"></i
+              ><i data-lucide="star" fill="#f5b042" color="#f5b042"></i
+              ><i data-lucide="star" fill="#f5b042" color="#f5b042"></i>
+            </div>
+            <p>
+              "The live demo was a game-changer. Late entries are a thing of the
+              past. Highly recommend."
+            </p>
+            <p style="margin-top: 16px; font-weight: 600">
+              — Amit K., 7+ years experience
+            </p>
+          </div>
+          <div class="testimonial">
+            <div class="stars">
+              <i data-lucide="star" fill="#f5b042" color="#f5b042"></i
+              ><i data-lucide="star" fill="#f5b042" color="#f5b042"></i
+              ><i data-lucide="star" fill="#f5b042" color="#f5b042"></i
+              ><i data-lucide="star" fill="#f5b042" color="#f5b042"></i
+              ><i data-lucide="star" fill="#f5b042" color="#f5b042"></i>
+            </div>
+            <p>
+              "Finally, a system that removes emotional bias. The clarity I
+              gained in 90 minutes is insane."
+            </p>
+            <p style="margin-top: 16px; font-weight: 600">
+              — Sneha R., Algo trader
+            </p>
+          </div>
+        </div>
+        <div
+          style="
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+          "
+        >
+          <span
+            ><i data-lucide="star"></i> 4.8/5 average rating (1,240
+            reviews)</span
+          >
+          <span
+            ><i data-lucide="medal"></i> Featured on TradingView &
+            Investopedia</span
+          >
+          <span
+            ><i data-lucide="thumbs-up"></i> 93% of attendees would
+            recommend</span
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- Urgency Section -->
+    <section>
+      <div class="container">
+        <div class="urgency-box">
+          <i data-lucide="hourglass" size="40" class="icon-accent"></i>
+          <h2 style="margin: 16px 0 8px">Limited Seats – Live Session Only</h2>
+          <p style="font-size: 1.1rem">
+            We're capping attendance to ensure interactive Q&A.
+            <strong>Only 187 spots left</strong> as of today.
+          </p>
+          <div class="countdown-note" id="countdownDemo">🔥 24h 00m 00s</div>
+          <p>
+            ⚠️ No recordings will be shared for free. Secure your live seat now.
+          </p>
+          <a
+            href="#register"
+            class="btn-primary"
+            style="margin-top: 24px; background: #b45309"
+            ><i data-lucide="clock"></i> Reserve My Seat – Join Live</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section id="register" style="background: #fafcff; border-bottom: none">
+      <div class="container">
+        <div style="max-width: 680px; margin: 0 auto; text-align: center">
+          <i data-lucide="send" size="40" class="icon-accent"></i>
+          <h2 style="margin-top: 16px">Stop second-guessing your trades.</h2>
+          <p style="font-size: 1.1rem; margin-bottom: 32px">
+            Get data‑driven clarity, actionable strategies, and a clear trading
+            edge with Rohit Srivastava.
+          </p>
+          <div class="glass-card">
+            <h3 style="margin-bottom: 24px">Register now – Free admission</h3>
+            <form
+              id="webinarRegForm"
+              style="display: flex; flex-direction: column; gap: 18px"
+            >
+              <input type="text" placeholder="Full Name" required />
+              <input type="email" placeholder="Email Address" required />
+              <button
+                type="submit"
+                class="btn-primary"
+                style="background: #0f172a; width: 100%"
+              >
+                <i data-lucide="check-circle"></i> Register Now – Get Instant
+                Access
+              </button>
+              <p style="font-size: 0.75rem">
+                We'll send webinar link & reminders. No spam, unsubscribe
+                anytime.
+              </p>
+            </form>
+            <div
+              id="formSuccessMsg"
+              style="
+                margin-top: 18px;
+                font-weight: 500;
+                color: #15803d;
+                display: none;
+              "
+            >
+              ✔️ Registration successful! Check your email.
+            </div>
+          </div>
+          <p style="margin-top: 28px">
+            📢 3,400+ participants · Live demo & practical case studies ·
+            Certificate of attendance
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <p>
+          © 2025 RMI Webinar by Indiacharts | Data-driven decision framework for
+          modern traders
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      // Initialize Lucide Icons
+      lucide.createIcons();
+
+      // Countdown urgency
+      function startCountdown() {
+        const countdownEl = document.getElementById("countdownDemo");
+        if (!countdownEl) return;
+        const targetTime = new Date().getTime() + 24 * 60 * 60 * 1000;
+        const timerInterval = setInterval(() => {
+          const now = new Date().getTime();
+          const distance = targetTime - now;
+          if (distance < 0) {
+            clearInterval(timerInterval);
+            countdownEl.innerText = "⏳ Event starting soon!";
+            return;
+          }
+          const hours = Math.floor(
+            (distance % (24 * 60 * 60 * 1000)) / (60 * 60 * 1000),
+          );
+          const minutes = Math.floor(
+            (distance % (60 * 60 * 1000)) / (60 * 1000),
+          );
+          const seconds = Math.floor((distance % (60 * 1000)) / 1000);
+          countdownEl.innerText = `⏳ ${hours}h ${minutes.toString().padStart(2, "0")}m ${seconds.toString().padStart(2, "0")}s`;
+        }, 1000);
+      }
+      startCountdown();
+
+      // Form mock submission
+      const form = document.getElementById("webinarRegForm");
+      const successMsgDiv = document.getElementById("formSuccessMsg");
+      if (form) {
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          const name = form
+            .querySelector('input[placeholder="Full Name"]')
+            .value.trim();
+          const email = form
+            .querySelector('input[placeholder="Email Address"]')
+            .value.trim();
+          if (name !== "" && email !== "" && email.includes("@")) {
+            successMsgDiv.style.display = "block";
+            form.reset();
+            setTimeout(() => {
+              successMsgDiv.style.display = "none";
+            }, 4500);
+          } else {
+            alert("Please fill name and valid email address to register.");
+          }
+        });
+      }
+
+      // smooth scroll
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          const hash = this.getAttribute("href");
+          if (hash === "#" || hash === "") return;
+          const target = document.querySelector(hash);
+          if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
