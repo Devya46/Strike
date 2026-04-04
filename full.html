@@ -1,0 +1,3121 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <title>Strike Webinars | Super Charge Your Stock Trading</title>
+    <!-- Google Fonts & Font Awesome 6 (free icons) -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+      /* ---------- GLOBAL RESET & BASE ---------- */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Inter", sans-serif;
+        background: #eef2f8;
+        line-height: 1.5;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ========== SECTION 1: HERO SECTION ========== -->
+    <style>
+      .section-wrapper {
+        background: linear-gradient(125deg, #f1f5f9 0%, #e6edf4 100%);
+        position: relative;
+        overflow: hidden;
+      }
+      .container {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 1.8rem 2rem 2.8rem;
+        position: relative;
+        z-index: 2;
+      }
+      .hero {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        padding-top: 40px;
+      }
+      .hero-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        flex-wrap: wrap;
+        margin-bottom: 1rem;
+      }
+      h1 {
+        font-size: 2rem;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        background: linear-gradient(135deg, #1f2e3a, #2c3e46);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+      .breadcrumb {
+        font-size: 0.8rem;
+        font-weight: 500;
+        color: #5a6e85;
+        border-left: 2px solid #e67e22;
+        padding-left: 0.7rem;
+      }
+      .hero-content {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+        margin-top: 0.5rem;
+        align-items: center;
+      }
+      .hero-left {
+        flex: 1.2;
+        min-width: 260px;
+      }
+      .hero-left h2 {
+        font-size: 2.2rem;
+        font-weight: 800;
+        line-height: 1.25;
+        color: #1f2a3e;
+        margin-bottom: 0.5rem;
+        letter-spacing: -0.01em;
+      }
+      .hero-left p {
+        font-size: 1rem;
+        color: #334155;
+        margin: 0.5rem 0 1rem 0;
+        max-width: 95%;
+      }
+      .webinar-details {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin: 0.75rem 0 1rem 0;
+        background: rgba(255, 255, 245, 0.6);
+        backdrop-filter: blur(2px);
+        padding: 0.5rem 0;
+        border-radius: 40px;
+      }
+      .detail-item {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: white;
+        padding: 0.4rem 1rem;
+        border-radius: 40px;
+        font-size: 0.85rem;
+        font-weight: 500;
+        color: #1e293b;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      }
+      .detail-item i {
+        font-size: 1rem;
+        color: #e67e22;
+        width: 1.2rem;
+        text-align: center;
+      }
+      .speaker-card {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        background: #ffffffcc;
+        backdrop-filter: blur(8px);
+        border-radius: 28px;
+        padding: 0.8rem 1.5rem;
+        margin: 1rem 0 1.2rem 0;
+        border: 1px solid rgba(255, 255, 245, 0.9);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+        transition: all 0.2s ease;
+      }
+      .speaker-avatar {
+        width: 52px;
+        height: 52px;
+        background: linear-gradient(145deg, #e67e22, #f39c12);
+        border-radius: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 1.3rem;
+        color: white;
+        box-shadow: 0 6px 12px rgba(230, 126, 34, 0.2);
+      }
+      .speaker-info h4 {
+        font-weight: 800;
+        font-size: 1.2rem;
+        color: #1e293b;
+        letter-spacing: -0.2px;
+      }
+      .speaker-info p {
+        font-size: 0.8rem;
+        color: #475569;
+        margin: 0;
+        font-weight: 500;
+      }
+      .speaker-title {
+        font-size: 0.7rem;
+        background: #e67e2210;
+        color: #c2410c;
+        border-radius: 30px;
+        padding: 0.2rem 0.8rem;
+        display: inline-block;
+        margin-top: 0.25rem;
+        font-weight: 600;
+      }
+      .form-box {
+        background: #ffffffcc;
+        backdrop-filter: blur(8px);
+        border-radius: 28px;
+        padding: 1.2rem 1.5rem;
+        border: 1px solid #fffffffa;
+        box-shadow: 0 12px 24px -12px rgba(0, 0, 0, 0.08);
+      }
+      .form-description {
+        font-size: 0.8rem;
+        font-weight: 500;
+        margin-bottom: 0.75rem;
+        color: #2c3e4f;
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+      }
+      .form-description i {
+        color: #e67e22;
+        font-size: 0.9rem;
+      }
+      .input-group {
+        display: flex;
+        gap: 0.75rem;
+        flex-wrap: wrap;
+        margin-bottom: 0.75rem;
+      }
+      .form-box input {
+        flex: 2;
+        padding: 0.8rem 1.2rem;
+        border-radius: 60px;
+        border: 1px solid #cfdfed;
+        background: white;
+        font-size: 0.9rem;
+        font-family: inherit;
+        outline: none;
+        transition: 0.2s;
+      }
+      .form-box input:focus {
+        border-color: #e67e22;
+        box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.15);
+      }
+      .form-box button {
+        background: linear-gradient(95deg, #e67e22, #f39c12);
+        border: none;
+        padding: 0.8rem 1.5rem;
+        border-radius: 60px;
+        font-weight: 700;
+        font-size: 0.85rem;
+        color: white;
+        cursor: pointer;
+        transition: 0.2s;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        white-space: nowrap;
+        font-family: inherit;
+      }
+      .form-box button:hover {
+        background: linear-gradient(95deg, #d35400, #e67e22);
+        transform: scale(0.98);
+      }
+      .register-cta {
+        margin-top: 1.2rem;
+        width: 100%;
+      }
+      .btn-register {
+        background: #1f2a3e;
+        color: white;
+        border: none;
+        padding: 0.85rem 1.8rem;
+        font-size: 0.95rem;
+        font-weight: 700;
+        border-radius: 60px;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.6rem;
+        transition: all 0.25s;
+        box-shadow: 0 8px 18px -8px rgba(0, 0, 0, 0.2);
+        font-family: inherit;
+      }
+      .btn-register i {
+        font-size: 1rem;
+      }
+      .btn-register:hover {
+        background: #e67e22;
+        transform: translateY(-2px);
+        box-shadow: 0 14px 22px -10px rgba(230, 126, 34, 0.4);
+      }
+      .hero-right {
+        flex: 0.9;
+        min-width: 280px;
+      }
+      .video-card {
+        background: #11181c10;
+        border-radius: 28px;
+        overflow: hidden;
+        box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.15);
+        transition: transform 0.2s ease;
+        backdrop-filter: blur(2px);
+        border: 1px solid rgba(255, 255, 240, 0.6);
+      }
+      .video-thumbnail {
+        position: relative;
+        cursor: pointer;
+        background: linear-gradient(145deg, #1f2a36, #10161e);
+        border-radius: 24px;
+        overflow: hidden;
+      }
+      .video-thumbnail img {
+        width: 100%;
+        display: block;
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+        opacity: 0.9;
+        transition: all 0.3s;
+      }
+      .play-btn-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.25);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: 0.2s;
+      }
+      .play-circle {
+        width: 64px;
+        height: 64px;
+        background: rgba(230, 126, 34, 0.9);
+        border-radius: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        backdrop-filter: blur(4px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        transition: all 0.2s;
+      }
+      .play-circle i {
+        font-size: 2rem;
+        color: white;
+        margin-left: 4px;
+      }
+      .video-thumbnail:hover .play-circle {
+        transform: scale(1.05);
+        background: #e67e22;
+      }
+      .video-caption {
+        padding: 0.8rem 1rem;
+        background: rgba(255, 255, 250, 0.8);
+        font-size: 0.75rem;
+        font-weight: 500;
+        color: #2c3e50;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        border-top: 1px solid #fff8;
+      }
+      .video-caption i {
+        color: #e67e22;
+      }
+      .toast-msg {
+        position: fixed;
+        bottom: 25px;
+        left: 50%;
+        transform: translateX(-50%) translateY(20px);
+        background: #1f2a3e;
+        color: #f9ede0;
+        padding: 10px 24px;
+        border-radius: 60px;
+        font-weight: 500;
+        font-size: 0.85rem;
+        backdrop-filter: blur(8px);
+        z-index: 1000;
+        opacity: 0;
+        transition: 0.2s;
+        pointer-events: none;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        white-space: nowrap;
+        font-family: "Inter", sans-serif;
+      }
+      .toast-msg.show {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+      }
+      @media (max-width: 850px) {
+        .container {
+          padding: 1.2rem 1.5rem 2rem;
+        }
+        .hero-left h2 {
+          font-size: 1.8rem;
+        }
+        .hero-content {
+          flex-direction: column;
+        }
+        .hero-right {
+          width: 100%;
+        }
+        .input-group {
+          flex-direction: column;
+        }
+        .form-box button {
+          width: 100%;
+          justify-content: center;
+        }
+        .btn-register {
+          width: 100%;
+          justify-content: center;
+        }
+        .toast-msg {
+          white-space: normal;
+          text-align: center;
+          width: 85%;
+        }
+      }
+      @media (max-width: 550px) {
+        .hero-top {
+          flex-direction: column;
+          gap: 0.3rem;
+        }
+        .speaker-card {
+          padding: 0.7rem 1rem;
+        }
+        .detail-item {
+          font-size: 0.75rem;
+        }
+        .webinar-details {
+          gap: 0.7rem;
+        }
+      }
+      .hero-left,
+      .hero-right {
+        opacity: 0;
+        transform: translateY(12px);
+        animation: fadeUp 0.55s forwards;
+      }
+      .hero-left {
+        animation-delay: 0.1s;
+      }
+      .hero-right {
+        animation-delay: 0.2s;
+      }
+      @keyframes fadeUp {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+    <div class="section-wrapper hero-section">
+      <div class="container">
+        <div class="hero">
+          <div class="hero-top">
+            <h1>Strike Webinars</h1>
+            <div class="breadcrumb">Strike / Live Sessions</div>
+          </div>
+          <div class="hero-content">
+            <div class="hero-left">
+              <h2>Learn Stock Analysis with Live Webinars</h2>
+              <p>
+                Master advanced fundamentals, technical indicators & market
+                psychology. Join expert-led sessions designed for traders and
+                investors.
+              </p>
+              <div class="webinar-details">
+                <div class="detail-item">
+                  <i class="far fa-calendar-alt"></i> Apr 28, 2026 · 6:00 PM EST
+                </div>
+                <div class="detail-item">
+                  <i class="fas fa-chart-line"></i> “Technical Analysis Deep
+                  Dive”
+                </div>
+                <div class="detail-item">
+                  <i class="far fa-clock"></i> 90 min live + Q&A
+                </div>
+              </div>
+              <div class="speaker-card">
+                <div class="speaker-avatar">RS</div>
+                <div class="speaker-info">
+                  <h4>Rohit Srivastava</h4>
+                  <p>Founder & Market Strategist, Indiacharts</p>
+                  <div class="speaker-title">
+                    <i class="fas fa-microphone-alt"></i> Featured Speaker: 20+
+                    years experience
+                  </div>
+                </div>
+              </div>
+              <div class="form-box">
+                <div class="form-description">
+                  <i class="fas fa-bell"></i> Get notified about upcoming
+                  sessions — be the first to know!
+                </div>
+                <div class="input-group">
+                  <input
+                    type="email"
+                    id="webinarEmail"
+                    placeholder="Your email address"
+                    aria-label="Email for webinar updates"
+                  /><button id="notifyBtn">
+                    <i class="fas fa-paper-plane"></i> Notify Me
+                  </button>
+                </div>
+              </div>
+              <div class="register-cta">
+                <button class="btn-register" id="registerNowBtn">
+                  <i class="fas fa-ticket-alt"></i> Register Now – Secure Your
+                  Seat →
+                </button>
+              </div>
+            </div>
+            <div class="hero-right">
+              <div class="video-card">
+                <div class="video-thumbnail" id="videoTrigger">
+                  <img
+                    src="https://placehold.co/600x338/2C3E4F/FFFFFF?text=Webinar+Preview&font=montserrat"
+                    alt="Webinar teaser"
+                  />
+                  <div class="play-btn-overlay">
+                    <div class="play-circle"><i class="fas fa-play"></i></div>
+                  </div>
+                </div>
+                <div class="video-caption">
+                  <i class="fas fa-video"></i
+                  ><span
+                    >Watch intro: Rohit Srivastava on market cycles & trade
+                    setups</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="globalToast" class="toast-msg">✨ Action completed</div>
+    <script>
+      (function () {
+        const emailInput = document.getElementById("webinarEmail"),
+          notifyButton = document.getElementById("notifyBtn"),
+          registerButton = document.getElementById("registerNowBtn"),
+          videoThumb = document.getElementById("videoTrigger"),
+          toastEl = document.getElementById("globalToast");
+        function showToast(msg, isError = false) {
+          toastEl.textContent =
+            msg || (isError ? "⚠️ Please try again." : "✔️ Success!");
+          toastEl.classList.add("show");
+          setTimeout(() => toastEl.classList.remove("show"), 2700);
+        }
+        function isValidEmail(e) {
+          return /^[^\s@]+@([^\s@.,]+\.)+[^\s@.,]{2,}$/i.test(e);
+        }
+        function handleNotify() {
+          let email = emailInput.value.trim();
+          if (!email) {
+            showToast("📧 Please enter your email address.", true);
+            emailInput.focus();
+            return;
+          }
+          if (!isValidEmail(email)) {
+            showToast("❌ Please provide a valid email address.", true);
+            emailInput.focus();
+            return;
+          }
+          showToast(
+            `✅ Thanks ${email.split("@")[0]}! You'll receive webinar alerts.`,
+          );
+          emailInput.value = "";
+        }
+        function handleRegister() {
+          let email = emailInput.value.trim();
+          if (!email) {
+            showToast("🔔 Please enter your email address to register.", true);
+            emailInput.focus();
+            return;
+          }
+          if (!isValidEmail(email)) {
+            showToast("⚠️ Enter a valid email to complete registration.", true);
+            emailInput.focus();
+            return;
+          }
+          showToast(
+            `🎉 Registration confirmed! Webinar link will be sent to ${email}. 🎉`,
+          );
+        }
+        function handleVideoClick() {
+          showToast(
+            "▶️ Trailer: Rohit Srivastava reveals key patterns for Q2 2026. Join live webinar to learn more!",
+          );
+          const overlayIcon = document.querySelector(".play-circle");
+          if (overlayIcon) {
+            overlayIcon.style.transform = "scale(0.95)";
+            setTimeout(() => {
+              if (overlayIcon) overlayIcon.style.transform = "";
+            }, 150);
+          }
+        }
+        if (notifyButton) notifyButton.addEventListener("click", handleNotify);
+        if (registerButton)
+          registerButton.addEventListener("click", handleRegister);
+        if (videoThumb) videoThumb.addEventListener("click", handleVideoClick);
+        emailInput.addEventListener("keypress", (e) => {
+          if (e.key === "Enter") {
+            e.preventDefault();
+            handleRegister();
+          }
+        });
+      })();
+    </script>
+
+    <!-- ========== SECTION 2: WEBINAR SECTION (GRID + FILTER) ========== -->
+    <style>
+      .webinar-full-section {
+        width: 100%;
+        background: #f4f7fc;
+        font-family: "Inter", system-ui;
+        line-height: 1.5;
+        color: #1e2a3e;
+        padding: 1rem 6rem;
+      }
+      .webinar-container {
+        width: 100%;
+        max-width: 1600px;
+        margin: 0 auto;
+      }
+      .webinar-content {
+        background: #ffffff;
+        border-radius: 2rem;
+        padding: 2rem 2rem;
+        box-shadow:
+          0 8px 24px rgba(0, 0, 0, 0.02),
+          0 1px 2px rgba(0, 0, 0, 0.03);
+        border: 1px solid #eef2f8;
+      }
+      .controls-bar {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1.2rem;
+        margin-bottom: 2rem;
+        padding-bottom: 0.75rem;
+        border-bottom: 1px solid #e2edf2;
+      }
+      .tabs-group {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        background: #f8fafc;
+        padding: 0.35rem;
+        border-radius: 3rem;
+        border: 1px solid #e0e7ed;
+      }
+      .tab-btn {
+        background: transparent;
+        border: none;
+        padding: 0.6rem 1.4rem;
+        font-size: 0.9rem;
+        font-weight: 600;
+        border-radius: 2rem;
+        cursor: pointer;
+        color: #4a5b6e;
+        transition: all 0.25s ease;
+        font-family: inherit;
+      }
+      .tab-btn i {
+        margin-right: 0.5rem;
+      }
+      .tab-btn.active {
+        background: linear-gradient(105deg, #2c5f8a, #1f4e73);
+        color: white;
+        box-shadow: 0 4px 10px rgba(31, 78, 115, 0.2);
+      }
+      .webinar-stats {
+        background: #f1f5f9;
+        padding: 0.4rem 1.2rem;
+        border-radius: 2rem;
+        font-size: 0.85rem;
+        font-weight: 500;
+        color: #2c3e50;
+        border: 1px solid #dee4ec;
+      }
+      .search-area {
+        display: flex;
+        gap: 0.5rem;
+        background: #f8fafc;
+        padding: 0.25rem;
+        border-radius: 3rem;
+        border: 1px solid #dce3ec;
+      }
+      .search-area input {
+        background: transparent;
+        border: none;
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+        outline: none;
+        width: 220px;
+        font-family: inherit;
+      }
+      .search-area button {
+        background: #2c5f8a;
+        border: none;
+        padding: 0.5rem 1.2rem;
+        border-radius: 2rem;
+        color: white;
+        font-weight: 600;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      .webinar-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: 2rem;
+        margin-top: 1.5rem;
+      }
+      .web-card {
+        background: #ffffff;
+        border-radius: 1.5rem;
+        overflow: hidden;
+        transition:
+          transform 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1),
+          box-shadow 0.3s ease;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.03);
+        border: 1px solid #eef2f8;
+        display: flex;
+        flex-direction: column;
+        animation: cardFadeIn 0.5s ease forwards;
+      }
+      @keyframes cardFadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(16px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .web-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.12);
+        border-color: #cbdde9;
+      }
+      .card-img {
+        height: 180px;
+        background-size: cover;
+        background-position: center;
+        border-bottom: 1px solid #eef2f8;
+      }
+      .card-content {
+        padding: 1.4rem 1.4rem 1.6rem;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 0.7rem;
+      }
+      .card-content h3 {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: #0f2b3d;
+      }
+      .card-content p {
+        font-size: 0.85rem;
+        color: #475569;
+      }
+      .instructor {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.7rem;
+        border-top: 1px solid #eef2f8;
+        padding-top: 0.8rem;
+      }
+      .avatar-small {
+        width: 28px;
+        height: 28px;
+        background: #d9e6f2;
+        border-radius: 50%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background-image: radial-gradient(circle at 30% 30%, #90aec9, #6c8fae);
+      }
+      .avatar-small::after {
+        content: "👤";
+        font-size: 0.75rem;
+        opacity: 0.9;
+        color: #ffffff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+      }
+      .instructor span:first-of-type {
+        font-weight: 600;
+        color: #1e3a5f;
+      }
+      .enrolled {
+        margin-left: auto;
+        background: #ecf3f9;
+        padding: 0.2rem 0.7rem;
+        border-radius: 2rem;
+        font-size: 0.7rem;
+        font-weight: 600;
+        color: #2c6280;
+      }
+      .web-card.hide-card {
+        display: none;
+      }
+      .no-results-msg {
+        text-align: center;
+        padding: 3rem 1rem;
+        font-size: 1rem;
+        background: #fafcff;
+        border-radius: 2rem;
+        color: #5a6e85;
+        grid-column: 1/-1;
+        border: 1px dashed #cbd5e1;
+      }
+      @media (max-width: 880px) {
+        .webinar-full-section {
+          padding: 2rem 1rem;
+        }
+        .controls-bar {
+          flex-direction: column;
+          align-items: stretch;
+        }
+        .search-area input {
+          width: 100%;
+        }
+      }
+      @media (max-width: 600px) {
+        .webinar-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+    <section class="webinar-full-section">
+      <div class="webinar-container">
+        <div class="webinar-content">
+          <div class="controls-bar">
+            <div class="tabs-group">
+              <button class="tab-btn active" data-filter="all">
+                <i class="fas fa-chalkboard-user"></i> All Webinars</button
+              ><button class="tab-btn" data-filter="upcoming">
+                <i class="fas fa-calendar-week"></i> Upcoming</button
+              ><button class="tab-btn" data-filter="past">
+                <i class="fas fa-clock-rotate-left"></i> Past Webinars</button
+              ><button class="tab-btn" data-filter="popular">
+                <i class="fas fa-fire"></i> Popular
+              </button>
+            </div>
+            <div class="webinar-stats" id="webinarCount">
+              6 webinars available
+            </div>
+            <div class="search-area">
+              <input
+                type="text"
+                id="webSearch"
+                placeholder="Search webinars..."
+              /><button id="searchWebBtn">
+                <i class="fas fa-magnifying-glass"></i> Search
+              </button>
+            </div>
+          </div>
+          <div class="webinar-grid" id="webinarGrid">
+            <div
+              class="web-card"
+              data-title="Learn Stock Analysis with Live Webinars"
+              data-cat="upcoming popular"
+              data-searchtext="Learn Stock Analysis with Live Webinars Charles Russell Severance"
+            >
+              <div
+                class="card-img"
+                style="
+                  background-image: url(&quot;https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=600&auto=format&quot;);
+                "
+              ></div>
+              <div class="card-content">
+                <h3>Learn Stock Analysis with Live Webinars</h3>
+                <p>
+                  Ready to move beyond the buzz and see real results with AI?
+                  This course covers fundamentals.
+                </p>
+                <div class="instructor">
+                  <div class="avatar-small"></div>
+                  <span>Charles Russell Severance</span
+                  ><span class="enrolled">1,929,605 enrolled</span>
+                </div>
+              </div>
+            </div>
+            <div
+              class="web-card"
+              data-title="Advanced Technical Analysis"
+              data-cat="upcoming"
+              data-searchtext="Advanced Technical Analysis Rohit Srivastava"
+            >
+              <div
+                class="card-img"
+                style="
+                  background-image: url(&quot;https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?w=600&auto=format&quot;);
+                "
+              ></div>
+              <div class="card-content">
+                <h3>Advanced Technical Analysis</h3>
+                <p>Master chart patterns, indicators, and market psychology.</p>
+                <div class="instructor">
+                  <div class="avatar-small"></div>
+                  <span>Rohit Srivastava</span
+                  ><span class="enrolled">892k enrolled</span>
+                </div>
+              </div>
+            </div>
+            <div
+              class="web-card"
+              data-title="Fundamental Analysis Masterclass"
+              data-cat="popular"
+              data-searchtext="Fundamental Analysis Masterclass"
+            >
+              <div
+                class="card-img"
+                style="
+                  background-image: url(&quot;https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&auto=format&quot;);
+                "
+              ></div>
+              <div class="card-content">
+                <h3>Fundamental Analysis Masterclass</h3>
+                <p>
+                  Learn to evaluate financial statements and economic moats.
+                </p>
+                <div class="instructor">
+                  <div class="avatar-small"></div>
+                  <span>Strike Research Team</span
+                  ><span class="enrolled">1.2M enrolled</span>
+                </div>
+              </div>
+            </div>
+            <div
+              class="web-card"
+              data-title="Options Trading Strategies"
+              data-cat="popular"
+              data-searchtext="Options Trading Strategies"
+            >
+              <div
+                class="card-img"
+                style="
+                  background-image: url(&quot;https://images.unsplash.com/photo-1642543492481-44e81e3914a7?w=600&auto=format&quot;);
+                "
+              ></div>
+              <div class="card-content">
+                <h3>Options Trading Strategies</h3>
+                <p>
+                  From beginners to experts — learn covered calls, straddles.
+                </p>
+                <div class="instructor">
+                  <div class="avatar-small"></div>
+                  <span>Tejas Shah</span
+                  ><span class="enrolled">678k enrolled</span>
+                </div>
+              </div>
+            </div>
+            <div
+              class="web-card"
+              data-title="Intraday & Scalping Tactics"
+              data-cat="upcoming"
+              data-searchtext="Intraday Scalping Tactics"
+            >
+              <div
+                class="card-img"
+                style="
+                  background-image: url(&quot;https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=600&auto=format&quot;);
+                "
+              ></div>
+              <div class="card-content">
+                <h3>Intraday & Scalping Tactics</h3>
+                <p>High-probability setups for day trading.</p>
+                <div class="instructor">
+                  <div class="avatar-small"></div>
+                  <span>Rikin Jariwala</span
+                  ><span class="enrolled">450k enrolled</span>
+                </div>
+              </div>
+            </div>
+            <div
+              class="web-card"
+              data-title="Sentiment Indicators & Scanners"
+              data-cat="past"
+              data-searchtext="Sentiment Indicators Scanners"
+            >
+              <div
+                class="card-img"
+                style="
+                  background-image: url(&quot;https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&auto=format&quot;);
+                "
+              ></div>
+              <div class="card-content">
+                <h3>Sentiment Indicators & Scanners</h3>
+                <p>Unlock market edge using Strike's proprietary indicators.</p>
+                <div class="instructor">
+                  <div class="avatar-small"></div>
+                  <span>Strike Team</span
+                  ><span class="enrolled">310k enrolled</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script>
+      (function () {
+        const grid = document.getElementById("webinarGrid");
+        const filterBtns = document.querySelectorAll(".tab-btn");
+        const searchInput = document.getElementById("webSearch");
+        const searchBtn = document.getElementById("searchWebBtn");
+        const statsSpan = document.getElementById("webinarCount");
+        let allCards = Array.from(document.querySelectorAll(".web-card"));
+        let currentFilter = "all";
+        let currentSearchTerm = "";
+        function filterAndSearch() {
+          let visible = 0;
+          allCards.forEach((card) => {
+            const catAttr = card.getAttribute("data-cat") || "";
+            const categories = catAttr.split(" ");
+            let catMatch =
+              currentFilter === "all" || categories.includes(currentFilter);
+            let searchMatch = true;
+            if (currentSearchTerm.trim() !== "") {
+              const term = currentSearchTerm.trim().toLowerCase();
+              const title = card.getAttribute("data-title") || "";
+              const searchText = card.getAttribute("data-searchtext") || "";
+              const heading =
+                card.querySelector(".card-content h3")?.innerText || "";
+              const instructor =
+                card.querySelector(".instructor span:first-of-type")
+                  ?.innerText || "";
+              const desc =
+                card.querySelector(".card-content p")?.innerText || "";
+              const combined = (
+                title +
+                " " +
+                searchText +
+                " " +
+                heading +
+                " " +
+                instructor +
+                " " +
+                desc
+              ).toLowerCase();
+              if (!combined.includes(term)) searchMatch = false;
+            }
+            if (catMatch && searchMatch) {
+              card.classList.remove("hide-card");
+              visible++;
+            } else {
+              card.classList.add("hide-card");
+            }
+          });
+          let noResult = document.querySelector(".no-results-msg");
+          if (visible === 0) {
+            if (!noResult) {
+              const msgDiv = document.createElement("div");
+              msgDiv.className = "no-results-msg";
+              msgDiv.innerHTML =
+                '<i class="fas fa-chart-simple"></i> No webinars match.';
+              grid.appendChild(msgDiv);
+            } else noResult.style.display = "flex";
+          } else {
+            if (noResult) noResult.style.display = "none";
+          }
+          statsSpan.innerText = `${visible} webinar${visible !== 1 ? "s" : ""} available`;
+        }
+        function setActiveFilter(f) {
+          currentFilter = f;
+          filterBtns.forEach((btn) => {
+            if (btn.getAttribute("data-filter") === f)
+              btn.classList.add("active");
+            else btn.classList.remove("active");
+          });
+          filterAndSearch();
+        }
+        filterBtns.forEach((btn) =>
+          btn.addEventListener("click", () => {
+            const f = btn.getAttribute("data-filter");
+            if (f) setActiveFilter(f);
+          }),
+        );
+        searchBtn.addEventListener("click", () => {
+          currentSearchTerm = searchInput.value;
+          filterAndSearch();
+        });
+        searchInput.addEventListener("keyup", (e) => {
+          if (e.key === "Enter") {
+            currentSearchTerm = searchInput.value;
+            filterAndSearch();
+          }
+        });
+        setActiveFilter("all");
+      })();
+    </script>
+
+    <!-- ========== SECTION 3: PROBLEM SECTION (DARK) ========== -->
+    <style>
+      .reality-check-section {
+        width: 100%;
+        background: #0b1120;
+        position: relative;
+        padding: 0.5rem 5rem;
+        border-top: 1px solid rgba(56, 189, 248, 0.12);
+        border-bottom: 1px solid rgba(56, 189, 248, 0.08);
+      }
+      .reality-check-section .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        width: 100%;
+        position: relative;
+        z-index: 2;
+      }
+      .section-headline {
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+      .reality-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(56, 189, 248, 0.08);
+        border: 1px solid rgba(56, 189, 248, 0.25);
+        padding: 0.35rem 1.2rem;
+        border-radius: 60px;
+        margin-bottom: 1rem;
+      }
+      .reality-tag i {
+        font-size: 0.9rem;
+        color: #38bdf8;
+      }
+      .reality-tag span {
+        font-family: "Outfit", sans-serif;
+        font-weight: 700;
+        font-size: 0.75rem;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        color: #b9e2ff;
+      }
+      .familiar-heading {
+        font-size: 2.4rem;
+        font-weight: 800;
+        font-family: "Outfit", sans-serif;
+        background: linear-gradient(135deg, #ffffff, #cbd5e6, #7ab7e0);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        margin-bottom: 0.5rem;
+      }
+      .supporting-quote {
+        font-size: 1rem;
+        color: #a3b3ce;
+        max-width: 550px;
+        margin: 0.5rem auto 0;
+      }
+      .intro-text {
+        max-width: 600px;
+        margin: 0.75rem auto 0;
+        font-size: 0.95rem;
+        color: #8e9dbb;
+      }
+      .struggles-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+        margin: 2rem 0 2rem 0;
+      }
+      .pain-card {
+        background: rgba(15, 23, 42, 0.7);
+        backdrop-filter: blur(4px);
+        border-radius: 24px;
+        padding: 1.5rem 1.2rem;
+        text-align: center;
+        border: 1px solid rgba(56, 189, 248, 0.18);
+        transition: all 0.25s ease;
+      }
+      .pain-card:hover {
+        transform: translateY(-4px);
+        border-color: rgba(56, 189, 248, 0.45);
+        background: rgba(20, 30, 52, 0.8);
+      }
+      .icon-circle {
+        background: linear-gradient(135deg, #0f172a, #0a0f1c);
+        width: 64px;
+        height: 64px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1rem auto;
+        border-radius: 50px;
+        color: #38bdf8;
+        font-size: 2rem;
+        border: 1px solid rgba(56, 189, 248, 0.35);
+      }
+      .pain-card h3 {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: #eef3ff;
+        margin-bottom: 0.6rem;
+      }
+      .pain-card p {
+        color: #b0bedc;
+        font-size: 0.88rem;
+      }
+      .solution-wrapper {
+        background: rgba(10, 16, 28, 0.7);
+        border-radius: 36px;
+        padding: 1.5rem 1.8rem;
+        text-align: center;
+        margin-top: 0.5rem;
+        border: 1px solid rgba(56, 189, 248, 0.2);
+        backdrop-filter: blur(4px);
+      }
+      .empathy-note {
+        font-size: 1rem;
+        font-weight: 500;
+        color: #9eb0d0;
+        margin-bottom: 0.25rem;
+      }
+      .solution-highlight {
+        font-size: 1.6rem;
+        font-weight: 800;
+        font-family: "Outfit", sans-serif;
+        background: linear-gradient(115deg, #fff, #cae6ff, #6fb3e6);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        margin-bottom: 1.2rem;
+      }
+      .btn-proven {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: linear-gradient(105deg, #2c5f8a, #1f4e73);
+        color: white;
+        border: none;
+        padding: 0.65rem 1.8rem;
+        font-size: 0.95rem;
+        font-weight: 600;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: all 0.2s;
+        font-family: "Inter", sans-serif;
+      }
+      .btn-proven:hover {
+        background: linear-gradient(105deg, #1f5985, #123a55);
+        transform: scale(1.01);
+      }
+      @media (max-width: 768px) {
+        .reality-check-section {
+          padding: 2rem 1.5rem;
+        }
+        .struggles-grid {
+          grid-template-columns: 1fr;
+        }
+        .familiar-heading {
+          font-size: 1.8rem;
+        }
+      }
+    </style>
+    <section class="reality-check-section">
+      <div class="container">
+        <div class="section-headline">
+          <div class="reality-tag">
+            <i class="fas fa-eye"></i><span>The Reality Check</span>
+          </div>
+          <h2 class="familiar-heading">Does this sound familiar?</h2>
+          <div class="supporting-quote">
+            Most traders struggle with late entries, lack of clarity, and
+            analysis paralysis.
+          </div>
+          <p class="intro-text">
+            Late timing, endless indicators, and market fog — it drains
+            confidence.
+          </p>
+        </div>
+        <div class="struggles-grid">
+          <div class="pain-card">
+            <div class="icon-circle"><i class="fas fa-hourglass-half"></i></div>
+            <h3>Late Entries & Missed Moves</h3>
+            <p>
+              Entering after the trend has peaked leads to frustration and
+              stop-outs.
+            </p>
+          </div>
+          <div class="pain-card">
+            <div class="icon-circle"><i class="fas fa-chart-line"></i></div>
+            <h3>Information Overload</h3>
+            <p>
+              Too many indicators, contradictory signals — stuck in confusion.
+            </p>
+          </div>
+          <div class="pain-card">
+            <div class="icon-circle"><i class="fas fa-compass"></i></div>
+            <h3>Lack of Consistent Clarity</h3>
+            <p>
+              No structured approach to market regimes, guessing entries and
+              exits.
+            </p>
+          </div>
+        </div>
+        <div class="solution-wrapper">
+          <div class="empathy-note">
+            <i class="fas fa-users"></i> You're not alone —
+          </div>
+          <div class="solution-highlight">But there's a proven Solution.</div>
+          <a href="#" class="btn-proven" aria-label="Get Clarity Now"
+            ><span>Get clear signals</span><i class="fas fa-arrow-right"></i
+          ></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SECTION 4: SOLUTION SECTION (RMI) ========== -->
+    <style>
+      .solution-section {
+        width: 100%;
+        background: #f5f8fe;
+        position: relative;
+        overflow: hidden;
+      }
+      .solution-container {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 2.5rem 2rem 2.2rem 2rem;
+        position: relative;
+        z-index: 2;
+      }
+      .bridge-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.6rem;
+        background: rgba(31, 110, 235, 0.08);
+        padding: 0.3rem 1rem;
+        border-radius: 40px;
+        font-size: 0.7rem;
+        font-weight: 600;
+        color: #1a66c9;
+        margin-bottom: 1rem;
+      }
+      .solution-heading {
+        font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+        font-weight: 700;
+        color: #0f2b3f;
+        max-width: 750px;
+        margin-bottom: 0.65rem;
+      }
+      .highlight {
+        color: #1f6eeb;
+        background: linear-gradient(
+          120deg,
+          rgba(31, 110, 235, 0.08) 0%,
+          rgba(31, 110, 235, 0.02) 80%
+        );
+        display: inline-block;
+        padding: 0 0.1rem;
+      }
+      .solution-description {
+        font-size: clamp(0.9rem, 1.8vw, 1rem);
+        line-height: 1.45;
+        color: #2c445e;
+        max-width: 620px;
+        margin-bottom: 1.6rem;
+      }
+      .rmi-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.2rem;
+        margin: 1.2rem 0 1.2rem;
+      }
+      .rmi-card {
+        flex: 1;
+        min-width: 210px;
+        background: #ffffff;
+        border-radius: 1.2rem;
+        padding: 1.2rem 1.2rem;
+        border: 1px solid rgba(0, 0, 0, 0.04);
+        transition: all 0.2s ease;
+      }
+      .rmi-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 14px 24px -10px rgba(31, 110, 235, 0.12);
+        border-color: rgba(31, 110, 235, 0.2);
+      }
+      .card-icon {
+        font-size: 1.7rem;
+        color: #1f6eeb;
+        margin-bottom: 0.8rem;
+        display: inline-flex;
+        background: #eef4fe;
+        width: 44px;
+        height: 44px;
+        border-radius: 14px;
+        align-items: center;
+        justify-content: center;
+      }
+      .rmi-card h3 {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: #0f2b3f;
+        margin-bottom: 0.4rem;
+      }
+      .rmi-card p {
+        color: #3a5670;
+        font-size: 0.85rem;
+      }
+      .feature-list {
+        list-style: none;
+        margin-top: 0.5rem;
+      }
+      .feature-list li {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 0.45rem;
+        font-size: 0.8rem;
+        color: #2c4a6e;
+      }
+      .feature-list li i {
+        width: 1rem;
+        font-size: 0.7rem;
+        color: #1f6eeb;
+      }
+      .data-snapshot {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        background: #ffffffcc;
+        backdrop-filter: blur(2px);
+        border-radius: 1.4rem;
+        padding: 0.8rem 1.2rem;
+        margin: 0.8rem 0 0.5rem;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .metric-item {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        flex: 1;
+        min-width: 130px;
+      }
+      .metric-icon {
+        background: #e9f0fe;
+        width: 40px;
+        height: 40px;
+        border-radius: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        color: #1f6eeb;
+      }
+      .metric-text {
+        display: flex;
+        flex-direction: column;
+      }
+      .metric-number {
+        font-size: 1.5rem;
+        font-weight: 800;
+        color: #102a43;
+        line-height: 1.1;
+      }
+      .metric-label {
+        font-size: 0.7rem;
+        font-weight: 500;
+        color: #5d6f83;
+      }
+      .rmi-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.65rem;
+        background: #eef2f8;
+        padding: 0.4rem 1rem;
+        border-radius: 60px;
+        font-size: 0.75rem;
+        font-weight: 500;
+        color: #1f6eeb;
+        margin-top: 0.5rem;
+      }
+      @media (max-width: 820px) {
+        .rmi-grid {
+          flex-direction: column;
+        }
+        .data-snapshot {
+          flex-direction: column;
+        }
+      }
+    </style>
+    <section class="solution-section" id="Solution-Section">
+      <div class="solution-container">
+        <div class="bridge-chip">
+          <i class="fas fa-arrow-right"></i><span>FROM CHAOS TO CLARITY</span
+          ><i class="fas fa-chart-line"></i>
+        </div>
+        <h2 class="solution-heading">
+          <span class="highlight">RMI</span> — the data clarity engine<br />for
+          faster, smarter decisions.
+        </h2>
+        <p class="solution-description">
+          Real-time Metrics Intelligence transforms fragmented data into a
+          unified truth layer.
+        </p>
+        <div class="rmi-grid">
+          <div class="rmi-card">
+            <div class="card-icon"><i class="fas fa-chart-line"></i></div>
+            <h3>Clarity First</h3>
+            <p>
+              Aggregates siloed streams, eliminates noise, reveals hidden
+              patterns.
+            </p>
+            <ul class="feature-list">
+              <li><i class="fas fa-circle-check"></i> Unified data fabric</li>
+              <li><i class="fas fa-eye"></i> Anomaly detection</li>
+            </ul>
+          </div>
+          <div class="rmi-card">
+            <div class="card-icon"><i class="fas fa-brain"></i></div>
+            <h3>Decision Intelligence</h3>
+            <p>Scenario modeling and real-time KPI alignment.</p>
+            <ul class="feature-list">
+              <li>
+                <i class="fas fa-arrow-right-arrow-left"></i> What-if analysis
+              </li>
+              <li><i class="fas fa-lightbulb"></i> Smart recommendations</li>
+            </ul>
+          </div>
+          <div class="rmi-card">
+            <div class="card-icon"><i class="fas fa-gauge-high"></i></div>
+            <h3>Real-time Edge</h3>
+            <p>Live dashboards, adaptive alerts, reduce decision lag.</p>
+            <ul class="feature-list">
+              <li><i class="fas fa-bolt"></i> Sub-second latency</li>
+              <li><i class="fas fa-bell"></i> Actionable thresholds</li>
+            </ul>
+          </div>
+        </div>
+        <div class="data-snapshot">
+          <div class="metric-item">
+            <div class="metric-icon"><i class="fas fa-chart-line"></i></div>
+            <div class="metric-text">
+              <span class="metric-number" data-value="94">94%</span
+              ><span class="metric-label">faster decisions</span>
+            </div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-icon"><i class="fas fa-bullseye"></i></div>
+            <div class="metric-text">
+              <span class="metric-number" data-value="32">3.2x</span
+              ><span class="metric-label">ROI uplift</span>
+            </div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-icon"><i class="fas fa-chart-pie"></i></div>
+            <div class="metric-text">
+              <span class="metric-number" data-value="68">68%</span
+              ><span class="metric-label">blind spot reduction</span>
+            </div>
+          </div>
+        </div>
+        <div class="rmi-badge">
+          <i class="fas fa-circle" style="font-size: 0.45rem"></i
+          ><span>RMI active · live clarity mode</span
+          ><i class="fas fa-database"></i>
+        </div>
+      </div>
+    </section>
+    <script>
+      (function () {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                const el = entry.target;
+                const txt = el.innerText.trim();
+                if (el.getAttribute("data-animated") === "true") return;
+                if (txt === "real-time") return;
+                el.setAttribute("data-animated", "true");
+                let targetVal;
+                if (txt.includes("%")) targetVal = parseInt(txt, 10);
+                else if (txt.includes("x")) targetVal = parseFloat(txt);
+                else targetVal = parseInt(txt, 10);
+                if (isNaN(targetVal)) return;
+                let current = 0;
+                const duration = 700;
+                const steps = duration / 16;
+                const step = targetVal / steps;
+                let iter = 0;
+                const timer = setInterval(() => {
+                  iter++;
+                  if (iter >= steps) {
+                    el.innerText = txt;
+                    clearInterval(timer);
+                    return;
+                  }
+                  let newVal = current + step;
+                  if (txt.includes("%"))
+                    el.innerText = Math.floor(newVal) + "%";
+                  else if (txt.includes("x")) {
+                    let form = newVal.toFixed(1);
+                    if (parseFloat(form) >= targetVal) {
+                      el.innerText = txt;
+                      clearInterval(timer);
+                      return;
+                    }
+                    el.innerText = form + "x";
+                  } else el.innerText = Math.floor(newVal);
+                  current = newVal;
+                }, 16);
+                observer.unobserve(el);
+              }
+            });
+          },
+          { threshold: 0.3 },
+        );
+        document.querySelectorAll(".metric-number").forEach((m) => {
+          if (m.innerText.trim() !== "real-time") observer.observe(m);
+        });
+      })();
+    </script>
+
+    <!-- ========== SECTION 5: WHAT YOU'LL LEARN ========== -->
+    <style>
+      .takeaway-luminary-module {
+        display: block;
+        width: 100%;
+        background: #0b1120;
+        font-family: "Inter", system-ui;
+        line-height: 1.4;
+        color: #eef2ff;
+      }
+      .takeaway-inner {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 2.8rem 2rem 3.2rem 2rem;
+      }
+      .takeaway-badge {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 1.5rem;
+      }
+      .premium-tag {
+        background: rgba(59, 130, 246, 0.18);
+        backdrop-filter: blur(4px);
+        padding: 0.35rem 1.2rem;
+        border-radius: 60px;
+        font-size: 0.8rem;
+        font-weight: 500;
+        color: #94a3f8;
+        border: 0.5px solid rgba(59, 130, 246, 0.4);
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .takeaway-heading-center {
+        text-align: center;
+        margin-bottom: 2.8rem;
+      }
+      .takeaway-heading-center h2 {
+        font-size: 2.3rem;
+        font-weight: 700;
+        background: linear-gradient(135deg, #ffffff 20%, #b9d0ff 80%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+      }
+      .heading-underline {
+        width: 70px;
+        height: 3px;
+        background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+        margin: 0.8rem auto 0;
+        border-radius: 3px;
+      }
+      .subhead {
+        font-size: 0.95rem;
+        color: #9ca9c7;
+        margin-top: 0.6rem;
+      }
+      .takeaway-grid-symmetry {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem 2.2rem;
+      }
+      .takeaway-col-premium {
+        display: flex;
+        flex-direction: column;
+        gap: 1.6rem;
+      }
+      .insight-card {
+        display: flex;
+        align-items: flex-start;
+        gap: 1.2rem;
+        background: rgba(15, 25, 45, 0.65);
+        backdrop-filter: blur(2px);
+        padding: 1.2rem 1.4rem;
+        border-radius: 28px;
+        border: 1px solid rgba(59, 130, 246, 0.2);
+        transition: all 0.25s ease;
+      }
+      .insight-card:hover {
+        background: rgba(30, 45, 75, 0.8);
+        border-color: rgba(96, 165, 250, 0.6);
+        transform: translateY(-3px);
+      }
+      .icon-luxury {
+        flex-shrink: 0;
+        width: 48px;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(145deg, #1e2a44, #0f172f);
+        border-radius: 20px;
+        color: #60a5fa;
+        transition: all 0.2s;
+      }
+      .insight-title {
+        font-weight: 700;
+        font-size: 1.08rem;
+        margin-bottom: 0.35rem;
+        color: #f0f4ff;
+      }
+      .insight-desc {
+        font-size: 0.85rem;
+        line-height: 1.45;
+        color: #b9c7e6;
+      }
+      @media (max-width: 780px) {
+        .takeaway-grid-symmetry {
+          grid-template-columns: 1fr;
+        }
+        .takeaway-heading-center h2 {
+          font-size: 1.85rem;
+        }
+      }
+    </style>
+    <section class="takeaway-luminary-module">
+      <div class="takeaway-inner">
+        <div class="takeaway-badge">
+          <div class="premium-tag">
+            <svg
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              width="14"
+              height="14"
+            >
+              <circle cx="12" cy="12" r="3" /></svg
+            ><span>Limited seats · live webinar</span>
+          </div>
+        </div>
+        <div class="takeaway-heading-center">
+          <h2>What You’ll Learn</h2>
+          <div class="heading-underline"></div>
+          <div class="subhead">
+            Practical AI frameworks · professional edge · responsible innovation
+          </div>
+        </div>
+        <div class="takeaway-grid-symmetry">
+          <div class="takeaway-col-premium">
+            <div class="insight-card">
+              <div class="icon-luxury"><i class="fas fa-chart-line"></i></div>
+              <div class="insight-text">
+                <div class="insight-title">AI strengths & limitations</div>
+                <div class="insight-desc">
+                  Understand where AI excels and its blind spots.
+                </div>
+              </div>
+            </div>
+            <div class="insight-card">
+              <div class="icon-luxury"><i class="fas fa-users"></i></div>
+              <div class="insight-text">
+                <div class="insight-title">Human-in-the-loop ethics</div>
+                <div class="insight-desc">
+                  Maintain critical oversight, combining automation with human
+                  judgment.
+                </div>
+              </div>
+            </div>
+            <div class="insight-card">
+              <div class="icon-luxury"><i class="fas fa-brain"></i></div>
+              <div class="insight-text">
+                <div class="insight-title">AI as strategic collaborator</div>
+                <div class="insight-desc">
+                  Adopt AI as a thinking partner for complex workflows.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="takeaway-col-premium">
+            <div class="insight-card">
+              <div class="icon-luxury"><i class="fas fa-file-alt"></i></div>
+              <div class="insight-text">
+                <div class="insight-title">Prompt library & idea ignition</div>
+                <div class="insight-desc">
+                  Brainstorm breakthrough ideas, create reusable prompt
+                  templates.
+                </div>
+              </div>
+            </div>
+            <div class="insight-card">
+              <div class="icon-luxury"><i class="fas fa-filter"></i></div>
+              <div class="insight-text">
+                <div class="insight-title">Prompt cleaning technique</div>
+                <div class="insight-desc">
+                  Deconstruct multi-step challenges for accurate AI outputs.
+                </div>
+              </div>
+            </div>
+            <div class="insight-card">
+              <div class="icon-luxury"><i class="fas fa-image"></i></div>
+              <div class="insight-text">
+                <div class="insight-title">Visual AI & email mastery</div>
+                <div class="insight-desc">
+                  Generate custom images and draft clear, effective emails.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SECTION 6: SPEAKER SECTION ========== -->
+    <style>
+      .speaker-section-rohit {
+        width: 100%;
+        background: #ffffff;
+        border-bottom: 1px solid #e2edf2;
+        border-top: 1px solid #e2edf2;
+        padding: 2rem 1.5rem;
+      }
+      .speaker-inner {
+        max-width: 1280px;
+        margin: 0 auto;
+        width: 100%;
+      }
+      .speaker-heading-simple {
+        font-size: 1.8rem;
+        font-weight: 600;
+        color: #1a4c6e;
+        margin-bottom: 2rem;
+        border-bottom: 3px solid #cbdde9;
+        display: inline-block;
+      }
+      .speaker-simple-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+        align-items: flex-start;
+      }
+      .speaker-image-block {
+        flex: 1;
+        min-width: 220px;
+      }
+      .profile-img-placeholder {
+        width: 100%;
+        max-width: 280px;
+        margin: 0 auto;
+        background: #eef3fa;
+        border-radius: 32px;
+        overflow: hidden;
+        box-shadow: 0 12px 22px -12px rgba(0, 0, 0, 0.1);
+      }
+      .speaker-real-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        border-radius: 32px;
+      }
+      .speaker-name-large {
+        font-size: 1.7rem;
+        font-weight: 700;
+        color: #0f2c3f;
+        margin-top: 1.2rem;
+        text-align: center;
+      }
+      .speaker-current-role {
+        background: #eef3fa;
+        padding: 0.4rem 1rem;
+        border-radius: 40px;
+        font-size: 0.85rem;
+        font-weight: 500;
+        color: #1a6b8f;
+        display: inline-block;
+      }
+      .speaker-details-block {
+        flex: 2;
+        min-width: 260px;
+      }
+      .details-grid-simple {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        gap: 1rem;
+      }
+      .cred-item {
+        background: #fefefe;
+        border: 1px solid #e4edf2;
+        border-radius: 20px;
+        padding: 1rem 1rem;
+        display: flex;
+        align-items: flex-start;
+        gap: 0.9rem;
+      }
+      .cred-icon {
+        flex-shrink: 0;
+        width: 36px;
+        height: 36px;
+        background: #e6f0f7;
+        border-radius: 18px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .cred-icon i {
+        color: #2b6a8c;
+        font-size: 1rem;
+      }
+      .cred-label {
+        font-weight: 700;
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        color: #427a9b;
+        margin-bottom: 0.3rem;
+      }
+      .cred-text {
+        font-size: 0.92rem;
+        color: #1f2e3c;
+      }
+    </style>
+    <section class="speaker-section-rohit">
+      <div class="speaker-inner">
+        <div class="speaker-heading-simple">Meet our Best Speaker</div>
+        <div class="speaker-simple-grid">
+          <div class="speaker-image-block">
+            <div class="profile-img-placeholder">
+              <img
+                class="speaker-real-image"
+                src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=400&fit=crop"
+                alt="Rohit Srivastava"
+                loading="eager"
+              />
+            </div>
+            <div class="speaker-name-large">Rohit Srivastava</div>
+            <div class="role-wrapper">
+              <span class="speaker-current-role"
+                ><i class="fas fa-briefcase"></i> Clinical Professor</span
+              >
+            </div>
+            <div
+              style="
+                text-align: center;
+                margin-top: 0.6rem;
+                font-size: 0.85rem;
+                color: #2c5e7e;
+              "
+            >
+              University of Michigan<br />School of Information
+            </div>
+          </div>
+          <div class="speaker-details-block">
+            <div class="details-grid-simple">
+              <div class="cred-item">
+                <div class="cred-icon"><i class="fas fa-code"></i></div>
+                <div class="cred-content">
+                  <div class="cred-label">Specialisation</div>
+                  <div class="cred-text">
+                    Teaches open-source technology — Python & Web Design.
+                  </div>
+                </div>
+              </div>
+              <div class="cred-item">
+                <div class="cred-icon"><i class="fas fa-book"></i></div>
+                <div class="cred-content">
+                  <div class="cred-label">Authorship</div>
+                  <div class="cred-text">
+                    Wrote “Using Google App Engine” · Currently writing “Python
+                    for Informatics”.
+                  </div>
+                </div>
+              </div>
+              <div class="cred-item">
+                <div class="cred-icon"><i class="fas fa-chalkboard"></i></div>
+                <div class="cred-content">
+                  <div class="cred-label">Leadership</div>
+                  <div class="cred-text">
+                    Chairs IMS Learning Tools Interoperability (LTI) standards
+                    group.
+                  </div>
+                </div>
+              </div>
+              <div class="cred-item">
+                <div class="cred-icon"><i class="fas fa-university"></i></div>
+                <div class="cred-content">
+                  <div class="cred-label">Academic History</div>
+                  <div class="cred-text">
+                    Taught at Michigan State University 1983-2009.
+                  </div>
+                </div>
+              </div>
+              <div class="cred-item">
+                <div class="cred-icon"><i class="fas fa-certificate"></i></div>
+                <div class="cred-content">
+                  <div class="cred-label">Technical Milestones</div>
+                  <div class="cred-text">
+                    One of the first Microsoft Certified Systems Engineers
+                    (MCSE).
+                  </div>
+                </div>
+              </div>
+              <div class="cred-item">
+                <div class="cred-icon">
+                  <i class="fas fa-chalkboard-user"></i>
+                </div>
+                <div class="cred-content">
+                  <div class="cred-label">Current Role</div>
+                  <div class="cred-text">
+                    Clinical Professor at University of Michigan School of
+                    Information.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SECTION 7: LIVE DEMO ========== -->
+    <style>
+      .rmi-insight-section {
+        background: #ffffff;
+        width: 100%;
+        padding: 48px 0;
+      }
+      .rmi-insight-container {
+        max-width: 1120px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+      .rmi-insight-card {
+        background: linear-gradient(105deg, #0f172a 0%, #1e293b 100%);
+        border-radius: 32px;
+        padding: 32px 36px;
+        color: white;
+        box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.15);
+      }
+      .rmi-insight-flex {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 32px;
+        align-items: center;
+      }
+      .rmi-insight-content {
+        flex: 1.2;
+        min-width: 220px;
+      }
+      .rmi-insight-visual {
+        flex: 0.75;
+        min-width: 180px;
+        background: rgba(255, 255, 255, 0.04);
+        backdrop-filter: blur(2px);
+        border-radius: 28px;
+        padding: 24px 20px;
+        text-align: center;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        transition: all 0.2s;
+      }
+      .rmi-badge-live {
+        background: #facc15;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 4px 14px;
+        border-radius: 60px;
+        font-weight: 700;
+        font-size: 0.7rem;
+        color: #0f172a;
+      }
+      .rmi-insight-heading {
+        color: white;
+        margin: 20px 0 12px;
+        font-size: 1.75rem;
+        font-weight: 700;
+      }
+      .rmi-insight-description {
+        font-size: 0.95rem;
+        opacity: 0.88;
+      }
+      .rmi-feature-list {
+        margin-top: 22px;
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+      .rmi-feature-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 0.9rem;
+      }
+      .rmi-feature-item i {
+        color: #facc15;
+        width: 20px;
+      }
+      .rmi-visual-icon-wrapper {
+        position: relative;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 16px;
+        animation: rmi-float 3s ease-in-out infinite;
+      }
+      .rmi-visual-icon {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        background: rgba(250, 204, 21, 0.12);
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        border: 1px solid rgba(250, 204, 21, 0.2);
+      }
+      .rmi-visual-icon i {
+        font-size: 32px;
+        color: #facc15;
+      }
+      .rmi-visual-pulse {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        background: rgba(250, 204, 21, 0.2);
+        animation: rmi-pulse-ring 2s ease-out infinite;
+      }
+      @keyframes rmi-pulse-ring {
+        0% {
+          width: 70px;
+          height: 70px;
+          opacity: 0.6;
+        }
+        100% {
+          width: 110px;
+          height: 110px;
+          opacity: 0;
+        }
+      }
+      @keyframes rmi-float {
+        0%,
+        100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-4px);
+        }
+      }
+      @media (max-width: 780px) {
+        .rmi-insight-card {
+          padding: 28px 24px;
+        }
+        .rmi-insight-heading {
+          font-size: 1.45rem;
+        }
+        .rmi-insight-flex {
+          flex-direction: column;
+        }
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <section class="rmi-insight-section">
+      <div class="rmi-insight-container">
+        <div class="rmi-insight-card">
+          <div class="rmi-insight-flex">
+            <div class="rmi-insight-content">
+              <div class="rmi-badge-live">
+                <i class="fas fa-broadcast-tower"></i><span>LIVE DEMO</span>
+              </div>
+              <h2 class="rmi-insight-heading">
+                Practical Insight: RMI in real market conditions
+              </h2>
+              <p class="rmi-insight-description">
+                Watch Rohit apply RMI on live charts — Nifty, Bank Nifty & crude
+                oil.
+              </p>
+              <ul class="rmi-feature-list">
+                <li class="rmi-feature-item">
+                  <i class="fas fa-check-circle"></i
+                  ><span>Live trade set-up walkthrough</span>
+                </li>
+                <li class="rmi-feature-item">
+                  <i class="fas fa-code-branch"></i
+                  ><span>How to adapt RMI to different timeframes</span>
+                </li>
+                <li class="rmi-feature-item">
+                  <i class="fas fa-chart-line"></i
+                  ><span>Real-time entries & exits across asset classes</span>
+                </li>
+              </ul>
+            </div>
+            <div class="rmi-insight-visual">
+              <div class="rmi-visual-icon-wrapper">
+                <div class="rmi-visual-icon">
+                  <i class="fas fa-chart-line"></i>
+                </div>
+                <div class="rmi-visual-pulse"></div>
+              </div>
+              <div class="rmi-visual-title">Real-time case study</div>
+              <div class="rmi-visual-sub">NSE, MCX examples</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SECTION 8: TESTIMONIALS ========== -->
+    <style>
+      .strike-testimonials-wrapper {
+        width: 100%;
+        background: #0b1120;
+        padding: 3.5rem 0 4rem 0;
+      }
+      .strike-container {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+      .strike-heading-row {
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+      .strike-testimonials-heading {
+        font-size: 2.1rem;
+        font-weight: 700;
+        background: linear-gradient(135deg, #ffffff 0%, #b9d0ff 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        margin-bottom: 1rem;
+      }
+      .strike-trust-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 16px;
+        background: rgba(30, 41, 59, 0.8);
+        backdrop-filter: blur(4px);
+        padding: 10px 24px;
+        border-radius: 60px;
+        border: 1px solid #334155;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .google-icon-wrapper {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: #1e293b;
+        padding: 5px 14px;
+        border-radius: 40px;
+      }
+      .platform-rating {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 0.85rem;
+        color: #facc15;
+        background: #1e293b;
+        padding: 5px 14px;
+        border-radius: 40px;
+      }
+      .strike-slider-area {
+        position: relative;
+        overflow: hidden;
+        padding: 1rem 0 2rem 0;
+      }
+      .strike-slider-mask {
+        overflow: hidden;
+        width: 100%;
+      }
+      .strike-slider-track {
+        display: flex;
+        gap: 28px;
+        transition: transform 0.45s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+        will-change: transform;
+      }
+      .strike-testi-card {
+        flex: 0 0 320px;
+        background: #111827;
+        border-radius: 28px;
+        border: 1px solid #1f2a44;
+        padding-top: 48px;
+        margin-top: 12px;
+        position: relative;
+      }
+      .strike-testi-avatar {
+        position: absolute;
+        top: -36px;
+        left: 28px;
+        width: 74px;
+        height: 74px;
+        border-radius: 50%;
+        border: 3px solid #0b1120;
+        overflow: hidden;
+      }
+      .strike-testi-avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .strike-testi-inner {
+        padding: 0 22px 28px 22px;
+      }
+      .strike-testi-name h4 {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: white;
+      }
+      .strike-testi-name span {
+        font-size: 0.7rem;
+        color: #94a3b8;
+        display: block;
+      }
+      .strike-rating {
+        background: #1e2a3e;
+        padding: 4px 10px;
+        border-radius: 40px;
+        font-size: 0.8rem;
+        color: #facc15;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .strike-testimonial-text {
+        font-size: 0.9rem;
+        line-height: 1.5;
+        color: #cfdfed;
+        margin: 16px 0 18px 0;
+      }
+      .strike-footer-meta {
+        font-size: 0.7rem;
+        color: #6c86a3;
+        border-top: 1px solid #1e2a3a;
+        padding-top: 14px;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+      }
+      .strike-slider-nav {
+        display: flex;
+        justify-content: flex-end;
+        gap: 12px;
+        margin-top: 20px;
+      }
+      .strike-arrow {
+        background: #1e293b;
+        width: 44px;
+        height: 44px;
+        border-radius: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        font-size: 1.7rem;
+        color: #cbd5e1;
+        transition: 0.2s;
+        border: 1px solid #334155;
+      }
+      .strike-dots {
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+        margin-top: 12px;
+      }
+      .strike-dot {
+        width: 8px;
+        height: 8px;
+        background: #334155;
+        border-radius: 10px;
+        cursor: pointer;
+      }
+      .strike-dot.active {
+        width: 28px;
+        background: #facc15;
+      }
+      @media (max-width: 760px) {
+        .strike-testi-card {
+          flex: 0 0 280px;
+        }
+      }
+    </style>
+    <div class="strike-testimonials-wrapper">
+      <div class="strike-container">
+        <div class="strike-heading-row">
+          <h2 class="strike-testimonials-heading">
+            Trusted by Traders Worldwide
+          </h2>
+          <div class="strike-trust-badge">
+            <div class="google-icon-wrapper">
+              <i class="fab fa-google" style="color: #34a853"></i
+              ><span style="color: #e2e8f0; font-size: 0.75rem"
+                >Google Business</span
+              >
+            </div>
+            <div class="platform-rating">
+              <i class="fas fa-star"></i><span>4.9</span
+              ><span style="color: #94a3b8">(1,280+ reviews)</span>
+            </div>
+          </div>
+        </div>
+        <div class="strike-slider-area">
+          <div class="strike-slider-mask">
+            <div class="strike-slider-track" id="strikeSliderTrack">
+              <div class="strike-testi-card">
+                <div class="strike-testi-avatar">
+                  <img
+                    src="https://randomuser.me/api/portraits/men/32.jpg"
+                    alt="user"
+                  />
+                </div>
+                <div class="strike-testi-inner">
+                  <div class="strike-testi-header">
+                    <div class="strike-testi-name">
+                      <h4>Dr. Rajesh Gupta</h4>
+                      <span>Doctor; Trader</span>
+                    </div>
+                    <div class="strike-rating">
+                      <i class="fas fa-star"></i> 5.0
+                    </div>
+                  </div>
+                  <p class="strike-testimonial-text">
+                    "Strike Money transformed my trading approach. Sentiment
+                    indicators give me the edge."
+                  </p>
+                  <div class="strike-footer-meta">
+                    <span>Strike user · Mar 2021</span>
+                  </div>
+                </div>
+              </div>
+              <div class="strike-testi-card">
+                <div class="strike-testi-avatar">
+                  <img
+                    src="https://randomuser.me/api/portraits/men/45.jpg"
+                    alt="user"
+                  />
+                </div>
+                <div class="strike-testi-inner">
+                  <div class="strike-testi-header">
+                    <div class="strike-testi-name">
+                      <h4>Rikin Jariwala</h4>
+                      <span>Professional</span>
+                    </div>
+                    <div class="strike-rating">
+                      <i class="fas fa-star"></i> 5.0
+                    </div>
+                  </div>
+                  <p class="strike-testimonial-text">
+                    "Strike Money has completely transformed how I approach
+                    trading."
+                  </p>
+                  <div class="strike-footer-meta">
+                    <span>Verified · Mar 2021</span>
+                  </div>
+                </div>
+              </div>
+              <div class="strike-testi-card">
+                <div class="strike-testi-avatar">
+                  <img
+                    src="https://randomuser.me/api/portraits/men/76.jpg"
+                    alt="user"
+                  />
+                </div>
+                <div class="strike-testi-inner">
+                  <div class="strike-testi-header">
+                    <div class="strike-testi-name">
+                      <h4>Tejas Shah</h4>
+                      <span>Full-time Trader</span>
+                    </div>
+                    <div class="strike-rating">
+                      <i class="fas fa-star"></i> 5.0
+                    </div>
+                  </div>
+                  <p class="strike-testimonial-text">
+                    "Strike Money has completely transformed how I approach
+                    trading."
+                  </p>
+                  <div class="strike-footer-meta">
+                    <span>Strike user · Mar 2021</span>
+                  </div>
+                </div>
+              </div>
+              <div class="strike-testi-card">
+                <div class="strike-testi-avatar">
+                  <img
+                    src="https://randomuser.me/api/portraits/women/68.jpg"
+                    alt="user"
+                  />
+                </div>
+                <div class="strike-testi-inner">
+                  <div class="strike-testi-header">
+                    <div class="strike-testi-name">
+                      <h4>Neha Mehta</h4>
+                      <span>Analyst</span>
+                    </div>
+                    <div class="strike-rating">
+                      <i class="fas fa-star"></i> 5.0
+                    </div>
+                  </div>
+                  <p class="strike-testimonial-text">
+                    "The webinars and tools at Strike are unmatched. Highly
+                    recommended!"
+                  </p>
+                  <div class="strike-footer-meta">
+                    <span>Verified · Jan 2024</span>
+                  </div>
+                </div>
+              </div>
+              <div class="strike-testi-card">
+                <div class="strike-testi-avatar">
+                  <img
+                    src="https://randomuser.me/api/portraits/men/52.jpg"
+                    alt="user"
+                  />
+                </div>
+                <div class="strike-testi-inner">
+                  <div class="strike-testi-header">
+                    <div class="strike-testi-name">
+                      <h4>Amit Khanna</h4>
+                      <span>Derivatives Trader</span>
+                    </div>
+                    <div class="strike-rating">
+                      <i class="fas fa-star"></i> 4.9
+                    </div>
+                  </div>
+                  <p class="strike-testimonial-text">
+                    "Strike's options analytics and heatmaps are next-level."
+                  </p>
+                  <div class="strike-footer-meta">
+                    <span>Pro Member · Nov 2023</span>
+                  </div>
+                </div>
+              </div>
+              <div class="strike-testi-card">
+                <div class="strike-testi-avatar">
+                  <img
+                    src="https://randomuser.me/api/portraits/women/33.jpg"
+                    alt="user"
+                  />
+                </div>
+                <div class="strike-testi-inner">
+                  <div class="strike-testi-header">
+                    <div class="strike-testi-name">
+                      <h4>Priya Srinivasan</h4>
+                      <span>Portfolio Manager</span>
+                    </div>
+                    <div class="strike-rating">
+                      <i class="fas fa-star"></i> 5.0
+                    </div>
+                  </div>
+                  <p class="strike-testimonial-text">
+                    "Finally a platform that combines institutional-grade data
+                    with a clean UI."
+                  </p>
+                  <div class="strike-footer-meta">
+                    <span>Finance Pro · Feb 2024</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="strike-slider-nav">
+            <div class="strike-arrow" id="strikePrevBtn">←</div>
+            <div class="strike-arrow" id="strikeNextBtn">→</div>
+          </div>
+          <div class="strike-dots" id="strikeDotsContainer"></div>
+        </div>
+      </div>
+    </div>
+    <script>
+      (function () {
+        let track = document.getElementById("strikeSliderTrack");
+        let slides = Array.from(track.children);
+        let current = 0;
+        let cardWidth = 0,
+          gap = 28;
+        let timer;
+        function updateDim() {
+          if (!slides[0]) return;
+          cardWidth = slides[0].getBoundingClientRect().width;
+          let style = getComputedStyle(track);
+          let g = style.gap;
+          if (g && g !== "normal") gap = parseFloat(g) || 28;
+        }
+        function apply(animate = true) {
+          let offset = current * (cardWidth + gap);
+          if (animate)
+            track.style.transition =
+              "transform 0.45s cubic-bezier(0.2,0.9,0.4,1.1)";
+          else track.style.transition = "none";
+          track.style.transform = `translateX(-${offset}px)`;
+        }
+        function updateDots() {
+          let dotsWrap = document.getElementById("strikeDotsContainer");
+          if (!dotsWrap) return;
+          let html = "";
+          for (let i = 0; i < slides.length; i++)
+            html += `<div class="strike-dot ${i === current ? "active" : ""}" data-idx="${i}"></div>`;
+          dotsWrap.innerHTML = html;
+          document.querySelectorAll(".strike-dot").forEach((d) =>
+            d.addEventListener("click", function () {
+              let idx = parseInt(this.getAttribute("data-idx"), 10);
+              if (!isNaN(idx) && idx !== current) {
+                current = idx;
+                apply(true);
+                resetAuto();
+              }
+            }),
+          );
+        }
+        function next() {
+          if (slides.length === 0) return;
+          current = (current + 1) % slides.length;
+          apply(true);
+          resetAuto();
+        }
+        function prev() {
+          if (slides.length === 0) return;
+          current = (current - 1 + slides.length) % slides.length;
+          apply(true);
+          resetAuto();
+        }
+        function resetAuto() {
+          if (timer) clearInterval(timer);
+          timer = setInterval(() => {
+            next();
+          }, 4000);
+        }
+        document
+          .getElementById("strikePrevBtn")
+          ?.addEventListener("click", prev);
+        document
+          .getElementById("strikeNextBtn")
+          ?.addEventListener("click", next);
+        window.addEventListener("resize", () => {
+          updateDim();
+          apply(false);
+          updateDots();
+        });
+        updateDim();
+        apply(false);
+        updateDots();
+        resetAuto();
+      })();
+    </script>
+
+    <!-- ========== SECTION 9: FAQ ACCORDION ========== -->
+    <style>
+      .strike-faq-wrapper {
+        width: 100%;
+        background: #ffffff;
+        padding: 2.8rem 1.5rem;
+      }
+      .strike-faq-heading {
+        font-size: 1.9rem;
+        font-weight: 700;
+        background: linear-gradient(105deg, #2c5f8a, #1f4e73);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        margin-bottom: 2rem;
+        border-bottom: 2px solid #eef2f8;
+        display: inline-block;
+      }
+      .strike-faq-grid {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 1rem 1.8rem;
+      }
+      .strike-faq-item {
+        background: #ffffff;
+        border-radius: 20px;
+        border: 1px solid #edf2f7;
+        overflow: hidden;
+      }
+      .strike-faq-question {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 1.25rem;
+        font-weight: 600;
+        font-size: 1rem;
+        color: #1a2c3e;
+        cursor: pointer;
+      }
+      .strike-faq-icon {
+        flex-shrink: 0;
+        width: 20px;
+        height: 20px;
+        transition: transform 0.25s;
+      }
+      .strike-faq-item.active .strike-faq-icon {
+        transform: rotate(180deg);
+      }
+      .strike-faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.35s ease-out;
+        background: #ffffff;
+        padding: 0 1.25rem;
+        font-size: 0.9rem;
+        color: #2c3f4f;
+      }
+      .strike-faq-item.active .strike-faq-answer {
+        max-height: 280px;
+        padding: 0 1.25rem 1.1rem 1.25rem;
+        border-top: 1px solid #eff3f9;
+      }
+    </style>
+    <div class="strike-faq-wrapper">
+      <div class="strike-container">
+        <h2 class="strike-faq-heading">Frequently asked questions</h2>
+        <div class="strike-faq-grid">
+          <div class="strike-faq-item">
+            <div class="strike-faq-question">
+              <span>Who founded Strike?</span
+              ><span class="strike-faq-icon"
+                ><i class="fas fa-chevron-down"></i
+              ></span>
+            </div>
+            <div class="strike-faq-answer">
+              <p>
+                Rohit Srivastava, founder of Indiacharts.com, is the driving
+                force behind Strike with 30+ years experience.
+              </p>
+            </div>
+          </div>
+          <div class="strike-faq-item">
+            <div class="strike-faq-question">
+              <span>When is Strike founded?</span
+              ><span class="strike-faq-icon"
+                ><i class="fas fa-chevron-down"></i
+              ></span>
+            </div>
+            <div class="strike-faq-answer">
+              <p>
+                Strike was founded in 2023 as an all-in-one stock market
+                analytical platform.
+              </p>
+            </div>
+          </div>
+          <div class="strike-faq-item">
+            <div class="strike-faq-question">
+              <span>Where is the Strike Headquarters?</span
+              ><span class="strike-faq-icon"
+                ><i class="fas fa-chevron-down"></i
+              ></span>
+            </div>
+            <div class="strike-faq-answer">
+              <p>Headquarters located in Mumbai, India with global reach.</p>
+            </div>
+          </div>
+          <div class="strike-faq-item">
+            <div class="strike-faq-question">
+              <span>Who are the Researchers in Strike?</span
+              ><span class="strike-faq-icon"
+                ><i class="fas fa-chevron-down"></i
+              ></span>
+            </div>
+            <div class="strike-faq-answer">
+              <p>
+                Dedicated team of market analysts, data scientists, and
+                SEBI-registered research analysts.
+              </p>
+            </div>
+          </div>
+          <div class="strike-faq-item">
+            <div class="strike-faq-question">
+              <span>What are the Services of Strike?</span
+              ><span class="strike-faq-icon"
+                ><i class="fas fa-chevron-down"></i
+              ></span>
+            </div>
+            <div class="strike-faq-answer">
+              <p>
+                Analytics tools, scanners, options data, sentiment indicators,
+                heatmaps, and educational webinars.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      (function () {
+        document.querySelectorAll(".strike-faq-item").forEach((item) => {
+          const q = item.querySelector(".strike-faq-question");
+          q.addEventListener("click", () => {
+            item.classList.toggle("active");
+          });
+        });
+      })();
+    </script>
+
+    <!-- ========== SECTION 10: FINAL CTA + COUNTDOWN + FOOTER ========== -->
+    <style>
+      .cta-section-new {
+        background: #0b1120;
+        color: #fff;
+        width: 100%;
+      }
+      .cta-inner {
+        max-width: 1350px;
+        margin: 0 auto;
+        padding: 60px 40px;
+        display: flex;
+        gap: 60px;
+        align-items: flex-start;
+        flex-wrap: wrap;
+      }
+      .cta-left-new {
+        flex: 0 0 45%;
+        max-width: 45%;
+      }
+      .logo-text {
+        font-size: 20px;
+        font-weight: 700;
+        margin-bottom: 5px;
+      }
+      .sub-logo {
+        color: #4da3ff;
+        font-size: 12px;
+        margin-bottom: 20px;
+      }
+      .chart {
+        background: #0b1f44;
+        border-radius: 12px;
+        padding: 12px;
+      }
+      .chart img {
+        width: 100%;
+        border-radius: 8px;
+      }
+      .features {
+        margin-top: 16px;
+        font-size: 13px;
+        color: #bcd1ff;
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+      .cta-btn-new {
+        margin-top: 24px;
+        width: 100%;
+        background: #2f6bff;
+        padding: 14px;
+        border: none;
+        color: #fff;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: 700;
+      }
+      .cta-right-new {
+        flex: 0 0 55%;
+        max-width: 55%;
+      }
+      .cta-right-new h2 {
+        font-size: 32px;
+        margin-bottom: 12px;
+      }
+      .list-item {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 24px;
+        gap: 14px;
+      }
+      .icon-check {
+        width: 22px;
+        height: 22px;
+        border: 2px solid #2f6bff;
+        border-radius: 50%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .icon-check::after {
+        content: "✓";
+        font-size: 12px;
+        color: #2f6bff;
+      }
+      .review {
+        margin-top: 32px;
+        background: rgba(255, 255, 255, 0.08);
+        padding: 20px 24px;
+        border-radius: 12px;
+        border-left: 3px solid #2f6bff;
+      }
+      .stars {
+        color: #ffc107;
+        margin-bottom: 10px;
+      }
+      .stats-new {
+        background: #06142e;
+        display: flex;
+        justify-content: space-around;
+        padding: 32px 40px;
+        flex-wrap: wrap;
+        gap: 30px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .stat-item h3 {
+        font-size: 28px;
+        font-weight: 700;
+      }
+      .stat-item p {
+        color: #8ba3cc;
+      }
+      @media (max-width: 768px) {
+        .cta-left-new,
+        .cta-right-new {
+          flex: 0 0 100%;
+          max-width: 100%;
+        }
+        .cta-inner {
+          flex-direction: column;
+        }
+      }
+    </style>
+    <div class="cta-section-new">
+      <div class="cta-inner">
+        <div class="cta-left-new">
+          <div class="logo-text">Strike</div>
+          <div class="sub-logo">PROFESSIONAL TRADING PLATFORM</div>
+          <div class="chart">
+            <img
+              src="https://www.strike.money/v2/_next/static/media/futures.d9d4dd4e.avif"
+              alt="Market Chart"
+            />
+          </div>
+          <div class="features">
+            <span>• Real-time market data</span
+            ><span>• Advanced charting tools</span>
+          </div>
+          <button class="cta-btn-new" id="ctaBtnNew">Start Trading Now</button>
+        </div>
+        <div class="cta-right-new">
+          <h2>Get Market Insights Delivered Quickly</h2>
+          <p>
+            Join 100,000+ traders receiving exclusive newsletter with market
+            analysis.
+          </p>
+          <div class="list-item">
+            <div class="icon-check"></div>
+            <div>
+              <h4>Weekly Market Analysis</h4>
+              <p>Expert insights on market trends</p>
+            </div>
+          </div>
+          <div class="list-item">
+            <div class="icon-check"></div>
+            <div>
+              <h4>Free Trading Guide (Worth ₹7,999)</h4>
+              <p>Comprehensive beginner guide</p>
+            </div>
+          </div>
+          <div class="review">
+            <div class="stars">★★★★★</div>
+            <p>"Strike's newsletter transformed my trading approach."</p>
+            <span>— Amit Sharma</span>
+          </div>
+        </div>
+      </div>
+      <div class="stats-new">
+        <div class="stat-item">
+          <h3>50K+</h3>
+          <p>Active Traders</p>
+        </div>
+        <div class="stat-item">
+          <h3>$2.5B+</h3>
+          <p>Trading Volume</p>
+        </div>
+        <div class="stat-item">
+          <h3>150+</h3>
+          <p>Markets Covered</p>
+        </div>
+        <div class="stat-item">
+          <h3>24/7</h3>
+          <p>Support Available</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Countdown & final small CTA -->
+    <style>
+      .live-urgency-session {
+        background: #ffffff;
+        width: 100%;
+      }
+      .urgency-wrapper {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 5rem 3.5rem;
+      }
+      .urgency-box-modern {
+        background: #ffffff;
+        border-radius: 28px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+        padding: 3.25rem 4rem;
+        border: 1px solid #f0ebe4;
+      }
+      .urgency-layout {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1.5rem;
+      }
+      .session-headline {
+        font-size: 1.65rem;
+        font-weight: 700;
+        background: linear-gradient(95deg, #e67e22, #f39c12);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+      }
+      .countdown-live-block {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.65rem;
+        background: #fffaf2;
+        padding: 0.45rem 1.2rem;
+        border-radius: 60px;
+        margin: 0.75rem 0;
+        font-weight: 700;
+        font-size: 1.25rem;
+        color: #b45309;
+      }
+      .btn-live-seat {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.7rem;
+        background: linear-gradient(95deg, #e67e22, #f39c12);
+        color: white;
+        font-weight: 600;
+        padding: 0.8rem 1.8rem;
+        border-radius: 60px;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+      @media (max-width: 780px) {
+        .urgency-wrapper {
+          padding: 1rem;
+        }
+        .urgency-box-modern {
+          padding: 1.5rem;
+        }
+        .urgency-layout {
+          flex-direction: column;
+        }
+      }
+    </style>
+    <section class="live-urgency-session">
+      <div class="urgency-wrapper">
+        <div class="urgency-box-modern">
+          <div class="urgency-layout">
+            <div>
+              <h2 class="session-headline">
+                Limited Seats – Live Session Only
+              </h2>
+              <p>
+                We're capping attendance.
+                <strong>Only 187 spots left</strong> as of today.
+              </p>
+              <div class="countdown-live-block">
+                <i class="fas fa-hourglass-half"></i
+                ><span id="dynamicCountdownText">--h --m --s</span>
+              </div>
+              <div>
+                <i class="fas fa-shield-alt"></i> No recordings will be shared
+                for free. Secure your live seat now.
+              </div>
+            </div>
+            <div>
+              <button class="btn-live-seat" id="reserveLiveBtn">
+                <i class="fas fa-clock"></i> Reserve My Seat – Join Live
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script>
+      (function () {
+        let target = new Date(Date.now() + 23 * 60 * 60 * 1000);
+        let timer = setInterval(() => {
+          let diff = target - Date.now();
+          if (diff <= 0) {
+            document.getElementById("dynamicCountdownText").innerText =
+              "00h 00m 00s";
+            clearInterval(timer);
+            return;
+          }
+          let h = Math.floor(diff / 3600000);
+          let m = Math.floor((diff % 3600000) / 60000);
+          let s = Math.floor((diff % 60000) / 1000);
+          document.getElementById("dynamicCountdownText").innerText =
+            `${h}h ${m.toString().padStart(2, "0")}m ${s.toString().padStart(2, "0")}s`;
+        }, 1000);
+        document
+          .getElementById("reserveLiveBtn")
+          ?.addEventListener("click", () =>
+            alert("Secure your seat for the live webinar!"),
+          );
+      })();
+    </script>
+
+    <footer
+      class="site-footer-simple"
+      style="
+        background: #071829;
+        text-align: center;
+        padding: 1.25rem;
+        color: #7c8ea6;
+      "
+    >
+      © 2025 · All rights reserved. Designed with clarity & purpose.
+    </footer>
+  </body>
+</html>
