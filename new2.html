@@ -6,13 +6,15 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, viewport-fit=cover"
     />
-    <title>Strike Footer | Dark Navy Blue</title>
-    <!-- Lucide Icons (official CDN) -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <!-- Google Fonts for clean typography -->
+    <title>RMI Live Demo | Risk Intelligence</title>
+    <!-- Google Fonts + Font Awesome 6 (free icons) -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap"
       rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     />
     <style>
       * {
@@ -22,382 +24,712 @@
       }
 
       body {
+        background: linear-gradient(135deg, #f8fafc 0%, #eef2ff 100%);
         font-family: "Inter", sans-serif;
-        background: #f0f2f5; /* light background to contrast footer */
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
+        color: #0a0f1c;
       }
 
-      /* dummy content to show footer sticks at bottom naturally */
-      .demo-content {
-        flex: 1;
-        padding: 2rem 1.5rem;
-        max-width: 1200px;
+      /* RMI live demo — COMPACT VERSION (reduced height) */
+      .rmi-live-compact {
+        max-width: 1400px;
         margin: 0 auto;
-        width: 100%;
-      }
-      .demo-content h1 {
-        font-weight: 600;
-        font-size: 1.8rem;
-        color: #0a1929;
-        margin-bottom: 1rem;
-      }
-      .demo-content p {
-        color: #1e2a3e;
-        line-height: 1.5;
-        margin-bottom: 1rem;
+        padding: 2rem 2rem 1.8rem 2rem;
+        position: relative;
       }
 
-      /* ----- FOOTER STYLES (dark navy blue, minimal height, responsive) ----- */
-      .strike-footer {
-        background-color: #0a1c2f; /* deep navy blue, elegant and dark */
-        color: #eef2ff;
-        width: 100%;
-        padding: 1.5rem 1.25rem 1.8rem 1.25rem;
-        font-size: 0.85rem;
-        border-top: 1px solid rgba(255, 255, 255, 0.06);
+      /* subtle background accent (minimal) */
+      .rmi-live-compact::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 300px;
+        height: 300px;
+        background: radial-gradient(
+          circle,
+          rgba(59, 130, 246, 0.04) 0%,
+          rgba(59, 130, 246, 0) 70%
+        );
+        pointer-events: none;
+        z-index: 0;
       }
 
-      /* main footer container - grid layout for responsiveness */
-      .footer-container {
-        max-width: 1280px;
-        margin: 0 auto;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        align-items: flex-start;
-        gap: 1.8rem 2rem;
+      /* HEADER — reduced margins & padding */
+      .rmi-header-compact {
+        margin-bottom: 1.5rem;
+        position: relative;
+        z-index: 2;
       }
 
-      /* left side: brand & description */
-      .footer-brand {
-        flex: 2;
-        min-width: 220px;
-      }
-      .brand-name {
-        font-size: 1.5rem;
-        font-weight: 600;
-        letter-spacing: -0.3px;
-        margin-bottom: 0.6rem;
-        color: white;
+      .live-badge-header {
         display: inline-flex;
         align-items: center;
-        gap: 0.4rem;
-      }
-      .brand-name i {
-        width: 28px;
-        height: 28px;
-        stroke-width: 1.8;
-      }
-      .tagline {
-        font-size: 0.85rem;
-        line-height: 1.4;
-        opacity: 0.85;
-        margin-bottom: 0.75rem;
-        max-width: 320px;
-      }
-      .founding {
-        font-size: 0.75rem;
-        opacity: 0.7;
-        margin-top: 0.25rem;
+        gap: 8px;
+        background: rgba(220, 38, 38, 0.08);
+        padding: 4px 14px 4px 12px;
+        border-radius: 40px;
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.3px;
+        color: #b91c1c;
+        border: 1px solid rgba(220, 38, 38, 0.2);
+        margin-bottom: 0.9rem;
       }
 
-      /* contact & support column */
-      .footer-contact {
-        flex: 1.2;
-        min-width: 180px;
+      .live-badge-header i {
+        font-size: 0.65rem;
       }
-      .footer-contact h4,
-      .footer-social h4 {
+
+      .pulse-dot {
+        display: inline-block;
+        width: 7px;
+        height: 7px;
+        background-color: #dc2626;
+        border-radius: 50%;
+        margin-right: 4px;
+        animation: pulseRed 1.5s infinite;
+      }
+
+      @keyframes pulseRed {
+        0% {
+          opacity: 0.4;
+          transform: scale(0.8);
+        }
+        100% {
+          opacity: 1;
+          transform: scale(1.2);
+          box-shadow: 0 0 5px #ef4444;
+        }
+      }
+
+      .rmi-header-compact h1 {
+        font-size: 2.2rem;
+        font-weight: 800;
+        line-height: 1.2;
+        background: linear-gradient(
+          125deg,
+          #0f172a 0%,
+          #1e1b4b 45%,
+          #2563eb 100%
+        );
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        margin-bottom: 0.5rem;
+        letter-spacing: -0.02em;
+      }
+
+      .header-sub-compact {
         font-size: 0.9rem;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-        margin-bottom: 1rem;
-        color: #cdddf7;
-        display: inline-flex;
-        align-items: center;
-        gap: 0.4rem;
-      }
-      .contact-detail {
+        line-height: 1.4;
+        color: #1e293b;
+        max-width: 750px;
+        font-weight: 450;
         display: flex;
-        align-items: center;
-        gap: 0.7rem;
-        margin-bottom: 0.8rem;
-        font-size: 0.85rem;
         flex-wrap: wrap;
-      }
-      .contact-detail i {
-        width: 18px;
-        height: 18px;
-        stroke-width: 1.8;
-        flex-shrink: 0;
-        opacity: 0.85;
-      }
-      .contact-detail a {
-        color: #eef2ff;
-        text-decoration: none;
-        transition: color 0.2s ease;
-        word-break: break-word;
-      }
-      .contact-detail a:hover {
-        color: #94b9ff;
-        text-decoration: underline;
-      }
-      .timing-row {
-        margin-top: 0.5rem;
-        display: flex;
         align-items: center;
-        gap: 0.7rem;
-        font-size: 0.8rem;
-        opacity: 0.85;
+        gap: 10px;
+        border-left: 3px solid #3b82f6;
+        padding-left: 1rem;
+        margin-bottom: 0.6rem;
       }
 
-      /* social media column */
-      .footer-social {
-        flex: 1;
-        min-width: 170px;
+      .header-sub-compact i {
+        color: #3b82f6;
+        font-size: 0.9rem;
       }
-      .social-icons {
+
+      .inline-metrics {
         display: flex;
         flex-wrap: wrap;
-        gap: 1rem;
-        align-items: center;
+        gap: 12px;
+        margin-top: 4px;
       }
-      .social-link {
+
+      .metric-chip-sm {
+        background: #ffffffcc;
+        backdrop-filter: blur(2px);
+        border-radius: 30px;
+        padding: 3px 12px;
+        font-size: 0.7rem;
+        font-weight: 500;
         display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        border: 1px solid #e2e8f0;
+      }
+
+      /* GRID - TIGHTER GAPS */
+      .rmi-grid-compact {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 1.2rem;
+        position: relative;
+        z-index: 2;
+      }
+
+      /* MAIN VIDEO CARD - REDUCED PADDING */
+      .demo-card-compact {
+        background: #ffffff;
+        border-radius: 24px;
+        box-shadow: 0 10px 25px -10px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        transition: transform 0.2s ease;
+        border: 1px solid rgba(148, 163, 184, 0.2);
+        height: 79%;
+      }
+
+      .demo-card-compact:hover {
+        transform: translateY(-2px);
+      }
+
+      .video-container {
+        position: relative;
+        width: 100%;
+        background: #030712;
+        aspect-ratio: 16 / 9;
+        cursor: pointer;
+        overflow: hidden;
+      }
+
+      .video-thumb {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+      }
+
+      .video-container:hover .video-thumb {
+        transform: scale(1.02);
+      }
+
+      .play-overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.35);
+        backdrop-filter: blur(2px);
+        display: flex;
         align-items: center;
         justify-content: center;
-        background: rgba(255, 255, 255, 0.08);
-        border-radius: 40px;
-        width: 36px;
-        height: 36px;
+      }
+
+      .play-icon-big {
+        width: 56px;
+        height: 56px;
+        background: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 22px;
+        color: #0f172a;
+        box-shadow: 0 8px 20px -6px rgba(0, 0, 0, 0.3);
         transition: all 0.2s ease;
-        color: #eef2ff;
-        text-decoration: none;
       }
-      .social-link i {
-        width: 20px;
-        height: 20px;
-        stroke-width: 1.7;
-      }
-      .social-link:hover {
-        background: rgba(255, 255, 255, 0.2);
-        transform: translateY(-2px);
-        color: white;
-      }
-      /* extra inline for x / youtube special (no extra style needed) */
 
-      /* bottom copyright line - minimal */
-      .footer-bottom {
-        text-align: center;
+      .play-icon-big i {
+        margin-left: 3px;
+      }
+
+      .video-container:hover .play-icon-big {
+        transform: scale(1.05);
+        color: #2563eb;
+      }
+
+      iframe {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        border: 0;
+      }
+
+      /* SIDE PANEL - COMPACT ITEMS */
+      .scan-sidebar-compact {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        margin-top: 3rem;
+      }
+
+      .scan-item-compact {
+        background: #ffffff;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+        border: 1px solid #eef2ff;
+        overflow: hidden;
+      }
+
+      .scan-item-compact:hover {
+        transform: translateX(5px);
+        border-color: #b9d0f8;
+        background: #fefeff;
+        box-shadow: 0 6px 14px -8px rgba(37, 99, 235, 0.15);
+      }
+
+      .thumb-small-compact {
+        position: relative;
+        width: 100px;
+        flex-shrink: 0;
+        aspect-ratio: 16 / 9;
+        background: #0f172a;
+      }
+
+      .thumb-small-compact img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .small-play-icon {
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.4);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.2s;
+      }
+
+      .scan-item-compact:hover .small-play-icon {
+        opacity: 1;
+      }
+
+      .small-play-icon i {
+        background: white;
+        border-radius: 50%;
+        padding: 5px;
+        font-size: 12px;
+        width: 28px;
+        height: 28px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #0f172a;
+      }
+
+      .item-info-compact {
+        flex: 1;
+        padding-right: 0.6rem;
+      }
+
+      .item-info-compact h4 {
+        font-size: 0.85rem;
+        font-weight: 700;
+        margin-bottom: 0.2rem;
+        color: #0f172a;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        flex-wrap: wrap;
+      }
+
+      .item-info-compact h4 i {
+        color: #2563eb;
+        font-size: 0.75rem;
+      }
+
+      .item-info-compact p {
+        font-size: 0.68rem;
+        color: #475569;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .duration-badge-sm {
+        background: #eef2ff;
+        padding: 2px 8px;
+        border-radius: 20px;
+        font-size: 0.65rem;
+        font-weight: 500;
+      }
+
+      /* FOOTER - minimal */
+      .rmi-footer-compact {
         margin-top: 1.5rem;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        border-top: 1px solid #e0e7ff;
         padding-top: 1rem;
-        border-top: 1px solid rgba(255, 255, 255, 0.08);
-        font-size: 0.7rem;
-        opacity: 0.7;
-        max-width: 1280px;
-        margin-left: auto;
-        margin-right: auto;
+        font-size: 0.75rem;
+        color: #334155;
+        gap: 0.8rem;
       }
 
-      /* make footer compact on mobile */
-      @media (max-width: 720px) {
-        .strike-footer {
-          padding: 1.2rem 1rem;
-        }
-        .footer-container {
-          flex-direction: column;
-          gap: 1.5rem;
-        }
-        .footer-brand,
-        .footer-contact,
-        .footer-social {
-          width: 100%;
-        }
-        .social-icons {
-          justify-content: flex-start;
-        }
-        .brand-name {
-          font-size: 1.35rem;
-        }
-        .contact-detail {
-          flex-wrap: wrap;
-        }
-      }
-
-      /* even smaller */
-      @media (max-width: 480px) {
-        .contact-detail {
-          gap: 0.5rem;
-        }
-        .social-link {
-          width: 34px;
-          height: 34px;
-        }
-      }
-
-      /* utility to keep icons inline */
-      a,
-      .contact-detail span {
+      .live-status-compact {
         display: inline-flex;
         align-items: center;
-        gap: 0.3rem;
+        gap: 8px;
+        background: #f1f5f9;
+        padding: 4px 14px;
+        border-radius: 30px;
+        font-weight: 600;
+        font-size: 0.7rem;
       }
-      .inline-icon {
-        display: inline-flex;
-        vertical-align: middle;
+
+      .live-status-compact i {
+        font-size: 0.7rem;
+      }
+
+      /* Responsive */
+      @media (max-width: 850px) {
+        .rmi-live-compact {
+          padding: 1.5rem 1.2rem 1.2rem 1.2rem;
+        }
+        .rmi-header-compact h1 {
+          font-size: 1.8rem;
+        }
+        .rmi-grid-compact {
+          gap: 1rem;
+        }
+      }
+
+      @media (max-width: 780px) {
+        .rmi-grid-compact {
+          grid-template-columns: 1fr;
+        }
+        .scan-sidebar-compact {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+          gap: 0.75rem;
+        }
+        .scan-item-compact {
+          flex-direction: row;
+        }
+        .thumb-small-compact {
+          width: 95px;
+        }
+        .rmi-header-compact h1 {
+          font-size: 1.6rem;
+        }
+      }
+
+      @media (max-width: 550px) {
+        .scan-item-compact {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        .thumb-small-compact {
+          width: 100%;
+        }
+        .item-info-compact {
+          padding: 0.5rem;
+        }
+        .play-icon-big {
+          width: 48px;
+          height: 48px;
+          font-size: 18px;
+        }
+        .rmi-header-compact h1 {
+          font-size: 1.4rem;
+        }
+        .header-sub-compact {
+          font-size: 0.8rem;
+        }
       }
     </style>
   </head>
   <body>
-    <!-- FOOTER SECTION - Dark Navy Blue, reduced height, lucide icons, responsive -->
-    <footer class="strike-footer">
-      <div class="footer-container">
-        <!-- left brand column -->
-        <div class="footer-brand">
-          <div class="brand-name">
-            <i data-lucide="trending-up"></i>
-            <span>Strike</span>
-          </div>
-          <div class="tagline">
-            Indian stock market analytical tool — free trial & subscription
-            plans for smarter trading decisions.
-          </div>
-          <div class="founding">
-            <i
-              data-lucide="calendar"
-              style="
-                width: 12px;
-                height: 12px;
-                display: inline-block;
-                vertical-align: middle;
-              "
-            ></i>
-            Founded 2023 | Made for traders & investors
+    <section class="rmi-live-compact">
+      <!-- Header - compact vertical spacing -->
+      <div class="rmi-header-compact">
+        <div class="live-badge-header">
+          <span class="pulse-dot"></span>
+          <i class="fas fa-broadcast-tower"></i>
+          <span>LIVE DEMO • RMI ENGINE ACTIVE</span>
+        </div>
+        <h1>
+          RMI in Real Time: <br />
+          The Future of Risk is Live
+        </h1>
+        <div class="header-sub-compact">
+          <i class="fas fa-microchip"></i>
+          <span
+            >See our AI engine scan, score, and stop risks before they become
+            incidents — no staging, no delays.</span
+          >
+        </div>
+        <div class="inline-metrics">
+          <span class="metric-chip-sm"
+            ><i class="fas fa-chart-line"></i> Real‑time scoring</span
+          >
+          <span class="metric-chip-sm"
+            ><i class="fas fa-shield-alt"></i> 47% fewer incidents</span
+          >
+          <span class="metric-chip-sm"
+            ><i class="fas fa-bolt"></i> Sub‑200ms latency</span
+          >
+        </div>
+      </div>
+
+      <div class="rmi-grid-compact">
+        <!-- MAIN PLAYER -->
+        <div class="demo-card-compact">
+          <div
+            class="video-container"
+            id="compactMainPlayer"
+            data-video-id="-wdroTF0O-I"
+          >
+            <img
+              class="video-thumb"
+              src="https://img.youtube.com/vi/-wdroTF0O-I/maxresdefault.jpg"
+              alt="RMI Live Risk Scanner"
+            />
+            <div class="play-overlay" id="compactPlayOverlay">
+              <div class="play-icon-big">
+                <i class="fas fa-play"></i>
+              </div>
+            </div>
           </div>
         </div>
 
-        <!-- contact & support column (timing, phone, email) -->
-        <div class="footer-contact">
-          <h4>
-            <i data-lucide="clock"></i>
-            <span>Connect & Support</span>
-          </h4>
-          <div class="contact-detail">
-            <i data-lucide="clock"></i>
-            <span>Mon–Sat, 10 AM – 7 PM</span>
+        <!-- SIDE PANEL - compact risk modules -->
+        <div class="scan-sidebar-compact">
+          <!-- 1 -->
+          <div
+            class="scan-item-compact"
+            data-video-id="t5LuooQyEzw"
+            data-thumb="https://img.youtube.com/vi/t5LuooQyEzw/mqdefault.jpg"
+          >
+            <div class="thumb-small-compact">
+              <img
+                src="https://img.youtube.com/vi/t5LuooQyEzw/mqdefault.jpg"
+                alt="Risk scan"
+              />
+              <div class="small-play-icon"><i class="fas fa-play"></i></div>
+            </div>
+            <div class="item-info-compact">
+              <h4><i class="fas fa-radar"></i> AI Risk Scan & Score</h4>
+              <p>
+                <i class="far fa-clock"></i> 12 min
+                <span class="duration-badge-sm"
+                  ><i class="fas fa-chart-simple"></i> live metrics</span
+                >
+              </p>
+            </div>
           </div>
-          <div class="contact-detail">
-            <i data-lucide="phone"></i>
-            <a href="tel:+916361666629">+91 63616 66629</a>
+          <!-- 2 -->
+          <div
+            class="scan-item-compact"
+            data-video-id="ZIq89QKPl_Y"
+            data-thumb="https://img.youtube.com/vi/ZIq89QKPl_Y/mqdefault.jpg"
+          >
+            <div class="thumb-small-compact">
+              <img
+                src="https://img.youtube.com/vi/ZIq89QKPl_Y/mqdefault.jpg"
+                alt="Compliance"
+              />
+              <div class="small-play-icon"><i class="fas fa-play"></i></div>
+            </div>
+            <div class="item-info-compact">
+              <h4><i class="fas fa-gavel"></i> Compliance Auto‑Monitor</h4>
+              <p>
+                <i class="far fa-clock"></i> 8 min
+                <span class="duration-badge-sm"
+                  ><i class="fas fa-bell"></i> instant alerts</span
+                >
+              </p>
+            </div>
           </div>
-          <div class="contact-detail">
-            <i data-lucide="mail"></i>
-            <a href="mailto:sales@strike.money">sales@strike.money</a>
+          <!-- 3 -->
+          <div
+            class="scan-item-compact"
+            data-video-id="8d0vjfQt7Lg"
+            data-thumb="https://img.youtube.com/vi/8d0vjfQt7Lg/mqdefault.jpg"
+          >
+            <div class="thumb-small-compact">
+              <img
+                src="https://img.youtube.com/vi/8d0vjfQt7Lg/mqdefault.jpg"
+                alt="Predictive"
+              />
+              <div class="small-play-icon"><i class="fas fa-play"></i></div>
+            </div>
+            <div class="item-info-compact">
+              <h4><i class="fas fa-brain"></i> Predictive Prevention</h4>
+              <p>
+                <i class="far fa-clock"></i> 15 min
+                <span class="duration-badge-sm"
+                  ><i class="fas fa-chart-line"></i> AI forecast</span
+                >
+              </p>
+            </div>
+          </div>
+          <!-- 4 -->
+          <div
+            class="scan-item-compact"
+            data-video-id="5vk8ua0uHWY"
+            data-thumb="https://img.youtube.com/vi/5vk8ua0uHWY/mqdefault.jpg"
+          >
+            <div class="thumb-small-compact">
+              <img
+                src="https://img.youtube.com/vi/5vk8ua0uHWY/mqdefault.jpg"
+                alt="Zero delay"
+              />
+              <div class="small-play-icon"><i class="fas fa-play"></i></div>
+            </div>
+            <div class="item-info-compact">
+              <h4>
+                <i class="fas fa-tachometer-alt"></i> Zero‑Delay Intelligence
+              </h4>
+              <p>
+                <i class="far fa-clock"></i> 22 min
+                <span class="duration-badge-sm"
+                  ><i class="fas fa-plug"></i> live feed</span
+                >
+              </p>
+            </div>
           </div>
         </div>
+      </div>
 
-        <!-- social media row with lucide icons + exact links -->
-        <div class="footer-social">
-          <h4>
-            <i data-lucide="share-2"></i>
-            <span>Follow Us</span>
-          </h4>
-          <div class="social-icons">
-            <!-- Facebook -->
-            <a
-              href="https://www.facebook.com/strikeanalytic"
-              class="social-link"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Facebook"
-            >
-              <i data-lucide="facebook"></i>
-            </a>
-            <!-- Instagram -->
-            <a
-              href="https://www.instagram.com/strike_ic?igshid=NTc4MTIwNjQ2YQ%3D%3D"
-              class="social-link"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Instagram"
-            >
-              <i data-lucide="instagram"></i>
-            </a>
-            <!-- X (Twitter) -->
-            <a
-              href="https://x.com/strike_ic?s=21&t=DCdFEO--qHAaoWwh8o1LPQ"
-              class="social-link"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="X"
-            >
-              <i data-lucide="twitter"></i>
-            </a>
-            <!-- WhatsApp -->
-            <a
-              href="https://api.whatsapp.com/send/?phone=916361666629&text=Hi%2Cthere&type=phone_number&app_absent=0"
-              class="social-link"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="WhatsApp"
-            >
-              <i data-lucide="message-circle"></i>
-            </a>
-            <!-- LinkedIn -->
-            <a
-              href="https://www.linkedin.com/company/strike-ic/"
-              class="social-link"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="LinkedIn"
-            >
-              <i data-lucide="linkedin"></i>
-            </a>
-            <!-- YouTube -->
-            <a
-              href="https://www.youtube.com/@Strike-money"
-              class="social-link"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="YouTube"
-            >
-              <i data-lucide="youtube"></i>
-            </a>
-          </div>
-          <!-- small note: lucide icons mapped to facebook, instagram, twitter, message-circle(whatsapp), linkedin, youtube -->
+      <div class="rmi-footer-compact">
+        <div class="live-status-compact">
+          <i
+            class="fas fa-circle"
+            style="font-size: 0.5rem; color: #10b981"
+          ></i>
+          <i class="fas fa-sync-alt"></i>
+          <span>RMI engine — real‑time inference</span>
+        </div>
+        <div>
+          <i class="fas fa-share-nodes"></i> Share demo &nbsp;|&nbsp;
+          <i class="fas fa-database"></i> No staging
         </div>
       </div>
-      <!-- bottom copyright line with additional subtle info -->
-      <div class="footer-bottom">
-        © 2025 Strike — empowering Indian markets. All trademarks belong to
-        their respective owners.
-      </div>
-    </footer>
+    </section>
 
     <script>
-      // Initialize Lucide icons after DOM content loaded
-      document.addEventListener("DOMContentLoaded", function () {
-        if (typeof lucide !== "undefined") {
-          lucide.createIcons();
-        } else {
-          // fallback: wait a tick
-          setTimeout(() => {
-            if (window.lucide) window.lucide.createIcons();
-          }, 100);
+      (function () {
+        const mainContainer = document.getElementById("compactMainPlayer");
+        if (!mainContainer) return;
+
+        // Helper to load video with autoplay and replace content
+        function loadVideoInMain(videoId, autoPlay = true) {
+          const existingIframe = mainContainer.querySelector("iframe");
+          if (existingIframe) existingIframe.remove();
+
+          const thumb = mainContainer.querySelector(".video-thumb");
+          const overlay = mainContainer.querySelector(".play-overlay");
+          if (thumb) thumb.style.display = "block";
+          if (overlay) overlay.style.display = "flex";
+
+          // update thumbnail for new video
+          const newThumb = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
+          if (thumb) thumb.src = newThumb;
+          mainContainer.setAttribute("data-video-id", videoId);
+
+          if (autoPlay) {
+            if (thumb) thumb.style.display = "none";
+            if (overlay) overlay.style.display = "none";
+            const iframe = document.createElement("iframe");
+            iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1&playsinline=1`;
+            iframe.setAttribute(
+              "allow",
+              "autoplay; encrypted-media; fullscreen; picture-in-picture",
+            );
+            iframe.setAttribute("allowfullscreen", "true");
+            iframe.style.position = "absolute";
+            iframe.style.top = "0";
+            iframe.style.left = "0";
+            iframe.style.width = "100%";
+            iframe.style.height = "100%";
+            iframe.style.border = "none";
+            mainContainer.appendChild(iframe);
+          }
         }
-        // Additional: manually ensure any dynamically added icons? not needed
-      });
-      // also call if script loads early
-      if (document.readyState === "loading") {
-        document.addEventListener("DOMContentLoaded", () =>
-          lucide.createIcons(),
-        );
-      } else {
-        lucide.createIcons();
-      }
+
+        // Main overlay click
+        const mainOverlay = mainContainer.querySelector(".play-overlay");
+        if (mainOverlay) {
+          mainOverlay.addEventListener("click", (e) => {
+            e.stopPropagation();
+            const currentId = mainContainer.getAttribute("data-video-id");
+            if (!currentId) return;
+            if (mainContainer.querySelector("iframe")) return;
+            const thumbImg = mainContainer.querySelector(".video-thumb");
+            const overlayDiv = mainContainer.querySelector(".play-overlay");
+            if (thumbImg) thumbImg.style.display = "none";
+            if (overlayDiv) overlayDiv.style.display = "none";
+            const iframe = document.createElement("iframe");
+            iframe.src = `https://www.youtube.com/embed/${currentId}?autoplay=1&rel=0&modestbranding=1&playsinline=1`;
+            iframe.setAttribute(
+              "allow",
+              "autoplay; encrypted-media; fullscreen; picture-in-picture",
+            );
+            iframe.setAttribute("allowfullscreen", "true");
+            iframe.style.position = "absolute";
+            iframe.style.top = "0";
+            iframe.style.left = "0";
+            iframe.style.width = "100%";
+            iframe.style.height = "100%";
+            iframe.style.border = "none";
+            mainContainer.appendChild(iframe);
+          });
+        }
+
+        // Side items: replace main video with selected RMI module (overriding, less height, clean)
+        const sideItems = document.querySelectorAll(".scan-item-compact");
+        sideItems.forEach((item) => {
+          const videoId = item.getAttribute("data-video-id");
+          if (!videoId) return;
+
+          item.addEventListener("click", (e) => {
+            e.stopPropagation();
+            // remove current iframe
+            const existingIframe = mainContainer.querySelector("iframe");
+            if (existingIframe) existingIframe.remove();
+
+            const thumb = mainContainer.querySelector(".video-thumb");
+            const overlayDiv = mainContainer.querySelector(".play-overlay");
+            if (thumb) thumb.style.display = "block";
+            if (overlayDiv) overlayDiv.style.display = "flex";
+
+            const newThumbUrl = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
+            if (thumb) thumb.src = newThumbUrl;
+            mainContainer.setAttribute("data-video-id", videoId);
+
+            // auto-play fresh video
+            if (thumb) thumb.style.display = "none";
+            if (overlayDiv) overlayDiv.style.display = "none";
+            const newIframe = document.createElement("iframe");
+            newIframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1&playsinline=1`;
+            newIframe.setAttribute(
+              "allow",
+              "autoplay; encrypted-media; fullscreen; picture-in-picture",
+            );
+            newIframe.setAttribute("allowfullscreen", "true");
+            newIframe.style.position = "absolute";
+            newIframe.style.top = "0";
+            newIframe.style.left = "0";
+            newIframe.style.width = "100%";
+            newIframe.style.height = "100%";
+            newIframe.style.border = "none";
+            mainContainer.appendChild(newIframe);
+
+            // subtle active border hint
+            sideItems.forEach((s) => (s.style.borderLeft = "none"));
+            item.style.borderLeft = "3px solid #3b82f6";
+            setTimeout(() => {
+              item.style.borderLeft = "";
+            }, 800);
+          });
+        });
+
+        // ensure default data attribute
+        if (!mainContainer.getAttribute("data-video-id")) {
+          mainContainer.setAttribute("data-video-id", "-wdroTF0O-I");
+        }
+      })();
     </script>
   </body>
 </html>
