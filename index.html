@@ -59,30 +59,34 @@
 
       html {
         overflow-x: hidden;
+        scroll-behavior: smooth;
         width: 100%;
-        max-width: 100%;
       }
 
-      /* ========== STICKY HEADER (FULLY STICKY WITH GLASS EFFECT) ========== */
+      /* ========== ROUNDED FIXED HEADER (fully round, glass effect) ========== */
       .site-header {
         position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        width: 100%;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: calc(100% - 40px);
+        max-width: 1280px;
         background: rgba(255, 255, 255, 0.92);
-        backdrop-filter: blur(12px);
-        border-bottom: 1px solid rgba(30, 110, 235, 0.25);
+        backdrop-filter: blur(16px);
+        border-radius: 80px;
+        border: 1px solid rgba(30, 110, 235, 0.3);
         transition: all 0.25s ease;
-        padding: 0.7rem 2rem;
-        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+        padding: 2px 40px;
+        box-shadow: 0 12px 28px -8px rgb(0 0 0 / 45%);
         z-index: 1000;
       }
 
       .site-header.scrolled {
-        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
         background: rgba(255, 255, 255, 0.96);
-        border-bottom-color: rgba(30, 110, 235, 0.4);
+        box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.2);
+        border-color: rgba(30, 110, 235, 0.5);
+        top: 12px;
+        width: calc(100% - 32px);
       }
 
       .header-container {
@@ -102,12 +106,13 @@
       }
 
       .logo-icon img {
-        height: 43px;
+        height: 44px;
         width: auto;
         object-fit: contain;
         transition: all 0.2s;
         max-width: 100%;
-        filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.05));
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.05));
+        border-radius: 12px;
       }
 
       .nav-links {
@@ -145,7 +150,7 @@
         width: 0%;
         height: 2px;
         background: #1e6eeb;
-        border-radius: 2px;
+        border-radius: 4px;
         transition: 0.2s;
       }
 
@@ -160,25 +165,26 @@
 
       .enroll-nav-btn {
         background: linear-gradient(105deg, #1e6eeb, #0f4c9e);
-        padding: 0.5rem 1.3rem;
-        border-radius: 40px;
+        padding: 0.5rem 1.5rem;
+        border-radius: 60px;
         color: white !important;
         font-weight: 700;
-        box-shadow: 0 4px 10px rgba(30, 110, 235, 0.25);
+        box-shadow: 0 6px 14px rgba(30, 110, 235, 0.3);
         transition: all 0.2s;
         text-decoration: none;
         display: inline-flex;
         align-items: center;
-        gap: 6px;
-        font-size: 0.95rem;
+        gap: 8px;
+        font-size: 0.9rem;
       }
 
       .enroll-nav-btn:hover {
         background: #0f5bc2;
         transform: translateY(-2px);
-        box-shadow: 0 10px 18px rgba(30, 110, 235, 0.3);
+        box-shadow: 0 10px 20px rgba(30, 110, 235, 0.35);
       }
 
+      /* Hamburger & Mobile Menu */
       .hamburger {
         display: none;
       }
@@ -188,7 +194,8 @@
 
       @media (max-width: 1024px) {
         .site-header {
-          padding: 0.6rem 1.5rem;
+          padding: 0.5rem 1.5rem;
+          width: calc(100% - 30px);
         }
       }
 
@@ -197,9 +204,12 @@
           overflow-x: hidden;
         }
         .site-header {
-          padding: 0.6rem 1rem;
+          top: 16px;
+          width: calc(100% - 24px);
+          border-radius: 60px;
+          padding: 2px 24px;
           background: rgba(255, 255, 255, 0.96);
-          backdrop-filter: blur(12px);
+          backdrop-filter: blur(16px);
         }
         .nav-links {
           position: fixed;
@@ -211,17 +221,17 @@
           max-width: 320px;
           height: 100vh;
           background: rgba(255, 255, 255, 0.98);
-          backdrop-filter: blur(20px);
+          backdrop-filter: blur(24px);
           flex-direction: column;
-          justify-content: center;
-          gap: 2rem;
-          padding: 2rem 1.5rem;
-          box-shadow: -8px 0 25px rgba(0, 0, 0, 0.12);
+          gap: 18px;
+          padding: 2rem 1.8rem;
+          box-shadow: -8px 0 30px rgba(0, 0, 0, 0.2);
           transition: right 0.3s ease-in-out;
           z-index: 1050;
-          border-left: 1px solid rgba(30, 110, 235, 0.2);
-          border-radius: 0;
+          border-left: 1px solid rgba(30, 110, 235, 0.3);
+          border-radius: 28px 0 0 28px;
           overflow-y: auto;
+          padding-top: 90px;
         }
         .nav-links.open {
           right: 0;
@@ -233,14 +243,6 @@
           padding: 0.7rem;
           white-space: normal;
         }
-        .mobile-enroll-btn {
-          width: 100%;
-          text-align: center;
-          justify-content: center;
-          padding: 0.8rem;
-          font-size: 1rem;
-          margin-top: 0.5rem;
-        }
         .enroll-nav-wrapper {
           display: none;
         }
@@ -248,11 +250,11 @@
           display: flex;
           flex-direction: column;
           cursor: pointer;
-          gap: 5px;
+          gap: 6px;
           background: transparent;
           border: none;
           z-index: 1100;
-          padding: 6px 2px;
+          padding: 8px 4px;
           min-width: 44px;
           min-height: 44px;
           align-items: center;
@@ -295,6 +297,7 @@
         }
       }
 
+      /* Spacing for fixed rounded header */
       .section-wrapper {
         background: linear-gradient(
           120deg,
@@ -305,12 +308,12 @@
         overflow-x: hidden;
         width: 100%;
         margin-top: 0;
-        padding-top: 80px;
+        padding-top: 110px;
       }
 
       @media (max-width: 820px) {
         .section-wrapper {
-          padding-top: 72px;
+          padding-top: 100px;
         }
       }
 
@@ -323,6 +326,7 @@
         overflow-x: hidden;
       }
 
+      /* Hero and other sections EXACT same style as original */
       .hero {
         display: flex;
         flex-direction: column;
@@ -472,7 +476,7 @@
       }
 
       .register-cta {
-        margin: 1rem 15px 0.5rem;
+        margin: 1rem 0px 0.5rem;
         text-align: left;
         width: 100%;
       }
@@ -608,7 +612,26 @@
         gap: 4px;
       }
 
-      /* POPUP MODAL – Name, Email, Number */
+      /* SECTION STYLES for anchored sections (same as original aesthetics) */
+      .section-card {
+        margin: 3rem 0 2rem;
+        background: rgba(255, 255, 255, 0.75);
+        backdrop-filter: blur(4px);
+        border-radius: 2rem;
+        padding: 1.8rem;
+        border: 1px solid rgba(30, 110, 235, 0.2);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+      }
+      .section-card h2 {
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+        color: #0f3b5e;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      /* POPUP MODAL – EXACT SAME STYLE AS ORIGINAL */
       .popup-modal {
         position: fixed;
         top: 0;
@@ -855,7 +878,7 @@
     </style>
   </head>
   <body>
-    <!-- STICKY HEADER -->
+    <!-- ROUNDED FIXED HEADER (exactly as requested) -->
     <header class="site-header" id="mainHeader">
       <div class="header-container">
         <div class="logo-area">
@@ -868,12 +891,12 @@
           </div>
         </div>
         <nav class="nav-links" id="navLinks">
-          <a href="#">Home</a>
-          <a href="#">RMI</a>
-          <a href="#">Strategy</a>
-          <a href="#">Mentor</a>
-          <a href="#">Proof</a>
-          <a href="#">FAQ</a>
+          <a href="#HeroSectionMain">Home</a>
+          <a href="#Solution-Section">RMI</a>
+          <a href="#WUWL">Strategy</a>
+          <a href="#Mentor">Mentor</a>
+          <a href="#Proof">Proof</a>
+          <a href="#FAQ">FAQ</a>
         </nav>
         <div class="enroll-nav-wrapper">
           <a href="#" class="enroll-nav-btn" id="desktopNavEnrollBtn"
@@ -889,7 +912,8 @@
 
     <div class="section-wrapper hero-section">
       <div class="container">
-        <div class="hero">
+        <!-- Hero Section with ID Home -->
+        <div id="heroSectionMain" class="hero">
           <div class="hero-top">
             <h1>Strike Webinars</h1>
             <div class="breadcrumb">Strike / RMI Intelligence</div>
@@ -918,7 +942,7 @@
               <div class="countdown-block">
                 <div class="countdown-label">
                   <i class="fas fa-hourglass-half"></i
-                  ><span>Free Registration Window </span>
+                  ><span>Free Registration Window</span>
                 </div>
                 <div class="countdown-timer" id="countdownTimer">
                   <div class="time-unit">
@@ -952,10 +976,6 @@
                   <img
                     src="https://img.youtube.com/vi/U2lXv8mXeaQ/hqdefault.jpg"
                     alt="Webinar preview"
-                    onerror="
-                      this.src =
-                        'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22480%22 height=%22360%22 viewBox=%220 0 480 360%22%3E%3Crect width=%22480%22 height=%22360%22 fill=%22%231a2c3c%22/%3E%3Ctext x=%22240%22 y=%22180%22 text-anchor=%22middle%22 fill=%22%23666%22 font-size=%2220%22%3EVideo Preview%3C/text%3E%3C/svg%3E'
-                    "
                   />
                   <div class="play-btn-large"><i class="fas fa-play"></i></div>
                 </div>
@@ -984,7 +1004,7 @@
       </div>
     </div>
 
-    <!-- POPUP FORM -->
+    <!-- POPUP MODAL (exact original structure) -->
     <div id="registrationPopup" class="popup-modal">
       <div class="popup-card">
         <button class="close-popup" id="closePopupBtn">&times;</button>
@@ -1055,42 +1075,28 @@
     </div>
 
     <script>
-      // ------------------------------
-      //  FIXED COUNTDOWN TILL APRIL 12, 11:00 AM (IST)
-      // ------------------------------
+      // Countdown (April 12, 11:00 AM IST)
       function getTargetDate() {
-        // Target: 12th April current year, 11:00 AM IST (Indian Standard Time)
         const now = new Date();
-        let target = new Date(Date.UTC(now.getFullYear(), 3, 12, 5, 30, 0)); // 11:00 AM IST = 05:30 UTC
-        // If today is after April 12 11am already, set to next year's April 12
-        if (now > target) {
+        let target = new Date(Date.UTC(now.getFullYear(), 3, 12, 5, 30, 0));
+        if (now > target)
           target = new Date(Date.UTC(now.getFullYear() + 1, 3, 12, 5, 30, 0));
-        }
         return target.getTime();
       }
-
       let targetTimestamp = getTargetDate();
-
       function updateCountdown() {
-        const now = Date.now();
-        let diff = targetTimestamp - now;
-
-        if (diff < 0) {
-          // Countdown finished: show zeros but optionally freeze or show "Live"
+        const diff = targetTimestamp - Date.now();
+        if (diff <= 0) {
           document.getElementById("daysLeft").innerText = "00";
           document.getElementById("hoursLeft").innerText = "00";
           document.getElementById("minutesLeft").innerText = "00";
           document.getElementById("secondsLeft").innerText = "00";
           return;
         }
-
-        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-        const hours = Math.floor(
-          (diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
-        );
-        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-
+        const days = Math.floor(diff / 86400000);
+        const hours = Math.floor((diff % 86400000) / 3600000);
+        const minutes = Math.floor((diff % 3600000) / 60000);
+        const seconds = Math.floor((diff % 60000) / 1000);
         document.getElementById("daysLeft").innerText =
           days < 10 ? "0" + days : days;
         document.getElementById("hoursLeft").innerText =
@@ -1100,18 +1106,12 @@
         document.getElementById("secondsLeft").innerText =
           seconds < 10 ? "0" + seconds : seconds;
       }
-
       updateCountdown();
       setInterval(updateCountdown, 1000);
 
-      // Webhook URL for sheet integration
       const WEBHOOK_URL =
         "https://script.google.com/macros/s/AKfycbx_HzzqANQkjqJC6wgOE-_1evAskThKwJrE3IZIGzBv2DgRVY4KJhuE-RoIW9gCXkld/exec";
       const popupModal = document.getElementById("registrationPopup");
-      const closePopupBtn = document.getElementById("closePopupBtn");
-      const popupForm = document.getElementById("popupForm");
-      let pendingSource = "webinar";
-
       function showToast(msg, isError = false) {
         const toastSpan = document.getElementById("toastText");
         const toastEl = document.getElementById("globalToast");
@@ -1120,9 +1120,8 @@
         toastEl.classList.add("show");
         setTimeout(() => toastEl.classList.remove("show"), 2800);
       }
-
       function openModal(source = "generic") {
-        pendingSource = source;
+        window.pendingSource = source;
         popupModal.classList.add("active");
         document.getElementById("popupName").value = "";
         document.getElementById("popupEmail").value = "";
@@ -1130,73 +1129,12 @@
         document.getElementById("popupNewsletter").checked = false;
         setTimeout(() => document.getElementById("popupName").focus(), 100);
       }
-
       function closeModal() {
         popupModal.classList.remove("active");
       }
-
-      async function sendToSheet(data) {
-        await fetch(WEBHOOK_URL, {
-          method: "POST",
-          mode: "no-cors",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(data),
-        });
-        return { success: true };
-      }
-
-      popupForm.addEventListener("submit", async (e) => {
-        e.preventDefault();
-        const name = document.getElementById("popupName").value.trim();
-        const email = document.getElementById("popupEmail").value.trim();
-        const phone = document.getElementById("popupPhone").value.trim();
-        const newsletter = document.getElementById("popupNewsletter").checked;
-
-        if (!name || !email || !phone) {
-          showToast("All fields (Name, Email, Phone) are required.", true);
-          return;
-        }
-        const emailRegex = /^[^\s@]+@([^\s@.,]+\.)+[^\s@.,]{2,}$/i;
-        if (!emailRegex.test(email)) {
-          showToast("Please enter a valid email address.", true);
-          return;
-        }
-        const phoneRegex = /^[\+\d\s\-\(\)]{8,20}$/;
-        if (!phoneRegex.test(phone)) {
-          showToast("Please enter a valid phone number.", true);
-          return;
-        }
-
-        const payload = {
-          timestamp: new Date().toISOString(),
-          fullName: name,
-          email,
-          phoneNumber: phone,
-          newsletterOptIn: newsletter,
-          source: pendingSource,
-          page: "Strike Webinars - Popup (Name/Email/Phone)",
-        };
-
-        const btn = popupForm.querySelector(".submit-popup-btn");
-        const original = btn.innerHTML;
-        btn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Submitting...';
-        btn.disabled = true;
-
-        try {
-          await sendToSheet(payload);
-          showToast(
-            `✨ Thanks ${name}! Webinar access link will be sent to ${email}.`,
-          );
-          closeModal();
-        } catch (err) {
-          showToast("⚠️ Registration failed. Please try again.", true);
-        } finally {
-          btn.innerHTML = original;
-          btn.disabled = false;
-        }
-      });
-
-      closePopupBtn.addEventListener("click", closeModal);
+      document
+        .getElementById("closePopupBtn")
+        .addEventListener("click", closeModal);
       popupModal.addEventListener("click", (e) => {
         if (e.target === popupModal) closeModal();
       });
@@ -1204,7 +1142,6 @@
         if (e.key === "Escape" && popupModal.classList.contains("active"))
           closeModal();
       });
-
       document
         .getElementById("heroRegisterBtn")
         ?.addEventListener("click", (e) => {
@@ -1217,8 +1154,60 @@
           e.preventDefault();
           openModal("navbar-desktop");
         });
-
-      // YouTube preview trigger
+      document
+        .getElementById("popupForm")
+        .addEventListener("submit", async (e) => {
+          e.preventDefault();
+          const name = document.getElementById("popupName").value.trim();
+          const email = document.getElementById("popupEmail").value.trim();
+          const phone = document.getElementById("popupPhone").value.trim();
+          const newsletter = document.getElementById("popupNewsletter").checked;
+          if (!name || !email || !phone) {
+            showToast("All fields (Name, Email, Phone) are required.", true);
+            return;
+          }
+          const emailRegex = /^[^\s@]+@([^\s@.,]+\.)+[^\s@.,]{2,}$/i;
+          if (!emailRegex.test(email)) {
+            showToast("Please enter a valid email address.", true);
+            return;
+          }
+          const phoneRegex = /^[\+\d\s\-\(\)]{8,20}$/;
+          if (!phoneRegex.test(phone)) {
+            showToast("Please enter a valid phone number.", true);
+            return;
+          }
+          const payload = {
+            timestamp: new Date().toISOString(),
+            fullName: name,
+            email,
+            phoneNumber: phone,
+            newsletterOptIn: newsletter,
+            source: window.pendingSource || "webinar",
+            page: "Strike Webinars - Popup",
+          };
+          const btn = e.target.querySelector(".submit-popup-btn");
+          const original = btn.innerHTML;
+          btn.innerHTML =
+            '<i class="fas fa-spinner fa-pulse"></i> Submitting...';
+          btn.disabled = true;
+          try {
+            await fetch(WEBHOOK_URL, {
+              method: "POST",
+              mode: "no-cors",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(payload),
+            });
+            showToast(
+              `✨ Thanks ${name}! Webinar access link will be sent to ${email}.`,
+            );
+            closeModal();
+          } catch (err) {
+            showToast("⚠️ Registration failed. Please try again.", true);
+          } finally {
+            btn.innerHTML = original;
+            btn.disabled = false;
+          }
+        });
       document
         .getElementById("youtubePreviewTrigger")
         ?.addEventListener("click", () => {
@@ -1227,14 +1216,12 @@
             "_blank",
           );
         });
-
       // Sticky header scroll effect
       const header = document.getElementById("mainHeader");
       window.addEventListener("scroll", () => {
         if (window.scrollY > 20) header.classList.add("scrolled");
         else header.classList.remove("scrolled");
       });
-
       // Mobile menu
       const hamburger = document.getElementById("hamburgerBtn"),
         navLinks = document.getElementById("navLinks"),
@@ -1254,7 +1241,6 @@
       if (hamburger)
         hamburger.addEventListener("click", (e) => {
           e.preventDefault();
-          e.stopPropagation();
           navLinks.classList.contains("open") ? closeMenu() : openMenu();
         });
       if (overlay) overlay.addEventListener("click", closeMenu);
@@ -6465,7 +6451,7 @@
     <meta charset="UTF-8" />
     <meta
       name="viewport"
-      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=yes"
     />
     <title>Strike Money | Infinite Trader Testimonials</title>
     <style>
@@ -6567,12 +6553,13 @@
         letter-spacing: 0.2px;
       }
 
-      /* Slider Area - CENTER ALIGNMENT fix with flex container and proper gap */
+      /* Slider area: smooth infinite carousel with center focus */
       .strike-slider-area {
         position: relative;
         width: 100%;
         overflow: hidden;
         padding: 1rem 0 2rem 0;
+        touch-action: pan-y pinch-zoom;
       }
 
       .strike-slider-mask {
@@ -6581,15 +6568,20 @@
         border-radius: 0;
       }
 
-      /* CRITICAL FIX: Use flex with dynamic gap, but the track's transform will center the active card */
+      /* FLEX TRACK — ensures smooth sliding */
       .strike-slider-track {
         display: flex;
         gap: 28px;
         transition: transform 0.45s cubic-bezier(0.2, 0.9, 0.4, 1.1);
         will-change: transform;
+        cursor: grab;
       }
 
-      /* Card styles - consistent width ensures predictable centering */
+      .strike-slider-track:active {
+        cursor: grabbing;
+      }
+
+      /* Card styles — consistent width for predictable centering behavior */
       .strike-testi-card {
         flex: 0 0 320px;
         background: #111827;
@@ -6600,6 +6592,7 @@
         padding-top: 48px;
         margin-top: 35px;
         margin-bottom: 8px;
+        user-select: none;
       }
 
       .strike-testi-card:hover {
@@ -6696,6 +6689,7 @@
         gap: 8px;
       }
 
+      /* SIMPLE: Only Google badge, no Trustpilot or others */
       .card-google-badge {
         display: inline-flex;
         align-items: center;
@@ -6784,11 +6778,8 @@
         background: #facc15;
       }
 
-      /* ========== RESPONSIVE & CENTERING FIXES ========== */
-      /* The slider uses infinite clone technique, but to ensure cards always appear centered 
-         on any screen width, we ensure that the parent container doesn't create asymmetry.
-         Additionally, we dynamically adjust gap for smaller devices to maintain visual balance */
-
+      /* ========== RESPONSIVE: Cards always move to center and fit perfectly ========== */
+      /* Dynamic gap adjustments to keep centered sliding behavior smooth */
       @media (min-width: 1280px) {
         .strike-slider-track {
           gap: 28px;
@@ -6851,14 +6842,6 @@
           gap: 12px;
           padding: 8px 18px;
         }
-        .strike-testi-header {
-          flex-direction: row;
-          flex-wrap: wrap;
-          align-items: center;
-        }
-        .strike-testimonial-text {
-          font-size: 0.85rem;
-        }
       }
 
       @media (max-width: 640px) {
@@ -6915,10 +6898,11 @@
           font-size: 0.7rem;
         }
         .strike-testi-card {
-          flex: 0 0 260px;
+          flex: 0 0 265px;
           padding-top: 42px;
           margin-top: 28px;
-          margin-bottom: 8px;
+          justify-content: center;
+          display: flex;
         }
         .strike-testi-avatar {
           width: 58px;
@@ -6933,9 +6917,6 @@
           font-size: 0.8rem;
           line-height: 1.45;
         }
-        .strike-slider-nav {
-          margin-top: 12px;
-        }
         .strike-arrow {
           width: 38px;
           height: 38px;
@@ -6943,7 +6924,6 @@
         }
         .strike-dots {
           gap: 8px;
-          margin-top: 8px;
         }
       }
 
@@ -6962,12 +6942,9 @@
         .strike-testi-name h4 {
           font-size: 0.95rem;
         }
-        .strike-testi-inner {
-          padding: 0 14px 18px 14px;
-        }
       }
 
-      /* Ensure slider mask doesn't cut off content on very narrow devices */
+      /* optional swipe indicator, but not intrusive */
       .strike-slider-mask {
         -webkit-overflow-scrolling: touch;
       }
@@ -7024,7 +7001,7 @@
         <div class="strike-slider-area">
           <div class="strike-slider-mask">
             <div class="strike-slider-track" id="strikeSliderTrack">
-              <!-- 8 authentic testimonials - each card fully responsive and centered via enhanced slider logic -->
+              <!-- 8 original testimonials (all use Google badge) -->
               <div class="strike-testi-card">
                 <div class="strike-testi-avatar">
                   <img
@@ -7037,7 +7014,7 @@
                   <div class="strike-testi-header">
                     <div class="strike-testi-name">
                       <h4>Dr. Rajesh Gupta</h4>
-                      <span>Doctor by Profession; Trader by Passion</span>
+                      <span>Doctor by Profession,<br />Trader by Passion</span>
                     </div>
                     <div class="strike-rating">
                       <svg class="star-icon-svg" viewBox="0 0 24 24">
@@ -7158,16 +7135,25 @@
                   </p>
                   <div class="strike-footer-meta">
                     <span>Strike Money user · Mar 2, 2021</span>
-                    <div class="card-verified-badge">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
-                        fill="#34D399"
-                      >
+                    <div class="card-google-badge">
+                      <svg viewBox="0 0 24 24" fill="none">
                         <path
-                          d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"
+                          d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
+                          fill="#FFC107"
+                        />
+                        <path
+                          d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
+                          fill="#34A853"
+                        />
+                        <path
+                          d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"
+                          fill="#FBBC05"
+                        />
+                        <path
+                          d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
+                          fill="#EA4335"
                         /></svg
-                      >Verified
+                      >Google
                     </div>
                   </div>
                 </div>
@@ -7255,17 +7241,24 @@
                   <div class="strike-footer-meta">
                     <span>Strike Pro Member · Nov 8, 2023</span>
                     <div class="card-google-badge">
-                      <svg
-                        viewBox="0 0 24 24"
-                        fill="#00B67A"
-                        width="14"
-                        height="14"
-                      >
+                      <svg viewBox="0 0 24 24" fill="none">
                         <path
-                          d="M12 2L9.5 8.5H2L8 12.5L5.5 19L12 15L18.5 19L16 12.5L22 8.5H14.5L12 2Z"
-                          fill="#00B67A"
+                          d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
+                          fill="#FFC107"
+                        />
+                        <path
+                          d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
+                          fill="#34A853"
+                        />
+                        <path
+                          d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"
+                          fill="#FBBC05"
+                        />
+                        <path
+                          d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
+                          fill="#EA4335"
                         /></svg
-                      >Trustpilot
+                      >Google
                     </div>
                   </div>
                 </div>
@@ -7351,16 +7344,25 @@
                   </p>
                   <div class="strike-footer-meta">
                     <span>Strike Community · Dec 5, 2023</span>
-                    <div class="card-verified-badge">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
-                        fill="#34D399"
-                      >
+                    <div class="card-google-badge">
+                      <svg viewBox="0 0 24 24" fill="none">
                         <path
-                          d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"
+                          d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
+                          fill="#FFC107"
+                        />
+                        <path
+                          d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
+                          fill="#34A853"
+                        />
+                        <path
+                          d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"
+                          fill="#FBBC05"
+                        />
+                        <path
+                          d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
+                          fill="#EA4335"
                         /></svg
-                      >Verified
+                      >Google
                     </div>
                   </div>
                 </div>
@@ -7435,37 +7437,32 @@
         const nextBtn = document.getElementById("strikeNextBtn");
         const dotsContainer = document.getElementById("strikeDotsContainer");
         if (!track) return;
-
         const originalCards = Array.from(track.children);
         const totalOriginal = originalCards.length;
         if (totalOriginal === 0) return;
-
-        // Clone enough for smooth infinite loop (3-4 clones each side)
         const cloneCount = Math.min(4, totalOriginal);
-        // Append clones to end
         for (let i = 0; i < cloneCount; i++) {
           const clone = originalCards[i].cloneNode(true);
           track.appendChild(clone);
         }
-        // Prepend clones at beginning (last 'cloneCount' originals)
         for (let i = totalOriginal - cloneCount; i < totalOriginal; i++) {
           const clone = originalCards[i].cloneNode(true);
           track.insertBefore(clone, track.firstChild);
         }
-
-        const allSlides = Array.from(track.children);
-        const totalSlides = allSlides.length;
-        const baseOffsetIndex = cloneCount;
-        let currentVirtualIndex = baseOffsetIndex;
-        let slideWidth = 0;
-        let gap = 28;
+        let allSlides = Array.from(track.children);
+        let totalSlides = allSlides.length;
+        let currentVirtualIndex = cloneCount;
+        let slideWidth = 0,
+          gap = 28;
         let isTransitioning = false;
         let autoTimer = null;
+        let touchStartX = 0,
+          touchMoveX = 0,
+          isSwiping = false;
 
         function updateDimensions() {
-          if (allSlides.length === 0) return;
-          const firstCard = allSlides[0];
-          const rect = firstCard.getBoundingClientRect();
+          if (!allSlides.length) return;
+          const rect = allSlides[0].getBoundingClientRect();
           slideWidth = rect.width;
           const trackStyle = window.getComputedStyle(track);
           const gapVal = trackStyle.gap;
@@ -7483,38 +7480,37 @@
         }
 
         function handleInfiniteCorrection() {
+          const loopLength = totalOriginal;
           if (currentVirtualIndex >= totalOriginal + cloneCount) {
-            currentVirtualIndex = currentVirtualIndex - totalOriginal;
+            currentVirtualIndex = currentVirtualIndex - loopLength;
             applyTransform(false);
           } else if (currentVirtualIndex < cloneCount) {
-            currentVirtualIndex = currentVirtualIndex + totalOriginal;
+            currentVirtualIndex = currentVirtualIndex + loopLength;
             applyTransform(false);
           }
-          updateDotsFromVirtual();
+          updateDots();
         }
 
-        function updateDotsFromVirtual() {
+        function updateDots() {
           if (!dotsContainer) return;
-          let activeOriginalIndex =
-            (currentVirtualIndex - cloneCount + totalOriginal) % totalOriginal;
-          activeOriginalIndex =
-            (activeOriginalIndex + totalOriginal) % totalOriginal;
-          let dotsHtml = "";
+          let activeOriginalIdx =
+            (((currentVirtualIndex - cloneCount + totalOriginal) %
+              totalOriginal) +
+              totalOriginal) %
+            totalOriginal;
+          let html = "";
           for (let i = 0; i < totalOriginal; i++) {
-            dotsHtml += `<div class="strike-dot ${i === activeOriginalIndex ? "active" : ""}" data-index="${i}"></div>`;
+            html += `<div class="strike-dot ${i === activeOriginalIdx ? "active" : ""}" data-index="${i}"></div>`;
           }
-          dotsContainer.innerHTML = dotsHtml;
+          dotsContainer.innerHTML = html;
           document.querySelectorAll(".strike-dot").forEach((dot) => {
             dot.addEventListener("click", (e) => {
               if (isTransitioning) return;
-              const targetOrigIdx = parseInt(
-                dot.getAttribute("data-index"),
-                10,
-              );
-              if (!isNaN(targetOrigIdx)) {
-                let newVirtualIndex = cloneCount + targetOrigIdx;
-                if (newVirtualIndex !== currentVirtualIndex) {
-                  currentVirtualIndex = newVirtualIndex;
+              const targetIdx = parseInt(dot.getAttribute("data-index"), 10);
+              if (!isNaN(targetIdx)) {
+                let newVirtual = cloneCount + targetIdx;
+                if (newVirtual !== currentVirtualIndex) {
+                  currentVirtualIndex = newVirtual;
                   applyTransform(true);
                   resetAutoplay();
                 }
@@ -7524,16 +7520,18 @@
         }
 
         function goToNext() {
-          if (isTransitioning) return;
-          currentVirtualIndex++;
-          applyTransform(true);
-          resetAutoplay();
+          if (!isTransitioning) {
+            currentVirtualIndex++;
+            applyTransform(true);
+            resetAutoplay();
+          }
         }
         function goToPrev() {
-          if (isTransitioning) return;
-          currentVirtualIndex--;
-          applyTransform(true);
-          resetAutoplay();
+          if (!isTransitioning) {
+            currentVirtualIndex--;
+            applyTransform(true);
+            resetAutoplay();
+          }
         }
         function resetAutoplay() {
           if (autoTimer) clearInterval(autoTimer);
@@ -7554,15 +7552,84 @@
           }, 4200);
         }
 
-        if (track) {
-          track.addEventListener("transitionstart", () => {
-            isTransitioning = true;
-          });
-          track.addEventListener("transitionend", () => {
-            isTransitioning = false;
-            handleInfiniteCorrection();
-          });
-        }
+        track.addEventListener("transitionstart", () => {
+          isTransitioning = true;
+        });
+        track.addEventListener("transitionend", () => {
+          isTransitioning = false;
+          handleInfiniteCorrection();
+        });
+
+        // Touch/swipe support for mobile + desktop
+        track.addEventListener(
+          "touchstart",
+          (e) => {
+            touchStartX = e.touches[0].clientX;
+            isSwiping = true;
+            stopAutoplay();
+          },
+          { passive: true },
+        );
+        track.addEventListener(
+          "touchmove",
+          (e) => {
+            if (!isSwiping) return;
+            touchMoveX = e.touches[0].clientX;
+            const diff = touchMoveX - touchStartX;
+            if (Math.abs(diff) > 15) {
+              e.preventDefault();
+              const currentOffset = currentVirtualIndex * (slideWidth + gap);
+              track.style.transition = "none";
+              track.style.transform = `translateX(-${currentOffset + diff * 0.5}px)`;
+            }
+          },
+          { passive: false },
+        );
+        track.addEventListener("touchend", (e) => {
+          if (!isSwiping) {
+            startAutoplay();
+            return;
+          }
+          const diff = touchMoveX - touchStartX;
+          const threshold = 40;
+          if (diff > threshold) goToPrev();
+          else if (diff < -threshold) goToNext();
+          else applyTransform(true);
+          isSwiping = false;
+          startAutoplay();
+        });
+        // mouse drag for desktop
+        let mouseDown = false,
+          mouseStartX = 0,
+          mouseCurrentX = 0;
+        track.addEventListener("mousedown", (e) => {
+          if (e.button !== 0) return;
+          mouseDown = true;
+          mouseStartX = e.clientX;
+          stopAutoplay();
+          track.style.cursor = "grabbing";
+          e.preventDefault();
+        });
+        window.addEventListener("mousemove", (e) => {
+          if (!mouseDown) return;
+          mouseCurrentX = e.clientX;
+          const diff = mouseCurrentX - mouseStartX;
+          const currentOffset = currentVirtualIndex * (slideWidth + gap);
+          track.style.transition = "none";
+          track.style.transform = `translateX(-${currentOffset + diff * 0.5}px)`;
+        });
+        window.addEventListener("mouseup", (e) => {
+          if (!mouseDown) return;
+          const diff = mouseCurrentX - mouseStartX;
+          const threshold = 40;
+          if (diff > threshold) goToPrev();
+          else if (diff < -threshold) goToNext();
+          else applyTransform(true);
+          mouseDown = false;
+          track.style.cursor = "grab";
+          startAutoplay();
+        });
+
         if (prevBtn)
           prevBtn.addEventListener("click", () => {
             if (!isTransitioning) goToPrev();
@@ -7578,7 +7645,7 @@
           resizeTimer = setTimeout(() => {
             updateDimensions();
             applyTransform(false);
-            updateDotsFromVirtual();
+            updateDots();
           }, 100);
         });
 
@@ -7586,28 +7653,30 @@
           updateDimensions();
           currentVirtualIndex = cloneCount;
           applyTransform(false);
-          updateDotsFromVirtual();
+          updateDots();
           startAutoplay();
           const area = document.querySelector(".strike-slider-area");
           if (area) {
             area.addEventListener("mouseenter", () => stopAutoplay());
             area.addEventListener("mouseleave", () => startAutoplay());
           }
+          track.style.cursor = "grab";
         }
         init();
         window.addEventListener("load", () => {
           updateDimensions();
           applyTransform(false);
-          updateDotsFromVirtual();
+          updateDots();
         });
         setTimeout(() => {
           updateDimensions();
           applyTransform(false);
-        }, 150);
+        }, 120);
       })();
     </script>
   </body>
 </html>
+
 
         <!-- ----------Testimonial section end -----------  -->
 
