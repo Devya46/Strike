@@ -1,62 +1,1209 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <title>Strike Webinars | Live Registration with Popup</title>
+    <!-- Google Fonts & Font Awesome 6 -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-    <!-- ========== HOW TO ADD THIS POPUP TO OTHER BUTTONS (simple instructions) ========== -->
-    <div
-      style="
+      body {
+        font-family: "Inter", sans-serif;
+        background: linear-gradient(
+          120deg,
+          rgba(31, 110, 235, 0.08) 0%,
+          rgba(31, 110, 235, 0.02) 80%
+        );
+        line-height: 1.5;
+        scroll-behavior: smooth;
+        overflow-x: hidden;
+        width: 100%;
+        max-width: 100%;
+      }
+
+      html {
+        overflow-x: hidden;
+        width: 100%;
+        max-width: 100%;
+      }
+
+      /* ========== STICKY HEADER (FULLY STICKY WITH GLASS EFFECT) ========== */
+      .site-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.92);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(30, 110, 235, 0.25);
+        transition: all 0.25s ease;
+        padding: 0.7rem 2rem;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+        z-index: 1000;
+      }
+
+      /* subtle shadow increase on scroll */
+      .site-header.scrolled {
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        background: rgba(255, 255, 255, 0.96);
+        border-bottom-color: rgba(30, 110, 235, 0.4);
+      }
+
+      .header-container {
         max-width: 1280px;
-        margin: 2rem auto;
-        padding: 1rem 2rem 3rem;
-        border-top: 1px solid #e0e7f0;
-        font-family: Inter, sans-serif;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+        width: 100%;
+      }
+
+      .logo-area {
+        flex: 0 0 auto;
+        display: flex;
+        align-items: center;
+      }
+
+      .logo-icon img {
+        height: 43px;
+        width: auto;
+        object-fit: contain;
+        transition: all 0.2s;
+        max-width: 100%;
+        filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.05));
+      }
+
+      /* CENTER navigation (absolute centering) - all links present */
+      .nav-links {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 2rem;
+        align-items: center;
+        background: transparent;
+        padding: 0;
+        margin: 0;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 16px;
         color: #1f3b4c;
-      "
-    >
-      <h3 style="font-weight: 700; margin-bottom: 0.5rem">
-        <i class="fas fa-code"></i> How to add this popup to any other button on
-        your page
-      </h3>
-      <p style="margin-bottom: 0.75rem">
-        To attach the registration popup to any existing or new button (e.g.,
-        "Join Now", "Reserve Seat", "Get Access"), simply add the following
-        JavaScript code or use the <strong>data-popup-trigger</strong> approach:
-      </p>
-      <div
-        style="
-          background: #eef2fa;
-          padding: 1rem;
-          border-radius: 20px;
-          margin: 1rem 0;
-        "
-      >
-        <code style="font-size: 0.85rem; display: block">
-          // Option 1: Add click listener to any button element <br />
-          document.getElementById("yourButtonId").addEventListener("click",
-          function(e) { <br />
-          &nbsp;&nbsp; e.preventDefault(); <br />
-          &nbsp;&nbsp; openRegistrationModal("your-custom-source"); <br />
-          }); <br /><br />
-          // Option 2: If button has a class, use querySelector: <br />
-          document.querySelector(".any-register-btn").addEventListener("click",
-          (e) => { <br />
-          &nbsp;&nbsp; e.preventDefault();
-          openRegistrationModal("class-trigger"); <br />
-          });
-        </code>
+        transition: 0.2s;
+        letter-spacing: -0.2px;
+        position: relative;
+        white-space: nowrap;
+      }
+
+      .nav-links a:hover {
+        color: #1e6eeb;
+      }
+
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0%;
+        height: 2px;
+        background: #1e6eeb;
+        border-radius: 2px;
+        transition: 0.2s;
+      }
+
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+
+      .enroll-nav-wrapper {
+        flex: 0 0 auto;
+        margin-left: auto;
+      }
+
+      .enroll-nav-btn {
+        background: linear-gradient(105deg, #1e6eeb, #0f4c9e);
+        padding: 0.5rem 1.3rem;
+        border-radius: 40px;
+        color: white !important;
+        font-weight: 700;
+        box-shadow: 0 4px 10px rgba(30, 110, 235, 0.25);
+        transition: all 0.2s;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 0.95rem;
+      }
+
+      .enroll-nav-btn:hover {
+        background: #0f5bc2;
+        transform: translateY(-2px);
+        box-shadow: 0 10px 18px rgba(30, 110, 235, 0.3);
+      }
+
+      .hamburger {
+        display: none;
+      }
+      .menu-overlay {
+        display: none;
+      }
+
+      /* responsive styles — sticky header adjusts for mobile */
+      @media (max-width: 1024px) {
+        .site-header {
+          padding: 0.6rem 1.5rem;
+        }
+      }
+
+      @media (max-width: 820px) {
+        body {
+          overflow-x: hidden;
+        }
+        .site-header {
+          padding: 0.6rem 1rem;
+          background: rgba(255, 255, 255, 0.96);
+          backdrop-filter: blur(12px);
+        }
+        .nav-links {
+          position: fixed;
+          top: 0;
+          right: -100%;
+          left: auto;
+          transform: none;
+          width: 80%;
+          max-width: 320px;
+          height: 100vh;
+          background: rgba(255, 255, 255, 0.98);
+          backdrop-filter: blur(20px);
+          flex-direction: column;
+          justify-content: center;
+          gap: 2rem;
+          padding: 2rem 1.5rem;
+          box-shadow: -8px 0 25px rgba(0, 0, 0, 0.12);
+          transition: right 0.3s ease-in-out;
+          z-index: 1050;
+          border-left: 1px solid rgba(30, 110, 235, 0.2);
+          border-radius: 0;
+          overflow-y: auto;
+        }
+        .nav-links.open {
+          right: 0;
+        }
+        .nav-links a {
+          font-size: 1.2rem;
+          width: 100%;
+          text-align: center;
+          padding: 0.7rem;
+          white-space: normal;
+        }
+        .mobile-enroll-btn {
+          width: 100%;
+          text-align: center;
+          justify-content: center;
+          padding: 0.8rem;
+          font-size: 1rem;
+          margin-top: 0.5rem;
+        }
+        .enroll-nav-wrapper {
+          display: none;
+        }
+        .hamburger {
+          display: flex;
+          flex-direction: column;
+          cursor: pointer;
+          gap: 5px;
+          background: transparent;
+          border: none;
+          z-index: 1100;
+          padding: 6px 2px;
+          min-width: 44px;
+          min-height: 44px;
+          align-items: center;
+          justify-content: center;
+          margin-left: auto;
+        }
+        .hamburger span {
+          width: 26px;
+          height: 2.5px;
+          background: #1e6eeb;
+          border-radius: 4px;
+          transition: all 0.25s;
+        }
+        .hamburger.open span:nth-child(1) {
+          transform: rotate(45deg) translate(5px, 5px);
+        }
+        .hamburger.open span:nth-child(2) {
+          opacity: 0;
+        }
+        .hamburger.open span:nth-child(3) {
+          transform: rotate(-45deg) translate(7px, -7px);
+        }
+        .menu-overlay {
+          display: block;
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: rgba(0, 0, 0, 0.4);
+          backdrop-filter: blur(3px);
+          z-index: 1040;
+          opacity: 0;
+          visibility: hidden;
+          transition: 0.25s ease;
+        }
+        .menu-overlay.active {
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+
+      /* Hero and rest layout — add padding-top to avoid header overlap */
+      .section-wrapper {
+        background: linear-gradient(
+          120deg,
+          rgba(31, 110, 235, 0.08) 0%,
+          rgba(31, 110, 235, 0.02) 80%
+        );
+        position: relative;
+        overflow-x: hidden;
+        width: 100%;
+        margin-top: 0;
+        padding-top: 80px; /* Sticky header offset (mobile/desktop safe) */
+      }
+
+      @media (max-width: 820px) {
+        .section-wrapper {
+          padding-top: 72px;
+        }
+      }
+
+      .container {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 2rem 2rem 3rem;
+        position: relative;
+        width: 100%;
+        overflow-x: hidden;
+      }
+
+      .hero {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        padding-top: 20px;
+        width: 100%;
+      }
+
+      .hero-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        flex-wrap: wrap;
+        margin-bottom: 0.75rem;
+        gap: 10px;
+      }
+
+      h1 {
+        font-size: 2rem;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        background: linear-gradient(135deg, #1a3b5d, #0f2b44);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .breadcrumb {
+        font-size: 0.8rem;
+        font-weight: 500;
+        color: #1e6eeb;
+        border-left: 2px solid #1e6eeb;
+        padding-left: 0.7rem;
+      }
+
+      .hero-content {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2.5rem;
+        margin-top: 1rem;
+        align-items: flex-start;
+        width: 100%;
+      }
+
+      .hero-left {
+        flex: 1.2;
+        min-width: 280px;
+      }
+
+      .hero-left h2 {
+        font-size: 2.5rem;
+        font-weight: 800;
+        line-height: 1.2;
+        color: #0a2540;
+        margin-bottom: 0.75rem;
+        letter-spacing: -0.02em;
+      }
+
+      .hero-left p {
+        font-size: 1rem;
+        color: #2c475e;
+        margin: 0.5rem 0 0.75rem 0;
+      }
+
+      .rmi-highlight {
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(4px);
+        border-radius: 28px;
+        padding: 1rem 1.5rem;
+        margin: 1rem 0 1.2rem 0;
+        border-left: 4px solid #1e6eeb;
+        box-shadow: 0 8px 18px -8px rgba(0, 40, 80, 0.08);
+        width: 100%;
+      }
+
+      .rmi-icon {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 0.6rem;
+        flex-wrap: wrap;
+      }
+
+      .rmi-icon i {
+        font-size: 2rem;
+        color: #1e6eeb;
+        background: #eef4ff;
+        padding: 8px;
+        border-radius: 20px;
+      }
+
+      .rmi-icon h3 {
+        font-weight: 800;
+        font-size: 1.4rem;
+        color: #0f3b5e;
+      }
+
+      .countdown-block {
+        background: rgba(255, 255, 255, 0.92);
+        backdrop-filter: blur(4px);
+        border-radius: 28px;
+        padding: 0.9rem 1.4rem;
+        margin: 0.5rem 0 1rem 0;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+        justify-content: space-between;
+        border: 1px solid rgba(30, 110, 235, 0.25);
+        width: 100%;
+      }
+
+      .countdown-label {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-weight: 700;
+        color: #0f3b5e;
+      }
+
+      .countdown-timer {
+        display: flex;
+        gap: 0.6rem;
+        font-family: monospace;
+        font-weight: 800;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .time-unit {
+        background: rgba(30, 110, 235, 0.08);
+        border-radius: 24px;
+        padding: 0.3rem 0.8rem;
+        text-align: center;
+        min-width: 60px;
+      }
+
+      .time-number {
+        font-size: 1.5rem;
+        font-weight: 800;
+        color: #1e6eeb;
+        line-height: 1;
+      }
+
+      .time-label {
+        font-size: 0.7rem;
+      }
+
+      .register-cta {
+        margin: 1rem 0 0.5rem;
+        text-align: center;
+        width: 100%;
+      }
+
+      .btn-register {
+        background: linear-gradient(105deg, #1e6eeb, #0f4c9e);
+        color: white;
+        border: none;
+        padding: 1rem 2.2rem;
+        font-size: 1rem;
+        font-weight: 700;
+        border-radius: 60px;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.7rem;
+        transition: all 0.25s;
+        box-shadow: 0 12px 20px -10px rgba(30, 110, 235, 0.4);
+        font-family: inherit;
+      }
+
+      .btn-register:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 18px 28px -12px rgba(30, 110, 235, 0.5);
+      }
+
+      .hero-right {
+        flex: 0.9;
+        min-width: 300px;
+        display: flex;
+        flex-direction: column;
+        gap: 1.2rem;
+      }
+
+      .video-card {
+        border-radius: 32px;
+        overflow: hidden;
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(4px);
+        box-shadow: 0 20px 32px -16px rgba(0, 0, 0, 0.12);
+        border: 1px solid rgba(255, 255, 255, 0.8);
+      }
+
+      .youtube-preview {
+        position: relative;
+        cursor: pointer;
+        background: #0a1c2c;
+        aspect-ratio: 16 / 9;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+
+      .youtube-preview img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .play-btn-large {
+        position: absolute;
+        width: 70px;
+        height: 70px;
+        background: rgba(30, 110, 235, 0.9);
+        border-radius: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        backdrop-filter: blur(6px);
+        transition: all 0.2s;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+      }
+
+      .youtube-preview:hover .play-btn-large {
+        transform: scale(1.05);
+        background: #1e6eeb;
+      }
+
+      .video-caption {
+        padding: 0.75rem 1rem;
+        font-size: 0.8rem;
+        font-weight: 500;
+        color: #1e6eeb;
+        background: rgba(255, 255, 255, 0.9);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .speaker-card {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        background: rgba(255, 255, 255, 0.92);
+        backdrop-filter: blur(8px);
+        border-radius: 28px;
+        padding: 0.9rem 1.5rem;
+        border: 1px solid rgba(30, 110, 235, 0.2);
+      }
+
+      .speaker-avatar {
+        width: 56px;
+        height: 56px;
+        background: linear-gradient(145deg, #1e6eeb, #3a86ff);
+        border-radius: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 1.4rem;
+        color: white;
+        flex-shrink: 0;
+      }
+
+      .speaker-info h4 {
+        font-size: 1rem;
+        font-weight: 800;
+        color: #0a2a44;
+      }
+
+      .speaker-info p {
+        font-size: 0.8rem;
+        color: #2c475e;
+      }
+
+      .speaker-title {
+        font-size: 0.7rem;
+        color: #1e6eeb;
+        margin-top: 4px;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+      }
+
+      /* POPUP MODAL – Name, Email, Number */
+      .popup-modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(10, 25, 47, 0.94);
+        backdrop-filter: blur(10px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 2000;
+        visibility: hidden;
+        opacity: 0;
+        transition:
+          visibility 0.2s,
+          opacity 0.25s ease;
+      }
+
+      .popup-modal.active {
+        visibility: visible;
+        opacity: 1;
+      }
+
+      .popup-card {
+        background: linear-gradient(145deg, #0c1f38, #07152a);
+        border-radius: 2rem;
+        max-width: 540px;
+        width: 90%;
+        padding: 1.8rem 1.8rem 2rem;
+        box-shadow:
+          0 25px 45px rgba(0, 0, 0, 0.5),
+          0 0 0 1px rgba(30, 110, 235, 0.3);
+        color: #eef4ff;
+        position: relative;
+        transform: scale(0.97);
+        transition: transform 0.2s;
+      }
+
+      .popup-modal.active .popup-card {
+        transform: scale(1);
+      }
+
+      .popup-logo-area {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 1rem;
+      }
+      .logo-icon-popup img {
+        height: 55px;
+        width: auto;
+        filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+        border-radius: 19px;
+        max-width: 100%;
+      }
+
+      .close-popup {
+        position: absolute;
+        top: 1rem;
+        right: 1.3rem;
+        background: none;
+        border: none;
+        font-size: 1.8rem;
+        cursor: pointer;
+        color: #a0c2f0;
+        transition: 0.2s;
+        line-height: 1;
+        min-width: 44px;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .close-popup:hover {
+        color: white;
+      }
+
+      .popup-card h2 {
+        font-size: 1.7rem;
+        font-weight: 800;
+        margin-bottom: 0.4rem;
+        background: linear-gradient(135deg, #ffffff, #8bb9fe);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .popup-subhead {
+        font-size: 0.9rem;
+        margin-bottom: 1.5rem;
+        color: #bdd4ff;
+        border-left: 3px solid #1e6eeb;
+        padding-left: 0.8rem;
+      }
+
+      .form-group {
+        margin-bottom: 1.2rem;
+      }
+
+      .form-group label {
+        display: block;
+        font-weight: 600;
+        font-size: 0.8rem;
+        margin-bottom: 0.3rem;
+        color: #c9ddff;
+      }
+
+      .form-group input {
+        width: 100%;
+        padding: 0.8rem 1rem;
+        border-radius: 60px;
+        border: none;
+        background: #112a44;
+        color: white;
+        font-size: 0.9rem;
+        outline: none;
+        transition: 0.2s;
+        border: 1px solid #2c527a;
+        font-family: "Inter", sans-serif;
+      }
+
+      .form-group input:focus {
+        border-color: #1e6eeb;
+        background: #0e243c;
+        box-shadow: 0 0 0 2px rgba(30, 110, 235, 0.3);
+      }
+
+      .checkbox-group {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin: 1.2rem 0;
+        flex-wrap: wrap;
+      }
+
+      .checkbox-group input {
+        width: 18px;
+        height: 18px;
+        accent-color: #1e6eeb;
+        cursor: pointer;
+      }
+
+      .checkbox-group label {
+        font-size: 0.85rem;
+        color: #c5dbff;
+        cursor: pointer;
+      }
+
+      .submit-popup-btn {
+        background: linear-gradient(105deg, #1e6eeb, #0f4c9e);
+        width: 100%;
+        padding: 0.9rem;
+        font-weight: 800;
+        border: none;
+        border-radius: 60px;
+        color: white;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: 0.2s;
+        margin-top: 0.5rem;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        font-family: inherit;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        min-height: 48px;
+      }
+
+      .submit-popup-btn:hover {
+        background: #0f5bc2;
+        transform: translateY(-2px);
+      }
+
+      .submit-popup-btn:disabled {
+        opacity: 0.7;
+        cursor: not-allowed;
+      }
+
+      .popup-footer-note {
+        font-size: 0.7rem;
+        text-align: center;
+        margin-top: 1rem;
+        color: #7c9bd4;
+      }
+
+      .toast-msg {
+        position: fixed;
+        bottom: 25px;
+        left: 50%;
+        transform: translateX(-50%) translateY(20px);
+        background: #1f2f40;
+        color: #f0f7ff;
+        padding: 12px 24px;
+        border-radius: 60px;
+        font-weight: 500;
+        font-size: 0.85rem;
+        backdrop-filter: blur(8px);
+        z-index: 2100;
+        opacity: 0;
+        transition: 0.2s;
+        pointer-events: none;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        white-space: nowrap;
+        max-width: 90vw;
+      }
+
+      .toast-msg.show {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+      }
+
+      @media (max-width: 550px) {
+        .popup-card {
+          padding: 1.5rem;
+          width: 92%;
+        }
+        .popup-card h2 {
+          font-size: 1.4rem;
+        }
+        .toast-msg {
+          white-space: normal;
+          text-align: center;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          padding: 1.5rem 1.5rem 2rem;
+        }
+        .hero-left h2 {
+          font-size: 1.8rem;
+        }
+        .btn-register {
+          width: 100%;
+          justify-content: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- STICKY HEADER: fully sticky, all nav links present -->
+    <header class="site-header" id="mainHeader">
+      <div class="header-container">
+        <div class="logo-area">
+          <div class="logo-icon">
+            <img
+              src="Logo Light.jpg"
+              alt="Strike Webinars Logo"
+              onerror="this.src = 'https://placehold.co/100x40?text=Strike'"
+            />
+          </div>
+        </div>
+        <nav class="nav-links" id="navLinks">
+          <a href="#HeroSectionMain">Home</a>
+          <a href="#Solution-Section">RMI</a>
+          <a href="#WUWL">Strategy</a>
+          <a href="#Mentor">Mentor</a>
+          <a href="#Proof">Proof</a>
+          <a href="#FAQ">FAQ</a>
+        </nav>
+        <div class="enroll-nav-wrapper">
+          <a href="#" class="enroll-nav-btn" id="desktopNavEnrollBtn"
+            ><i class="fas fa-ticket-alt"></i> Enroll Now</a
+          >
+        </div>
+        <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+        <div class="menu-overlay" id="menuOverlay"></div>
       </div>
-      <p>
-        ✅ The popup will not interfere with any other functionality and keeps
-        its own styling, Google Sheets integration, and validation intact. Just
-        call
-        <strong
-          style="background: #eef2fa; padding: 2px 8px; border-radius: 20px"
-          >openRegistrationModal('sourceName')</strong
-        >
-        from your button's click handler.
-      </p>
-      <p style="margin-top: 0.5rem">
-        <i class="fas fa-check-circle" style="color: #1e6eeb"></i> Works for
-        dynamically added buttons as well – attach event listener after
-        creation.
-      </p>
+    </header>
+
+    <div class="section-wrapper hero-section" id="HeroSectionMain">
+      <div class="container">
+        <div class="hero">
+          <div class="hero-top">
+            <h1>Strike Webinars</h1>
+            <div class="breadcrumb">Strike / RMI Intelligence</div>
+          </div>
+          <div class="hero-content">
+            <div class="hero-left">
+              <h2>Learn Stock Analysis with Live Webinars</h2>
+              <p>
+                Master advanced fundamentals, technical indicators & market
+                psychology. Expert-led sessions for traders and investors.
+              </p>
+              <div class="rmi-highlight">
+                <div class="rmi-icon">
+                  <i class="fas fa-chart-line"></i>
+                  <h3>RMI · Real-time Metrics Intelligence</h3>
+                </div>
+                <p>
+                  <i
+                    class="fas fa-database"
+                    style="color: #1e6eeb; margin-right: 6px"
+                  ></i
+                  >Transforms fragmented data into a unified truth layer. Stop
+                  guessing — start scaling with predictive clarity.
+                </p>
+              </div>
+              <div class="countdown-block">
+                <div class="countdown-label">
+                  <i class="fas fa-clock"></i
+                  ><span>Free registration window</span>
+                </div>
+                <div class="countdown-timer" id="countdownTimer">
+                  <div class="time-unit">
+                    <div class="time-number" id="hoursLeft">00</div>
+                    <div class="time-label">Hrs</div>
+                  </div>
+                  <div class="time-unit">
+                    <div class="time-number" id="minutesLeft">00</div>
+                    <div class="time-label">Min</div>
+                  </div>
+                  <div class="time-unit">
+                    <div class="time-number" id="secondsLeft">00</div>
+                    <div class="time-label">Sec</div>
+                  </div>
+                </div>
+              </div>
+              <div class="register-cta">
+                <button class="btn-register" id="heroRegisterBtn">
+                  <i class="fas fa-ticket-alt"></i> Register Now – Free Access
+                  <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+            <div class="hero-right">
+              <div class="video-card">
+                <div class="youtube-preview" id="youtubePreviewTrigger">
+                  <img
+                    src="https://img.youtube.com/vi/U2lXv8mXeaQ/hqdefault.jpg"
+                    alt="Webinar preview"
+                    onerror="
+                      this.src =
+                        'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22480%22 height=%22360%22 viewBox=%220 0 480 360%22%3E%3Crect width=%22480%22 height=%22360%22 fill=%22%231a2c3c%22/%3E%3Ctext x=%22240%22 y=%22180%22 text-anchor=%22middle%22 fill=%22%23666%22 font-size=%2220%22%3EVideo Preview%3C/text%3E%3C/svg%3E'
+                    "
+                  />
+                  <div class="play-btn-large"><i class="fas fa-play"></i></div>
+                </div>
+                <div class="video-caption">
+                  <i class="fab fa-youtube"></i
+                  ><span
+                    >Watch preview: Rohit Srivastava on RMI & market
+                    cycles</span
+                  >
+                </div>
+              </div>
+              <div class="speaker-card">
+                <div class="speaker-avatar">RS</div>
+                <div class="speaker-info">
+                  <h4>Rohit Srivastava</h4>
+                  <p>Founder & Market Strategist, Indiacharts</p>
+                  <div class="speaker-title">
+                    <i class="fas fa-chalkboard-user"></i> Featured speaker: 20+
+                    years experience
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+
+    <!-- POPUP with NAME, EMAIL, PHONE NUMBER -->
+    <div id="registrationPopup" class="popup-modal">
+      <div class="popup-card">
+        <button class="close-popup" id="closePopupBtn">&times;</button>
+        <div class="popup-logo-area">
+          <div class="logo-icon-popup">
+            <img
+              src="Logo Dark.jpg"
+              alt="Strike Webinars"
+              onerror="
+                this.src =
+                  'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%22 height=%2255%22 viewBox=%220 0 100 55%22%3E%3Crect width=%22100%22 height=%2255%22 fill=%22%231e6eeb%22/%3E%3Ctext x=%2250%22 y=%2235%22 text-anchor=%22middle%22 fill=%22white%22 font-size=%2220%22 font-weight=%22bold%22%3ES%3C/text%3E%3C/svg%3E'
+              "
+            />
+          </div>
+        </div>
+        <h2><i class="fas fa-chart-line"></i> Reserve Your Seat</h2>
+        <div class="popup-subhead">
+          <i class="fas fa-video"></i> Enter details to get webinar access —
+          limited spots
+        </div>
+        <form id="popupForm">
+          <div class="form-group">
+            <label><i class="fas fa-user"></i> Full Name *</label
+            ><input
+              type="text"
+              id="popupName"
+              placeholder="e.g., Aman Sharma"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label><i class="fas fa-envelope"></i> Email Address *</label
+            ><input
+              type="email"
+              id="popupEmail"
+              placeholder="you@example.com"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label><i class="fas fa-phone-alt"></i> Phone Number *</label
+            ><input
+              type="tel"
+              id="popupPhone"
+              placeholder="+91 98765 43210"
+              required
+            />
+          </div>
+          <div class="checkbox-group">
+            <input type="checkbox" id="popupNewsletter" /><label
+              for="popupNewsletter"
+              ><i class="fas fa-check-circle"></i> I would like to receive
+              newsletter & offers on mail.</label
+            >
+          </div>
+          <button type="submit" class="submit-popup-btn">
+            <i class="fas fa-paper-plane"></i> Submit & Get Webinar Access
+          </button>
+          <div class="popup-footer-note">
+            <i class="fas fa-lock"></i> We respect your privacy. No spam, only
+            insights.
+          </div>
+        </form>
+      </div>
+    </div>
+    <div id="globalToast" class="toast-msg">
+      <i class="fas fa-info-circle"></i> <span id="toastText">Ready</span>
+    </div>
+
+    <script>
+      const WEBHOOK_URL =
+        "https://script.google.com/macros/s/AKfycbx_HzzqANQkjqJC6wgOE-_1evAskThKwJrE3IZIGzBv2DgRVY4KJhuE-RoIW9gCXkld/exec";
+      const popupModal = document.getElementById("registrationPopup");
+      const closePopupBtn = document.getElementById("closePopupBtn");
+      const popupForm = document.getElementById("popupForm");
+      let pendingSource = "webinar";
+
+      function showToast(msg, isError = false) {
+        const toastSpan = document.getElementById("toastText");
+        const toastEl = document.getElementById("globalToast");
+        toastSpan.innerText = msg;
+        toastEl.style.background = isError ? "#a12a2a" : "#1f2f40";
+        toastEl.classList.add("show");
+        setTimeout(() => toastEl.classList.remove("show"), 2800);
+      }
+      function openModal(source = "generic") {
+        pendingSource = source;
+        popupModal.classList.add("active");
+        document.getElementById("popupName").value = "";
+        document.getElementById("popupEmail").value = "";
+        document.getElementById("popupPhone").value = "";
+        document.getElementById("popupNewsletter").checked = false;
+        setTimeout(() => document.getElementById("popupName").focus(), 100);
+      }
+      function closeModal() {
+        popupModal.classList.remove("active");
+      }
+      async function sendToSheet(data) {
+        await fetch(WEBHOOK_URL, {
+          method: "POST",
+          mode: "no-cors",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data),
+        });
+        return { success: true };
+      }
+      popupForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const name = document.getElementById("popupName").value.trim();
+        const email = document.getElementById("popupEmail").value.trim();
+        const phone = document.getElementById("popupPhone").value.trim();
+        const newsletter = document.getElementById("popupNewsletter").checked;
+        if (!name || !email || !phone) {
+          showToast("All fields (Name, Email, Phone) are required.", true);
+          return;
+        }
+        const emailRegex = /^[^\s@]+@([^\s@.,]+\.)+[^\s@.,]{2,}$/i;
+        if (!emailRegex.test(email)) {
+          showToast("Please enter a valid email address.", true);
+          return;
+        }
+        const phoneRegex = /^[\+\d\s\-\(\)]{8,20}$/;
+        if (!phoneRegex.test(phone)) {
+          showToast("Please enter a valid phone number.", true);
+          return;
+        }
+        const payload = {
+          timestamp: new Date().toISOString(),
+          fullName: name,
+          email,
+          phoneNumber: phone,
+          newsletterOptIn: newsletter,
+          source: pendingSource,
+          page: "Strike Webinars - Popup (Name/Email/Phone)",
+        };
+        const btn = popupForm.querySelector(".submit-popup-btn");
+        const original = btn.innerHTML;
+        btn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Submitting...';
+        btn.disabled = true;
+        try {
+          await sendToSheet(payload);
+          showToast(
+            `✨ Thanks ${name}! Webinar access link will be sent to ${email}.`,
+          );
+          closeModal();
+        } catch (err) {
+          showToast("⚠️ Registration failed. Please try again.", true);
+        } finally {
+          btn.innerHTML = original;
+          btn.disabled = false;
+        }
+      });
+      closePopupBtn.addEventListener("click", closeModal);
+      popupModal.addEventListener("click", (e) => {
+        if (e.target === popupModal) closeModal();
+      });
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && popupModal.classList.contains("active"))
+          closeModal();
+      });
+      document
+        .getElementById("heroRegisterBtn")
+        ?.addEventListener("click", (e) => {
+          e.preventDefault();
+          openModal("hero-section");
+        });
+      document
+        .getElementById("desktopNavEnrollBtn")
+        ?.addEventListener("click", (e) => {
+          e.preventDefault();
+          openModal("navbar-desktop");
+        });
+      function updateCountdown() {
+        const now = new Date();
+        const endUTC = Date.UTC(
+          now.getUTCFullYear(),
+          now.getUTCMonth(),
+          now.getUTCDate() + 1,
+          0,
+          0,
+          0,
+        );
+        const diff = Math.max(0, endUTC - now.getTime());
+        const hours = Math.floor(diff / 3600000);
+        const minutes = Math.floor((diff % 3600000) / 60000);
+        const seconds = Math.floor((diff % 60000) / 1000);
+        document.getElementById("hoursLeft").innerText =
+          hours < 10 ? "0" + hours : hours;
+        document.getElementById("minutesLeft").innerText =
+          minutes < 10 ? "0" + minutes : minutes;
+        document.getElementById("secondsLeft").innerText =
+          seconds < 10 ? "0" + seconds : seconds;
+      }
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
+      document
+        .getElementById("youtubePreviewTrigger")
+        ?.addEventListener("click", () => {
+          window.open(
+            "https://youtu.be/U2lXv8mXeaQ?si=We24Ia6DI1CX9yOk",
+            "_blank",
+          );
+        });
+      const header = document.getElementById("mainHeader");
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 20) header.classList.add("scrolled");
+        else header.classList.remove("scrolled");
+      });
+      const hamburger = document.getElementById("hamburgerBtn"),
+        navLinks = document.getElementById("navLinks"),
+        overlay = document.getElementById("menuOverlay");
+      function closeMenu() {
+        navLinks.classList.remove("open");
+        overlay?.classList.remove("active");
+        hamburger?.classList.remove("open");
+        document.body.style.overflow = "";
+      }
+      function openMenu() {
+        navLinks.classList.add("open");
+        overlay?.classList.add("active");
+        hamburger?.classList.add("open");
+        document.body.style.overflow = "hidden";
+      }
+      if (hamburger)
+        hamburger.addEventListener("click", (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          navLinks.classList.contains("open") ? closeMenu() : openMenu();
+        });
+      if (overlay) overlay.addEventListener("click", closeMenu);
+      document.querySelectorAll("#navLinks a").forEach((link) =>
+        link.addEventListener("click", () => {
+          if (window.innerWidth <= 820) closeMenu();
+        }),
+      );
+      window.addEventListener("resize", () => {
+        if (window.innerWidth > 820 && navLinks.classList.contains("open"))
+          closeMenu();
+      });
+    </script>
   </body>
 </html>

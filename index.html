@@ -18,1043 +18,1217 @@
   </head>
   <body>
     <!-- -------Hero Section--------  -->
-    <!DOCTYPE html>
+    <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>Strike Webinars | Live Registration with Popup</title>
-  <!-- Google Fonts & Font Awesome 6 -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-  <style>
-    /* ---------- BASE & RESET ---------- */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <title>Strike Webinars | Live Registration with Popup</title>
+    <!-- Google Fonts & Font Awesome 6 -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-    body {
-      font-family: "Inter", sans-serif;
-      background: #f5f9ff;
-      line-height: 1.5;
-      scroll-behavior: smooth;
-    }
+      body {
+        font-family: "Inter", sans-serif;
+        background: linear-gradient(
+          120deg,
+          rgba(31, 110, 235, 0.08) 0%,
+          rgba(31, 110, 235, 0.02) 80%
+        );
+        line-height: 1.5;
+        scroll-behavior: smooth;
+        overflow-x: hidden;
+        width: 100%;
+        max-width: 100%;
+      }
 
-    /* ========== STICKY HEADER (Desktop: Logo Left | Nav Center | Button Right) ========== */
-    .site-header {
-      position: sticky;
-      top: 12px;
-      background: rgba(255, 255, 255, 0.96);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(30, 110, 235, 0.15);
-      transition: all 0.25s ease;
-      padding: 0.9rem 2rem;
-      margin: 12px 99px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
-      z-index: 999;
-      border-radius: 12px;
-    }
+      html {
+        overflow-x: hidden;
+        width: 100%;
+        max-width: 100%;
+      }
 
-    .site-header.compact {
-      padding: 0.55rem 2rem;
-      background: rgba(255, 255, 255, 0.98);
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
-      border-bottom-color: rgba(30, 110, 235, 0.25);
-    }
-
-    .header-container {
-      max-width: 1280px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      position: relative;
-    }
-
-    /* LEFT: Logo area */
-    .logo-area {
-      flex: 0 0 auto;
-      display: flex;
-      align-items: center;
-    }
-
-    .logo-icon {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .logo-icon img {
-      height: 43px;
-      width: auto;
-      object-fit: contain;
-      transition: all 0.2s;
-    }
-
-    /* CENTER: Navigation links (desktop perfect centering) */
-    .nav-links {
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      gap: 2rem;
-      align-items: center;
-      background: transparent;
-      padding: 0;
-      margin: 0;
-      transition: all 0.2s;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 16px;
-      color: #1f3b4c;
-      transition: 0.2s;
-      letter-spacing: -0.2px;
-      position: relative;
-      white-space: nowrap;
-    }
-
-    .nav-links a:hover {
-      color: #1e6eeb;
-    }
-
-    .nav-links a::after {
-      content: "";
-      position: absolute;
-      bottom: -5px;
-      left: 0;
-      width: 0%;
-      height: 2px;
-      background: #1e6eeb;
-      border-radius: 2px;
-      transition: 0.2s;
-    }
-
-    .nav-links a:hover::after {
-      width: 100%;
-    }
-
-    /* RIGHT: Enroll Now button (aligned to the right) */
-    .enroll-nav-wrapper {
-      flex: 0 0 auto;
-      margin-left: auto;
-    }
-
-    .enroll-nav-btn {
-      background: linear-gradient(105deg, #1e6eeb, #0f4c9e);
-      padding: 0.5rem 1.2rem;
-      border-radius: 40px;
-      color: white !important;
-      font-weight: 700;
-      box-shadow: 0 4px 10px rgba(30, 110, 235, 0.2);
-      transition: all 0.2s;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 0.95rem;
-    }
-
-    .enroll-nav-btn:hover {
-      background: #0f5bc2;
-      transform: translateY(-2px);
-      box-shadow: 0 10px 18px rgba(30, 110, 235, 0.3);
-    }
-
-    /* Hide hamburger on desktop */
-    .hamburger {
-      display: none;
-    }
-
-    .menu-overlay {
-      display: none;
-    }
-
-    /* ========== FULLY RESPONSIVE: mobile & tablet (no extra right spacing, hamburger fits neatly) ========== */
-    @media (max-width: 1024px) {
+      /* ========== STICKY HEADER (FULLY STICKY WITH GLASS EFFECT) ========== */
       .site-header {
-        margin: 12px 24px;
-        padding: 0.7rem 1.5rem;
-      }
-      .site-header.compact {
-        padding: 0.5rem 1.5rem;
-      }
-    }
-
-    @media (max-width: 820px) {
-      .site-header {
-        margin: 10px 16px;
-        padding: 0.7rem 1rem;
-      }
-      
-      /* Reset desktop positioning for mobile */
-      .nav-links {
         position: fixed;
         top: 0;
-        right: -100%;
-        left: auto;
-        transform: none;
-        width: 80%;
-        max-width: 320px;
-        height: 100vh;
-        background: rgba(255, 255, 255, 0.98);
-        backdrop-filter: blur(20px);
-        flex-direction: column;
-        justify-content: center;
-        gap: 2rem;
-        padding: 2rem 1.5rem;
-        box-shadow: -8px 0 25px rgba(0, 0, 0, 0.12);
-        transition: right 0.3s ease-in-out;
-        z-index: 1050;
-        border-left: 1px solid rgba(30, 110, 235, 0.2);
-        border-radius: 0;
-        overflow-y: auto;
-      }
-      
-      .nav-links.open {
+        left: 0;
         right: 0;
-      }
-      
-      .nav-links a {
-        font-size: 1.2rem;
         width: 100%;
-        text-align: center;
-        padding: 0.7rem;
-        white-space: normal;
+        background: rgba(255, 255, 255, 0.92);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(30, 110, 235, 0.25);
+        transition: all 0.25s ease;
+        padding: 0.7rem 2rem;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+        z-index: 1000;
       }
-      
-      /* Button inside mobile menu */
-      .enroll-nav-btn {
-        width: 100%;
-        text-align: center;
-        justify-content: center;
-        padding: 0.8rem;
-        font-size: 1rem;
-        margin-top: 0.5rem;
+
+      /* subtle shadow increase on scroll */
+      .site-header.scrolled {
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        background: rgba(255, 255, 255, 0.96);
+        border-bottom-color: rgba(30, 110, 235, 0.4);
       }
-      
-      /* Hide the right-side button on mobile, show inside nav */
-      .enroll-nav-wrapper {
-        display: none;
-      }
-      
-      /* Hamburger visible */
-      .hamburger {
+
+      .header-container {
+        max-width: 1280px;
+        margin: 0 auto;
         display: flex;
-        flex-direction: column;
-        cursor: pointer;
-        gap: 5px;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+        width: 100%;
+      }
+
+      .logo-area {
+        flex: 0 0 auto;
+        display: flex;
+        align-items: center;
+      }
+
+      .logo-icon img {
+        height: 43px;
+        width: auto;
+        object-fit: contain;
+        transition: all 0.2s;
+        max-width: 100%;
+        filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.05));
+      }
+
+      /* CENTER navigation (absolute centering) - all links present */
+      .nav-links {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 2rem;
+        align-items: center;
         background: transparent;
-        border: none;
-        z-index: 1100;
-        padding: 6px 2px;
+        padding: 0;
+        margin: 0;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 16px;
+        color: #1f3b4c;
+        transition: 0.2s;
+        letter-spacing: -0.2px;
+        position: relative;
+        white-space: nowrap;
+      }
+
+      .nav-links a:hover {
+        color: #1e6eeb;
+      }
+
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0%;
+        height: 2px;
+        background: #1e6eeb;
+        border-radius: 2px;
+        transition: 0.2s;
+      }
+
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+
+      .enroll-nav-wrapper {
+        flex: 0 0 auto;
         margin-left: auto;
       }
-      
-      .hamburger span {
-        width: 26px;
-        height: 2.5px;
-        background: #1e6eeb;
-        border-radius: 4px;
-        transition: all 0.25s;
+
+      .enroll-nav-btn {
+        background: linear-gradient(105deg, #1e6eeb, #0f4c9e);
+        padding: 0.5rem 1.3rem;
+        border-radius: 40px;
+        color: white !important;
+        font-weight: 700;
+        box-shadow: 0 4px 10px rgba(30, 110, 235, 0.25);
+        transition: all 0.2s;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 0.95rem;
       }
-      
-      /* overlay for mobile menu */
+
+      .enroll-nav-btn:hover {
+        background: #0f5bc2;
+        transform: translateY(-2px);
+        box-shadow: 0 10px 18px rgba(30, 110, 235, 0.3);
+      }
+
+      .hamburger {
+        display: none;
+      }
       .menu-overlay {
-        display: block;
+        display: none;
+      }
+
+      /* responsive styles — sticky header adjusts for mobile */
+      @media (max-width: 1024px) {
+        .site-header {
+          padding: 0.6rem 1.5rem;
+        }
+      }
+
+      @media (max-width: 820px) {
+        body {
+          overflow-x: hidden;
+        }
+        .site-header {
+          padding: 0.6rem 1rem;
+          background: rgba(255, 255, 255, 0.96);
+          backdrop-filter: blur(12px);
+        }
+        .nav-links {
+          position: fixed;
+          top: 0;
+          right: -100%;
+          left: auto;
+          transform: none;
+          width: 80%;
+          max-width: 320px;
+          height: 100vh;
+          background: rgba(255, 255, 255, 0.98);
+          backdrop-filter: blur(20px);
+          flex-direction: column;
+          justify-content: center;
+          gap: 2rem;
+          padding: 2rem 1.5rem;
+          box-shadow: -8px 0 25px rgba(0, 0, 0, 0.12);
+          transition: right 0.3s ease-in-out;
+          z-index: 1050;
+          border-left: 1px solid rgba(30, 110, 235, 0.2);
+          border-radius: 0;
+          overflow-y: auto;
+        }
+        .nav-links.open {
+          right: 0;
+        }
+        .nav-links a {
+          font-size: 1.2rem;
+          width: 100%;
+          text-align: center;
+          padding: 0.7rem;
+          white-space: normal;
+        }
+        .mobile-enroll-btn {
+          width: 100%;
+          text-align: center;
+          justify-content: center;
+          padding: 0.8rem;
+          font-size: 1rem;
+          margin-top: 0.5rem;
+        }
+        .enroll-nav-wrapper {
+          display: none;
+        }
+        .hamburger {
+          display: flex;
+          flex-direction: column;
+          cursor: pointer;
+          gap: 5px;
+          background: transparent;
+          border: none;
+          z-index: 1100;
+          padding: 6px 2px;
+          min-width: 44px;
+          min-height: 44px;
+          align-items: center;
+          justify-content: center;
+          margin-left: auto;
+        }
+        .hamburger span {
+          width: 26px;
+          height: 2.5px;
+          background: #1e6eeb;
+          border-radius: 4px;
+          transition: all 0.25s;
+        }
+        .hamburger.open span:nth-child(1) {
+          transform: rotate(45deg) translate(5px, 5px);
+        }
+        .hamburger.open span:nth-child(2) {
+          opacity: 0;
+        }
+        .hamburger.open span:nth-child(3) {
+          transform: rotate(-45deg) translate(7px, -7px);
+        }
+        .menu-overlay {
+          display: block;
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: rgba(0, 0, 0, 0.4);
+          backdrop-filter: blur(3px);
+          z-index: 1040;
+          opacity: 0;
+          visibility: hidden;
+          transition: 0.25s ease;
+        }
+        .menu-overlay.active {
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+
+      /* Hero and rest layout — add padding-top to avoid header overlap */
+      .section-wrapper {
+        background: linear-gradient(
+          120deg,
+          rgba(31, 110, 235, 0.08) 0%,
+          rgba(31, 110, 235, 0.02) 80%
+        );
+        position: relative;
+        overflow-x: hidden;
+        width: 100%;
+        margin-top: 0;
+        padding-top: 80px; /* Sticky header offset (mobile/desktop safe) */
+      }
+
+      @media (max-width: 820px) {
+        .section-wrapper {
+          padding-top: 72px;
+        }
+      }
+
+      .container {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 2rem 2rem 3rem;
+        position: relative;
+        width: 100%;
+        overflow-x: hidden;
+      }
+
+      .hero {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        padding-top: 20px;
+        width: 100%;
+      }
+
+      .hero-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        flex-wrap: wrap;
+        margin-bottom: 0.75rem;
+        gap: 10px;
+      }
+
+      h1 {
+        font-size: 2rem;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        background: linear-gradient(135deg, #1a3b5d, #0f2b44);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .breadcrumb {
+        font-size: 0.8rem;
+        font-weight: 500;
+        color: #1e6eeb;
+        border-left: 2px solid #1e6eeb;
+        padding-left: 0.7rem;
+      }
+
+      .hero-content {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2.5rem;
+        margin-top: 1rem;
+        align-items: flex-start;
+        width: 100%;
+      }
+
+      .hero-left {
+        flex: 1.2;
+        min-width: 280px;
+      }
+
+      .hero-left h2 {
+        font-size: 2.5rem;
+        font-weight: 800;
+        line-height: 1.2;
+        color: #0a2540;
+        margin-bottom: 0.75rem;
+        letter-spacing: -0.02em;
+      }
+
+      .hero-left p {
+        font-size: 1rem;
+        color: #2c475e;
+        margin: 0.5rem 0 0.75rem 0;
+      }
+
+      .rmi-highlight {
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(4px);
+        border-radius: 28px;
+        padding: 1rem 1.5rem;
+        margin: 1rem 0 1.2rem 0;
+        border-left: 4px solid #1e6eeb;
+        box-shadow: 0 8px 18px -8px rgba(0, 40, 80, 0.08);
+        width: 100%;
+      }
+
+      .rmi-icon {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 0.6rem;
+        flex-wrap: wrap;
+      }
+
+      .rmi-icon i {
+        font-size: 2rem;
+        color: #1e6eeb;
+        background: #eef4ff;
+        padding: 8px;
+        border-radius: 20px;
+      }
+
+      .rmi-icon h3 {
+        font-weight: 800;
+        font-size: 1.4rem;
+        color: #0f3b5e;
+      }
+
+      .countdown-block {
+        background: rgba(255, 255, 255, 0.92);
+        backdrop-filter: blur(4px);
+        border-radius: 28px;
+        padding: 0.9rem 1.4rem;
+        margin: 0.5rem 0 1rem 0;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+        justify-content: space-between;
+        border: 1px solid rgba(30, 110, 235, 0.25);
+        width: 100%;
+      }
+
+      .countdown-label {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-weight: 700;
+        color: #0f3b5e;
+      }
+
+      .countdown-timer {
+        display: flex;
+        gap: 0.6rem;
+        font-family: monospace;
+        font-weight: 800;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .time-unit {
+        background: rgba(30, 110, 235, 0.08);
+        border-radius: 24px;
+        padding: 0.3rem 0.8rem;
+        text-align: center;
+        min-width: 60px;
+      }
+
+      .time-number {
+        font-size: 1.5rem;
+        font-weight: 800;
+        color: #1e6eeb;
+        line-height: 1;
+      }
+
+      .time-label {
+        font-size: 0.7rem;
+      }
+
+      .register-cta {
+        margin: 1rem 0 0.5rem;
+        text-align: center;
+        width: 100%;
+      }
+
+      .btn-register {
+        background: linear-gradient(105deg, #1e6eeb, #0f4c9e);
+        color: white;
+        border: none;
+        padding: 1rem 2.2rem;
+        font-size: 1rem;
+        font-weight: 700;
+        border-radius: 60px;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.7rem;
+        transition: all 0.25s;
+        box-shadow: 0 12px 20px -10px rgba(30, 110, 235, 0.4);
+        font-family: inherit;
+      }
+
+      .btn-register:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 18px 28px -12px rgba(30, 110, 235, 0.5);
+      }
+
+      .hero-right {
+        flex: 0.9;
+        min-width: 300px;
+        display: flex;
+        flex-direction: column;
+        gap: 1.2rem;
+      }
+
+      .video-card {
+        border-radius: 32px;
+        overflow: hidden;
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(4px);
+        box-shadow: 0 20px 32px -16px rgba(0, 0, 0, 0.12);
+        border: 1px solid rgba(255, 255, 255, 0.8);
+      }
+
+      .youtube-preview {
+        position: relative;
+        cursor: pointer;
+        background: #0a1c2c;
+        aspect-ratio: 16 / 9;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+
+      .youtube-preview img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .play-btn-large {
+        position: absolute;
+        width: 70px;
+        height: 70px;
+        background: rgba(30, 110, 235, 0.9);
+        border-radius: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        backdrop-filter: blur(6px);
+        transition: all 0.2s;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+      }
+
+      .youtube-preview:hover .play-btn-large {
+        transform: scale(1.05);
+        background: #1e6eeb;
+      }
+
+      .video-caption {
+        padding: 0.75rem 1rem;
+        font-size: 0.8rem;
+        font-weight: 500;
+        color: #1e6eeb;
+        background: rgba(255, 255, 255, 0.9);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .speaker-card {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        background: rgba(255, 255, 255, 0.92);
+        backdrop-filter: blur(8px);
+        border-radius: 28px;
+        padding: 0.9rem 1.5rem;
+        border: 1px solid rgba(30, 110, 235, 0.2);
+      }
+
+      .speaker-avatar {
+        width: 56px;
+        height: 56px;
+        background: linear-gradient(145deg, #1e6eeb, #3a86ff);
+        border-radius: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 1.4rem;
+        color: white;
+        flex-shrink: 0;
+      }
+
+      .speaker-info h4 {
+        font-size: 1rem;
+        font-weight: 800;
+        color: #0a2a44;
+      }
+
+      .speaker-info p {
+        font-size: 0.8rem;
+        color: #2c475e;
+      }
+
+      .speaker-title {
+        font-size: 0.7rem;
+        color: #1e6eeb;
+        margin-top: 4px;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+      }
+
+      /* POPUP MODAL – Name, Email, Number */
+      .popup-modal {
         position: fixed;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        background: rgba(0, 0, 0, 0.4);
-        backdrop-filter: blur(3px);
-        z-index: 1040;
-        opacity: 0;
+        background: rgba(10, 25, 47, 0.94);
+        backdrop-filter: blur(10px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 2000;
         visibility: hidden;
-        transition: 0.25s ease;
+        opacity: 0;
+        transition:
+          visibility 0.2s,
+          opacity 0.25s ease;
       }
-      
-      .menu-overlay.active {
-        opacity: 1;
+
+      .popup-modal.active {
         visibility: visible;
+        opacity: 1;
       }
-    }
 
-    /* Fine tune for small phones (no extra spacing) */
-    @media (max-width: 480px) {
-      .site-header {
-        margin: 8px 12px;
-        padding: 0.6rem 0.9rem;
+      .popup-card {
+        background: linear-gradient(145deg, #0c1f38, #07152a);
+        border-radius: 2rem;
+        max-width: 540px;
+        width: 90%;
+        padding: 1.8rem 1.8rem 2rem;
+        box-shadow:
+          0 25px 45px rgba(0, 0, 0, 0.5),
+          0 0 0 1px rgba(30, 110, 235, 0.3);
+        color: #eef4ff;
+        position: relative;
+        transform: scale(0.97);
+        transition: transform 0.2s;
       }
-      .nav-links {
-        width: 85%;
-        padding: 2rem 1.2rem;
+
+      .popup-modal.active .popup-card {
+        transform: scale(1);
       }
-      .nav-links a {
-        font-size: 1.1rem;
+
+      .popup-logo-area {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 1rem;
       }
-    }
-
-    /* ========== HERO SECTION (preserved design) ========== */
-    .section-wrapper {
-      background: linear-gradient(120deg, rgba(31, 110, 235, 0.08) 0%, rgba(31, 110, 235, 0.02) 80%);
-      position: relative;
-      overflow: hidden;
-      margin-top: -9rem;
-      padding-top: 5rem;
-    }
-
-    .container {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 8.8rem 2rem 3rem;
-      position: relative;
-      margin-top: -91px;
-    }
-
-    .hero {
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-      padding-top: 20px;
-    }
-
-    .hero-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      flex-wrap: wrap;
-      margin-bottom: 0.75rem;
-    }
-
-    h1 {
-      font-size: 2rem;
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      background: linear-gradient(135deg, #1a3b5d, #0f2b44);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-
-    .breadcrumb {
-      font-size: 0.8rem;
-      font-weight: 500;
-      color: #1e6eeb;
-      border-left: 2px solid #1e6eeb;
-      padding-left: 0.7rem;
-    }
-
-    .hero-content {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2.5rem;
-      margin-top: 1rem;
-      align-items: flex-start;
-    }
-
-    .hero-left {
-      flex: 1.2;
-      min-width: 280px;
-    }
-
-    .hero-left h2 {
-      font-size: 2.5rem;
-      font-weight: 800;
-      line-height: 1.2;
-      color: #0a2540;
-      margin-bottom: 0.75rem;
-      letter-spacing: -0.02em;
-    }
-
-    .hero-left p {
-      font-size: 1rem;
-      color: #2c475e;
-      margin: 0.5rem 0 0.75rem 0;
-      max-width: 95%;
-    }
-
-    .rmi-highlight {
-      background: rgba(255, 255, 255, 0.85);
-      backdrop-filter: blur(4px);
-      border-radius: 28px;
-      padding: 1rem 1.5rem;
-      margin: 1rem 0 1.2rem 0;
-      border-left: 4px solid #1e6eeb;
-      box-shadow: 0 8px 18px -8px rgba(0, 40, 80, 0.08);
-    }
-
-    .rmi-icon {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 0.6rem;
-    }
-
-    .rmi-icon i {
-      font-size: 2rem;
-      color: #1e6eeb;
-      background: #eef4ff;
-      padding: 8px;
-      border-radius: 20px;
-    }
-
-    .rmi-icon h3 {
-      font-weight: 800;
-      font-size: 1.4rem;
-      color: #0f3b5e;
-      letter-spacing: -0.3px;
-    }
-
-    .countdown-block {
-      background: rgba(255, 255, 255, 0.92);
-      backdrop-filter: blur(4px);
-      border-radius: 28px;
-      padding: 0.9rem 1.4rem;
-      margin: 0.5rem 0 1rem 0;
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 1rem;
-      justify-content: space-between;
-      border: 1px solid rgba(30, 110, 235, 0.25);
-    }
-
-    .countdown-label {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-weight: 700;
-      color: #0f3b5e;
-    }
-
-    .countdown-timer {
-      display: flex;
-      gap: 0.6rem;
-      font-family: monospace;
-      font-weight: 800;
-    }
-
-    .time-unit {
-      background: rgba(30, 110, 235, 0.08);
-      border-radius: 24px;
-      padding: 0.3rem 0.8rem;
-      text-align: center;
-    }
-
-    .time-number {
-      font-size: 1.5rem;
-      font-weight: 800;
-      color: #1e6eeb;
-      line-height: 1;
-    }
-
-    .register-cta {
-      margin: 1rem 0 0.5rem;
-      text-align: center;
-    }
-
-    .btn-register {
-      background: linear-gradient(105deg, #1e6eeb, #0f4c9e);
-      color: white;
-      border: none;
-      padding: 1rem 2.2rem;
-      font-size: 1rem;
-      font-weight: 700;
-      border-radius: 60px;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.7rem;
-      transition: all 0.25s;
-      box-shadow: 0 12px 20px -10px rgba(30, 110, 235, 0.4);
-      font-family: inherit;
-    }
-
-    .btn-register:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 18px 28px -12px rgba(30, 110, 235, 0.5);
-    }
-
-    .hero-right {
-      flex: 0.9;
-      min-width: 300px;
-      display: flex;
-      flex-direction: column;
-      gap: 1.2rem;
-    }
-
-    .video-card {
-      border-radius: 32px;
-      overflow: hidden;
-      background: rgba(255, 255, 255, 0.85);
-      backdrop-filter: blur(4px);
-      box-shadow: 0 20px 32px -16px rgba(0, 0, 0, 0.12);
-      border: 1px solid rgba(255, 255, 255, 0.8);
-    }
-
-    .youtube-preview {
-      position: relative;
-      cursor: pointer;
-      background: #0a1c2c;
-      aspect-ratio: 16 / 9;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-    }
-
-    .youtube-preview img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.3s ease;
-    }
-
-    .play-btn-large {
-      position: absolute;
-      width: 70px;
-      height: 70px;
-      background: rgba(30, 110, 235, 0.9);
-      border-radius: 60px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      backdrop-filter: blur(6px);
-      transition: all 0.2s;
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-    }
-
-    .youtube-preview:hover .play-btn-large {
-      transform: scale(1.05);
-      background: #1e6eeb;
-    }
-
-    .video-caption {
-      padding: 0.75rem 1rem;
-      font-size: 0.8rem;
-      font-weight: 500;
-      color: #1e6eeb;
-      background: rgba(255, 255, 255, 0.9);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .speaker-card {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      background: rgba(255, 255, 255, 0.92);
-      backdrop-filter: blur(8px);
-      border-radius: 28px;
-      padding: 0.9rem 1.5rem;
-      border: 1px solid rgba(30, 110, 235, 0.2);
-    }
-
-    .speaker-avatar {
-      width: 56px;
-      height: 56px;
-      background: linear-gradient(145deg, #1e6eeb, #3a86ff);
-      border-radius: 60px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: 1.4rem;
-      color: white;
-    }
-
-    .speaker-info h4 {
-      font-size: 1rem;
-      font-weight: 800;
-      color: #0a2a44;
-    }
-
-    .speaker-info p {
-      font-size: 0.8rem;
-      color: #2c475e;
-      margin: 0;
-    }
-
-    .speaker-title {
-      font-size: 0.7rem;
-      color: #1e6eeb;
-      margin-top: 4px;
-      display: flex;
-      align-items: center;
-      gap: 4px;
-    }
-
-    @media (max-width: 768px) {
-      .container {
-        padding: 5rem 1.5rem 2rem;
-        margin-top: -50px;
+      .logo-icon-popup img {
+        height: 55px;
+        width: auto;
+        filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+        border-radius: 19px;
+        max-width: 100%;
       }
-      .hero-left h2 {
+
+      .close-popup {
+        position: absolute;
+        top: 1rem;
+        right: 1.3rem;
+        background: none;
+        border: none;
         font-size: 1.8rem;
-      }
-      .time-number {
-        font-size: 1.2rem;
-      }
-      .time-unit {
-        padding: 0.2rem 0.6rem;
-      }
-      .hero-content {
-        gap: 1.5rem;
-      }
-      .hero-right {
-        min-width: 100%;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .btn-register {
-        padding: 0.8rem 1.5rem;
-        font-size: 0.85rem;
-        width: 100%;
+        cursor: pointer;
+        color: #a0c2f0;
+        transition: 0.2s;
+        line-height: 1;
+        min-width: 44px;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
         justify-content: center;
       }
-      .countdown-block {
-        flex-direction: column;
-        align-items: flex-start;
+      .close-popup:hover {
+        color: white;
       }
-      .countdown-timer {
-        width: 100%;
-        justify-content: space-between;
-      }
-      .container {
-        padding: 4rem 1rem 1.5rem;
-      }
-    }
 
-    /* ========== POPUP MODAL (unchanged) ========== */
-    .popup-modal {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(10, 25, 47, 0.94);
-      backdrop-filter: blur(10px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 2000;
-      visibility: hidden;
-      opacity: 0;
-      transition: visibility 0.2s, opacity 0.25s ease;
-    }
-
-    .popup-modal.active {
-      visibility: visible;
-      opacity: 1;
-    }
-
-    .popup-card {
-      background: linear-gradient(145deg, #0c1f38, #07152a);
-      border-radius: 2rem;
-      max-width: 520px;
-      width: 90%;
-      padding: 1.8rem 1.8rem 2rem 1.8rem;
-      box-shadow: 0 25px 45px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(30, 110, 235, 0.3);
-      color: #eef4ff;
-      position: relative;
-      transition: transform 0.2s;
-      transform: scale(0.97);
-    }
-
-    .popup-modal.active .popup-card {
-      transform: scale(1);
-    }
-
-    .popup-logo-area {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 1.25rem;
-    }
-    .logo-icon-popup img {
-      height: 55px;
-      width: auto;
-      display: block;
-      filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
-      border-radius: 19px;
-      margin-bottom: 10px;
-    }
-
-    .close-popup {
-      position: absolute;
-      top: 1rem;
-      right: 1.3rem;
-      background: none;
-      border: none;
-      font-size: 1.8rem;
-      cursor: pointer;
-      color: #a0c2f0;
-      transition: 0.2s;
-      line-height: 1;
-    }
-    .close-popup:hover {
-      color: white;
-    }
-
-    .popup-card h2 {
-      font-size: 1.7rem;
-      font-weight: 800;
-      margin-bottom: 0.4rem;
-      background: linear-gradient(135deg, #ffffff, #8bb9fe);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      letter-spacing: -0.3px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .popup-subhead {
-      font-size: 0.9rem;
-      margin-bottom: 1.8rem;
-      color: #bdd4ff;
-      border-left: 3px solid #1e6eeb;
-      padding-left: 0.8rem;
-    }
-
-    .form-group {
-      margin-bottom: 1.2rem;
-    }
-
-    .form-group label {
-      display: block;
-      font-weight: 600;
-      font-size: 0.8rem;
-      margin-bottom: 0.3rem;
-      letter-spacing: 0.3px;
-      color: #c9ddff;
-    }
-
-    .form-group input {
-      width: 100%;
-      padding: 0.8rem 1rem;
-      border-radius: 60px;
-      border: none;
-      background: #112a44;
-      color: white;
-      font-size: 0.9rem;
-      outline: none;
-      transition: 0.2s;
-      border: 1px solid #2c527a;
-      font-family: "Inter", sans-serif;
-    }
-
-    .form-group input:focus {
-      border-color: #1e6eeb;
-      background: #0e243c;
-      box-shadow: 0 0 0 2px rgba(30, 110, 235, 0.3);
-    }
-
-    .checkbox-group {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin: 1.2rem 0;
-    }
-
-    .checkbox-group input {
-      width: 18px;
-      height: 18px;
-      accent-color: #1e6eeb;
-      cursor: pointer;
-    }
-
-    .checkbox-group label {
-      font-size: 0.85rem;
-      color: #c5dbff;
-      cursor: pointer;
-    }
-
-    .submit-popup-btn {
-      background: linear-gradient(105deg, #1e6eeb, #0f4c9e);
-      width: 100%;
-      padding: 0.9rem;
-      font-weight: 800;
-      border: none;
-      border-radius: 60px;
-      color: white;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: 0.2s;
-      margin-top: 0.5rem;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-      font-family: inherit;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-    }
-
-    .submit-popup-btn:hover {
-      background: #0f5bc2;
-      transform: translateY(-2px);
-    }
-
-    .submit-popup-btn:disabled {
-      opacity: 0.7;
-      cursor: not-allowed;
-      transform: none;
-    }
-
-    .popup-footer-note {
-      font-size: 0.7rem;
-      text-align: center;
-      margin-top: 1rem;
-      color: #7c9bd4;
-    }
-
-    .toast-msg {
-      position: fixed;
-      bottom: 25px;
-      left: 50%;
-      transform: translateX(-50%) translateY(20px);
-      background: #1f2f40;
-      color: #f0f7ff;
-      padding: 12px 24px;
-      border-radius: 60px;
-      font-weight: 500;
-      font-size: 0.85rem;
-      backdrop-filter: blur(8px);
-      z-index: 2100;
-      opacity: 0;
-      transition: 0.2s;
-      pointer-events: none;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      white-space: nowrap;
-      max-width: 90vw;
-    }
-
-    .toast-msg.show {
-      opacity: 1;
-      transform: translateX(-50%) translateY(0);
-    }
-
-    @media (max-width: 550px) {
-      .popup-card {
-        padding: 1.5rem;
-        width: 92%;
-      }
       .popup-card h2 {
-        font-size: 1.4rem;
+        font-size: 1.7rem;
+        font-weight: 800;
+        margin-bottom: 0.4rem;
+        background: linear-gradient(135deg, #ffffff, #8bb9fe);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        display: flex;
+        align-items: center;
+        gap: 8px;
       }
-      .toast-msg {
-        white-space: normal;
+
+      .popup-subhead {
+        font-size: 0.9rem;
+        margin-bottom: 1.5rem;
+        color: #bdd4ff;
+        border-left: 3px solid #1e6eeb;
+        padding-left: 0.8rem;
+      }
+
+      .form-group {
+        margin-bottom: 1.2rem;
+      }
+
+      .form-group label {
+        display: block;
+        font-weight: 600;
+        font-size: 0.8rem;
+        margin-bottom: 0.3rem;
+        color: #c9ddff;
+      }
+
+      .form-group input {
+        width: 100%;
+        padding: 0.8rem 1rem;
+        border-radius: 60px;
+        border: none;
+        background: #112a44;
+        color: white;
+        font-size: 0.9rem;
+        outline: none;
+        transition: 0.2s;
+        border: 1px solid #2c527a;
+        font-family: "Inter", sans-serif;
+      }
+
+      .form-group input:focus {
+        border-color: #1e6eeb;
+        background: #0e243c;
+        box-shadow: 0 0 0 2px rgba(30, 110, 235, 0.3);
+      }
+
+      .checkbox-group {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin: 1.2rem 0;
+        flex-wrap: wrap;
+      }
+
+      .checkbox-group input {
+        width: 18px;
+        height: 18px;
+        accent-color: #1e6eeb;
+        cursor: pointer;
+      }
+
+      .checkbox-group label {
+        font-size: 0.85rem;
+        color: #c5dbff;
+        cursor: pointer;
+      }
+
+      .submit-popup-btn {
+        background: linear-gradient(105deg, #1e6eeb, #0f4c9e);
+        width: 100%;
+        padding: 0.9rem;
+        font-weight: 800;
+        border: none;
+        border-radius: 60px;
+        color: white;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: 0.2s;
+        margin-top: 0.5rem;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        font-family: inherit;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        min-height: 48px;
+      }
+
+      .submit-popup-btn:hover {
+        background: #0f5bc2;
+        transform: translateY(-2px);
+      }
+
+      .submit-popup-btn:disabled {
+        opacity: 0.7;
+        cursor: not-allowed;
+      }
+
+      .popup-footer-note {
+        font-size: 0.7rem;
         text-align: center;
+        margin-top: 1rem;
+        color: #7c9bd4;
       }
-    }
-  </style>
-</head>
-<body>
-  <!-- STICKY HEADER - Logo left, nav center (absolute centered), button right on desktop -->
-  <header class="site-header" id="mainHeader">
-    <div class="header-container">
-      <!-- Left Logo -->
-      <div class="logo-area">
-        <div class="logo-icon">
-          <img src="Logo Light.jpg" alt="Strike Webinars Logo" onerror="this.src = 'https://placehold.co/100x40?text=Strike'" />
-        </div>
-      </div>
 
-      <!-- Desktop centering nav links -->
-      <nav class="nav-links" id="navLinks">
-        <a href="#HeroSectionMain">Home</a>
-        <a href="#Solution-Section">RMI</a>
-        <a href="#WUWL">Strategy</a>
-        <a href="#Mentor">Mentor</a>
-        <a href="#Proof">Proof</a>
-        <a href="#FAQ">FAQ</a>
-        <!-- Enroll Now button inside mobile menu only (visible on <820px) -->
-        <!-- <a href="#" class="enroll-nav-btn" id="mobileNavEnrollBtn">Enroll Now</a> -->
-      </nav>
+      .toast-msg {
+        position: fixed;
+        bottom: 25px;
+        left: 50%;
+        transform: translateX(-50%) translateY(20px);
+        background: #1f2f40;
+        color: #f0f7ff;
+        padding: 12px 24px;
+        border-radius: 60px;
+        font-weight: 500;
+        font-size: 0.85rem;
+        backdrop-filter: blur(8px);
+        z-index: 2100;
+        opacity: 0;
+        transition: 0.2s;
+        pointer-events: none;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        white-space: nowrap;
+        max-width: 90vw;
+      }
 
-      <!-- Right side button (desktop only) -->
-      <div class="enroll-nav-wrapper">
-        <a href="#" class="enroll-nav-btn" id="desktopNavEnrollBtn"><i class="fas fa-ticket-alt"></i> Enroll Now</a>
-      </div>
+      .toast-msg.show {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+      }
 
-      <!-- Hamburger (mobile only) -->
-      <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
-      <div class="menu-overlay" id="menuOverlay"></div>
-    </div>
-  </header>
+      @media (max-width: 550px) {
+        .popup-card {
+          padding: 1.5rem;
+          width: 92%;
+        }
+        .popup-card h2 {
+          font-size: 1.4rem;
+        }
+        .toast-msg {
+          white-space: normal;
+          text-align: center;
+        }
+      }
 
-  <!-- HERO SECTION (unchanged) -->
-  <div class="section-wrapper hero-section" id="HeroSectionMain">
-    <div class="container">
-      <div class="hero">
-        <div class="hero-top">
-          <h1>Strike Webinars</h1>
-          <div class="breadcrumb">Strike / RMI Intelligence</div>
-        </div>
-        <div class="hero-content">
-          <div class="hero-left">
-            <h2>Learn Stock Analysis with Live Webinars</h2>
-            <p>Master advanced fundamentals, technical indicators & market psychology. Expert-led sessions for traders and investors.</p>
-            <div class="rmi-highlight">
-              <div class="rmi-icon">
-                <i class="fas fa-chart-line"></i>
-                <h3>RMI · Real-time Metrics Intelligence</h3>
-              </div>
-              <p><i class="fas fa-database" style="color: #1e6eeb; margin-right: 6px"></i>Transforms fragmented data into a unified truth layer. Stop guessing — start scaling with predictive clarity.</p>
-            </div>
-            <div class="countdown-block">
-              <div class="countdown-label"><i class="fas fa-clock"></i><span>Free registration window</span></div>
-              <div class="countdown-timer" id="countdownTimer">
-                <div class="time-unit"><div class="time-number" id="hoursLeft">00</div><div class="time-label">Hrs</div></div>
-                <div class="time-unit"><div class="time-number" id="minutesLeft">00</div><div class="time-label">Min</div></div>
-                <div class="time-unit"><div class="time-number" id="secondsLeft">00</div><div class="time-label">Sec</div></div>
-              </div>
-            </div>
-            <div class="register-cta">
-              <button class="btn-register" id="heroRegisterBtn"><i class="fas fa-ticket-alt"></i> Register Now – Free Access <i class="fas fa-arrow-right"></i></button>
-            </div>
-          </div>
-          <div class="hero-right">
-            <div class="video-card">
-              <div class="youtube-preview" id="youtubePreviewTrigger">
-                <img src="https://img.youtube.com/vi/U2lXv8mXeaQ/hqdefault.jpg" alt="Webinar preview" />
-                <div class="play-btn-large"><i class="fas fa-play"></i></div>
-              </div>
-              <div class="video-caption"><i class="fab fa-youtube"></i><span>Watch preview: Rohit Srivastava on RMI & market cycles</span></div>
-            </div>
-            <div class="speaker-card">
-              <div class="speaker-avatar">RS</div>
-              <div class="speaker-info">
-                <h4>Rohit Srivastava</h4>
-                <p>Founder & Market Strategist, Indiacharts</p>
-                <div class="speaker-title"><i class="fas fa-chalkboard-user"></i> Featured speaker: 20+ years experience</div>
-              </div>
-            </div>
+      @media (max-width: 768px) {
+        .container {
+          padding: 1.5rem 1.5rem 2rem;
+        }
+        .hero-left h2 {
+          font-size: 1.8rem;
+        }
+        .btn-register {
+          width: 100%;
+          justify-content: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- STICKY HEADER: fully sticky, all nav links present -->
+    <header class="site-header" id="mainHeader">
+      <div class="header-container">
+        <div class="logo-area">
+          <div class="logo-icon">
+            <img
+              src="Logo Light.jpg"
+              alt="Strike Webinars Logo"
+              onerror="this.src = 'https://placehold.co/100x40?text=Strike'"
+            />
           </div>
         </div>
+        <nav class="nav-links" id="navLinks">
+          <a href="#HeroSectionMain">Home</a>
+          <a href="#Solution-Section">RMI</a>
+          <a href="#WUWL">Strategy</a>
+          <a href="#Mentor">Mentor</a>
+          <a href="#Proof">Proof</a>
+          <a href="#FAQ">FAQ</a>
+        </nav>
+        <div class="enroll-nav-wrapper">
+          <a href="#" class="enroll-nav-btn" id="desktopNavEnrollBtn"
+            ><i class="fas fa-ticket-alt"></i> Enroll Now</a
+          >
+        </div>
+        <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+        <div class="menu-overlay" id="menuOverlay"></div>
       </div>
-    </div>
-  </div>
+    </header>
 
-  <!-- POPUP MODAL (unchanged) -->
-  <div id="registrationPopup" class="popup-modal">
-    <div class="popup-card">
-      <button class="close-popup" id="closePopupBtn">&times;</button>
-      <div class="popup-logo-area">
-        <div class="logo-icon-popup">
-          <img src="Logo Dark.jpg" alt="Strike Webinars Logo" onerror="this.src = 'https://placehold.co/100x55?text=S'" />
+    <div class="section-wrapper hero-section" id="HeroSectionMain">
+      <div class="container">
+        <div class="hero">
+          <div class="hero-top">
+            <h1>Strike Webinars</h1>
+            <div class="breadcrumb">Strike / RMI Intelligence</div>
+          </div>
+          <div class="hero-content">
+            <div class="hero-left">
+              <h2>Learn Stock Analysis with Live Webinars</h2>
+              <p>
+                Master advanced fundamentals, technical indicators & market
+                psychology. Expert-led sessions for traders and investors.
+              </p>
+              <div class="rmi-highlight">
+                <div class="rmi-icon">
+                  <i class="fas fa-chart-line"></i>
+                  <h3>RMI · Real-time Metrics Intelligence</h3>
+                </div>
+                <p>
+                  <i
+                    class="fas fa-database"
+                    style="color: #1e6eeb; margin-right: 6px"
+                  ></i
+                  >Transforms fragmented data into a unified truth layer. Stop
+                  guessing — start scaling with predictive clarity.
+                </p>
+              </div>
+              <div class="countdown-block">
+                <div class="countdown-label">
+                  <i class="fas fa-clock"></i
+                  ><span>Free registration window</span>
+                </div>
+                <div class="countdown-timer" id="countdownTimer">
+                  <div class="time-unit">
+                    <div class="time-number" id="hoursLeft">00</div>
+                    <div class="time-label">Hrs</div>
+                  </div>
+                  <div class="time-unit">
+                    <div class="time-number" id="minutesLeft">00</div>
+                    <div class="time-label">Min</div>
+                  </div>
+                  <div class="time-unit">
+                    <div class="time-number" id="secondsLeft">00</div>
+                    <div class="time-label">Sec</div>
+                  </div>
+                </div>
+              </div>
+              <div class="register-cta">
+                <button class="btn-register" id="heroRegisterBtn">
+                  <i class="fas fa-ticket-alt"></i> Register Now – Free Access
+                  <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+            <div class="hero-right">
+              <div class="video-card">
+                <div class="youtube-preview" id="youtubePreviewTrigger">
+                  <img
+                    src="https://img.youtube.com/vi/U2lXv8mXeaQ/hqdefault.jpg"
+                    alt="Webinar preview"
+                    onerror="
+                      this.src =
+                        'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22480%22 height=%22360%22 viewBox=%220 0 480 360%22%3E%3Crect width=%22480%22 height=%22360%22 fill=%22%231a2c3c%22/%3E%3Ctext x=%22240%22 y=%22180%22 text-anchor=%22middle%22 fill=%22%23666%22 font-size=%2220%22%3EVideo Preview%3C/text%3E%3C/svg%3E'
+                    "
+                  />
+                  <div class="play-btn-large"><i class="fas fa-play"></i></div>
+                </div>
+                <div class="video-caption">
+                  <i class="fab fa-youtube"></i
+                  ><span
+                    >Watch preview: Rohit Srivastava on RMI & market
+                    cycles</span
+                  >
+                </div>
+              </div>
+              <div class="speaker-card">
+                <div class="speaker-avatar">RS</div>
+                <div class="speaker-info">
+                  <h4>Rohit Srivastava</h4>
+                  <p>Founder & Market Strategist, Indiacharts</p>
+                  <div class="speaker-title">
+                    <i class="fas fa-chalkboard-user"></i> Featured speaker: 20+
+                    years experience
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <h2><i class="fas fa-chart-line"></i> Great that you're interested!</h2>
-      <div class="popup-subhead"><i class="fas fa-video"></i> Reserve your spot for the live webinar — limited free seats</div>
-      <form id="popupForm">
-        <div class="form-group"><label><i class="fas fa-user"></i> Full Name *</label><input type="text" id="popupName" placeholder="e.g., Aman Sharma" required /></div>
-        <div class="form-group"><label><i class="fas fa-id-badge"></i> Username / Preferred ID *</label><input type="text" id="popupUsername" placeholder="e.g., aman_stocks" required /></div>
-        <div class="form-group"><label><i class="fas fa-envelope"></i> Email Address *</label><input type="email" id="popupEmail" placeholder="you@example.com" required /></div>
-        <div class="checkbox-group"><input type="checkbox" id="popupNewsletter" /><label for="popupNewsletter"><i class="fas fa-check-circle"></i> I would like to receive newsletter & offers on mail.</label></div>
-        <button type="submit" class="submit-popup-btn"><i class="fas fa-paper-plane"></i> Submit & Get Webinar Access</button>
-        <div class="popup-footer-note"><i class="fas fa-lock"></i> We respect your privacy. No spam, only actionable insights.</div>
-      </form>
     </div>
-  </div>
-  <div id="globalToast" class="toast-msg"><i class="fas fa-info-circle"></i> <span id="toastText">Ready</span></div>
 
-  <script>
-    const GOOGLE_SHEET_WEBHOOK_URL = "https://script.google.com/macros/s/AKfycby3GnBk4lMsGgdlwQy_DNt6HLHu1o5D-sfzmnlU2trVsO0kLzArHD7OS26x3CShHLVp/exec";
-    const popupModal = document.getElementById("registrationPopup");
-    const closePopupBtn = document.getElementById("closePopupBtn");
-    const popupForm = document.getElementById("popupForm");
-    let pendingRegistrationSource = "webinar";
+    <!-- POPUP with NAME, EMAIL, PHONE NUMBER -->
+    <div id="registrationPopup" class="popup-modal">
+      <div class="popup-card">
+        <button class="close-popup" id="closePopupBtn">&times;</button>
+        <div class="popup-logo-area">
+          <div class="logo-icon-popup">
+            <img
+              src="Logo Dark.jpg"
+              alt="Strike Webinars"
+              onerror="
+                this.src =
+                  'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%22 height=%2255%22 viewBox=%220 0 100 55%22%3E%3Crect width=%22100%22 height=%2255%22 fill=%22%231e6eeb%22/%3E%3Ctext x=%2250%22 y=%2235%22 text-anchor=%22middle%22 fill=%22white%22 font-size=%2220%22 font-weight=%22bold%22%3ES%3C/text%3E%3C/svg%3E'
+              "
+            />
+          </div>
+        </div>
+        <h2><i class="fas fa-chart-line"></i> Reserve Your Seat</h2>
+        <div class="popup-subhead">
+          <i class="fas fa-video"></i> Enter details to get webinar access —
+          limited spots
+        </div>
+        <form id="popupForm">
+          <div class="form-group">
+            <label><i class="fas fa-user"></i> Full Name *</label
+            ><input
+              type="text"
+              id="popupName"
+              placeholder="e.g., Aman Sharma"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label><i class="fas fa-envelope"></i> Email Address *</label
+            ><input
+              type="email"
+              id="popupEmail"
+              placeholder="you@example.com"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label><i class="fas fa-phone-alt"></i> Phone Number *</label
+            ><input
+              type="tel"
+              id="popupPhone"
+              placeholder="+91 98765 43210"
+              required
+            />
+          </div>
+          <div class="checkbox-group">
+            <input type="checkbox" id="popupNewsletter" /><label
+              for="popupNewsletter"
+              ><i class="fas fa-check-circle"></i> I would like to receive
+              newsletter & offers on mail.</label
+            >
+          </div>
+          <button type="submit" class="submit-popup-btn">
+            <i class="fas fa-paper-plane"></i> Submit & Get Webinar Access
+          </button>
+          <div class="popup-footer-note">
+            <i class="fas fa-lock"></i> We respect your privacy. No spam, only
+            insights.
+          </div>
+        </form>
+      </div>
+    </div>
+    <div id="globalToast" class="toast-msg">
+      <i class="fas fa-info-circle"></i> <span id="toastText">Ready</span>
+    </div>
 
-    function showToastMessage(msg, isError = false) {
-      const toastSpan = document.getElementById("toastText");
-      const toastEl = document.getElementById("globalToast");
-      if (toastSpan) toastSpan.innerHTML = msg;
-      toastEl.style.background = isError ? "#a12a2a" : "#1f2f40";
-      toastEl.classList.add("show");
-      setTimeout(() => toastEl.classList.remove("show"), 2800);
-    }
-    function openRegistrationModal(source = "generic") {
-      pendingRegistrationSource = source;
-      popupModal.classList.add("active");
-      document.getElementById("popupName").value = "";
-      document.getElementById("popupUsername").value = "";
-      document.getElementById("popupEmail").value = "";
-      document.getElementById("popupNewsletter").checked = false;
-      setTimeout(() => document.getElementById("popupName").focus(), 100);
-    }
-    function closeModal() { popupModal.classList.remove("active"); }
-    async function submitToGoogleSheets(formData) {
-      await fetch(GOOGLE_SHEET_WEBHOOK_URL, { method: "POST", mode: "no-cors", headers: { "Content-Type": "application/json" }, body: JSON.stringify(formData) });
-      return { success: true };
-    }
-    popupForm.addEventListener("submit", async (e) => {
-      e.preventDefault();
-      const name = document.getElementById("popupName").value.trim();
-      const username = document.getElementById("popupUsername").value.trim();
-      const email = document.getElementById("popupEmail").value.trim();
-      const newsletter = document.getElementById("popupNewsletter").checked;
-      if (!name || !username || !email) { showToastMessage("Please fill all required fields.", true); return; }
-      const emailRegex = /^[^\s@]+@([^\s@.,]+\.)+[^\s@.,]{2,}$/i;
-      if (!emailRegex.test(email)) { showToastMessage("Valid email required.", true); return; }
-      const payload = { timestamp: new Date().toISOString(), fullName: name, username, email, newsletterOptIn: newsletter, source: pendingRegistrationSource, page: "Strike Webinars - Integrated Popup" };
-      const submitBtn = popupForm.querySelector(".submit-popup-btn");
-      const originalHTML = submitBtn.innerHTML;
-      submitBtn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Submitting...';
-      submitBtn.disabled = true;
-      try {
-        await submitToGoogleSheets(payload);
-        showToastMessage(`✨ Thanks ${name}! Webinar access link will be sent to ${email}.`);
-        closeModal();
-      } catch (err) { showToastMessage("⚠️ Unable to register. Please try again.", true); }
-      finally { submitBtn.innerHTML = originalHTML; submitBtn.disabled = false; }
-    });
-    closePopupBtn.addEventListener("click", closeModal);
-    popupModal.addEventListener("click", (e) => { if (e.target === popupModal) closeModal(); });
-    document.addEventListener("keydown", (e) => { if (e.key === "Escape" && popupModal.classList.contains("active")) closeModal(); });
-    document.getElementById("heroRegisterBtn")?.addEventListener("click", (e) => { e.preventDefault(); openRegistrationModal("hero-section-register"); });
-    document.getElementById("desktopNavEnrollBtn")?.addEventListener("click", (e) => { e.preventDefault(); openRegistrationModal("navbar-desktop-enroll"); });
-    document.getElementById("mobileNavEnrollBtn")?.addEventListener("click", (e) => { e.preventDefault(); openRegistrationModal("navbar-mobile-enroll"); });
-    function update24hCountdown() {
-      const now = new Date();
-      const utcNow = Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(), now.getUTCHours(), now.getUTCMinutes(), now.getUTCSeconds());
-      const endOfDayUTC = Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate() + 1, 0, 0, 0);
-      let diff = endOfDayUTC - utcNow;
-      if (diff < 0) diff = 0;
-      const hours = Math.floor(diff / 3600000);
-      const minutes = Math.floor((diff % 3600000) / 60000);
-      const seconds = Math.floor((diff % 60000) / 1000);
-      document.getElementById("hoursLeft").innerText = hours < 10 ? "0" + hours : hours;
-      document.getElementById("minutesLeft").innerText = minutes < 10 ? "0" + minutes : minutes;
-      document.getElementById("secondsLeft").innerText = seconds < 10 ? "0" + seconds : seconds;
-    }
-    update24hCountdown();
-    setInterval(update24hCountdown, 1000);
-    document.getElementById("youtubePreviewTrigger")?.addEventListener("click", () => { window.open("https://youtu.be/U2lXv8mXeaQ?si=We24Ia6DI1CX9yOk", "_blank"); });
-    const header = document.getElementById("mainHeader");
-    window.addEventListener("scroll", () => { window.scrollY > 40 ? header.classList.add("compact") : header.classList.remove("compact"); });
-    const hamburger = document.getElementById("hamburgerBtn"), navLinks = document.getElementById("navLinks"), overlay = document.getElementById("menuOverlay");
-    function closeMenu() { navLinks.classList.remove("open"); overlay?.classList.remove("active"); document.body.style.overflow = ""; }
-    function openMenu() { navLinks.classList.add("open"); overlay?.classList.add("active"); document.body.style.overflow = "hidden"; }
-    hamburger?.addEventListener("click", (e) => { e.stopPropagation(); navLinks.classList.contains("open") ? closeMenu() : openMenu(); });
-    overlay?.addEventListener("click", closeMenu);
-    document.querySelectorAll("#navLinks a").forEach(link => link.addEventListener("click", () => { if (window.innerWidth <= 820) closeMenu(); }));
-    window.addEventListener("resize", () => { if (window.innerWidth > 820 && navLinks.classList.contains("open")) closeMenu(); });
-  </script>
-</body>
+    <script>
+      const WEBHOOK_URL =
+        "https://script.google.com/macros/s/AKfycbx_HzzqANQkjqJC6wgOE-_1evAskThKwJrE3IZIGzBv2DgRVY4KJhuE-RoIW9gCXkld/exec";
+      const popupModal = document.getElementById("registrationPopup");
+      const closePopupBtn = document.getElementById("closePopupBtn");
+      const popupForm = document.getElementById("popupForm");
+      let pendingSource = "webinar";
+
+      function showToast(msg, isError = false) {
+        const toastSpan = document.getElementById("toastText");
+        const toastEl = document.getElementById("globalToast");
+        toastSpan.innerText = msg;
+        toastEl.style.background = isError ? "#a12a2a" : "#1f2f40";
+        toastEl.classList.add("show");
+        setTimeout(() => toastEl.classList.remove("show"), 2800);
+      }
+      function openModal(source = "generic") {
+        pendingSource = source;
+        popupModal.classList.add("active");
+        document.getElementById("popupName").value = "";
+        document.getElementById("popupEmail").value = "";
+        document.getElementById("popupPhone").value = "";
+        document.getElementById("popupNewsletter").checked = false;
+        setTimeout(() => document.getElementById("popupName").focus(), 100);
+      }
+      function closeModal() {
+        popupModal.classList.remove("active");
+      }
+      async function sendToSheet(data) {
+        await fetch(WEBHOOK_URL, {
+          method: "POST",
+          mode: "no-cors",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data),
+        });
+        return { success: true };
+      }
+      popupForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const name = document.getElementById("popupName").value.trim();
+        const email = document.getElementById("popupEmail").value.trim();
+        const phone = document.getElementById("popupPhone").value.trim();
+        const newsletter = document.getElementById("popupNewsletter").checked;
+        if (!name || !email || !phone) {
+          showToast("All fields (Name, Email, Phone) are required.", true);
+          return;
+        }
+        const emailRegex = /^[^\s@]+@([^\s@.,]+\.)+[^\s@.,]{2,}$/i;
+        if (!emailRegex.test(email)) {
+          showToast("Please enter a valid email address.", true);
+          return;
+        }
+        const phoneRegex = /^[\+\d\s\-\(\)]{8,20}$/;
+        if (!phoneRegex.test(phone)) {
+          showToast("Please enter a valid phone number.", true);
+          return;
+        }
+        const payload = {
+          timestamp: new Date().toISOString(),
+          fullName: name,
+          email,
+          phoneNumber: phone,
+          newsletterOptIn: newsletter,
+          source: pendingSource,
+          page: "Strike Webinars - Popup (Name/Email/Phone)",
+        };
+        const btn = popupForm.querySelector(".submit-popup-btn");
+        const original = btn.innerHTML;
+        btn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Submitting...';
+        btn.disabled = true;
+        try {
+          await sendToSheet(payload);
+          showToast(
+            `✨ Thanks ${name}! Webinar access link will be sent to ${email}.`,
+          );
+          closeModal();
+        } catch (err) {
+          showToast("⚠️ Registration failed. Please try again.", true);
+        } finally {
+          btn.innerHTML = original;
+          btn.disabled = false;
+        }
+      });
+      closePopupBtn.addEventListener("click", closeModal);
+      popupModal.addEventListener("click", (e) => {
+        if (e.target === popupModal) closeModal();
+      });
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && popupModal.classList.contains("active"))
+          closeModal();
+      });
+      document
+        .getElementById("heroRegisterBtn")
+        ?.addEventListener("click", (e) => {
+          e.preventDefault();
+          openModal("hero-section");
+        });
+      document
+        .getElementById("desktopNavEnrollBtn")
+        ?.addEventListener("click", (e) => {
+          e.preventDefault();
+          openModal("navbar-desktop");
+        });
+      function updateCountdown() {
+        const now = new Date();
+        const endUTC = Date.UTC(
+          now.getUTCFullYear(),
+          now.getUTCMonth(),
+          now.getUTCDate() + 1,
+          0,
+          0,
+          0,
+        );
+        const diff = Math.max(0, endUTC - now.getTime());
+        const hours = Math.floor(diff / 3600000);
+        const minutes = Math.floor((diff % 3600000) / 60000);
+        const seconds = Math.floor((diff % 60000) / 1000);
+        document.getElementById("hoursLeft").innerText =
+          hours < 10 ? "0" + hours : hours;
+        document.getElementById("minutesLeft").innerText =
+          minutes < 10 ? "0" + minutes : minutes;
+        document.getElementById("secondsLeft").innerText =
+          seconds < 10 ? "0" + seconds : seconds;
+      }
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
+      document
+        .getElementById("youtubePreviewTrigger")
+        ?.addEventListener("click", () => {
+          window.open(
+            "https://youtu.be/U2lXv8mXeaQ?si=We24Ia6DI1CX9yOk",
+            "_blank",
+          );
+        });
+      const header = document.getElementById("mainHeader");
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 20) header.classList.add("scrolled");
+        else header.classList.remove("scrolled");
+      });
+      const hamburger = document.getElementById("hamburgerBtn"),
+        navLinks = document.getElementById("navLinks"),
+        overlay = document.getElementById("menuOverlay");
+      function closeMenu() {
+        navLinks.classList.remove("open");
+        overlay?.classList.remove("active");
+        hamburger?.classList.remove("open");
+        document.body.style.overflow = "";
+      }
+      function openMenu() {
+        navLinks.classList.add("open");
+        overlay?.classList.add("active");
+        hamburger?.classList.add("open");
+        document.body.style.overflow = "hidden";
+      }
+      if (hamburger)
+        hamburger.addEventListener("click", (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          navLinks.classList.contains("open") ? closeMenu() : openMenu();
+        });
+      if (overlay) overlay.addEventListener("click", closeMenu);
+      document.querySelectorAll("#navLinks a").forEach((link) =>
+        link.addEventListener("click", () => {
+          if (window.innerWidth <= 820) closeMenu();
+        }),
+      );
+      window.addEventListener("resize", () => {
+        if (window.innerWidth > 820 && navLinks.classList.contains("open"))
+          closeMenu();
+      });
+    </script>
+  </body>
 </html>
+
+
         <!-- ------------Hero Section End------  -->
 
         <!-- -----------Problem Section-------- -->
@@ -2686,687 +2860,758 @@
         <!-- -------- what u will learn end -----  -->
 
         <!-- ------- Speaker section start ---------  -->
-        <!DOCTYPE html>
+        <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>Dr. Charles Severance | Open-Source Tech & Learning Standards Expert</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      background: #eef2f8;
-      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, sans-serif;
-      line-height: 1.4;
-    }
-
-    /* MAIN SECTION WRAPPER */
-    .speaker-section-wrap {
-      width: 100%;
-      background: #f0f5fa;
-      padding: 2rem 1.5rem;
-    }
-
-    /* WHITE CARD */
-    .speaker-card {
-      max-width: 1300px;
-      margin: 0 auto;
-      background: #ffffff;
-      border-radius: 42px;
-      box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.12), 0 2px 6px rgba(0, 0, 0, 0.02);
-      overflow: hidden;
-      transition: box-shadow 0.2s;
-    }
-
-    /* COMPACT INNER SPACING */
-    .card-inner-compact {
-      padding: 1.8rem 2rem;
-    }
-
-    /* LABEL / BADGE */
-    .speaker-label {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: #eef5fc;
-      padding: 0.3rem 1rem;
-      border-radius: 40px;
-      margin-bottom: 0.9rem;
-      font-weight: 600;
-      font-size: 0.75rem;
-      letter-spacing: 0.4px;
-      color: #1c6f96;
-      text-transform: uppercase;
-    }
-
-    .speaker-label svg {
-      width: 14px;
-      height: 14px;
-      stroke: #2179a3;
-      stroke-width: 1.8;
-    }
-
-    /* MAIN HEADING */
-    .main-heading {
-      font-size: 1.9rem;
-      font-weight: 700;
-      color: #0a2e42;
-      letter-spacing: -0.02em;
-      line-height: 1.2;
-      margin-bottom: 1.4rem;
-      border-left: 4px solid #3c98c7;
-      padding-left: 1rem;
-    }
-
-    /* TWO COLUMN LAYOUT */
-    .speaker-grid-compact {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.8rem;
-      align-items: center;
-    }
-
-    /* LEFT COLUMN: PORTRAIT + TITLE */
-    .left-col-sm {
-      flex: 0.9;
-      min-width: 200px;
-      text-align: center;
-    }
-
-    .img-smaller {
-      max-width: 225px;
-      margin: 0 auto;
-      background: #f9fdfe;
-      border-radius: 28px;
-      padding: 4px;
-      box-shadow: 0 8px 16px -8px rgba(0, 0, 0, 0.05);
-    }
-
-    .speaker-img-sm {
-      width: 100%;
-      aspect-ratio: 2/3;
-      object-fit: cover;
-      border-radius: 24px;
-      display: block;
-      background: #dce8f0;
-    }
-
-    .designation-below {
-      margin-top: 1rem;
-    }
-
-    .role-badge-sm {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: #e9f2f9;
-      padding: 0.4rem 1rem;
-      border-radius: 60px;
-      font-weight: 700;
-      font-size: 0.8rem;
-      color: #145f81;
-    }
-
-    .role-badge-sm svg {
-      width: 16px;
-      height: 16px;
-      stroke: #1d6f96;
-      stroke-width: 1.7;
-    }
-
-    .university-sm {
-      font-size: 0.7rem;
-      font-weight: 500;
-      color: #366f8c;
-      margin-top: 0.4rem;
-    }
-
-    /* RIGHT COLUMN FLEXIBLE CONTENT */
-    .right-col-fill {
-      flex: 2.2;
-      min-width: 260px;
-    }
-
-    /* PILLS / ACHIEVEMENTS - COMPACT & WRAPPING WITH MAX 2 PER ROW ON MOBILE */
-    .achievements-wrap {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.7rem;
-      margin-bottom: 1rem;
-    }
-
-    .pill-sm {
-      background: #ffffff;
-      border: 1px solid #e2edf6;
-      border-radius: 60px;
-      padding: 0.5rem 1rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 13px;
-      font-weight: 500;
-      color: #144f6b;
-      transition: all 0.2s;
-      flex: 0 1 auto;
-    }
-
-    .pill-sm svg {
-      width: 16px;
-      height: 16px;
-      stroke: #3080a3;
-      stroke-width: 1.6;
-    }
-
-    .pill-sm strong {
-      font-weight: 700;
-      color: #0c4b6e;
-    }
-
-    .pill-sm:hover {
-      border-color: #bfd9ec;
-      background: #fbfeff;
-      transform: translateY(-1px);
-    }
-
-    /* MICRO ROW - FOR COMPACTNESS TWO ITEMS PER ROW ON SMALL */
-    .micro-row-sm {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.6rem;
-      margin: 0.7rem 0;
-    }
-
-    .micro-sm {
-      background: #f3f8fd;
-      border-radius: 32px;
-      padding: 0.35rem 0.9rem;
-      font-size: 12px;
-      font-weight: 500;
-      color: #1f688a;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      white-space: nowrap;
-    }
-
-    /* On very small devices, allow text to wrap instead of overflow */
-    @media (max-width: 550px) {
-      .micro-sm {
-        white-space: normal;
-        word-break: keep-all;
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>
+      Dr. Charles Severance | Open-Source Tech & Learning Standards Expert
+    </title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
       }
-    }
 
-    .micro-sm svg {
-      width: 14px;
-      height: 14px;
-      stroke: #3682a8;
-    }
-
-    /* STATS ROW */
-    .stats-row-sm {
-      margin-top: 0.9rem;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.7rem;
-      align-items: center;
-      border-top: 1px solid #eaf0f5;
-      padding-top: 0.9rem;
-    }
-
-    .stat-sm {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 11px;
-      font-weight: 500;
-      color: #416e87;
-      background: #f9fdfe;
-      padding: 0.2rem 0.8rem;
-      border-radius: 30px;
-    }
-
-    .stat-sm svg {
-      width: 12px;
-      height: 12px;
-      stroke: #528fae;
-    }
-
-    /* QUOTE / TESTIMONIAL STYLE (optional highlight) */
-    .trust-quote {
-      margin-top: 1rem;
-      background: #f8fafc;
-      border-radius: 28px;
-      padding: 0.7rem 1rem;
-      display: flex;
-      align-items: flex-start;
-      gap: 8px;
-      border-left: 3px solid #3c98c7;
-    }
-
-    .trust-quote svg {
-      flex-shrink: 0;
-      width: 18px;
-      height: 18px;
-      stroke: #3c98c7;
-      stroke-width: 1.8;
-    }
-
-    .trust-quote span {
-      font-size: 0.8rem;
-      color: #1d4e6e;
-      font-weight: 500;
-      line-height: 1.35;
-    }
-
-    /* ========== RESPONSIVITY: COMPACT WITH SLIGHTLY LARGER IMAGE ========== */
-    /* For tablets and small desktops — adjust spacing but keep original structure */
-    @media (max-width: 960px) {
-      .card-inner-compact {
-        padding: 1.6rem 1.8rem;
+      body {
+        background: #eef2f8;
+        font-family:
+          "Inter",
+          system-ui,
+          -apple-system,
+          "Segoe UI",
+          Roboto,
+          Helvetica,
+          sans-serif;
+        line-height: 1.4;
       }
-      .main-heading {
-        font-size: 1.75rem;
-      }
-      .img-smaller {
-        max-width: 210px;
-      }
-    }
 
-    /* Main responsive breakpoint: tablet to landscape mobile — flexible but maintain desktop integrity */
-    @media (max-width: 800px) {
+      /* MAIN SECTION WRAPPER */
       .speaker-section-wrap {
-        padding: 1.5rem 1rem;
+        width: 100%;
+        background: #f0f5fa;
+        padding: 2rem 1.5rem;
       }
-      .card-inner-compact {
-        padding: 1.4rem;
-      }
-      .main-heading {
-        font-size: 1.6rem;
-      }
-      .speaker-grid-compact {
-        gap: 1.4rem;
-      }
-      .img-smaller {
-        max-width: 190px;
-      }
-      .pill-sm {
-        font-size: 12px;
-        padding: 0.4rem 0.9rem;
-      }
-      .micro-sm {
-        font-size: 11px;
-        padding: 0.3rem 0.8rem;
-      }
-      .stat-sm {
-        font-size: 10px;
-      }
-      .trust-quote span {
-        font-size: 0.75rem;
-      }
-    }
 
-    /* MOBILE-FIRST FINE-TUNING: Achievements-wrap shows 2 items per row, micro-row 2 items, etc. Image slightly bigger */
-    @media (max-width: 700px) {
-      .speaker-section-wrap {
-        padding: 1.25rem 0.9rem;
-      }
+      /* WHITE CARD */
       .speaker-card {
-        border-radius: 32px;
-      }
-      .card-inner-compact {
-        padding: 1.2rem;
-      }
-      .main-heading {
-        font-size: 1.45rem;
-        padding-left: 0.8rem;
-        margin-bottom: 1rem;
-      }
-      /* Switch to column layout for better readability on mobile */
-      .speaker-grid-compact {
-        flex-direction: column;
-        align-items: center;
-        gap: 0.8rem;
-      }
-      .left-col-sm {
-        min-width: auto;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-      /* IMAGE SLIGHTLY BIGGER (as per requirement) */
-      .img-smaller {
-        max-width: 180px;
-      }
-      .designation-below {
-        margin-top: 0.5rem;
-      }
-      .role-badge-sm {
-        font-size: 0.73rem;
-        padding: 0.3rem 0.9rem;
-      }
-      .university-sm {
-        font-size: 0.65rem;
-      }
-      .right-col-fill {
-        width: 100%;
-        min-width: auto;
-      }
-      /* Achievements wrap: 2 pills per row (compact) */
-      .achievements-wrap {
-        gap: 0.6rem;
-        justify-content: flex-start;
-      }
-      .pill-sm {
-        padding: 0.35rem 0.85rem;
-        font-size: 11.5px;
-        flex: 0 1 auto;
-        max-width: calc(50% - 0.3rem);
-      }
-      .pill-sm svg {
-        width: 14px;
-        height: 14px;
-      }
-      /* Micro row: exactly 2 items per row on narrow screens */
-      .micro-row-sm {
-        gap: 0.5rem;
-      }
-      .micro-sm {
-        font-size: 10px;
-        padding: 0.25rem 0.7rem;
-        flex: 0 1 auto;
-        max-width: calc(50% - 0.25rem);
-        white-space: nowrap;
+        max-width: 1300px;
+        margin: 0 auto;
+        background: #ffffff;
+        border-radius: 42px;
+        box-shadow:
+          0 20px 35px -12px rgba(0, 0, 0, 0.12),
+          0 2px 6px rgba(0, 0, 0, 0.02);
         overflow: hidden;
-        text-overflow: ellipsis;
+        transition: box-shadow 0.2s;
       }
-      /* Allow wrap on extremely tiny screens for micro-sm text */
-      @media (max-width: 540px) {
-        .micro-sm {
-          white-space: normal;
-          word-break: break-word;
-          text-align: center;
-        }
-      }
-      .stats-row-sm {
-        gap: 0.5rem;
-        padding-top: 0.7rem;
-        margin-top: 0.7rem;
-      }
-      .stat-sm {
-        font-size: 9px;
-        padding: 0.15rem 0.7rem;
-      }
-      .trust-quote {
-        padding: 0.6rem 0.9rem;
-        margin-top: 0.8rem;
-      }
-      .trust-quote span {
-        font-size: 0.7rem;
-        line-height: 1.3;
-      }
-    }
 
-    /* Extra small devices (<=550px): refined compactness, ensure 2 items each row, image not shrinking too much */
-    @media (max-width: 550px) {
-      .speaker-section-wrap {
-        padding: 1rem 0.7rem;
-      }
-      .card-inner-compact {
-        padding: 1rem;
-      }
-      .main-heading {
-        font-size: 1.3rem;
-        padding-left: 0.7rem;
-      }
-      .speaker-label {
-        font-size: 0.68rem;
-        padding: 0.2rem 0.8rem;
-      }
-      /* IMAGE SLIGHTLY BIGGER THAN NORMAL MOBILE but balanced */
-      .img-smaller {
-        max-width: 170px;
-      }
-      .role-badge-sm {
-        font-size: 0.68rem;
-        gap: 4px;
-      }
-      .pill-sm {
-        font-size: 10.5px;
-        padding: 0.25rem 0.7rem;
-        gap: 5px;
-        max-width: calc(50% - 0.3rem);
-      }
-      .micro-sm {
-        font-size: 9.5px;
-        padding: 0.2rem 0.6rem;
-        max-width: calc(50% - 0.25rem);
-      }
-      .stat-sm {
-        font-size: 8.5px;
-        padding: 0.1rem 0.6rem;
-      }
-      .trust-quote span {
-        font-size: 0.65rem;
-      }
-    }
-
-    /* For extremely narrow devices (<=430px) ensure achievements and micro still 2 per row */
-    @media (max-width: 430px) {
-      .img-smaller {
-        max-width: 160px;
-      }
-      .pill-sm {
-        font-size: 10px;
-        padding: 0.2rem 1px;
-      }
-      .micro-sm {
-        font-size: 9px;
-        padding: 0.2rem 0.5rem;
-      }
-      .stat-sm {
-        font-size: 8px;
-      }
-      .main-heading {
-        font-size: 1.2rem;
-      }
-    }
-
-    /* preserve desktop spacing for large screens (no changes) */
-    @media (min-width: 1200px) {
+      /* COMPACT INNER SPACING */
       .card-inner-compact {
         padding: 1.8rem 2rem;
       }
+
+      /* LABEL / BADGE */
+      .speaker-label {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: #eef5fc;
+        padding: 0.3rem 1rem;
+        border-radius: 40px;
+        margin-bottom: 0.9rem;
+        font-weight: 600;
+        font-size: 0.75rem;
+        letter-spacing: 0.4px;
+        color: #1c6f96;
+        text-transform: uppercase;
+      }
+
+      .speaker-label svg {
+        width: 14px;
+        height: 14px;
+        stroke: #2179a3;
+        stroke-width: 1.8;
+      }
+
+      /* MAIN HEADING */
       .main-heading {
         font-size: 1.9rem;
+        font-weight: 700;
+        color: #0a2e42;
+        letter-spacing: -0.02em;
+        line-height: 1.2;
+        margin-bottom: 1.4rem;
+        border-left: 4px solid #3c98c7;
+        padding-left: 1rem;
       }
-      .pill-sm {
-        font-size: 14px;
+
+      /* TWO COLUMN LAYOUT */
+      .speaker-grid-compact {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.8rem;
+        align-items: center;
       }
-      .micro-sm {
-        font-size: 12px;
+
+      /* LEFT COLUMN: PORTRAIT + TITLE */
+      .left-col-sm {
+        flex: 0.9;
+        min-width: 200px;
+        text-align: center;
       }
-      .stat-sm {
-        font-size: 11px;
-      }
+
       .img-smaller {
-        max-width: 235px;
+        max-width: 225px;
+        margin: 0 auto;
+        background: #f9fdfe;
+        border-radius: 28px;
+        padding: 4px;
+        box-shadow: 0 8px 16px -8px rgba(0, 0, 0, 0.05);
       }
-    }
-  </style>
-</head>
-<body>
-<div class="speaker-section-wrap" id="Mentor">
-  <div class="speaker-card">
-    <div class="card-inner-compact">
-      <!-- LABEL + heading updated for Charles Severance content -->
-      <div class="speaker-label">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-          <path d="M12 2v4M12 22v-4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M22 12h-4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
-          <circle cx="12" cy="12" r="3"/>
-        </svg>
-        Open-Source Architect & Standards Leader
-      </div>
-      <div class="main-heading">
-        Dr. Charles Severance · Clinical Professor & Learning Innovation Expert
-      </div>
 
-      <div class="speaker-grid-compact">
-        <!-- LEFT COLUMN: PORTRAIT + academic role (Charles Severance) -->
-        <div class="left-col-sm">
-          <div class="img-smaller">
-            <!-- Speaker.jpeg fallback: using a placeholder elegant academic image to ensure visual consistency if no image exists.
-                 But respects original src; keeps proper alt for Charles Severance -->
-            <img class="speaker-img-sm" src="Speaker.jpeg" alt="Dr. Charles Severance - Clinical Professor, University of Michigan, open-source educator" loading="eager" onerror="this.onerror=null; this.src='https://via.placeholder.com/400x600?text=Dr.+Charles+Severance';" />
-          </div>
-          <div class="designation-below">
-            <div class="role-badge-sm">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                <path d="M20 7h-4.18A3 3 0 0 0 16 5.18V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v1.18A3 3 0 0 0 8.18 7H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2Z"/>
-                <circle cx="12" cy="13" r="3"/>
-              </svg>
-              Clinical Professor · School of Information
-            </div>
-            <div class="university-sm">
-              University of Michigan · Python, Web Design & Open Standards
-            </div>
-          </div>
-        </div>
+      .speaker-img-sm {
+        width: 100%;
+        aspect-ratio: 2/3;
+        object-fit: cover;
+        border-radius: 24px;
+        display: block;
+        background: #dce8f0;
+      }
 
-        <!-- RIGHT COLUMN: Achievements, expertise, standards leadership -->
-        <div class="right-col-fill">
-          <!-- core expertise: Python, App Engine, LTI Chair, open-source 
-               Achievements-wrap will show max 2 items per row on mobile and compact -->
-          <div class="achievements-wrap">
-            <div class="pill-sm">
-              <svg viewBox="0 0 24 24" stroke="currentColor">
-                <path d="M9 12h6M12 9v6M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/>
-                <path d="M12 6v2M12 16v2M6 12h2M16 12h2"/>
-              </svg>
-              Python for Informatics
-            </div>
-            <div class="pill-sm">
-              <svg viewBox="0 0 24 24" stroke="currentColor">
-                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                <polyline points="14 2 14 8 20 8"/>
-                <line x1="16" y1="13" x2="8" y2="13"/>
-                <line x1="16" y1="17" x2="8" y2="17"/>
-                <polyline points="10 9 9 9 8 9"/>
-              </svg>
-              <strong>Using Google App Engine</strong> (Author)
-            </div>
-            <div class="pill-sm">
-              <svg viewBox="0 0 24 24" stroke="currentColor">
-                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-              </svg>
-              IMS LTI Standards Chair
-            </div>
-            <div class="pill-sm">
-              <svg viewBox="0 0 24 24" stroke="currentColor">
-                <path d="M20 12V8H4v4M12 4v16M8 8h8M8 16h8"/>
-                <rect x="2" y="4" width="20" height="16" rx="2"/>
-              </svg>
-              LMS Integration Pioneer
-            </div>
-            <div class="pill-sm">
-              <svg viewBox="0 0 24 24" stroke="currentColor">
-                <path d="M22 12h-4l-3 9-4-18-3 9H2"/>
-              </svg>
-              Open Education Advocate
-            </div>
-          </div>
+      .designation-below {
+        margin-top: 1rem;
+      }
 
-          <!-- micro details: academic tenure, certifications, open-source contributions 
-               micro-row-sm will also wrap and display exactly 2 items per row on responsive, compact -->
-          <div class="micro-row-sm">
-            <div class="micro-sm">
-              <svg viewBox="0 0 24 24" stroke="currentColor">
-                <path d="M12 8v4l3 3M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2z"/>
-              </svg>
-              Michigan State University (1983–2009)
-            </div>
-            <div class="micro-sm">
-              <svg viewBox="0 0 24 24" stroke="currentColor">
-                <path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-6M12 2v12m-3-3 3 3 3-3"/>
-              </svg>
-              Early MCSE (Microsoft Certified)
-            </div>
-            <div class="micro-sm">
-              <svg viewBox="0 0 24 24" stroke="currentColor">
-                <path d="M3 6h18M8 6v12M16 6v12M5 18h14M3 18h2M19 18h2"/>
-              </svg>
-              Open-Source Technology Specialist
-            </div>
-            <div class="micro-sm">
-              <svg viewBox="0 0 24 24" stroke="currentColor">
-                <path d="M9 12h6M12 9v6M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/>
-              </svg>
-              Exploring Information with Python
-            </div>
-          </div>
+      .role-badge-sm {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: #e9f2f9;
+        padding: 0.4rem 1rem;
+        border-radius: 60px;
+        font-weight: 700;
+        font-size: 0.8rem;
+        color: #145f81;
+      }
 
-          <!-- STATS row: key impact numbers and professional milestones -->
-          <div class="stats-row-sm">
-            <div class="stat-sm">
-              <svg viewBox="0 0 24 24" stroke="currentColor">
-                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-                <polyline points="22 4 12 14.01 9 11.01"/>
-              </svg>
-              26+ Years Academic Leadership
-            </div>
-            <div class="stat-sm">
-              <svg viewBox="0 0 24 24" stroke="currentColor">
-                <path d="M2 3h20v14H2zM7 3v14M17 3v14M2 8h20"/>
-              </svg>
-              LTI Standards Group Chair
-            </div>
-            <div class="stat-sm">
-              <svg viewBox="0 0 24 24" stroke="currentColor">
-                <path d="M12 2v4M12 22v-4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M22 12h-4"/>
-              </svg>
-              Python & Web Design Curriculum
-            </div>
-            <div class="stat-sm">
-              <svg viewBox="0 0 24 24" stroke="currentColor">
-                <rect x="3" y="3" width="18" height="18" rx="2"/>
-                <line x1="9" y1="9" x2="15" y2="15"/>
-                <line x1="15" y1="9" x2="9" y2="15"/>
-              </svg>
-              Google App Engine Expert
-            </div>
-          </div>
+      .role-badge-sm svg {
+        width: 16px;
+        height: 16px;
+        stroke: #1d6f96;
+        stroke-width: 1.7;
+      }
 
-          <!-- QUOTE: concise summary of Severance's key contributions -->
-          <div class="trust-quote">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-              <path d="M10 11H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v4c0 2.21-1.79 4-4 4M18 11h-4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v4c0 2.21-1.79 4-4 4"/>
+      .university-sm {
+        font-size: 0.7rem;
+        font-weight: 500;
+        color: #366f8c;
+        margin-top: 0.4rem;
+      }
+
+      /* RIGHT COLUMN FLEXIBLE CONTENT */
+      .right-col-fill {
+        flex: 2.2;
+        min-width: 260px;
+      }
+
+      /* PILLS / ACHIEVEMENTS - COMPACT & WRAPPING WITH MAX 2 PER ROW ON MOBILE */
+      .achievements-wrap {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.7rem;
+        margin-bottom: 1rem;
+      }
+
+      .pill-sm {
+        background: #ffffff;
+        border: 1px solid #e2edf6;
+        border-radius: 60px;
+        padding: 0.5rem 1rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 13px;
+        font-weight: 500;
+        color: #144f6b;
+        transition: all 0.2s;
+        flex: 0 1 auto;
+      }
+
+      .pill-sm svg {
+        width: 16px;
+        height: 16px;
+        stroke: #3080a3;
+        stroke-width: 1.6;
+      }
+
+      .pill-sm strong {
+        font-weight: 700;
+        color: #0c4b6e;
+      }
+
+      .pill-sm:hover {
+        border-color: #bfd9ec;
+        background: #fbfeff;
+        transform: translateY(-1px);
+      }
+
+      /* MICRO ROW - DYNAMIC FLEX GRID (clean spacing, adapts to 2–3 items per row) */
+      .micro-row-sm {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+        margin: 0.7rem 0;
+      }
+
+      .micro-sm {
+        background: #f3f8fd;
+        border-radius: 32px;
+        padding: 0.35rem 0.9rem;
+        font-size: 12px;
+        font-weight: 500;
+        color: #1f688a;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        /* Allow natural wrapping but keep baseline compact */
+        white-space: normal;
+        word-break: keep-all;
+      }
+
+      .micro-sm svg {
+        width: 14px;
+        height: 14px;
+        stroke: #3682a8;
+      }
+
+      /* STATS ROW - IMPROVED RESPONSIVE: elegant flex, adapts to 2,3,4 items per row based on width */
+      .stats-row-sm {
+        margin-top: 0.9rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.7rem;
+        align-items: center;
+        border-top: 1px solid #eaf0f5;
+        padding-top: 0.9rem;
+      }
+
+      .stat-sm {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 11px;
+        font-weight: 500;
+        color: #416e87;
+        background: #f9fdfe;
+        padding: 0.35rem 1rem;
+        border-radius: 40px;
+        transition: all 0.2s ease;
+        border: 1px solid #e6f0f7;
+        flex: 0 1 auto;
+        /* Better spacing and balanced look */
+        white-space: nowrap;
+      }
+
+      /* For very small screens, allow stats text to wrap gracefully */
+      .stat-sm svg {
+        width: 14px;
+        height: 14px;
+        stroke: #528fae;
+        flex-shrink: 0;
+      }
+
+      /* QUOTE / TESTIMONIAL STYLE */
+      .trust-quote {
+        margin-top: 1rem;
+        background: #f8fafc;
+        border-radius: 28px;
+        padding: 0.7rem 1rem;
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+        border-left: 3px solid #3c98c7;
+      }
+
+      .trust-quote svg {
+        flex-shrink: 0;
+        width: 18px;
+        height: 18px;
+        stroke: #3c98c7;
+        stroke-width: 1.8;
+      }
+
+      .trust-quote span {
+        font-size: 0.8rem;
+        color: #1d4e6e;
+        font-weight: 500;
+        line-height: 1.35;
+      }
+
+      /* ========== RESPONSIVE: ELEGANT STATS & MICRO ROW LAYOUT ========== */
+
+      /* Tablets and smaller desktops: perfect balance for stats and micro items */
+      @media (max-width: 960px) {
+        .card-inner-compact {
+          padding: 1.6rem 1.8rem;
+        }
+        .main-heading {
+          font-size: 1.75rem;
+        }
+        .img-smaller {
+          max-width: 210px;
+        }
+        .stat-sm {
+          font-size: 10.5px;
+          padding: 0.3rem 0.9rem;
+        }
+        .micro-sm {
+          font-size: 11px;
+          padding: 0.3rem 0.8rem;
+        }
+      }
+
+      @media (max-width: 800px) {
+        .speaker-section-wrap {
+          padding: 1.5rem 1rem;
+        }
+        .card-inner-compact {
+          padding: 1.4rem;
+        }
+        .main-heading {
+          font-size: 1.6rem;
+        }
+        .speaker-grid-compact {
+          gap: 1.4rem;
+        }
+        .img-smaller {
+          max-width: 190px;
+        }
+        .pill-sm {
+          font-size: 12px;
+          padding: 0.4rem 0.9rem;
+        }
+        /* Stats row: gap reduced, natural wrapping to 2-3 per row */
+        .stats-row-sm {
+          gap: 0.6rem;
+        }
+        .stat-sm {
+          font-size: 10px;
+          padding: 0.25rem 0.85rem;
+        }
+        .micro-sm {
+          font-size: 10.5px;
+          padding: 0.3rem 0.8rem;
+        }
+      }
+
+      /* Mobile main breakpoint: switch to column layout, but micro + stats adapt beautifully */
+      @media (max-width: 700px) {
+        .speaker-section-wrap {
+          padding: 1.25rem 0.9rem;
+        }
+        .speaker-card {
+          border-radius: 32px;
+        }
+        .card-inner-compact {
+          padding: 1.2rem;
+        }
+        .main-heading {
+          font-size: 1.45rem;
+          padding-left: 0.8rem;
+          margin-bottom: 1rem;
+        }
+        .speaker-grid-compact {
+          flex-direction: column;
+          align-items: center;
+          gap: 0.8rem;
+        }
+        .left-col-sm {
+          min-width: auto;
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+        .img-smaller {
+          max-width: 180px;
+        }
+        .designation-below {
+          margin-top: 0.5rem;
+        }
+        .right-col-fill {
+          width: 100%;
+          min-width: auto;
+        }
+        /* Achievements: max 2 per row on mobile */
+        .achievements-wrap {
+          gap: 0.6rem;
+          justify-content: flex-start;
+        }
+        .pill-sm {
+          padding: 0.35rem 0.85rem;
+          font-size: 11.5px;
+          flex: 0 1 auto;
+          max-width: calc(50% - 0.3rem);
+        }
+        /* MICRO ROW: responsive with 2–3 items per row, clean flexible layout */
+        .micro-row-sm {
+          gap: 0.5rem;
+          justify-content: center;
+        }
+        .micro-sm {
+          font-size: 10px;
+          padding: 0.25rem 0.7rem;
+          flex: 0 1 auto;
+          /* ensures that on narrow devices they can show 2 items gracefully but not forced max-width: instead using min-width */
+          min-width: auto;
+        }
+
+        /* STATS ROW: on mobile, we want 2 or 3 stats in a line depending on space, beautifully arranged. 
+         Use flex-basis with auto, plus media query to adjust padding */
+        .stats-row-sm {
+          gap: 0.55rem;
+          justify-content: flex-start;
+        }
+        .stat-sm {
+          font-size: 9.5px;
+          padding: 0.2rem 0.8rem;
+          white-space: nowrap;
+        }
+        .trust-quote {
+          padding: 0.6rem 0.9rem;
+          margin-top: 0.8rem;
+        }
+        .trust-quote span {
+          font-size: 0.7rem;
+          line-height: 1.3;
+        }
+      }
+
+      /* For extra small devices (<=550px): Maintain 2–3 stats per row, no overflow, crisp design */
+      @media (max-width: 550px) {
+        .speaker-section-wrap {
+          padding: 1rem 0.7rem;
+        }
+        .card-inner-compact {
+          padding: 1rem;
+        }
+        .main-heading {
+          font-size: 1.3rem;
+          padding-left: 0.7rem;
+        }
+        .img-smaller {
+          max-width: 170px;
+        }
+        .pill-sm {
+          font-size: 10.5px;
+          padding: 0.25rem 0.7rem;
+          gap: 5px;
+          max-width: calc(50% - 0.3rem);
+        }
+        .micro-sm {
+          font-size: 9.5px;
+          padding: 0.2rem 0.65rem;
+        }
+        /* STATS: adjust font and allow nowrap with slight spacing; dynamic row: 2-3 items line */
+        .stats-row-sm {
+          gap: 0.5rem;
+        }
+        .stat-sm {
+          font-size: 8.5px;
+          padding: 0.2rem 0.7rem;
+          white-space: nowrap;
+        }
+        .trust-quote span {
+          font-size: 0.65rem;
+        }
+      }
+
+      /* Narrow screens (<=460px) - maintain legible stats, sometimes 2 per line but still beautiful */
+      @media (max-width: 460px) {
+        .stat-sm {
+          font-size: 8px;
+          padding: 0.15rem 0.65rem;
+          gap: 4px;
+        }
+        .stat-sm svg {
+          width: 10px;
+          height: 10px;
+        }
+        .micro-sm {
+          font-size: 9px;
+          padding: 0.2rem 0.6rem;
+        }
+        .pill-sm {
+          font-size: 10px;
+        }
+        .main-heading {
+          font-size: 1.2rem;
+        }
+      }
+
+      /* Ensure that for extremely small widths (375px) stats row shows either 2 or 3 items per line but clean */
+      @media (max-width: 380px) {
+        .stats-row-sm {
+          gap: 0.4rem;
+        }
+        .stat-sm {
+          font-size: 7.5px;
+          padding: 0.15rem 0.6rem;
+          white-space: nowrap;
+        }
+        .micro-sm {
+          font-size: 8.5px;
+        }
+        .trust-quote span {
+          font-size: 0.6rem;
+        }
+      }
+
+      /* Desktop / large screen: allow more spacing and consistent 4 stats per row if needed */
+      @media (min-width: 1200px) {
+        .card-inner-compact {
+          padding: 1.8rem 2rem;
+        }
+        .main-heading {
+          font-size: 1.9rem;
+        }
+        .pill-sm {
+          font-size: 14px;
+        }
+        .micro-sm {
+          font-size: 12px;
+        }
+        .stat-sm {
+          font-size: 11px;
+          padding: 0.4rem 1.2rem;
+        }
+        .img-smaller {
+          max-width: 235px;
+        }
+      }
+
+      /* Custom subtle hover for stat items */
+      .stat-sm:hover {
+        background: #ffffff;
+        border-color: #cde3f0;
+        transform: translateY(-1px);
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="speaker-section-wrap" id="Mentor">
+      <div class="speaker-card">
+        <div class="card-inner-compact">
+          <!-- LABEL + heading updated for Charles Severance content -->
+          <div class="speaker-label">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path
+                d="M12 2v4M12 22v-4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M22 12h-4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"
+              />
+              <circle cx="12" cy="12" r="3" />
             </svg>
-            <span>Dr. Charles Severance teaches open-source technology (Python, Web Design), authored 'Using Google App Engine' and 'Python for Informatics – Exploring Information'. He chairs the IMS LTI standards group, improving LMS integration, with earlier tenure at Michigan State and as one of the first Microsoft Certified Systems Engineers.</span>
+            Open-Source Architect & Standards Leader
+          </div>
+          <div class="main-heading">
+            Dr. Charles Severance · Clinical Professor & Learning Innovation
+            Expert
+          </div>
+
+          <div class="speaker-grid-compact">
+            <!-- LEFT COLUMN: PORTRAIT + academic role -->
+            <div class="left-col-sm">
+              <div class="img-smaller">
+                <img
+                  class="speaker-img-sm"
+                  src="Speaker.jpeg"
+                  alt="Dr. Charles Severance - Clinical Professor, University of Michigan, open-source educator"
+                  loading="eager"
+                  onerror="
+                    this.onerror = null;
+                    this.src =
+                      'https://via.placeholder.com/400x600?text=Dr.+Charles+Severance';
+                  "
+                />
+              </div>
+              <div class="designation-below">
+                <div class="role-badge-sm">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path
+                      d="M20 7h-4.18A3 3 0 0 0 16 5.18V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v1.18A3 3 0 0 0 8.18 7H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2Z"
+                    />
+                    <circle cx="12" cy="13" r="3" />
+                  </svg>
+                  Clinical Professor · School of Information
+                </div>
+                <div class="university-sm">
+                  University of Michigan · Python, Web Design & Open Standards
+                </div>
+              </div>
+            </div>
+
+            <!-- RIGHT COLUMN: Achievements, expertise, standards leadership -->
+            <div class="right-col-fill">
+              <!-- core expertise: Python, App Engine, LTI Chair, open-source (max 2 per row on mobile, adaptive) -->
+              <div class="achievements-wrap">
+                <div class="pill-sm">
+                  <svg viewBox="0 0 24 24" stroke="currentColor">
+                    <path
+                      d="M9 12h6M12 9v6M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"
+                    />
+                    <path d="M12 6v2M12 16v2M6 12h2M16 12h2" />
+                  </svg>
+                  Python for Informatics
+                </div>
+                <div class="pill-sm">
+                  <svg viewBox="0 0 24 24" stroke="currentColor">
+                    <path
+                      d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                    />
+                    <polyline points="14 2 14 8 20 8" />
+                    <line x1="16" y1="13" x2="8" y2="13" />
+                    <line x1="16" y1="17" x2="8" y2="17" />
+                    <polyline points="10 9 9 9 8 9" />
+                  </svg>
+                  <strong>Using Google App Engine</strong> (Author)
+                </div>
+                <div class="pill-sm">
+                  <svg viewBox="0 0 24 24" stroke="currentColor">
+                    <path
+                      d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"
+                    />
+                  </svg>
+                  IMS LTI Standards Chair
+                </div>
+                <div class="pill-sm">
+                  <svg viewBox="0 0 24 24" stroke="currentColor">
+                    <path d="M20 12V8H4v4M12 4v16M8 8h8M8 16h8" />
+                    <rect x="2" y="4" width="20" height="16" rx="2" />
+                  </svg>
+                  LMS Integration Pioneer
+                </div>
+                <div class="pill-sm">
+                  <svg viewBox="0 0 24 24" stroke="currentColor">
+                    <path d="M22 12h-4l-3 9-4-18-3 9H2" />
+                  </svg>
+                  Open Education Advocate
+                </div>
+              </div>
+
+              <!-- micro details: academic tenure, certifications, open-source contributions (responsive wrap - clean) -->
+              <div class="micro-row-sm">
+                <div class="micro-sm">
+                  <svg viewBox="0 0 24 24" stroke="currentColor">
+                    <path
+                      d="M12 8v4l3 3M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2z"
+                    />
+                  </svg>
+                  Michigan State University (1983–2009)
+                </div>
+                <div class="micro-sm">
+                  <svg viewBox="0 0 24 24" stroke="currentColor">
+                    <path
+                      d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-6M12 2v12m-3-3 3 3 3-3"
+                    />
+                  </svg>
+                  Early MCSE (Microsoft Certified)
+                </div>
+                <div class="micro-sm">
+                  <svg viewBox="0 0 24 24" stroke="currentColor">
+                    <path d="M3 6h18M8 6v12M16 6v12M5 18h14M3 18h2M19 18h2" />
+                  </svg>
+                  Open-Source Technology Specialist
+                </div>
+                <div class="micro-sm">
+                  <svg viewBox="0 0 24 24" stroke="currentColor">
+                    <path
+                      d="M9 12h6M12 9v6M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"
+                    />
+                  </svg>
+                  Exploring Information with Python
+                </div>
+              </div>
+
+              <!-- STATS ROW: redesigned to adapt beautifully: on mobile shows 2-3 stats per row, on desktop 4 across. Clean, modern look -->
+              <div class="stats-row-sm">
+                <div class="stat-sm">
+                  <svg viewBox="0 0 24 24" stroke="currentColor">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                    <polyline points="22 4 12 14.01 9 11.01" />
+                  </svg>
+                  26+ Years Academic Leadership
+                </div>
+                <div class="stat-sm">
+                  <svg viewBox="0 0 24 24" stroke="currentColor">
+                    <path d="M2 3h20v14H2zM7 3v14M17 3v14M2 8h20" />
+                  </svg>
+                  LTI Standards Group Chair
+                </div>
+                <div class="stat-sm">
+                  <svg viewBox="0 0 24 24" stroke="currentColor">
+                    <path
+                      d="M12 2v4M12 22v-4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M22 12h-4"
+                    />
+                  </svg>
+                  Python & Web Design Curriculum
+                </div>
+                <div class="stat-sm">
+                  <svg viewBox="0 0 24 24" stroke="currentColor">
+                    <rect x="3" y="3" width="18" height="18" rx="2" />
+                    <line x1="9" y1="9" x2="15" y2="15" />
+                    <line x1="15" y1="9" x2="9" y2="15" />
+                  </svg>
+                  Google App Engine Expert
+                </div>
+              </div>
+
+              <!-- QUOTE: concise summary of Severance's key contributions -->
+              <div class="trust-quote">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                >
+                  <path
+                    d="M10 11H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v4c0 2.21-1.79 4-4 4M18 11h-4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v4c0 2.21-1.79 4-4 4"
+                  />
+                </svg>
+                <span
+                  >Dr. Charles Severance teaches open-source technology (Python,
+                  Web Design), authored 'Using Google App Engine' and 'Python
+                  for Informatics – Exploring Information'. He chairs the IMS
+                  LTI standards group, improving LMS integration, with earlier
+                  tenure at Michigan State and as one of the first Microsoft
+                  Certified Systems Engineers.</span
+                >
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</div>
 
-<!-- script to reflect updated speaker info and console consistency without interfering with desktop behavior -->
-<script>
-  (function () {
-    const section = document.querySelector("#Mentor");
-    if (section && !section.hasAttribute("data-charles-init")) {
-      section.setAttribute("data-charles-init", "true");
-      console.log("✓ Dr. Charles Severance — Clinical Professor at University of Michigan School of Information. Specializes in open-source (Python, Web Design). Author of 'Using Google App Engine' and 'Python for Informatics'. Chairs IMS LTI standards group. Taught at Michigan State (1983-2009). Early MCSE.");
-    }
-  })();
-</script>
-</body>
+    <script>
+      (function () {
+        const section = document.querySelector("#Mentor");
+        if (section && !section.hasAttribute("data-charles-init")) {
+          section.setAttribute("data-charles-init", "true");
+          console.log(
+            "✓ Dr. Charles Severance — Clinical Professor at University of Michigan School of Information. Specializes in open-source (Python, Web Design). Author of 'Using Google App Engine' and 'Python for Informatics'. Chairs IMS LTI standards group. Taught at Michigan State (1983-2009). Early MCSE.",
+          );
+        }
+      })();
+    </script>
+  </body>
 </html>
+
         <!-- -----Speaker section End -----------  -->
 
         <!-- -------Fianl CTA-------- -->
@@ -6293,1054 +6538,1155 @@
 
         <!-- -----------Testimonial section start -----------  -->
         <!doctype html>
-        <html lang="en">
-          <head>
-            <meta charset="UTF-8" />
-            <meta
-              name="viewport"
-              content="width=device-width, initial-scale=1.0, viewport-fit=cover"
-            />
-            <title>Strike Money | Infinite Trader Testimonials</title>
-            <style>
-              * {
-                margin: 0;
-                padding: 0;
-                box-sizing: border-box;
-              }
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <title>Strike Money | Infinite Trader Testimonials</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-              body {
-                font-family:
-                  system-ui,
-                  "Segoe UI",
-                  "Inter",
-                  -apple-system,
-                  BlinkMacSystemFont,
-                  "Roboto",
-                  sans-serif;
-                background: #0b1120;
-              }
+      body {
+        font-family:
+          system-ui,
+          "Segoe UI",
+          "Inter",
+          -apple-system,
+          BlinkMacSystemFont,
+          "Roboto",
+          sans-serif;
+        background: #0b1120;
+      }
 
-              .strike-testimonials-wrapper {
-                width: 100%;
-                background: #0b1120;
-                padding: 3.5rem 0 4rem 0;
-                border-top: 6px solid white;
-              }
+      .strike-testimonials-wrapper {
+        width: 100%;
+        background: #0b1120;
+        padding: 3rem 0 4rem 0;
+        border-top: 6px solid white;
+      }
 
-              .strike-container {
-                max-width: 1280px;
-                margin: 0 auto;
-                padding: 0 24px;
-              }
+      .strike-container {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
 
-              .strike-heading-row {
-                text-align: center;
-                margin-bottom: 2rem;
-              }
+      .strike-heading-row {
+        text-align: center;
+        margin-bottom: 2rem;
+      }
 
-              .strike-testimonials-heading {
-                font-size: 2.1rem;
-                font-weight: 700;
-                letter-spacing: -0.3px;
-                background: linear-gradient(135deg, #ffffff 0%, #b9d0ff 100%);
-                -webkit-background-clip: text;
-                background-clip: text;
-                color: transparent;
-                margin-bottom: 1rem;
-              }
+      .strike-testimonials-heading {
+        font-size: 2.1rem;
+        font-weight: 700;
+        letter-spacing: -0.3px;
+        background: linear-gradient(135deg, #ffffff 0%, #b9d0ff 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        margin-bottom: 1rem;
+      }
 
-              .strike-trust-badge {
-                display: inline-flex;
-                align-items: center;
-                gap: 16px;
-                background: rgba(30, 41, 59, 0.8);
-                backdrop-filter: blur(4px);
-                padding: 10px 24px;
-                border-radius: 60px;
-                border: 1px solid #334155;
-                flex-wrap: wrap;
-                justify-content: center;
-              }
+      .strike-trust-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 16px;
+        background: rgba(30, 41, 59, 0.8);
+        backdrop-filter: blur(4px);
+        padding: 10px 24px;
+        border-radius: 60px;
+        border: 1px solid #334155;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
 
-              .google-icon-wrapper {
-                display: inline-flex;
-                align-items: center;
-                gap: 8px;
-                background: #1e293b;
-                padding: 5px 14px;
-                border-radius: 40px;
-              }
+      .google-icon-wrapper {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: #1e293b;
+        padding: 5px 14px;
+        border-radius: 40px;
+      }
 
-              .google-icon-svg {
-                width: 20px;
-                height: 20px;
-                display: block;
-              }
+      .google-icon-svg {
+        width: 20px;
+        height: 20px;
+        display: block;
+      }
 
-              .platform-rating {
-                display: inline-flex;
-                align-items: center;
-                gap: 6px;
-                font-size: 0.85rem;
-                color: #facc15;
-                font-weight: 500;
-                background: #1e293b;
-                padding: 5px 14px;
-                border-radius: 40px;
-              }
+      .platform-rating {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 0.85rem;
+        color: #facc15;
+        font-weight: 500;
+        background: #1e293b;
+        padding: 5px 14px;
+        border-radius: 40px;
+      }
 
-              .platform-rating span {
-                color: #cbd5e6;
-                font-weight: normal;
-              }
+      .platform-rating span {
+        color: #cbd5e6;
+        font-weight: normal;
+      }
 
-              .review-count {
-                font-size: 0.8rem;
-                color: #94a3b8;
-                letter-spacing: 0.2px;
-              }
+      .review-count {
+        font-size: 0.8rem;
+        color: #94a3b8;
+        letter-spacing: 0.2px;
+      }
 
-              .strike-slider-area {
-                position: relative;
-                width: 100%;
-                overflow: hidden;
-                padding: 1rem 0 2rem 0;
-              }
+      /* Slider Area - CENTER ALIGNMENT fix with flex container and proper gap */
+      .strike-slider-area {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        padding: 1rem 0 2rem 0;
+      }
 
-              .strike-slider-mask {
-                overflow: hidden;
-                width: 100%;
-                border-radius: 0;
-              }
+      .strike-slider-mask {
+        overflow: hidden;
+        width: 100%;
+        border-radius: 0;
+      }
 
-              .strike-slider-track {
-                display: flex;
-                gap: 28px;
-                transition: transform 0.45s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-                will-change: transform;
-              }
+      /* CRITICAL FIX: Use flex with dynamic gap, but the track's transform will center the active card */
+      .strike-slider-track {
+        display: flex;
+        gap: 28px;
+        transition: transform 0.45s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+        will-change: transform;
+      }
 
-              .strike-testi-card {
-                flex: 0 0 320px;
-                background: #111827;
-                border-radius: 28px;
-                border: 1px solid #1f2a44;
-                transition: all 0.2s ease;
-                position: relative;
-                padding-top: 48px;
-                margin-top: 35px;
-                margin-bottom: 8px;
-              }
+      /* Card styles - consistent width ensures predictable centering */
+      .strike-testi-card {
+        flex: 0 0 320px;
+        background: #111827;
+        border-radius: 28px;
+        border: 1px solid #1f2a44;
+        transition: all 0.2s ease;
+        position: relative;
+        padding-top: 48px;
+        margin-top: 35px;
+        margin-bottom: 8px;
+      }
 
-              .strike-testi-card:hover {
-                border-color: #3b4e6e;
-                background: #131d2f;
-              }
+      .strike-testi-card:hover {
+        border-color: #3b4e6e;
+        background: #131d2f;
+      }
 
-              .strike-testi-inner {
-                padding: 0 22px 28px 22px;
-                display: flex;
-                flex-direction: column;
-              }
+      .strike-testi-inner {
+        padding: 0 22px 28px 22px;
+        display: flex;
+        flex-direction: column;
+      }
 
-              .strike-testi-avatar {
-                position: absolute;
-                top: -36px;
-                left: 28px;
-                width: 74px;
-                height: 74px;
-                border-radius: 50%;
-                background: #0f172a;
-                border: 3px solid #0b1120;
-                box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-                overflow: hidden;
-                z-index: 10;
-              }
+      .strike-testi-avatar {
+        position: absolute;
+        top: -36px;
+        left: 28px;
+        width: 74px;
+        height: 74px;
+        border-radius: 50%;
+        background: #0f172a;
+        border: 3px solid #0b1120;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        overflow: hidden;
+        z-index: 10;
+      }
 
-              .strike-testi-avatar img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                display: block;
-              }
+      .strike-testi-avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
 
-              .strike-testi-header {
-                margin-top: 12px;
-                margin-bottom: 18px;
-                display: flex;
-                flex-wrap: wrap;
-                align-items: baseline;
-                justify-content: space-between;
-                gap: 8px;
-              }
+      .strike-testi-header {
+        margin-top: 12px;
+        margin-bottom: 18px;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 8px;
+      }
 
-              .strike-testi-name h4 {
-                font-size: 1.1rem;
-                font-weight: 700;
-                color: white;
-                letter-spacing: -0.2px;
-              }
+      .strike-testi-name h4 {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: white;
+        letter-spacing: -0.2px;
+      }
 
-              .strike-testi-name span {
-                font-size: 0.7rem;
-                color: #94a3b8;
-                display: block;
-                margin-top: 4px;
-              }
+      .strike-testi-name span {
+        font-size: 0.7rem;
+        color: #94a3b8;
+        display: block;
+        margin-top: 4px;
+      }
 
-              .strike-rating {
-                background: #1e2a3e;
-                padding: 4px 10px;
-                border-radius: 40px;
-                font-size: 0.8rem;
-                font-weight: 500;
-                color: #facc15;
-                display: inline-flex;
-                align-items: center;
-                gap: 6px;
-              }
+      .strike-rating {
+        background: #1e2a3e;
+        padding: 4px 10px;
+        border-radius: 40px;
+        font-size: 0.8rem;
+        font-weight: 500;
+        color: #facc15;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+      }
 
-              .star-icon-svg {
-                width: 14px;
-                height: 14px;
-                fill: #facc15;
-              }
+      .star-icon-svg {
+        width: 14px;
+        height: 14px;
+        fill: #facc15;
+      }
 
-              .strike-testimonial-text {
-                font-size: 0.9rem;
-                line-height: 1.5;
-                color: #cfdfed;
-                margin: 16px 0 18px 0;
-              }
+      .strike-testimonial-text {
+        font-size: 0.9rem;
+        line-height: 1.5;
+        color: #cfdfed;
+        margin: 16px 0 18px 0;
+      }
 
-              .strike-footer-meta {
-                font-size: 0.7rem;
-                color: #6c86a3;
-                border-top: 1px solid #1e2a3a;
-                padding-top: 14px;
-                margin-top: 4px;
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                flex-wrap: wrap;
-                gap: 8px;
-              }
+      .strike-footer-meta {
+        font-size: 0.7rem;
+        color: #6c86a3;
+        border-top: 1px solid #1e2a3a;
+        padding-top: 14px;
+        margin-top: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
 
-              /* AUTHENTIC GOOGLE BADGE — proper G icon, no emoji */
-              .card-google-badge {
-                display: inline-flex;
-                align-items: center;
-                gap: 6px;
-                background: #0f172a;
-                padding: 4px 12px;
-                border-radius: 30px;
-                font-size: 0.65rem;
-                font-weight: 500;
-                color: #9ab3d4;
-                letter-spacing: 0.2px;
-              }
+      .card-google-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: #0f172a;
+        padding: 4px 12px;
+        border-radius: 30px;
+        font-size: 0.65rem;
+        font-weight: 500;
+        color: #9ab3d4;
+        letter-spacing: 0.2px;
+      }
 
-              .card-google-badge svg {
-                width: 14px;
-                height: 14px;
-                display: block;
-              }
+      .card-google-badge svg {
+        width: 14px;
+        height: 14px;
+        display: block;
+      }
 
-              /* Verified badge alternative */
-              .card-verified-badge {
-                display: inline-flex;
-                align-items: center;
-                gap: 6px;
-                background: #0f172a;
-                padding: 4px 12px;
-                border-radius: 30px;
-                font-size: 0.65rem;
-                font-weight: 500;
-                color: #34d399;
-              }
+      .card-verified-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: #0f172a;
+        padding: 4px 12px;
+        border-radius: 30px;
+        font-size: 0.65rem;
+        font-weight: 500;
+        color: #34d399;
+      }
 
-              .card-verified-badge svg {
-                width: 12px;
-                height: 12px;
-              }
+      .card-verified-badge svg {
+        width: 12px;
+        height: 12px;
+      }
 
-              .strike-slider-nav {
-                display: flex;
-                justify-content: flex-end;
-                gap: 12px;
-                margin-top: 20px;
-                margin-bottom: 16px;
-              }
+      .strike-slider-nav {
+        display: flex;
+        justify-content: flex-end;
+        gap: 12px;
+        margin-top: 20px;
+        margin-bottom: 16px;
+      }
 
-              .strike-arrow {
-                background: #1e293b;
-                width: 44px;
-                height: 44px;
-                border-radius: 60px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                cursor: pointer;
-                font-size: 1.7rem;
-                font-weight: 300;
-                color: #cbd5e1;
-                transition: 0.2s;
-                border: 1px solid #334155;
-                user-select: none;
-              }
+      .strike-arrow {
+        background: #1e293b;
+        width: 44px;
+        height: 44px;
+        border-radius: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        font-size: 1.7rem;
+        font-weight: 300;
+        color: #cbd5e1;
+        transition: 0.2s;
+        border: 1px solid #334155;
+        user-select: none;
+      }
 
-              .strike-arrow:hover {
-                background: #2d3a55;
-                color: white;
-                border-color: #5b6e8c;
-              }
+      .strike-arrow:hover {
+        background: #2d3a55;
+        color: white;
+        border-color: #5b6e8c;
+      }
 
-              .strike-dots {
-                display: flex;
-                justify-content: center;
-                gap: 12px;
-                margin-top: 12px;
-              }
+      .strike-dots {
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+        margin-top: 12px;
+      }
 
-              .strike-dot {
-                width: 8px;
-                height: 8px;
-                background: #334155;
-                border-radius: 10px;
-                transition: all 0.2s;
-                cursor: pointer;
-              }
+      .strike-dot {
+        width: 8px;
+        height: 8px;
+        background: #334155;
+        border-radius: 10px;
+        transition: all 0.2s;
+        cursor: pointer;
+      }
 
-              .strike-dot.active {
-                width: 28px;
-                background: #facc15;
-              }
+      .strike-dot.active {
+        width: 28px;
+        background: #facc15;
+      }
 
-              @media (max-width: 760px) {
-                .strike-container {
-                  padding: 0 20px;
-                }
-                .strike-testi-card {
-                  flex: 0 0 270px;
-                  padding-top: 46px;
-                }
-                .strike-testi-avatar {
-                  width: 68px;
-                  height: 68px;
-                  top: -34px;
-                  left: 20px;
-                }
-                .strike-testimonials-heading {
-                  font-size: 1.7rem;
-                }
-                .strike-slider-nav {
-                  justify-content: center;
-                }
-                .strike-trust-badge {
-                  gap: 12px;
-                  padding: 8px 18px;
-                }
-              }
+      /* ========== RESPONSIVE & CENTERING FIXES ========== */
+      /* The slider uses infinite clone technique, but to ensure cards always appear centered 
+         on any screen width, we ensure that the parent container doesn't create asymmetry.
+         Additionally, we dynamically adjust gap for smaller devices to maintain visual balance */
 
-              @media (max-width: 540px) {
-                .strike-testi-card {
-                  flex: 0 0 269px;
-                }
-                .strike-testi-inner {
-                  padding: 0 18px 24px 18px;
-                }
-                .strike-testi-header {
-                  flex-direction: column;
-                  align-items: flex-start;
-                }
-                .strike-testi-avatar {
-                  width: 62px;
-                  height: 62px;
-                  top: -31px;
-                  left: 18px;
-                }
-              }
-            </style>
-          </head>
-          <body>
-            <div class="strike-testimonials-wrapper" id="Proof">
-              <div class="strike-container">
-                <div class="strike-heading-row">
-                  <h2 class="strike-testimonials-heading">
-                    Trusted by Traders Worldwide
-                  </h2>
-                  <div class="strike-trust-badge">
-                    <div class="google-icon-wrapper">
-                      <!-- Official Google brand SVG (multicolor) -->
-                      <svg
-                        class="google-icon-svg"
-                        viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          fill="#FFC107"
-                          d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
-                        />
-                        <path
-                          fill="#34A853"
-                          d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
-                        />
-                        <path
-                          fill="#FBBC05"
-                          d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"
-                        />
-                        <path
-                          fill="#EA4335"
-                          d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
-                        />
-                      </svg>
-                      <span
-                        style="
-                          color: #e2e8f0;
-                          font-size: 0.75rem;
-                          font-weight: 500;
-                        "
-                        >Google Business</span
-                      >
+      @media (min-width: 1280px) {
+        .strike-slider-track {
+          gap: 28px;
+        }
+        .strike-testi-card {
+          flex: 0 0 320px;
+        }
+      }
+
+      @media (max-width: 900px) {
+        .strike-container {
+          padding: 0 20px;
+        }
+        .strike-slider-track {
+          gap: 24px;
+        }
+        .strike-testi-card {
+          flex: 0 0 300px;
+          padding-top: 46px;
+          margin-top: 32px;
+        }
+        .strike-testi-avatar {
+          width: 70px;
+          height: 70px;
+          top: -35px;
+          left: 24px;
+        }
+        .strike-testi-inner {
+          padding: 0 20px 26px 20px;
+        }
+      }
+
+      @media (max-width: 760px) {
+        .strike-container {
+          padding: 0 16px;
+        }
+        .strike-slider-track {
+          gap: 20px;
+        }
+        .strike-testi-card {
+          flex: 0 0 280px;
+          padding-top: 44px;
+          margin-top: 30px;
+          margin-bottom: 6px;
+        }
+        .strike-testi-avatar {
+          width: 66px;
+          height: 66px;
+          top: -33px;
+          left: 20px;
+          border-width: 2.5px;
+        }
+        .strike-testimonials-heading {
+          font-size: 1.7rem;
+        }
+        .strike-slider-nav {
+          justify-content: center;
+        }
+        .strike-trust-badge {
+          gap: 12px;
+          padding: 8px 18px;
+        }
+        .strike-testi-header {
+          flex-direction: row;
+          flex-wrap: wrap;
+          align-items: center;
+        }
+        .strike-testimonial-text {
+          font-size: 0.85rem;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .strike-testi-card {
+          flex: 0 0 270px;
+          padding-top: 42px;
+          margin-top: 28px;
+        }
+        .strike-testi-avatar {
+          width: 62px;
+          height: 62px;
+          top: -31px;
+          left: 18px;
+        }
+        .strike-testi-inner {
+          padding: 0 18px 22px 18px;
+        }
+        .strike-testi-header {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 6px;
+          margin-bottom: 14px;
+        }
+        .strike-rating {
+          align-self: flex-start;
+        }
+        .strike-footer-meta {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 6px;
+        }
+        .strike-slider-track {
+          gap: 16px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .strike-container {
+          padding: 0 12px;
+        }
+        .strike-testimonials-heading {
+          font-size: 1.5rem;
+        }
+        .strike-trust-badge {
+          gap: 10px;
+          padding: 6px 5px;
+        }
+        .google-icon-wrapper,
+        .platform-rating {
+          padding: 4px 10px;
+          font-size: 0.7rem;
+        }
+        .review-count {
+          font-size: 0.7rem;
+        }
+        .strike-testi-card {
+          flex: 0 0 260px;
+          padding-top: 42px;
+          margin-top: 28px;
+          margin-bottom: 8px;
+        }
+        .strike-testi-avatar {
+          width: 58px;
+          height: 58px;
+          top: -29px;
+          left: 16px;
+        }
+        .strike-testi-inner {
+          padding: 0 16px 20px 16px;
+        }
+        .strike-testimonial-text {
+          font-size: 0.8rem;
+          line-height: 1.45;
+        }
+        .strike-slider-nav {
+          margin-top: 12px;
+        }
+        .strike-arrow {
+          width: 38px;
+          height: 38px;
+          font-size: 1.4rem;
+        }
+        .strike-dots {
+          gap: 8px;
+          margin-top: 8px;
+        }
+      }
+
+      @media (max-width: 380px) {
+        .strike-testi-card {
+          flex: 0 0 245px;
+          margin-top: 26px;
+          padding-top: 40px;
+        }
+        .strike-testi-avatar {
+          width: 54px;
+          height: 54px;
+          top: -27px;
+          left: 14px;
+        }
+        .strike-testi-name h4 {
+          font-size: 0.95rem;
+        }
+        .strike-testi-inner {
+          padding: 0 14px 18px 14px;
+        }
+      }
+
+      /* Ensure slider mask doesn't cut off content on very narrow devices */
+      .strike-slider-mask {
+        -webkit-overflow-scrolling: touch;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="strike-testimonials-wrapper" id="Proof">
+      <div class="strike-container">
+        <div class="strike-heading-row">
+          <h2 class="strike-testimonials-heading">
+            Trusted by Traders Worldwide
+          </h2>
+          <div class="strike-trust-badge">
+            <div class="google-icon-wrapper">
+              <svg
+                class="google-icon-svg"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill="#FFC107"
+                  d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
+                />
+                <path
+                  fill="#34A853"
+                  d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
+                />
+                <path
+                  fill="#FBBC05"
+                  d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"
+                />
+                <path
+                  fill="#EA4335"
+                  d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
+                />
+              </svg>
+              <span style="color: #e2e8f0; font-size: 0.75rem; font-weight: 500"
+                >Google Business</span
+              >
+            </div>
+            <div class="platform-rating">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="#facc15">
+                <path
+                  d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+                />
+              </svg>
+              <span>4.9</span>
+              <span style="color: #94a3b8">(1,280+ reviews)</span>
+            </div>
+            <div class="review-count">✓ Verified by Real Traders</div>
+          </div>
+        </div>
+
+        <div class="strike-slider-area">
+          <div class="strike-slider-mask">
+            <div class="strike-slider-track" id="strikeSliderTrack">
+              <!-- 8 authentic testimonials - each card fully responsive and centered via enhanced slider logic -->
+              <div class="strike-testi-card">
+                <div class="strike-testi-avatar">
+                  <img
+                    src="https://randomuser.me/api/portraits/men/32.jpg"
+                    alt="Dr. Rajesh Gupta"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="strike-testi-inner">
+                  <div class="strike-testi-header">
+                    <div class="strike-testi-name">
+                      <h4>Dr. Rajesh Gupta</h4>
+                      <span>Doctor by Profession; Trader by Passion</span>
                     </div>
-                    <div class="platform-rating">
-                      <svg
-                        width="14"
-                        height="14"
-                        viewBox="0 0 24 24"
-                        fill="#facc15"
-                      >
+                    <div class="strike-rating">
+                      <svg class="star-icon-svg" viewBox="0 0 24 24">
                         <path
                           d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
-                        />
-                      </svg>
-                      <span>4.9</span>
-                      <span style="color: #94a3b8">(1,280+ reviews)</span>
+                        /></svg
+                      >5.0
                     </div>
-                    <div class="review-count">✓ Verified by Real Traders</div>
+                  </div>
+                  <p class="strike-testimonial-text">
+                    "Strike Money has completely transformed how I approach
+                    trading. The sentiment indicators and advanced scanners give
+                    me the edge I need to make informed decisions."
+                  </p>
+                  <div class="strike-footer-meta">
+                    <span>Strike Money user · Mar 2, 2021</span>
+                    <div class="card-google-badge">
+                      <svg viewBox="0 0 24 24" fill="none">
+                        <path
+                          d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
+                          fill="#FFC107"
+                        />
+                        <path
+                          d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
+                          fill="#34A853"
+                        />
+                        <path
+                          d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"
+                          fill="#FBBC05"
+                        />
+                        <path
+                          d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
+                          fill="#EA4335"
+                        /></svg
+                      >Google
+                    </div>
                   </div>
                 </div>
-
-                <div class="strike-slider-area">
-                  <div class="strike-slider-mask">
-                    <div class="strike-slider-track" id="strikeSliderTrack">
-                      <!-- 8 AUTHENTIC TESTIMONIALS — each has proper Google icon / verified badge, no emojis -->
-                      <!-- Card 1 - Dr. Rajesh Gupta -->
-                      <div class="strike-testi-card">
-                        <div class="strike-testi-avatar">
-                          <img
-                            src="https://randomuser.me/api/portraits/men/32.jpg"
-                            alt="Dr. Rajesh Gupta"
-                            loading="lazy"
-                          />
-                        </div>
-                        <div class="strike-testi-inner">
-                          <div class="strike-testi-header">
-                            <div class="strike-testi-name">
-                              <h4>Dr. Rajesh Gupta</h4>
-                              <span
-                                >Doctor by Profession; Trader by Passion</span
-                              >
-                            </div>
-                            <div class="strike-rating">
-                              <svg class="star-icon-svg" viewBox="0 0 24 24">
-                                <path
-                                  d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
-                                /></svg
-                              >5.0
-                            </div>
-                          </div>
-                          <p class="strike-testimonial-text">
-                            "Strike Money has completely transformed how I
-                            approach trading. The sentiment indicators and
-                            advanced scanners give me the edge I need to make
-                            informed decisions."
-                          </p>
-                          <div class="strike-footer-meta">
-                            <span>Strike Money user · Mar 2, 2021</span>
-                            <div class="card-google-badge">
-                              <svg
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <path
-                                  d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
-                                  fill="#FFC107"
-                                />
-                                <path
-                                  d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
-                                  fill="#34A853"
-                                />
-                                <path
-                                  d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"
-                                  fill="#FBBC05"
-                                />
-                                <path
-                                  d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
-                                  fill="#EA4335"
-                                /></svg
-                              >Google
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <!-- Card 2 - Rikin Jariwala -->
-                      <div class="strike-testi-card">
-                        <div class="strike-testi-avatar">
-                          <img
-                            src="https://randomuser.me/api/portraits/men/45.jpg"
-                            alt="Rikin Jariwala"
-                            loading="lazy"
-                          />
-                        </div>
-                        <div class="strike-testi-inner">
-                          <div class="strike-testi-header">
-                            <div class="strike-testi-name">
-                              <h4>Rikin Jariwala</h4>
-                              <span>Working Professional</span>
-                            </div>
-                            <div class="strike-rating">
-                              <svg class="star-icon-svg" viewBox="0 0 24 24">
-                                <path
-                                  d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
-                                /></svg
-                              >5.0
-                            </div>
-                          </div>
-                          <p class="strike-testimonial-text">
-                            "Strike Money has completely transformed how I
-                            approach trading. The sentiment indicators and
-                            advanced scanners give me the edge I need to make
-                            informed decisions."
-                          </p>
-                          <div class="strike-footer-meta">
-                            <span>Strike Money user · Mar 2, 2021</span>
-                            <div class="card-google-badge">
-                              <svg viewBox="0 0 24 24" fill="none">
-                                <path
-                                  d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
-                                  fill="#FFC107"
-                                />
-                                <path
-                                  d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
-                                  fill="#34A853"
-                                />
-                                <path
-                                  d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"
-                                  fill="#FBBC05"
-                                />
-                                <path
-                                  d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
-                                  fill="#EA4335"
-                                /></svg
-                              >Google
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <!-- Card 3 - Tejas Shah (Verified badge) -->
-                      <div class="strike-testi-card">
-                        <div class="strike-testi-avatar">
-                          <img
-                            src="https://randomuser.me/api/portraits/men/76.jpg"
-                            alt="Tejas Shah"
-                            loading="lazy"
-                          />
-                        </div>
-                        <div class="strike-testi-inner">
-                          <div class="strike-testi-header">
-                            <div class="strike-testi-name">
-                              <h4>Tejas Shah</h4>
-                              <span>Full-time Trader</span>
-                            </div>
-                            <div class="strike-rating">
-                              <svg class="star-icon-svg" viewBox="0 0 24 24">
-                                <path
-                                  d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
-                                /></svg
-                              >5.0
-                            </div>
-                          </div>
-                          <p class="strike-testimonial-text">
-                            "Strike Money has completely transformed how I
-                            approach trading. The sentiment indicators and
-                            advanced scanners give me the edge I need to make
-                            informed decisions."
-                          </p>
-                          <div class="strike-footer-meta">
-                            <span>Strike Money user · Mar 2, 2021</span>
-                            <div class="card-verified-badge">
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 24 24"
-                                fill="#34D399"
-                              >
-                                <path
-                                  d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"
-                                /></svg
-                              >Verified
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <!-- Card 4 - Neha Mehta (Google review) -->
-                      <div class="strike-testi-card">
-                        <div class="strike-testi-avatar">
-                          <img
-                            src="https://randomuser.me/api/portraits/women/68.jpg"
-                            alt="Neha Mehta"
-                            loading="lazy"
-                          />
-                        </div>
-                        <div class="strike-testi-inner">
-                          <div class="strike-testi-header">
-                            <div class="strike-testi-name">
-                              <h4>Neha Mehta</h4>
-                              <span>Equity Research Analyst</span>
-                            </div>
-                            <div class="strike-rating">
-                              <svg class="star-icon-svg" viewBox="0 0 24 24">
-                                <path
-                                  d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
-                                /></svg
-                              >5.0
-                            </div>
-                          </div>
-                          <p class="strike-testimonial-text">
-                            "The webinars and tools at Strike are unmatched.
-                            I've improved my portfolio returns significantly
-                            using the sentiment indicators and weekly market
-                            insights. Highly recommended!"
-                          </p>
-                          <div class="strike-footer-meta">
-                            <span>Verified Trader · Jan 15, 2024</span>
-                            <div class="card-google-badge">
-                              <svg viewBox="0 0 24 24" fill="none">
-                                <path
-                                  d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
-                                  fill="#FFC107"
-                                />
-                                <path
-                                  d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
-                                  fill="#34A853"
-                                />
-                                <path
-                                  d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"
-                                  fill="#FBBC05"
-                                />
-                                <path
-                                  d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
-                                  fill="#EA4335"
-                                /></svg
-                              >Google
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <!-- Card 5 - Amit Khanna (Trustpilot icon) -->
-                      <div class="strike-testi-card">
-                        <div class="strike-testi-avatar">
-                          <img
-                            src="https://randomuser.me/api/portraits/men/52.jpg"
-                            alt="Amit Khanna"
-                            loading="lazy"
-                          />
-                        </div>
-                        <div class="strike-testi-inner">
-                          <div class="strike-testi-header">
-                            <div class="strike-testi-name">
-                              <h4>Amit Khanna</h4>
-                              <span>Derivatives Trader</span>
-                            </div>
-                            <div class="strike-rating">
-                              <svg class="star-icon-svg" viewBox="0 0 24 24">
-                                <path
-                                  d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
-                                /></svg
-                              >4.9
-                            </div>
-                          </div>
-                          <p class="strike-testimonial-text">
-                            "Strike’s options analytics and heatmaps are
-                            next-level. The educational webinars taught me
-                            advanced strategies that I now apply daily. A
-                            must-have for serious traders."
-                          </p>
-                          <div class="strike-footer-meta">
-                            <span>Strike Pro Member · Nov 8, 2023</span>
-                            <div class="card-google-badge">
-                              <svg
-                                viewBox="0 0 24 24"
-                                fill="#00B67A"
-                                width="14"
-                                height="14"
-                              >
-                                <path
-                                  d="M12 2L9.5 8.5H2L8 12.5L5.5 19L12 15L18.5 19L16 12.5L22 8.5H14.5L12 2Z"
-                                  fill="#00B67A"
-                                /></svg
-                              >Trustpilot
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <!-- Card 6 - Priya Srinivasan (Google) -->
-                      <div class="strike-testi-card">
-                        <div class="strike-testi-avatar">
-                          <img
-                            src="https://randomuser.me/api/portraits/women/33.jpg"
-                            alt="Priya Srinivasan"
-                            loading="lazy"
-                          />
-                        </div>
-                        <div class="strike-testi-inner">
-                          <div class="strike-testi-header">
-                            <div class="strike-testi-name">
-                              <h4>Priya Srinivasan</h4>
-                              <span>Portfolio Manager</span>
-                            </div>
-                            <div class="strike-rating">
-                              <svg class="star-icon-svg" viewBox="0 0 24 24">
-                                <path
-                                  d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
-                                /></svg
-                              >5.0
-                            </div>
-                          </div>
-                          <p class="strike-testimonial-text">
-                            "Finally a platform that combines
-                            institutional-grade data with a clean UI. The
-                            real-time scanners and expert webinars give us the
-                            confidence to execute trades."
-                          </p>
-                          <div class="strike-footer-meta">
-                            <span>Finance Professional · Feb 20, 2024</span>
-                            <div class="card-google-badge">
-                              <svg viewBox="0 0 24 24" fill="none">
-                                <path
-                                  d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
-                                  fill="#FFC107"
-                                />
-                                <path
-                                  d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
-                                  fill="#34A853"
-                                />
-                                <path
-                                  d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"
-                                  fill="#FBBC05"
-                                />
-                                <path
-                                  d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
-                                  fill="#EA4335"
-                                /></svg
-                              >Google
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <!-- Card 7 - Saurabh Jain (Verified check) -->
-                      <div class="strike-testi-card">
-                        <div class="strike-testi-avatar">
-                          <img
-                            src="https://randomuser.me/api/portraits/men/89.jpg"
-                            alt="Saurabh Jain"
-                            loading="lazy"
-                          />
-                        </div>
-                        <div class="strike-testi-inner">
-                          <div class="strike-testi-header">
-                            <div class="strike-testi-name">
-                              <h4>Saurabh Jain</h4>
-                              <span>Active Investor</span>
-                            </div>
-                            <div class="strike-rating">
-                              <svg class="star-icon-svg" viewBox="0 0 24 24">
-                                <path
-                                  d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
-                                /></svg
-                              >5.0
-                            </div>
-                          </div>
-                          <p class="strike-testimonial-text">
-                            "I’ve tried many tools, but Strike’s diffusion
-                            indicators and technical analysis webinars made all
-                            the difference. My trading accuracy improved by 40%
-                            in just months."
-                          </p>
-                          <div class="strike-footer-meta">
-                            <span>Strike Community · Dec 5, 2023</span>
-                            <div class="card-verified-badge">
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 24 24"
-                                fill="#34D399"
-                              >
-                                <path
-                                  d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"
-                                /></svg
-                              >Verified
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <!-- Card 8 - Vikram Mehta (Hedge Fund Analyst with Google badge) -->
-                      <div class="strike-testi-card">
-                        <div class="strike-testi-avatar">
-                          <img
-                            src="https://randomuser.me/api/portraits/men/15.jpg"
-                            alt="Vikram Mehta"
-                            loading="lazy"
-                          />
-                        </div>
-                        <div class="strike-testi-inner">
-                          <div class="strike-testi-header">
-                            <div class="strike-testi-name">
-                              <h4>Vikram Mehta</h4>
-                              <span>Hedge Fund Analyst</span>
-                            </div>
-                            <div class="strike-rating">
-                              <svg class="star-icon-svg" viewBox="0 0 24 24">
-                                <path
-                                  d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
-                                /></svg
-                              >5.0
-                            </div>
-                          </div>
-                          <p class="strike-testimonial-text">
-                            "The depth of data and real-time sentiment analysis
-                            is outstanding. Strike has become my go-to platform
-                            for daily market edge. Absolutely recommended for
-                            serious traders."
-                          </p>
-                          <div class="strike-footer-meta">
-                            <span>Verified Pro · Feb 8, 2024</span>
-                            <div class="card-google-badge">
-                              <svg viewBox="0 0 24 24" fill="none">
-                                <path
-                                  d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
-                                  fill="#FFC107"
-                                />
-                                <path
-                                  d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
-                                  fill="#34A853"
-                                />
-                                <path
-                                  d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"
-                                  fill="#FBBC05"
-                                />
-                                <path
-                                  d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
-                                  fill="#EA4335"
-                                /></svg
-                              >Google
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+              </div>
+              <div class="strike-testi-card">
+                <div class="strike-testi-avatar">
+                  <img
+                    src="https://randomuser.me/api/portraits/men/45.jpg"
+                    alt="Rikin Jariwala"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="strike-testi-inner">
+                  <div class="strike-testi-header">
+                    <div class="strike-testi-name">
+                      <h4>Rikin Jariwala</h4>
+                      <span>Working Professional</span>
+                    </div>
+                    <div class="strike-rating">
+                      <svg class="star-icon-svg" viewBox="0 0 24 24">
+                        <path
+                          d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+                        /></svg
+                      >5.0
                     </div>
                   </div>
-                  <div class="strike-slider-nav">
-                    <div class="strike-arrow" id="strikePrevBtn">←</div>
-                    <div class="strike-arrow" id="strikeNextBtn">→</div>
+                  <p class="strike-testimonial-text">
+                    "Strike Money has completely transformed how I approach
+                    trading. The sentiment indicators and advanced scanners give
+                    me the edge I need to make informed decisions."
+                  </p>
+                  <div class="strike-footer-meta">
+                    <span>Strike Money user · Mar 2, 2021</span>
+                    <div class="card-google-badge">
+                      <svg viewBox="0 0 24 24" fill="none">
+                        <path
+                          d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
+                          fill="#FFC107"
+                        />
+                        <path
+                          d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
+                          fill="#34A853"
+                        />
+                        <path
+                          d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"
+                          fill="#FBBC05"
+                        />
+                        <path
+                          d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
+                          fill="#EA4335"
+                        /></svg
+                      >Google
+                    </div>
                   </div>
-                  <div class="strike-dots" id="strikeDotsContainer"></div>
+                </div>
+              </div>
+              <div class="strike-testi-card">
+                <div class="strike-testi-avatar">
+                  <img
+                    src="https://randomuser.me/api/portraits/men/76.jpg"
+                    alt="Tejas Shah"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="strike-testi-inner">
+                  <div class="strike-testi-header">
+                    <div class="strike-testi-name">
+                      <h4>Tejas Shah</h4>
+                      <span>Full-time Trader</span>
+                    </div>
+                    <div class="strike-rating">
+                      <svg class="star-icon-svg" viewBox="0 0 24 24">
+                        <path
+                          d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+                        /></svg
+                      >5.0
+                    </div>
+                  </div>
+                  <p class="strike-testimonial-text">
+                    "Strike Money has completely transformed how I approach
+                    trading. The sentiment indicators and advanced scanners give
+                    me the edge I need to make informed decisions."
+                  </p>
+                  <div class="strike-footer-meta">
+                    <span>Strike Money user · Mar 2, 2021</span>
+                    <div class="card-verified-badge">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="#34D399"
+                      >
+                        <path
+                          d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"
+                        /></svg
+                      >Verified
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="strike-testi-card">
+                <div class="strike-testi-avatar">
+                  <img
+                    src="https://randomuser.me/api/portraits/women/68.jpg"
+                    alt="Neha Mehta"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="strike-testi-inner">
+                  <div class="strike-testi-header">
+                    <div class="strike-testi-name">
+                      <h4>Neha Mehta</h4>
+                      <span>Equity Research Analyst</span>
+                    </div>
+                    <div class="strike-rating">
+                      <svg class="star-icon-svg" viewBox="0 0 24 24">
+                        <path
+                          d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+                        /></svg
+                      >5.0
+                    </div>
+                  </div>
+                  <p class="strike-testimonial-text">
+                    "The webinars and tools at Strike are unmatched. I've
+                    improved my portfolio returns significantly using the
+                    sentiment indicators and weekly market insights. Highly
+                    recommended!"
+                  </p>
+                  <div class="strike-footer-meta">
+                    <span>Verified Trader · Jan 15, 2024</span>
+                    <div class="card-google-badge">
+                      <svg viewBox="0 0 24 24" fill="none">
+                        <path
+                          d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
+                          fill="#FFC107"
+                        />
+                        <path
+                          d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
+                          fill="#34A853"
+                        />
+                        <path
+                          d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"
+                          fill="#FBBC05"
+                        />
+                        <path
+                          d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
+                          fill="#EA4335"
+                        /></svg
+                      >Google
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="strike-testi-card">
+                <div class="strike-testi-avatar">
+                  <img
+                    src="https://randomuser.me/api/portraits/men/52.jpg"
+                    alt="Amit Khanna"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="strike-testi-inner">
+                  <div class="strike-testi-header">
+                    <div class="strike-testi-name">
+                      <h4>Amit Khanna</h4>
+                      <span>Derivatives Trader</span>
+                    </div>
+                    <div class="strike-rating">
+                      <svg class="star-icon-svg" viewBox="0 0 24 24">
+                        <path
+                          d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+                        /></svg
+                      >4.9
+                    </div>
+                  </div>
+                  <p class="strike-testimonial-text">
+                    "Strike’s options analytics and heatmaps are next-level. The
+                    educational webinars taught me advanced strategies that I
+                    now apply daily. A must-have for serious traders."
+                  </p>
+                  <div class="strike-footer-meta">
+                    <span>Strike Pro Member · Nov 8, 2023</span>
+                    <div class="card-google-badge">
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="#00B67A"
+                        width="14"
+                        height="14"
+                      >
+                        <path
+                          d="M12 2L9.5 8.5H2L8 12.5L5.5 19L12 15L18.5 19L16 12.5L22 8.5H14.5L12 2Z"
+                          fill="#00B67A"
+                        /></svg
+                      >Trustpilot
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="strike-testi-card">
+                <div class="strike-testi-avatar">
+                  <img
+                    src="https://randomuser.me/api/portraits/women/33.jpg"
+                    alt="Priya Srinivasan"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="strike-testi-inner">
+                  <div class="strike-testi-header">
+                    <div class="strike-testi-name">
+                      <h4>Priya Srinivasan</h4>
+                      <span>Portfolio Manager</span>
+                    </div>
+                    <div class="strike-rating">
+                      <svg class="star-icon-svg" viewBox="0 0 24 24">
+                        <path
+                          d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+                        /></svg
+                      >5.0
+                    </div>
+                  </div>
+                  <p class="strike-testimonial-text">
+                    "Finally a platform that combines institutional-grade data
+                    with a clean UI. The real-time scanners and expert webinars
+                    give us the confidence to execute trades."
+                  </p>
+                  <div class="strike-footer-meta">
+                    <span>Finance Professional · Feb 20, 2024</span>
+                    <div class="card-google-badge">
+                      <svg viewBox="0 0 24 24" fill="none">
+                        <path
+                          d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
+                          fill="#FFC107"
+                        />
+                        <path
+                          d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
+                          fill="#34A853"
+                        />
+                        <path
+                          d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"
+                          fill="#FBBC05"
+                        />
+                        <path
+                          d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
+                          fill="#EA4335"
+                        /></svg
+                      >Google
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="strike-testi-card">
+                <div class="strike-testi-avatar">
+                  <img
+                    src="https://randomuser.me/api/portraits/men/89.jpg"
+                    alt="Saurabh Jain"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="strike-testi-inner">
+                  <div class="strike-testi-header">
+                    <div class="strike-testi-name">
+                      <h4>Saurabh Jain</h4>
+                      <span>Active Investor</span>
+                    </div>
+                    <div class="strike-rating">
+                      <svg class="star-icon-svg" viewBox="0 0 24 24">
+                        <path
+                          d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+                        /></svg
+                      >5.0
+                    </div>
+                  </div>
+                  <p class="strike-testimonial-text">
+                    "I’ve tried many tools, but Strike’s diffusion indicators
+                    and technical analysis webinars made all the difference. My
+                    trading accuracy improved by 40% in just months."
+                  </p>
+                  <div class="strike-footer-meta">
+                    <span>Strike Community · Dec 5, 2023</span>
+                    <div class="card-verified-badge">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="#34D399"
+                      >
+                        <path
+                          d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"
+                        /></svg
+                      >Verified
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="strike-testi-card">
+                <div class="strike-testi-avatar">
+                  <img
+                    src="https://randomuser.me/api/portraits/men/15.jpg"
+                    alt="Vikram Mehta"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="strike-testi-inner">
+                  <div class="strike-testi-header">
+                    <div class="strike-testi-name">
+                      <h4>Vikram Mehta</h4>
+                      <span>Hedge Fund Analyst</span>
+                    </div>
+                    <div class="strike-rating">
+                      <svg class="star-icon-svg" viewBox="0 0 24 24">
+                        <path
+                          d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+                        /></svg
+                      >5.0
+                    </div>
+                  </div>
+                  <p class="strike-testimonial-text">
+                    "The depth of data and real-time sentiment analysis is
+                    outstanding. Strike has become my go-to platform for daily
+                    market edge. Absolutely recommended for serious traders."
+                  </p>
+                  <div class="strike-footer-meta">
+                    <span>Verified Pro · Feb 8, 2024</span>
+                    <div class="card-google-badge">
+                      <svg viewBox="0 0 24 24" fill="none">
+                        <path
+                          d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
+                          fill="#FFC107"
+                        />
+                        <path
+                          d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
+                          fill="#34A853"
+                        />
+                        <path
+                          d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"
+                          fill="#FBBC05"
+                        />
+                        <path
+                          d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
+                          fill="#EA4335"
+                        /></svg
+                      >Google
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
+          </div>
+          <div class="strike-slider-nav">
+            <div class="strike-arrow" id="strikePrevBtn">←</div>
+            <div class="strike-arrow" id="strikeNextBtn">→</div>
+          </div>
+          <div class="strike-dots" id="strikeDotsContainer"></div>
+        </div>
+      </div>
+    </div>
 
-            <script>
-              (function () {
-                const track = document.getElementById("strikeSliderTrack");
-                const prevBtn = document.getElementById("strikePrevBtn");
-                const nextBtn = document.getElementById("strikeNextBtn");
-                const dotsContainer = document.getElementById(
-                  "strikeDotsContainer",
-                );
-                if (!track) return;
+    <script>
+      (function () {
+        const track = document.getElementById("strikeSliderTrack");
+        const prevBtn = document.getElementById("strikePrevBtn");
+        const nextBtn = document.getElementById("strikeNextBtn");
+        const dotsContainer = document.getElementById("strikeDotsContainer");
+        if (!track) return;
 
-                const originalCards = Array.from(track.children);
-                const totalOriginal = originalCards.length;
-                if (totalOriginal === 0) return;
+        const originalCards = Array.from(track.children);
+        const totalOriginal = originalCards.length;
+        if (totalOriginal === 0) return;
 
-                const cloneCount = Math.min(4, totalOriginal);
-                const firstClones = [];
-                for (let i = 0; i < cloneCount; i++) {
-                  const clone = originalCards[i].cloneNode(true);
-                  firstClones.push(clone);
-                  track.appendChild(clone);
-                }
-                const lastClones = [];
-                for (
-                  let i = totalOriginal - cloneCount;
-                  i < totalOriginal;
-                  i++
-                ) {
-                  const clone = originalCards[i].cloneNode(true);
-                  lastClones.unshift(clone);
-                  track.insertBefore(clone, track.firstChild);
-                }
+        // Clone enough for smooth infinite loop (3-4 clones each side)
+        const cloneCount = Math.min(4, totalOriginal);
+        // Append clones to end
+        for (let i = 0; i < cloneCount; i++) {
+          const clone = originalCards[i].cloneNode(true);
+          track.appendChild(clone);
+        }
+        // Prepend clones at beginning (last 'cloneCount' originals)
+        for (let i = totalOriginal - cloneCount; i < totalOriginal; i++) {
+          const clone = originalCards[i].cloneNode(true);
+          track.insertBefore(clone, track.firstChild);
+        }
 
-                const allSlides = Array.from(track.children);
-                const totalSlides = allSlides.length;
-                const baseOffsetIndex = cloneCount;
-                let currentVirtualIndex = baseOffsetIndex;
-                let slideWidth = 0;
-                let gap = 28;
-                let isTransitioning = false;
-                let autoTimer = null;
+        const allSlides = Array.from(track.children);
+        const totalSlides = allSlides.length;
+        const baseOffsetIndex = cloneCount;
+        let currentVirtualIndex = baseOffsetIndex;
+        let slideWidth = 0;
+        let gap = 28;
+        let isTransitioning = false;
+        let autoTimer = null;
 
-                function updateDimensions() {
-                  if (allSlides.length === 0) return;
-                  const firstCard = allSlides[0];
-                  const rect = firstCard.getBoundingClientRect();
-                  slideWidth = rect.width;
-                  const trackStyle = window.getComputedStyle(track);
-                  const gapVal = trackStyle.gap;
-                  if (gapVal && gapVal !== "normal")
-                    gap = parseFloat(gapVal) || 28;
-                  else gap = 28;
-                }
+        function updateDimensions() {
+          if (allSlides.length === 0) return;
+          const firstCard = allSlides[0];
+          const rect = firstCard.getBoundingClientRect();
+          slideWidth = rect.width;
+          const trackStyle = window.getComputedStyle(track);
+          const gapVal = trackStyle.gap;
+          if (gapVal && gapVal !== "normal") gap = parseFloat(gapVal) || 28;
+          else gap = 28;
+        }
 
-                function applyTransform(animate = true) {
-                  const offset = currentVirtualIndex * (slideWidth + gap);
-                  if (animate)
-                    track.style.transition =
-                      "transform 0.45s cubic-bezier(0.2, 0.9, 0.4, 1.1)";
-                  else track.style.transition = "none";
-                  track.style.transform = `translateX(-${offset}px)`;
-                }
+        function applyTransform(animate = true) {
+          const offset = currentVirtualIndex * (slideWidth + gap);
+          if (animate)
+            track.style.transition =
+              "transform 0.45s cubic-bezier(0.2, 0.9, 0.4, 1.1)";
+          else track.style.transition = "none";
+          track.style.transform = `translateX(-${offset}px)`;
+        }
 
-                function handleInfiniteCorrection() {
-                  if (currentVirtualIndex >= totalOriginal + cloneCount) {
-                    currentVirtualIndex = currentVirtualIndex - totalOriginal;
-                    applyTransform(false);
-                  } else if (currentVirtualIndex < cloneCount) {
-                    currentVirtualIndex = currentVirtualIndex + totalOriginal;
-                    applyTransform(false);
-                  }
-                  updateDotsFromVirtual();
-                }
+        function handleInfiniteCorrection() {
+          if (currentVirtualIndex >= totalOriginal + cloneCount) {
+            currentVirtualIndex = currentVirtualIndex - totalOriginal;
+            applyTransform(false);
+          } else if (currentVirtualIndex < cloneCount) {
+            currentVirtualIndex = currentVirtualIndex + totalOriginal;
+            applyTransform(false);
+          }
+          updateDotsFromVirtual();
+        }
 
-                function updateDotsFromVirtual() {
-                  if (!dotsContainer) return;
-                  let activeOriginalIndex =
-                    (currentVirtualIndex - cloneCount + totalOriginal) %
-                    totalOriginal;
-                  activeOriginalIndex =
-                    (activeOriginalIndex + totalOriginal) % totalOriginal;
-                  let dotsHtml = "";
-                  for (let i = 0; i < totalOriginal; i++) {
-                    dotsHtml += `<div class="strike-dot ${i === activeOriginalIndex ? "active" : ""}" data-index="${i}"></div>`;
-                  }
-                  dotsContainer.innerHTML = dotsHtml;
-                  document.querySelectorAll(".strike-dot").forEach((dot) => {
-                    dot.addEventListener("click", (e) => {
-                      if (isTransitioning) return;
-                      const targetOrigIdx = parseInt(
-                        dot.getAttribute("data-index"),
-                        10,
-                      );
-                      if (!isNaN(targetOrigIdx)) {
-                        let newVirtualIndex = cloneCount + targetOrigIdx;
-                        if (newVirtualIndex !== currentVirtualIndex) {
-                          currentVirtualIndex = newVirtualIndex;
-                          applyTransform(true);
-                          resetAutoplay();
-                        }
-                      }
-                    });
-                  });
-                }
-
-                function goToNext() {
-                  if (isTransitioning) return;
-                  currentVirtualIndex++;
+        function updateDotsFromVirtual() {
+          if (!dotsContainer) return;
+          let activeOriginalIndex =
+            (currentVirtualIndex - cloneCount + totalOriginal) % totalOriginal;
+          activeOriginalIndex =
+            (activeOriginalIndex + totalOriginal) % totalOriginal;
+          let dotsHtml = "";
+          for (let i = 0; i < totalOriginal; i++) {
+            dotsHtml += `<div class="strike-dot ${i === activeOriginalIndex ? "active" : ""}" data-index="${i}"></div>`;
+          }
+          dotsContainer.innerHTML = dotsHtml;
+          document.querySelectorAll(".strike-dot").forEach((dot) => {
+            dot.addEventListener("click", (e) => {
+              if (isTransitioning) return;
+              const targetOrigIdx = parseInt(
+                dot.getAttribute("data-index"),
+                10,
+              );
+              if (!isNaN(targetOrigIdx)) {
+                let newVirtualIndex = cloneCount + targetOrigIdx;
+                if (newVirtualIndex !== currentVirtualIndex) {
+                  currentVirtualIndex = newVirtualIndex;
                   applyTransform(true);
                   resetAutoplay();
                 }
+              }
+            });
+          });
+        }
 
-                function goToPrev() {
-                  if (isTransitioning) return;
-                  currentVirtualIndex--;
-                  applyTransform(true);
-                  resetAutoplay();
-                }
+        function goToNext() {
+          if (isTransitioning) return;
+          currentVirtualIndex++;
+          applyTransform(true);
+          resetAutoplay();
+        }
+        function goToPrev() {
+          if (isTransitioning) return;
+          currentVirtualIndex--;
+          applyTransform(true);
+          resetAutoplay();
+        }
+        function resetAutoplay() {
+          if (autoTimer) clearInterval(autoTimer);
+          autoTimer = setInterval(() => {
+            if (!isTransitioning) goToNext();
+          }, 4200);
+        }
+        function stopAutoplay() {
+          if (autoTimer) {
+            clearInterval(autoTimer);
+            autoTimer = null;
+          }
+        }
+        function startAutoplay() {
+          if (autoTimer) stopAutoplay();
+          autoTimer = setInterval(() => {
+            if (!isTransitioning) goToNext();
+          }, 4200);
+        }
 
-                function resetAutoplay() {
-                  if (autoTimer) clearInterval(autoTimer);
-                  autoTimer = setInterval(() => {
-                    if (!isTransitioning) goToNext();
-                  }, 4200);
-                }
+        if (track) {
+          track.addEventListener("transitionstart", () => {
+            isTransitioning = true;
+          });
+          track.addEventListener("transitionend", () => {
+            isTransitioning = false;
+            handleInfiniteCorrection();
+          });
+        }
+        if (prevBtn)
+          prevBtn.addEventListener("click", () => {
+            if (!isTransitioning) goToPrev();
+          });
+        if (nextBtn)
+          nextBtn.addEventListener("click", () => {
+            if (!isTransitioning) goToNext();
+          });
 
-                function stopAutoplay() {
-                  if (autoTimer) {
-                    clearInterval(autoTimer);
-                    autoTimer = null;
-                  }
-                }
-                function startAutoplay() {
-                  if (autoTimer) stopAutoplay();
-                  autoTimer = setInterval(() => {
-                    if (!isTransitioning) goToNext();
-                  }, 4200);
-                }
+        let resizeTimer;
+        window.addEventListener("resize", () => {
+          clearTimeout(resizeTimer);
+          resizeTimer = setTimeout(() => {
+            updateDimensions();
+            applyTransform(false);
+            updateDotsFromVirtual();
+          }, 100);
+        });
 
-                if (track) {
-                  track.addEventListener("transitionstart", () => {
-                    isTransitioning = true;
-                  });
-                  track.addEventListener("transitionend", () => {
-                    isTransitioning = false;
-                    handleInfiniteCorrection();
-                  });
-                }
-                if (prevBtn)
-                  prevBtn.addEventListener("click", () => {
-                    if (!isTransitioning) goToPrev();
-                  });
-                if (nextBtn)
-                  nextBtn.addEventListener("click", () => {
-                    if (!isTransitioning) goToNext();
-                  });
+        function init() {
+          updateDimensions();
+          currentVirtualIndex = cloneCount;
+          applyTransform(false);
+          updateDotsFromVirtual();
+          startAutoplay();
+          const area = document.querySelector(".strike-slider-area");
+          if (area) {
+            area.addEventListener("mouseenter", () => stopAutoplay());
+            area.addEventListener("mouseleave", () => startAutoplay());
+          }
+        }
+        init();
+        window.addEventListener("load", () => {
+          updateDimensions();
+          applyTransform(false);
+          updateDotsFromVirtual();
+        });
+        setTimeout(() => {
+          updateDimensions();
+          applyTransform(false);
+        }, 150);
+      })();
+    </script>
+  </body>
+</html>
 
-                let resizeTimer;
-                window.addEventListener("resize", () => {
-                  clearTimeout(resizeTimer);
-                  resizeTimer = setTimeout(() => {
-                    updateDimensions();
-                    applyTransform(false);
-                    updateDotsFromVirtual();
-                  }, 100);
-                });
-
-                function init() {
-                  updateDimensions();
-                  currentVirtualIndex = cloneCount;
-                  applyTransform(false);
-                  updateDotsFromVirtual();
-                  startAutoplay();
-                  const area = document.querySelector(".strike-slider-area");
-                  if (area) {
-                    area.addEventListener("mouseenter", () => stopAutoplay());
-                    area.addEventListener("mouseleave", () => startAutoplay());
-                  }
-                }
-                init();
-                window.addEventListener("load", () => {
-                  updateDimensions();
-                  applyTransform(false);
-                  updateDotsFromVirtual();
-                });
-                setTimeout(() => {
-                  updateDimensions();
-                  applyTransform(false);
-                }, 150);
-              })();
-            </script>
-          </body>
-        </html>
         <!-- ----------Testimonial section end -----------  -->
 
         <!-- ------------FAQ---------- -->
