@@ -4,9 +4,11 @@
     <meta charset="UTF-8" />
     <meta
       name="viewport"
-      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
     />
-    <title>Strike Money | Infinite Trader Testimonials</title>
+    <title>
+      Rohit Srivastava | Market Strategist & Founder – Strike & Indiacharts
+    </title>
     <style>
       * {
         margin: 0;
@@ -15,1134 +17,720 @@
       }
 
       body {
+        background: #eef2f8;
         font-family:
-          system-ui,
-          "Segoe UI",
           "Inter",
+          system-ui,
           -apple-system,
-          BlinkMacSystemFont,
-          "Roboto",
+          "Segoe UI",
+          Roboto,
+          Helvetica,
           sans-serif;
-        background: #0b1120;
+        line-height: 1.4;
       }
 
-      .strike-testimonials-wrapper {
+      /* MAIN SECTION WRAPPER */
+      .speaker-section-wrap {
         width: 100%;
-        background: #0b1120;
-        padding: 3rem 0 4rem 0;
-        border-top: 6px solid white;
+        background: #f0f5fa;
+        padding: 2rem 1.5rem;
       }
 
-      .strike-container {
-        max-width: 1280px;
+      /* WHITE CARD */
+      .speaker-card {
+        max-width: 1300px;
         margin: 0 auto;
-        padding: 0 24px;
+        background: #ffffff;
+        border-radius: 42px;
+        box-shadow:
+          0 20px 35px -12px rgba(0, 0, 0, 0.12),
+          0 2px 6px rgba(0, 0, 0, 0.02);
+        overflow: hidden;
+        transition: box-shadow 0.2s;
       }
 
-      .strike-heading-row {
-        text-align: center;
-        margin-bottom: 2rem;
+      /* COMPACT INNER SPACING */
+      .card-inner-compact {
+        padding: 1.8rem 2rem;
       }
 
-      .strike-testimonials-heading {
-        font-size: 2.1rem;
+      /* LABEL / BADGE */
+      .speaker-label {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: #eef5fc;
+        padding: 0.3rem 1rem;
+        border-radius: 40px;
+        margin-bottom: 0.9rem;
+        font-weight: 600;
+        font-size: 0.75rem;
+        letter-spacing: 0.4px;
+        color: #1c6f96;
+        text-transform: uppercase;
+      }
+
+      .speaker-label svg {
+        width: 14px;
+        height: 14px;
+        stroke: #2179a3;
+        stroke-width: 1.8;
+      }
+
+      /* MAIN HEADING */
+      .main-heading {
+        font-size: 1.9rem;
         font-weight: 700;
-        letter-spacing: -0.3px;
-        background: linear-gradient(135deg, #ffffff 0%, #b9d0ff 100%);
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
+        color: #0a2e42;
+        letter-spacing: -0.02em;
+        line-height: 1.2;
+        margin-bottom: 1.4rem;
+        border-left: 4px solid #3c98c7;
+        padding-left: 1rem;
+      }
+
+      /* TWO COLUMN LAYOUT */
+      .speaker-grid-compact {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.8rem;
+        align-items: center;
+      }
+
+      /* LEFT COLUMN: PORTRAIT + TITLE */
+      .left-col-sm {
+        flex: 0.9;
+        min-width: 200px;
+        text-align: center;
+      }
+
+      .img-smaller {
+        max-width: 225px;
+        margin: 0 auto;
+        background: #f9fdfe;
+        border-radius: 28px;
+        padding: 4px;
+        box-shadow: 0 8px 16px -8px rgba(0, 0, 0, 0.05);
+      }
+
+      .speaker-img-sm {
+        width: 100%;
+        aspect-ratio: 2/3;
+        object-fit: cover;
+        border-radius: 24px;
+        display: block;
+        background: #dce8f0;
+      }
+
+      .designation-below {
+        margin-top: 1rem;
+      }
+
+      .role-badge-sm {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: #e9f2f9;
+        padding: 0.4rem 1rem;
+        border-radius: 60px;
+        font-weight: 700;
+        font-size: 0.8rem;
+        color: #145f81;
+      }
+
+      .role-badge-sm svg {
+        width: 16px;
+        height: 16px;
+        stroke: #1d6f96;
+        stroke-width: 1.7;
+      }
+
+      .university-sm {
+        font-size: 0.7rem;
+        font-weight: 500;
+        color: #366f8c;
+        margin-top: 0.4rem;
+      }
+
+      /* RIGHT COLUMN FLEXIBLE CONTENT */
+      .right-col-fill {
+        flex: 2.2;
+        min-width: 260px;
+      }
+
+      /* PILLS / ACHIEVEMENTS - COMPACT & WRAPPING WITH MAX 2 PER ROW ON MOBILE */
+      .achievements-wrap {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.7rem;
         margin-bottom: 1rem;
       }
 
-      .strike-trust-badge {
-        display: inline-flex;
-        align-items: center;
-        gap: 16px;
-        background: rgba(30, 41, 59, 0.8);
-        backdrop-filter: blur(4px);
-        padding: 10px 24px;
+      .pill-sm {
+        background: #ffffff;
+        border: 1px solid #e2edf6;
         border-radius: 60px;
-        border: 1px solid #334155;
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-
-      .google-icon-wrapper {
+        padding: 0.5rem 1rem;
         display: inline-flex;
         align-items: center;
         gap: 8px;
-        background: #1e293b;
-        padding: 5px 14px;
-        border-radius: 40px;
-      }
-
-      .google-icon-svg {
-        width: 20px;
-        height: 20px;
-        display: block;
-      }
-
-      .platform-rating {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        font-size: 0.85rem;
-        color: #facc15;
+        font-size: 13px;
         font-weight: 500;
-        background: #1e293b;
-        padding: 5px 14px;
-        border-radius: 40px;
-      }
-
-      .platform-rating span {
-        color: #cbd5e6;
-        font-weight: normal;
-      }
-
-      .review-count {
-        font-size: 0.8rem;
-        color: #94a3b8;
-        letter-spacing: 0.2px;
-      }
-
-      /* Slider Area - CENTER ALIGNMENT fix with flex container and proper gap */
-      .strike-slider-area {
-        position: relative;
-        width: 100%;
-        overflow: hidden;
-        padding: 1rem 0 2rem 0;
-      }
-
-      .strike-slider-mask {
-        overflow: hidden;
-        width: 100%;
-        border-radius: 0;
-      }
-
-      /* CRITICAL FIX: Use flex with dynamic gap, but the track's transform will center the active card */
-      .strike-slider-track {
-        display: flex;
-        gap: 28px;
-        transition: transform 0.45s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-        will-change: transform;
-      }
-
-      /* Card styles - consistent width ensures predictable centering */
-      .strike-testi-card {
-        flex: 0 0 320px;
-        background: #111827;
-        border-radius: 28px;
-        border: 1px solid #1f2a44;
-        transition: all 0.2s ease;
-        position: relative;
-        padding-top: 48px;
-        margin-top: 35px;
-        margin-bottom: 8px;
-      }
-
-      .strike-testi-card:hover {
-        border-color: #3b4e6e;
-        background: #131d2f;
-      }
-
-      .strike-testi-inner {
-        padding: 0 22px 28px 22px;
-        display: flex;
-        flex-direction: column;
-      }
-
-      .strike-testi-avatar {
-        position: absolute;
-        top: -36px;
-        left: 28px;
-        width: 74px;
-        height: 74px;
-        border-radius: 50%;
-        background: #0f172a;
-        border: 3px solid #0b1120;
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-        overflow: hidden;
-        z-index: 10;
-      }
-
-      .strike-testi-avatar img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        display: block;
-      }
-
-      .strike-testi-header {
-        margin-top: 12px;
-        margin-bottom: 18px;
-        display: flex;
-        flex-wrap: wrap;
-        align-items: baseline;
-        justify-content: space-between;
-        gap: 8px;
-      }
-
-      .strike-testi-name h4 {
-        font-size: 1.1rem;
-        font-weight: 700;
-        color: white;
-        letter-spacing: -0.2px;
-      }
-
-      .strike-testi-name span {
-        font-size: 0.7rem;
-        color: #94a3b8;
-        display: block;
-        margin-top: 4px;
-      }
-
-      .strike-rating {
-        background: #1e2a3e;
-        padding: 4px 10px;
-        border-radius: 40px;
-        font-size: 0.8rem;
-        font-weight: 500;
-        color: #facc15;
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-      }
-
-      .star-icon-svg {
-        width: 14px;
-        height: 14px;
-        fill: #facc15;
-      }
-
-      .strike-testimonial-text {
-        font-size: 0.9rem;
-        line-height: 1.5;
-        color: #cfdfed;
-        margin: 16px 0 18px 0;
-      }
-
-      .strike-footer-meta {
-        font-size: 0.7rem;
-        color: #6c86a3;
-        border-top: 1px solid #1e2a3a;
-        padding-top: 14px;
-        margin-top: 4px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        gap: 8px;
-      }
-
-      .card-google-badge {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        background: #0f172a;
-        padding: 4px 12px;
-        border-radius: 30px;
-        font-size: 0.65rem;
-        font-weight: 500;
-        color: #9ab3d4;
-        letter-spacing: 0.2px;
-      }
-
-      .card-google-badge svg {
-        width: 14px;
-        height: 14px;
-        display: block;
-      }
-
-      .card-verified-badge {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        background: #0f172a;
-        padding: 4px 12px;
-        border-radius: 30px;
-        font-size: 0.65rem;
-        font-weight: 500;
-        color: #34d399;
-      }
-
-      .card-verified-badge svg {
-        width: 12px;
-        height: 12px;
-      }
-
-      .strike-slider-nav {
-        display: flex;
-        justify-content: flex-end;
-        gap: 12px;
-        margin-top: 20px;
-        margin-bottom: 16px;
-      }
-
-      .strike-arrow {
-        background: #1e293b;
-        width: 44px;
-        height: 44px;
-        border-radius: 60px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        font-size: 1.7rem;
-        font-weight: 300;
-        color: #cbd5e1;
-        transition: 0.2s;
-        border: 1px solid #334155;
-        user-select: none;
-      }
-
-      .strike-arrow:hover {
-        background: #2d3a55;
-        color: white;
-        border-color: #5b6e8c;
-      }
-
-      .strike-dots {
-        display: flex;
-        justify-content: center;
-        gap: 12px;
-        margin-top: 12px;
-      }
-
-      .strike-dot {
-        width: 8px;
-        height: 8px;
-        background: #334155;
-        border-radius: 10px;
+        color: #144f6b;
         transition: all 0.2s;
-        cursor: pointer;
+        flex: 0 1 auto;
       }
 
-      .strike-dot.active {
-        width: 28px;
-        background: #facc15;
+      .pill-sm svg {
+        width: 16px;
+        height: 16px;
+        stroke: #3080a3;
+        stroke-width: 1.6;
       }
 
-      /* ========== RESPONSIVE & CENTERING FIXES ========== */
-      /* The slider uses infinite clone technique, but to ensure cards always appear centered 
-         on any screen width, we ensure that the parent container doesn't create asymmetry.
-         Additionally, we dynamically adjust gap for smaller devices to maintain visual balance */
+      .pill-sm strong {
+        font-weight: 700;
+        color: #0c4b6e;
+      }
 
-      @media (min-width: 1280px) {
-        .strike-slider-track {
-          gap: 28px;
+      .pill-sm:hover {
+        border-color: #bfd9ec;
+        background: #fbfeff;
+        transform: translateY(-1px);
+      }
+
+      /* MICRO ROW - DYNAMIC FLEX GRID */
+      .micro-row-sm {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+        margin: 0.7rem 0;
+      }
+
+      .micro-sm {
+        background: #f3f8fd;
+        border-radius: 32px;
+        padding: 0.35rem 0.9rem;
+        font-size: 12px;
+        font-weight: 500;
+        color: #1f688a;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        white-space: normal;
+        word-break: keep-all;
+      }
+
+      .micro-sm svg {
+        width: 14px;
+        height: 14px;
+        stroke: #3682a8;
+      }
+
+      /* STATS ROW - IMPROVED RESPONSIVE */
+      .stats-row-sm {
+        margin-top: 0.9rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.7rem;
+        align-items: center;
+        border-top: 1px solid #eaf0f5;
+        padding-top: 0.9rem;
+      }
+
+      .stat-sm {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 11px;
+        font-weight: 500;
+        color: #416e87;
+        background: #f9fdfe;
+        padding: 0.35rem 1rem;
+        border-radius: 40px;
+        transition: all 0.2s ease;
+        border: 1px solid #e6f0f7;
+        flex: 0 1 auto;
+        white-space: nowrap;
+      }
+
+      .stat-sm svg {
+        width: 14px;
+        height: 14px;
+        stroke: #528fae;
+        flex-shrink: 0;
+      }
+
+      /* QUOTE / TESTIMONIAL STYLE */
+      .trust-quote {
+        margin-top: 1rem;
+        background: #f8fafc;
+        border-radius: 28px;
+        padding: 0.7rem 1rem;
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+        border-left: 3px solid #3c98c7;
+      }
+
+      .trust-quote svg {
+        flex-shrink: 0;
+        width: 18px;
+        height: 18px;
+        stroke: #3c98c7;
+        stroke-width: 1.8;
+      }
+
+      .trust-quote span {
+        font-size: 0.8rem;
+        color: #1d4e6e;
+        font-weight: 500;
+        line-height: 1.35;
+      }
+
+      /* ========== RESPONSIVE ========== */
+      @media (max-width: 960px) {
+        .card-inner-compact {
+          padding: 1.6rem 1.8rem;
         }
-        .strike-testi-card {
-          flex: 0 0 320px;
+        .main-heading {
+          font-size: 1.75rem;
+        }
+        .img-smaller {
+          max-width: 210px;
+        }
+        .stat-sm {
+          font-size: 10.5px;
+          padding: 0.3rem 0.9rem;
+        }
+        .micro-sm {
+          font-size: 11px;
+          padding: 0.3rem 0.8rem;
         }
       }
 
-      @media (max-width: 900px) {
-        .strike-container {
-          padding: 0 20px;
+      @media (max-width: 800px) {
+        .speaker-section-wrap {
+          padding: 1.5rem 1rem;
         }
-        .strike-slider-track {
-          gap: 24px;
+        .card-inner-compact {
+          padding: 1.4rem;
         }
-        .strike-testi-card {
-          flex: 0 0 300px;
-          padding-top: 46px;
-          margin-top: 32px;
+        .main-heading {
+          font-size: 1.6rem;
         }
-        .strike-testi-avatar {
-          width: 70px;
-          height: 70px;
-          top: -35px;
-          left: 24px;
+        .speaker-grid-compact {
+          gap: 1.4rem;
         }
-        .strike-testi-inner {
-          padding: 0 20px 26px 20px;
+        .img-smaller {
+          max-width: 190px;
+        }
+        .pill-sm {
+          font-size: 12px;
+          padding: 0.4rem 0.9rem;
+        }
+        .stats-row-sm {
+          gap: 0.6rem;
+        }
+        .stat-sm {
+          font-size: 10px;
+          padding: 0.25rem 0.85rem;
+        }
+        .micro-sm {
+          font-size: 10.5px;
+          padding: 0.3rem 0.8rem;
         }
       }
 
-      @media (max-width: 760px) {
-        .strike-container {
-          padding: 0 16px;
+      @media (max-width: 700px) {
+        .speaker-section-wrap {
+          padding: 1.25rem 0.9rem;
         }
-        .strike-slider-track {
-          gap: 20px;
+        .speaker-card {
+          border-radius: 32px;
         }
-        .strike-testi-card {
-          flex: 0 0 280px;
-          padding-top: 44px;
-          margin-top: 30px;
-          margin-bottom: 6px;
+        .card-inner-compact {
+          padding: 1.2rem;
         }
-        .strike-testi-avatar {
-          width: 66px;
-          height: 66px;
-          top: -33px;
-          left: 20px;
-          border-width: 2.5px;
+        .main-heading {
+          font-size: 1.45rem;
+          padding-left: 0.8rem;
+          margin-bottom: 1rem;
         }
-        .strike-testimonials-heading {
-          font-size: 1.7rem;
+        .speaker-grid-compact {
+          flex-direction: column;
+          align-items: center;
+          gap: 0.8rem;
         }
-        .strike-slider-nav {
-          justify-content: center;
-        }
-        .strike-trust-badge {
-          gap: 12px;
-          padding: 8px 18px;
-        }
-        .strike-testi-header {
-          flex-direction: row;
-          flex-wrap: wrap;
+        .left-col-sm {
+          min-width: auto;
+          width: 100%;
+          display: flex;
+          flex-direction: column;
           align-items: center;
         }
-        .strike-testimonial-text {
-          font-size: 0.85rem;
+        .img-smaller {
+          max-width: 180px;
+        }
+        .designation-below {
+          margin-top: 0.5rem;
+        }
+        .right-col-fill {
+          width: 100%;
+          min-width: auto;
+        }
+        .achievements-wrap {
+          gap: 0.6rem;
+          justify-content: flex-start;
+        }
+        .pill-sm {
+          padding: 0.35rem 0.85rem;
+          font-size: 11.5px;
+          flex: 0 1 auto;
+          max-width: calc(50% - 0.3rem);
+        }
+        .micro-row-sm {
+          gap: 0.5rem;
+          justify-content: center;
+        }
+        .micro-sm {
+          font-size: 10px;
+          padding: 0.25rem 0.7rem;
+          flex: 0 1 auto;
+          min-width: auto;
+        }
+        .stats-row-sm {
+          gap: 0.55rem;
+          justify-content: flex-start;
+        }
+        .stat-sm {
+          font-size: 9.5px;
+          padding: 0.2rem 0.8rem;
+          white-space: nowrap;
+        }
+        .trust-quote {
+          padding: 0.6rem 0.9rem;
+          margin-top: 0.8rem;
+        }
+        .trust-quote span {
+          font-size: 0.7rem;
+          line-height: 1.3;
         }
       }
 
-      @media (max-width: 640px) {
-        .strike-testi-card {
-          flex: 0 0 270px;
-          padding-top: 42px;
-          margin-top: 28px;
+      @media (max-width: 550px) {
+        .speaker-section-wrap {
+          padding: 1rem 0.7rem;
         }
-        .strike-testi-avatar {
-          width: 62px;
-          height: 62px;
-          top: -31px;
-          left: 18px;
+        .card-inner-compact {
+          padding: 1rem;
         }
-        .strike-testi-inner {
-          padding: 0 18px 22px 18px;
+        .main-heading {
+          font-size: 1.3rem;
+          padding-left: 0.7rem;
         }
-        .strike-testi-header {
-          flex-direction: column;
-          align-items: flex-start;
-          gap: 6px;
-          margin-bottom: 14px;
+        .img-smaller {
+          max-width: 170px;
         }
-        .strike-rating {
-          align-self: flex-start;
+        .pill-sm {
+          font-size: 10.5px;
+          padding: 0.25rem 0.7rem;
+          gap: 5px;
+          max-width: calc(50% - 0.3rem);
         }
-        .strike-footer-meta {
-          flex-direction: column;
-          align-items: flex-start;
-          gap: 6px;
+        .micro-sm {
+          font-size: 9.5px;
+          padding: 0.2rem 0.65rem;
         }
-        .strike-slider-track {
-          gap: 16px;
+        .stats-row-sm {
+          gap: 0.5rem;
+        }
+        .stat-sm {
+          font-size: 8.5px;
+          padding: 0.2rem 0.7rem;
+          white-space: nowrap;
+        }
+        .trust-quote span {
+          font-size: 0.65rem;
         }
       }
 
-      @media (max-width: 480px) {
-        .strike-container {
-          padding: 0 12px;
+      @media (max-width: 460px) {
+        .stat-sm {
+          font-size: 8px;
+          padding: 0.15rem 0.65rem;
+          gap: 4px;
         }
-        .strike-testimonials-heading {
-          font-size: 1.5rem;
+        .stat-sm svg {
+          width: 10px;
+          height: 10px;
         }
-        .strike-trust-badge {
-          gap: 10px;
-          padding: 6px 5px;
+        .micro-sm {
+          font-size: 9px;
+          padding: 0.2rem 0.6rem;
         }
-        .google-icon-wrapper,
-        .platform-rating {
-          padding: 4px 10px;
-          font-size: 0.7rem;
+        .pill-sm {
+          font-size: 10px;
         }
-        .review-count {
-          font-size: 0.7rem;
-        }
-        .strike-testi-card {
-          flex: 0 0 260px;
-          padding-top: 42px;
-          margin-top: 28px;
-          margin-bottom: 8px;
-        }
-        .strike-testi-avatar {
-          width: 58px;
-          height: 58px;
-          top: -29px;
-          left: 16px;
-        }
-        .strike-testi-inner {
-          padding: 0 16px 20px 16px;
-        }
-        .strike-testimonial-text {
-          font-size: 0.8rem;
-          line-height: 1.45;
-        }
-        .strike-slider-nav {
-          margin-top: 12px;
-        }
-        .strike-arrow {
-          width: 38px;
-          height: 38px;
-          font-size: 1.4rem;
-        }
-        .strike-dots {
-          gap: 8px;
-          margin-top: 8px;
+        .main-heading {
+          font-size: 1.2rem;
         }
       }
 
       @media (max-width: 380px) {
-        .strike-testi-card {
-          flex: 0 0 245px;
-          margin-top: 26px;
-          padding-top: 40px;
+        .stats-row-sm {
+          gap: 0.4rem;
         }
-        .strike-testi-avatar {
-          width: 54px;
-          height: 54px;
-          top: -27px;
-          left: 14px;
+        .stat-sm {
+          font-size: 7.5px;
+          padding: 0.15rem 0.6rem;
+          white-space: nowrap;
         }
-        .strike-testi-name h4 {
-          font-size: 0.95rem;
+        .micro-sm {
+          font-size: 8.5px;
         }
-        .strike-testi-inner {
-          padding: 0 14px 18px 14px;
+        .trust-quote span {
+          font-size: 0.6rem;
         }
       }
 
-      /* Ensure slider mask doesn't cut off content on very narrow devices */
-      .strike-slider-mask {
-        -webkit-overflow-scrolling: touch;
+      @media (min-width: 1200px) {
+        .card-inner-compact {
+          padding: 1.8rem 2rem;
+        }
+        .main-heading {
+          font-size: 1.9rem;
+        }
+        .pill-sm {
+          font-size: 13px;
+        }
+        .micro-sm {
+          font-size: 12px;
+        }
+        .stat-sm {
+          font-size: 11px;
+          padding: 0.4rem 1.2rem;
+        }
+        .img-smaller {
+          max-width: 235px;
+        }
+      }
+
+      .stat-sm:hover {
+        background: #ffffff;
+        border-color: #cde3f0;
+        transform: translateY(-1px);
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
       }
     </style>
   </head>
   <body>
-    <div class="strike-testimonials-wrapper" id="Proof">
-      <div class="strike-container">
-        <div class="strike-heading-row">
-          <h2 class="strike-testimonials-heading">
-            Trusted by Traders Worldwide
-          </h2>
-          <div class="strike-trust-badge">
-            <div class="google-icon-wrapper">
-              <svg
-                class="google-icon-svg"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill="#FFC107"
-                  d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
-                />
-                <path
-                  fill="#34A853"
-                  d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
-                />
-                <path
-                  fill="#FBBC05"
-                  d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"
-                />
-                <path
-                  fill="#EA4335"
-                  d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
-                />
-              </svg>
-              <span style="color: #e2e8f0; font-size: 0.75rem; font-weight: 500"
-                >Google Business</span
-              >
-            </div>
-            <div class="platform-rating">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="#facc15">
-                <path
-                  d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
-                />
-              </svg>
-              <span>4.9</span>
-              <span style="color: #94a3b8">(1,280+ reviews)</span>
-            </div>
-            <div class="review-count">✓ Verified by Real Traders</div>
+    <div class="speaker-section-wrap" id="Mentor">
+      <div class="speaker-card">
+        <div class="card-inner-compact">
+          <!-- LABEL: updated for market strategy & founder identity -->
+          <div class="speaker-label">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M3 12h18M12 3v18M16.5 7.5l-9 9M7.5 7.5l9 9" />
+              <circle cx="12" cy="12" r="9" />
+            </svg>
+            Meet Our Best Mentor & Speaker
           </div>
-        </div>
+          <div class="main-heading">
+            <p>
+              Rohit Srivastava · Market Strategist & Founder <br />
+              Revolutionizing Stock Market Analysis
+            </p>
+          </div>
 
-        <div class="strike-slider-area">
-          <div class="strike-slider-mask">
-            <div class="strike-slider-track" id="strikeSliderTrack">
-              <!-- 8 authentic testimonials - each card fully responsive and centered via enhanced slider logic -->
-              <div class="strike-testi-card">
-                <div class="strike-testi-avatar">
-                  <img
-                    src="https://randomuser.me/api/portraits/men/32.jpg"
-                    alt="Dr. Rajesh Gupta"
-                    loading="lazy"
-                  />
-                </div>
-                <div class="strike-testi-inner">
-                  <div class="strike-testi-header">
-                    <div class="strike-testi-name">
-                      <h4>Dr. Rajesh Gupta</h4>
-                      <span>Doctor by Profession; Trader by Passion</span>
-                    </div>
-                    <div class="strike-rating">
-                      <svg class="star-icon-svg" viewBox="0 0 24 24">
-                        <path
-                          d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
-                        /></svg
-                      >5.0
-                    </div>
-                  </div>
-                  <p class="strike-testimonial-text">
-                    "Strike Money has completely transformed how I approach
-                    trading. The sentiment indicators and advanced scanners give
-                    me the edge I need to make informed decisions."
-                  </p>
-                  <div class="strike-footer-meta">
-                    <span>Strike Money user · Mar 2, 2021</span>
-                    <div class="card-google-badge">
-                      <svg viewBox="0 0 24 24" fill="none">
-                        <path
-                          d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
-                          fill="#FFC107"
-                        />
-                        <path
-                          d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
-                          fill="#34A853"
-                        />
-                        <path
-                          d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"
-                          fill="#FBBC05"
-                        />
-                        <path
-                          d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
-                          fill="#EA4335"
-                        /></svg
-                      >Google
-                    </div>
-                  </div>
-                </div>
+          <div class="speaker-grid-compact">
+            <!-- LEFT COLUMN: PORTRAIT (placeholder with name) + founder title -->
+            <div class="left-col-sm">
+              <div class="img-smaller">
+                <img
+                  class="speaker-img-sm"
+                  src="Speaker.jpeg"
+                  alt="Rohit Srivastava – Founder, Strike & Indiacharts, Market Strategist"
+                  loading="eager"
+                  onerror="
+                    this.onerror = null;
+                    this.src =
+                      'https://via.placeholder.com/400x600?text=Rohit+Srivastava';
+                  "
+                />
               </div>
-              <div class="strike-testi-card">
-                <div class="strike-testi-avatar">
-                  <img
-                    src="https://randomuser.me/api/portraits/men/45.jpg"
-                    alt="Rikin Jariwala"
-                    loading="lazy"
-                  />
+              <div class="designation-below">
+                <div class="role-badge-sm">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path
+                      d="M20 7h-4.18A3 3 0 0 0 16 5.18V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v1.18A3 3 0 0 0 8.18 7H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2Z"
+                    />
+                    <circle cx="12" cy="13" r="3" />
+                  </svg>
+                  Founder · Strike & Indiacharts
                 </div>
-                <div class="strike-testi-inner">
-                  <div class="strike-testi-header">
-                    <div class="strike-testi-name">
-                      <h4>Rikin Jariwala</h4>
-                      <span>Working Professional</span>
-                    </div>
-                    <div class="strike-rating">
-                      <svg class="star-icon-svg" viewBox="0 0 24 24">
-                        <path
-                          d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
-                        /></svg
-                      >5.0
-                    </div>
-                  </div>
-                  <p class="strike-testimonial-text">
-                    "Strike Money has completely transformed how I approach
-                    trading. The sentiment indicators and advanced scanners give
-                    me the edge I need to make informed decisions."
-                  </p>
-                  <div class="strike-footer-meta">
-                    <span>Strike Money user · Mar 2, 2021</span>
-                    <div class="card-google-badge">
-                      <svg viewBox="0 0 24 24" fill="none">
-                        <path
-                          d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
-                          fill="#FFC107"
-                        />
-                        <path
-                          d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
-                          fill="#34A853"
-                        />
-                        <path
-                          d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"
-                          fill="#FBBC05"
-                        />
-                        <path
-                          d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
-                          fill="#EA4335"
-                        /></svg
-                      >Google
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="strike-testi-card">
-                <div class="strike-testi-avatar">
-                  <img
-                    src="https://randomuser.me/api/portraits/men/76.jpg"
-                    alt="Tejas Shah"
-                    loading="lazy"
-                  />
-                </div>
-                <div class="strike-testi-inner">
-                  <div class="strike-testi-header">
-                    <div class="strike-testi-name">
-                      <h4>Tejas Shah</h4>
-                      <span>Full-time Trader</span>
-                    </div>
-                    <div class="strike-rating">
-                      <svg class="star-icon-svg" viewBox="0 0 24 24">
-                        <path
-                          d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
-                        /></svg
-                      >5.0
-                    </div>
-                  </div>
-                  <p class="strike-testimonial-text">
-                    "Strike Money has completely transformed how I approach
-                    trading. The sentiment indicators and advanced scanners give
-                    me the edge I need to make informed decisions."
-                  </p>
-                  <div class="strike-footer-meta">
-                    <span>Strike Money user · Mar 2, 2021</span>
-                    <div class="card-verified-badge">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
-                        fill="#34D399"
-                      >
-                        <path
-                          d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"
-                        /></svg
-                      >Verified
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="strike-testi-card">
-                <div class="strike-testi-avatar">
-                  <img
-                    src="https://randomuser.me/api/portraits/women/68.jpg"
-                    alt="Neha Mehta"
-                    loading="lazy"
-                  />
-                </div>
-                <div class="strike-testi-inner">
-                  <div class="strike-testi-header">
-                    <div class="strike-testi-name">
-                      <h4>Neha Mehta</h4>
-                      <span>Equity Research Analyst</span>
-                    </div>
-                    <div class="strike-rating">
-                      <svg class="star-icon-svg" viewBox="0 0 24 24">
-                        <path
-                          d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
-                        /></svg
-                      >5.0
-                    </div>
-                  </div>
-                  <p class="strike-testimonial-text">
-                    "The webinars and tools at Strike are unmatched. I've
-                    improved my portfolio returns significantly using the
-                    sentiment indicators and weekly market insights. Highly
-                    recommended!"
-                  </p>
-                  <div class="strike-footer-meta">
-                    <span>Verified Trader · Jan 15, 2024</span>
-                    <div class="card-google-badge">
-                      <svg viewBox="0 0 24 24" fill="none">
-                        <path
-                          d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
-                          fill="#FFC107"
-                        />
-                        <path
-                          d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
-                          fill="#34A853"
-                        />
-                        <path
-                          d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"
-                          fill="#FBBC05"
-                        />
-                        <path
-                          d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
-                          fill="#EA4335"
-                        /></svg
-                      >Google
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="strike-testi-card">
-                <div class="strike-testi-avatar">
-                  <img
-                    src="https://randomuser.me/api/portraits/men/52.jpg"
-                    alt="Amit Khanna"
-                    loading="lazy"
-                  />
-                </div>
-                <div class="strike-testi-inner">
-                  <div class="strike-testi-header">
-                    <div class="strike-testi-name">
-                      <h4>Amit Khanna</h4>
-                      <span>Derivatives Trader</span>
-                    </div>
-                    <div class="strike-rating">
-                      <svg class="star-icon-svg" viewBox="0 0 24 24">
-                        <path
-                          d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
-                        /></svg
-                      >4.9
-                    </div>
-                  </div>
-                  <p class="strike-testimonial-text">
-                    "Strike’s options analytics and heatmaps are next-level. The
-                    educational webinars taught me advanced strategies that I
-                    now apply daily. A must-have for serious traders."
-                  </p>
-                  <div class="strike-footer-meta">
-                    <span>Strike Pro Member · Nov 8, 2023</span>
-                    <div class="card-google-badge">
-                      <svg
-                        viewBox="0 0 24 24"
-                        fill="#00B67A"
-                        width="14"
-                        height="14"
-                      >
-                        <path
-                          d="M12 2L9.5 8.5H2L8 12.5L5.5 19L12 15L18.5 19L16 12.5L22 8.5H14.5L12 2Z"
-                          fill="#00B67A"
-                        /></svg
-                      >Trustpilot
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="strike-testi-card">
-                <div class="strike-testi-avatar">
-                  <img
-                    src="https://randomuser.me/api/portraits/women/33.jpg"
-                    alt="Priya Srinivasan"
-                    loading="lazy"
-                  />
-                </div>
-                <div class="strike-testi-inner">
-                  <div class="strike-testi-header">
-                    <div class="strike-testi-name">
-                      <h4>Priya Srinivasan</h4>
-                      <span>Portfolio Manager</span>
-                    </div>
-                    <div class="strike-rating">
-                      <svg class="star-icon-svg" viewBox="0 0 24 24">
-                        <path
-                          d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
-                        /></svg
-                      >5.0
-                    </div>
-                  </div>
-                  <p class="strike-testimonial-text">
-                    "Finally a platform that combines institutional-grade data
-                    with a clean UI. The real-time scanners and expert webinars
-                    give us the confidence to execute trades."
-                  </p>
-                  <div class="strike-footer-meta">
-                    <span>Finance Professional · Feb 20, 2024</span>
-                    <div class="card-google-badge">
-                      <svg viewBox="0 0 24 24" fill="none">
-                        <path
-                          d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
-                          fill="#FFC107"
-                        />
-                        <path
-                          d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
-                          fill="#34A853"
-                        />
-                        <path
-                          d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"
-                          fill="#FBBC05"
-                        />
-                        <path
-                          d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
-                          fill="#EA4335"
-                        /></svg
-                      >Google
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="strike-testi-card">
-                <div class="strike-testi-avatar">
-                  <img
-                    src="https://randomuser.me/api/portraits/men/89.jpg"
-                    alt="Saurabh Jain"
-                    loading="lazy"
-                  />
-                </div>
-                <div class="strike-testi-inner">
-                  <div class="strike-testi-header">
-                    <div class="strike-testi-name">
-                      <h4>Saurabh Jain</h4>
-                      <span>Active Investor</span>
-                    </div>
-                    <div class="strike-rating">
-                      <svg class="star-icon-svg" viewBox="0 0 24 24">
-                        <path
-                          d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
-                        /></svg
-                      >5.0
-                    </div>
-                  </div>
-                  <p class="strike-testimonial-text">
-                    "I’ve tried many tools, but Strike’s diffusion indicators
-                    and technical analysis webinars made all the difference. My
-                    trading accuracy improved by 40% in just months."
-                  </p>
-                  <div class="strike-footer-meta">
-                    <span>Strike Community · Dec 5, 2023</span>
-                    <div class="card-verified-badge">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
-                        fill="#34D399"
-                      >
-                        <path
-                          d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"
-                        /></svg
-                      >Verified
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="strike-testi-card">
-                <div class="strike-testi-avatar">
-                  <img
-                    src="https://randomuser.me/api/portraits/men/15.jpg"
-                    alt="Vikram Mehta"
-                    loading="lazy"
-                  />
-                </div>
-                <div class="strike-testi-inner">
-                  <div class="strike-testi-header">
-                    <div class="strike-testi-name">
-                      <h4>Vikram Mehta</h4>
-                      <span>Hedge Fund Analyst</span>
-                    </div>
-                    <div class="strike-rating">
-                      <svg class="star-icon-svg" viewBox="0 0 24 24">
-                        <path
-                          d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
-                        /></svg
-                      >5.0
-                    </div>
-                  </div>
-                  <p class="strike-testimonial-text">
-                    "The depth of data and real-time sentiment analysis is
-                    outstanding. Strike has become my go-to platform for daily
-                    market edge. Absolutely recommended for serious traders."
-                  </p>
-                  <div class="strike-footer-meta">
-                    <span>Verified Pro · Feb 8, 2024</span>
-                    <div class="card-google-badge">
-                      <svg viewBox="0 0 24 24" fill="none">
-                        <path
-                          d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
-                          fill="#FFC107"
-                        />
-                        <path
-                          d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
-                          fill="#34A853"
-                        />
-                        <path
-                          d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"
-                          fill="#FBBC05"
-                        />
-                        <path
-                          d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
-                          fill="#EA4335"
-                        /></svg
-                      >Google
-                    </div>
-                  </div>
+                <div class="university-sm">
+                  Market Strategist · 30+ years experience · Ex-Sharekhan (Head
+                  of Research)
                 </div>
               </div>
             </div>
+
+            <!-- RIGHT COLUMN: core achievements, models, expertise -->
+            <div class="right-col-fill">
+              <!-- PILLS: key differentiators (Value Wave, Kondratieff report, Dow/Elliot, PMS) -->
+              <div class="achievements-wrap">
+                <div class="pill-sm">
+                  <svg viewBox="0 0 24 24" stroke="currentColor">
+                    <path d="M2 20L22 4M4 12h8M16 8h4M14 16h6" />
+                    <path d="M12 12h4M8 4h2" />
+                  </svg>
+                  <p>
+                    <strong>Value Wave Model</strong> (Innovative Stock
+                    Research)
+                  </p>
+                </div>
+                <div class="pill-sm">
+                  <svg viewBox="0 0 24 24" stroke="currentColor">
+                    <path
+                      d="M12 2v4M12 22v-4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M22 12h-4"
+                    />
+                  </svg>
+                  <p>Dow Theory & Elliott Wave Expert</p>
+                </div>
+                <div class="pill-sm">
+                  <svg viewBox="0 0 24 24" stroke="currentColor">
+                    <path
+                      d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9h-4m-7 9A9 9 0 013 12m9 9v-4M3 12a9 9 0 019-9m-9 9h4m7-9a9 9 0 019 9"
+                    />
+                  </svg>
+                  <p>
+                    Indian Economic Winter Report (2010) · Kondratieff Cycle
+                  </p>
+                </div>
+                <div class="pill-sm">
+                  <svg viewBox="0 0 24 24" stroke="currentColor">
+                    <rect x="2" y="4" width="20" height="16" rx="2" />
+                    <path d="M8 12h8M12 8v8" />
+                  </svg>
+                  <p>Portfolio Management Services (Absolute Returns)</p>
+                </div>
+                <!-- <div class="pill-sm">
+                  <svg viewBox="0 0 24 24" stroke="currentColor">
+                    <path d="M22 12h-4l-3 9-4-18-3 9H2" />
+                  </svg>
+                  <p>Momentum Trading Pioneer</p>
+                </div> -->
+              </div>
+
+              <!-- micro details: self-taught journey, Sharekhan roles, blog Indiacharts -->
+              <div class="micro-row-sm">
+                <div class="micro-sm">
+                  <svg viewBox="0 0 24 24" stroke="currentColor">
+                    <path
+                      d="M12 8v4l3 3M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2z"
+                    />
+                  </svg>
+                  Self-taught since 1990 (Dow, Elliott Wave, Momentum)
+                </div>
+                <div class="micro-sm">
+                  <svg viewBox="0 0 24 24" stroke="currentColor">
+                    <path
+                      d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-6M12 2v12m-3-3 3 3 3-3"
+                    />
+                  </svg>
+                  Sharekhan Ltd. · Market Analyst → Head of Research → Market
+                  Strategist
+                </div>
+                <div class="micro-sm">
+                  <svg viewBox="0 0 24 24" stroke="currentColor">
+                    <path d="M3 6h18M8 6v12M16 6v12M5 18h14M3 18h2M19 18h2" />
+                  </svg>
+                  Blogger · 'Indiacharts' – Regular Market Insights
+                </div>
+                <div class="micro-sm">
+                  <svg viewBox="0 0 24 24" stroke="currentColor">
+                    <path
+                      d="M9 12h6M12 9v6M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"
+                    />
+                  </svg>
+                  Forecasting Market Movements & Trends
+                </div>
+              </div>
+
+              <!-- STATS ROW: 4 key professional milestones (adaptive layout) -->
+              <div class="stats-row-sm">
+                <div class="stat-sm">
+                  <svg viewBox="0 0 24 24" stroke="currentColor">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                    <polyline points="22 4 12 14.01 9 11.01" />
+                  </svg>
+                  30+ Years Market Experience
+                </div>
+                <div class="stat-sm">
+                  <svg viewBox="0 0 24 24" stroke="currentColor">
+                    <path d="M2 3h20v14H2zM7 3v14M17 3v14M2 8h20" />
+                  </svg>
+                  Founder: Strike & Indiacharts
+                </div>
+                <div class="stat-sm">
+                  <svg viewBox="0 0 24 24" stroke="currentColor">
+                    <path
+                      d="M12 2v4M12 22v-4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M22 12h-4"
+                    />
+                  </svg>
+                  Value Wave Model Creator
+                </div>
+                <div class="stat-sm">
+                  <svg viewBox="0 0 24 24" stroke="currentColor">
+                    <rect x="3" y="3" width="18" height="18" rx="2" />
+                    <line x1="9" y1="9" x2="15" y2="15" />
+                    <line x1="15" y1="9" x2="9" y2="15" />
+                  </svg>
+                  18+ Yrs Fund Management (Sharekhan)
+                </div>
+              </div>
+
+              <!-- QUOTE: comprehensive summary of Rohit Srivastava's contributions exactly matching the brief -->
+              <div class="trust-quote">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                >
+                  <path
+                    d="M10 11H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v4c0 2.21-1.79 4-4 4M18 11h-4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v4c0 2.21-1.79 4-4 4"
+                  />
+                </svg>
+                <span
+                  >Rohit Srivastava, founder & market strategist of
+                  Indiacharts.com and Strike, brings over 30 years of experience
+                  decoding market trends. With 18+ years managing funds at
+                  Sharekhan (Market Analyst → Head of Research), he created the
+                  Value Wave model and launched India’s first PMS based on
+                  absolute returns. Author of the 'Indian Economic Winter
+                  Report' (2010) mapping the Kondratieff cycle, Rohit started
+                  his journey in 1990 mastering Dow Theory, Elliott Wave, and
+                  momentum trading — now empowering investors via Strike and his
+                  blog 'Indiacharts'.</span
+                >
+              </div>
+            </div>
           </div>
-          <div class="strike-slider-nav">
-            <div class="strike-arrow" id="strikePrevBtn">←</div>
-            <div class="strike-arrow" id="strikeNextBtn">→</div>
-          </div>
-          <div class="strike-dots" id="strikeDotsContainer"></div>
         </div>
       </div>
     </div>
 
     <script>
       (function () {
-        const track = document.getElementById("strikeSliderTrack");
-        const prevBtn = document.getElementById("strikePrevBtn");
-        const nextBtn = document.getElementById("strikeNextBtn");
-        const dotsContainer = document.getElementById("strikeDotsContainer");
-        if (!track) return;
-
-        const originalCards = Array.from(track.children);
-        const totalOriginal = originalCards.length;
-        if (totalOriginal === 0) return;
-
-        // Clone enough for smooth infinite loop (3-4 clones each side)
-        const cloneCount = Math.min(4, totalOriginal);
-        // Append clones to end
-        for (let i = 0; i < cloneCount; i++) {
-          const clone = originalCards[i].cloneNode(true);
-          track.appendChild(clone);
+        const section = document.querySelector("#Mentor");
+        if (section && !section.hasAttribute("data-charles-init")) {
+          section.setAttribute("data-charles-init", "true");
+          console.log(
+            "✓ Rohit Srivastava — Founder of Strike & Indiacharts, Market Strategist. 30+ years experience, ex-Sharekhan Head of Research. Creator of Value Wave model, author of Indian Economic Winter Report (Kondratieff cycle). Self-taught since 1990 (Dow/Elliott/Momentum).",
+          );
         }
-        // Prepend clones at beginning (last 'cloneCount' originals)
-        for (let i = totalOriginal - cloneCount; i < totalOriginal; i++) {
-          const clone = originalCards[i].cloneNode(true);
-          track.insertBefore(clone, track.firstChild);
-        }
-
-        const allSlides = Array.from(track.children);
-        const totalSlides = allSlides.length;
-        const baseOffsetIndex = cloneCount;
-        let currentVirtualIndex = baseOffsetIndex;
-        let slideWidth = 0;
-        let gap = 28;
-        let isTransitioning = false;
-        let autoTimer = null;
-
-        function updateDimensions() {
-          if (allSlides.length === 0) return;
-          const firstCard = allSlides[0];
-          const rect = firstCard.getBoundingClientRect();
-          slideWidth = rect.width;
-          const trackStyle = window.getComputedStyle(track);
-          const gapVal = trackStyle.gap;
-          if (gapVal && gapVal !== "normal") gap = parseFloat(gapVal) || 28;
-          else gap = 28;
-        }
-
-        function applyTransform(animate = true) {
-          const offset = currentVirtualIndex * (slideWidth + gap);
-          if (animate)
-            track.style.transition =
-              "transform 0.45s cubic-bezier(0.2, 0.9, 0.4, 1.1)";
-          else track.style.transition = "none";
-          track.style.transform = `translateX(-${offset}px)`;
-        }
-
-        function handleInfiniteCorrection() {
-          if (currentVirtualIndex >= totalOriginal + cloneCount) {
-            currentVirtualIndex = currentVirtualIndex - totalOriginal;
-            applyTransform(false);
-          } else if (currentVirtualIndex < cloneCount) {
-            currentVirtualIndex = currentVirtualIndex + totalOriginal;
-            applyTransform(false);
-          }
-          updateDotsFromVirtual();
-        }
-
-        function updateDotsFromVirtual() {
-          if (!dotsContainer) return;
-          let activeOriginalIndex =
-            (currentVirtualIndex - cloneCount + totalOriginal) % totalOriginal;
-          activeOriginalIndex =
-            (activeOriginalIndex + totalOriginal) % totalOriginal;
-          let dotsHtml = "";
-          for (let i = 0; i < totalOriginal; i++) {
-            dotsHtml += `<div class="strike-dot ${i === activeOriginalIndex ? "active" : ""}" data-index="${i}"></div>`;
-          }
-          dotsContainer.innerHTML = dotsHtml;
-          document.querySelectorAll(".strike-dot").forEach((dot) => {
-            dot.addEventListener("click", (e) => {
-              if (isTransitioning) return;
-              const targetOrigIdx = parseInt(
-                dot.getAttribute("data-index"),
-                10,
-              );
-              if (!isNaN(targetOrigIdx)) {
-                let newVirtualIndex = cloneCount + targetOrigIdx;
-                if (newVirtualIndex !== currentVirtualIndex) {
-                  currentVirtualIndex = newVirtualIndex;
-                  applyTransform(true);
-                  resetAutoplay();
-                }
-              }
-            });
-          });
-        }
-
-        function goToNext() {
-          if (isTransitioning) return;
-          currentVirtualIndex++;
-          applyTransform(true);
-          resetAutoplay();
-        }
-        function goToPrev() {
-          if (isTransitioning) return;
-          currentVirtualIndex--;
-          applyTransform(true);
-          resetAutoplay();
-        }
-        function resetAutoplay() {
-          if (autoTimer) clearInterval(autoTimer);
-          autoTimer = setInterval(() => {
-            if (!isTransitioning) goToNext();
-          }, 4200);
-        }
-        function stopAutoplay() {
-          if (autoTimer) {
-            clearInterval(autoTimer);
-            autoTimer = null;
-          }
-        }
-        function startAutoplay() {
-          if (autoTimer) stopAutoplay();
-          autoTimer = setInterval(() => {
-            if (!isTransitioning) goToNext();
-          }, 4200);
-        }
-
-        if (track) {
-          track.addEventListener("transitionstart", () => {
-            isTransitioning = true;
-          });
-          track.addEventListener("transitionend", () => {
-            isTransitioning = false;
-            handleInfiniteCorrection();
-          });
-        }
-        if (prevBtn)
-          prevBtn.addEventListener("click", () => {
-            if (!isTransitioning) goToPrev();
-          });
-        if (nextBtn)
-          nextBtn.addEventListener("click", () => {
-            if (!isTransitioning) goToNext();
-          });
-
-        let resizeTimer;
-        window.addEventListener("resize", () => {
-          clearTimeout(resizeTimer);
-          resizeTimer = setTimeout(() => {
-            updateDimensions();
-            applyTransform(false);
-            updateDotsFromVirtual();
-          }, 100);
-        });
-
-        function init() {
-          updateDimensions();
-          currentVirtualIndex = cloneCount;
-          applyTransform(false);
-          updateDotsFromVirtual();
-          startAutoplay();
-          const area = document.querySelector(".strike-slider-area");
-          if (area) {
-            area.addEventListener("mouseenter", () => stopAutoplay());
-            area.addEventListener("mouseleave", () => startAutoplay());
-          }
-        }
-        init();
-        window.addEventListener("load", () => {
-          updateDimensions();
-          applyTransform(false);
-          updateDotsFromVirtual();
-        });
-        setTimeout(() => {
-          updateDimensions();
-          applyTransform(false);
-        }, 150);
       })();
     </script>
   </body>

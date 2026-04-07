@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -456,8 +456,8 @@
       }
 
       .register-cta {
-        margin: 1rem 0 0.5rem;
-        text-align: center;
+        margin: 1rem 15px 0.5rem;
+        text-align: left;
         width: 100%;
       }
 
@@ -906,6 +906,10 @@
                 </div>
                 <div class="countdown-timer" id="countdownTimer">
                   <div class="time-unit">
+                    <div class="time-number" id="daysLeft">00</div>
+                    <div class="time-label">Days</div>
+                  </div>
+                  <div class="time-unit">
                     <div class="time-number" id="hoursLeft">00</div>
                     <div class="time-label">Hrs</div>
                   </div>
@@ -948,14 +952,15 @@
                 </div>
               </div>
               <div class="speaker-card">
-                <div class="speaker-avatar">RS</div>
-                <div class="speaker-info">
-                  <h4>Rohit Srivastava</h4>
-                  <p>Founder & Market Strategist, Indiacharts</p>
-                  <div class="speaker-title">
-                    <i class="fas fa-chalkboard-user"></i> Featured speaker: 20+
-                    years experience
-                  </div>
+  <div class="speaker-avatar">RS</div>
+  <div class="speaker-info">
+    <h4>Rohit Srivastava</h4>
+    <p>Founder & Market Strategist, Strike & Indiacharts</p>
+    <div class="speaker-title">
+      <i class="fas fa-chalkboard-user"></i> Featured speaker: 30+ years experience <br> · Ex-Sharekhan (18+ yrs)
+    </div>
+  </div>
+</div>
                 </div>
               </div>
             </div>
@@ -1137,29 +1142,54 @@
           e.preventDefault();
           openModal("navbar-desktop");
         });
-      function updateCountdown() {
-        const now = new Date();
-        const endUTC = Date.UTC(
-          now.getUTCFullYear(),
-          now.getUTCMonth(),
-          now.getUTCDate() + 1,
-          0,
-          0,
-          0,
-        );
-        const diff = Math.max(0, endUTC - now.getTime());
-        const hours = Math.floor(diff / 3600000);
-        const minutes = Math.floor((diff % 3600000) / 60000);
-        const seconds = Math.floor((diff % 60000) / 1000);
-        document.getElementById("hoursLeft").innerText =
-          hours < 10 ? "0" + hours : hours;
-        document.getElementById("minutesLeft").innerText =
-          minutes < 10 ? "0" + minutes : minutes;
-        document.getElementById("secondsLeft").innerText =
-          seconds < 10 ? "0" + seconds : seconds;
+      
+      // --- NEW 12-DAY COUNTDOWN LOGIC (auto-resets after expiry) ---
+      function getTargetTimestamp() {
+        let stored = localStorage.getItem("webinarTarget12Days");
+        const now = Date.now();
+        const twelveDaysMs = 12 * 24 * 60 * 60 * 1000; // 12 days in milliseconds
+        
+        if (stored) {
+          const target = parseInt(stored, 10);
+          // if target is in the future, use it. otherwise generate new target
+          if (target > now) {
+            return target;
+          }
+        }
+        // Generate new target: current time + 12 days
+        const newTarget = now + twelveDaysMs;
+        localStorage.setItem("webinarTarget12Days", newTarget.toString());
+        return newTarget;
       }
+      
+      function updateCountdown() {
+        const target = getTargetTimestamp();
+        const now = Date.now();
+        let diff = target - now;
+        
+        if (diff < 0) {
+          // countdown expired: reset target to now + 12 days
+          const newTarget = now + (12 * 24 * 60 * 60 * 1000);
+          localStorage.setItem("webinarTarget12Days", newTarget.toString());
+          diff = newTarget - now;
+        }
+        
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+        
+        document.getElementById("daysLeft").innerText = days < 10 ? "0" + days : days;
+        document.getElementById("hoursLeft").innerText = hours < 10 ? "0" + hours : hours;
+        document.getElementById("minutesLeft").innerText = minutes < 10 ? "0" + minutes : minutes;
+        document.getElementById("secondsLeft").innerText = seconds < 10 ? "0" + seconds : seconds;
+      }
+      
+      // initial call and interval
       updateCountdown();
       setInterval(updateCountdown, 1000);
+      // --- END 12-DAY COUNTDOWN ---
+
       document
         .getElementById("youtubePreviewTrigger")
         ?.addEventListener("click", () => {
