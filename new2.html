@@ -4,668 +4,845 @@
     <meta charset="UTF-8" />
     <meta
       name="viewport"
-      content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
     />
-    <title>RMI Engine | Live Market Intelligence — Adaptive Dashboard</title>
+    <title>RMI Live | Isolated & Clean Embed</title>
+    <!-- Google Fonts + Font Awesome 6 - external but fully contained inside root -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
     <style>
-      * {
+      
+      .rmi-live-root {
+        all: initial; /* kill all inherited styles */
+        display: block;
+        width: 100%;
+        max-width: 100%;
         margin: 0;
         padding: 0;
         box-sizing: border-box;
       }
 
-      body {
+      .rmi-live-root *,
+      .rmi-live-root *::before,
+      .rmi-live-root *::after {
+        all: unset; /* reset any browser defaults */
+        display: revert;
+        box-sizing: border-box;
+      }
+
+      /* re-apply essential baseline for block/inline elements inside */
+      .rmi-live-root {
         font-family:
+          "Inter",
           system-ui,
           -apple-system,
+          BlinkMacSystemFont,
           "Segoe UI",
-          Roboto,
-          "Helvetica Neue",
           sans-serif;
-        background: #ffffff;
+        line-height: 1.4;
+      }
+
+      .rmi-live-root .rmi-live-section {
+        display: block;
         width: 100%;
-        overflow-x: hidden;
+        max-width: 1520px;
+        margin: 0 auto; /* center horizontally, no side padding leaks */
+        padding: 2rem 2rem 1.8rem 2rem; /* internal padding only, no margin */
+        position: relative;
+        background: linear-gradient(135deg, #f8fafc 0%, #eef2ff 100%);
+        border-radius: 0; /* keep clean */
+        box-sizing: border-box;
       }
 
-      /* ========== MAIN SECTION ========== */
-      .rmi-market-intel {
-        background: #ffffff;
-        width: 100%;
-        padding: clamp(20px, 5vw, 65px) clamp(16px, 4vw, 48px)
-          clamp(32px, 6vw, 48px) clamp(16px, 4vw, 48px);
+      /* Remove any potential extra margins on first/last child inside section */
+      .rmi-live-root .rmi-live-section > :first-child {
+        margin-top: 0;
+      }
+      .rmi-live-root .rmi-live-section > :last-child {
+        margin-bottom: 0;
       }
 
-      .rmi-container {
-        max-width: 1400px;
-        margin: 0 auto;
-        width: 100%;
+      /* decorative background blob - absolutely positioned, does not affect spacing */
+      .rmi-live-root .rmi-live-section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 280px;
+        height: 280px;
+        background: radial-gradient(
+          circle,
+          rgba(59, 130, 246, 0.05) 0%,
+          rgba(59, 130, 246, 0) 70%
+        );
+        pointer-events: none;
+        z-index: 0;
       }
 
-      /* HEADER — fully fluid */
-      .rmi-header {
-        text-align: center;
-        margin-bottom: clamp(24px, 5vw, 40px);
+      /* header area */
+      .rmi-live-root .rmi-header {
+        margin-bottom: 1.6rem;
+        position: relative;
+        z-index: 2;
       }
 
-      .rmi-main-title {
-        font-size: clamp(28px, 8vw, 56px);
+      .rmi-live-root .live-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(220, 38, 38, 0.08);
+        padding: 5px 14px 5px 12px;
+        border-radius: 40px;
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.3px;
+        color: #b91c1c;
+        border: 1px solid rgba(220, 38, 38, 0.2);
+        margin-bottom: 0.9rem;
+        backdrop-filter: blur(2px);
+      }
+
+      .rmi-live-root .pulse-dot {
+        display: inline-block;
+        width: 7px;
+        height: 7px;
+        background-color: #dc2626;
+        border-radius: 50%;
+        margin-right: 3px;
+        animation: rmiPulseRed 1.5s infinite;
+      }
+
+      @keyframes rmiPulseRed {
+        0% {
+          opacity: 0.4;
+          transform: scale(0.8);
+        }
+        100% {
+          opacity: 1;
+          transform: scale(1.2);
+          box-shadow: 0 0 5px #ef4444;
+        }
+      }
+
+      .rmi-live-root .rmi-header h1 {
+        font-size: 2.3rem;
         font-weight: 800;
-        letter-spacing: -0.02em;
+        line-height: 1.2;
         background: linear-gradient(
-          135deg,
+          125deg,
           #0f172a 0%,
-          #1e3a8a 55%,
-          #0f2b3d 100%
+          #1e1b4b 45%,
+          #2563eb 100%
         );
         background-clip: text;
         -webkit-background-clip: text;
         color: transparent;
-        margin-bottom: clamp(16px, 3vw, 24px);
-        line-height: 1.2;
+        margin-bottom: 0.6rem;
+        letter-spacing: -0.02em;
       }
 
-      /* Tagline — responsive wrap & spacing */
-      .rmi-tagline {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: clamp(10px, 3vw, 24px);
-        margin-bottom: clamp(20px, 4vw, 32px);
-        row-gap: 12px;
-      }
-
-      .rmi-tag-item {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        background: #f8fafc;
-        padding: 6px 14px;
-        border-radius: 60px;
-        border: 1px solid #e2e8f0;
-        font-weight: 500;
-        font-size: clamp(0.75rem, 3vw, 0.9rem);
+      .rmi-live-root .header-sub {
+        font-size: 0.92rem;
+        line-height: 1.4;
         color: #1e293b;
-        transition: all 0.2s ease;
-        backdrop-filter: blur(2px);
-        white-space: nowrap;
-      }
-
-      /* if screen extremely narrow, allow text to wrap softly */
-      @media (max-width: 480px) {
-        .rmi-tag-item {
-          white-space: normal;
-          text-align: center;
-          padding: 6px 12px;
-          font-size: 0.7rem;
-        }
-      }
-
-      .rmi-tag-item svg {
-        width: 18px;
-        height: 18px;
-        stroke: #2563eb;
-        stroke-width: 1.7;
-        flex-shrink: 0;
-      }
-
-      /* LIVE RMI Badge — fully responsive */
-      .rmi-badge {
-        display: inline-flex;
+        max-width: 780px;
+        font-weight: 450;
+        display: flex;
+        flex-wrap: wrap;
         align-items: center;
-        justify-content: center;
+        gap: 10px;
+        border-left: 3px solid #3b82f6;
+        padding-left: 1rem;
+        margin-bottom: 0.7rem;
+      }
+
+      .rmi-live-root .metrics-row {
+        display: flex;
         flex-wrap: wrap;
         gap: 12px;
-        background: #0f172a;
-        padding: 8px 20px;
-        border-radius: 60px;
-        border: 1px solid rgba(37, 99, 235, 0.5);
-        box-shadow: 0 8px 20px -8px rgba(0, 0, 0, 0.2);
-        margin-bottom: 8px;
-        transition: all 0.2s;
+        margin-top: 4px;
       }
 
-      @media (max-width: 500px) {
-        .rmi-badge {
-          padding: 6px 16px;
-          gap: 8px;
-        }
-        .badge-text {
-          font-size: 0.8rem;
-        }
-      }
-
-      .live-pulse {
-        display: flex;
+      .rmi-live-root .metric-pill {
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(2px);
+        border-radius: 30px;
+        padding: 4px 12px;
+        font-size: 0.7rem;
+        font-weight: 500;
+        display: inline-flex;
         align-items: center;
-        gap: 8px;
+        gap: 6px;
+        border: 1px solid #e2e8f0;
       }
 
-      .pulse-dot {
-        width: 10px;
-        height: 10px;
-        background-color: #10b981;
-        border-radius: 50%;
-        animation: pulse 1.5s infinite;
-        flex-shrink: 0;
-      }
-
-      @keyframes pulse {
-        0% {
-          transform: scale(0.95);
-          box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
-        }
-        70% {
-          transform: scale(1);
-          box-shadow: 0 0 0 6px rgba(16, 185, 129, 0);
-        }
-        100% {
-          transform: scale(0.95);
-          box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
-        }
-      }
-
-      .badge-text {
-        font-weight: 700;
-        color: white;
-        font-size: 0.9rem;
-        letter-spacing: 0.2px;
-      }
-
-      .engine-highlight {
-        background: linear-gradient(120deg, #60a5fa, #c084fc);
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
-        font-weight: 800;
-      }
-
-      /* CHART CONTAINER — fully responsive, fluid height, no overflow */
-      .rmi-chart-wrapper {
-        background: #0b1120;
-        border-radius: 28px;
-        overflow: hidden;
-        border: 1px solid #1e293b;
-        margin-top: 20px;
-        width: 100%;
-        transition: all 0.2s ease;
-        box-shadow: 0 12px 30px -12px rgba(0, 0, 0, 0.25);
-      }
-
-      /* TradingView iframe & container fluid approach */
-      .tradingview-widget-container {
-        width: 100%;
+      /* grid layout - no side gaps */
+      .rmi-live-root .rmi-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 1.5rem;
         position: relative;
-        min-height: clamp(380px, 55vw, 560px);
-        background: #0b1120;
+        z-index: 2;
       }
 
-      /* ensure iframe resizes perfectly */
-      .tradingview-widget-container iframe,
-      .tradingview-widget-container object,
-      .tradingview-widget-container embed {
-        width: 100% !important;
-        height: 100% !important;
-        min-height: clamp(380px, 55vw, 560px);
-        display: block;
-        border: none;
+      .rmi-live-root .video-card {
+        background: #ffffff;
+        border-radius: 26px;
+        box-shadow: 0 12px 28px -12px rgba(0, 0, 0, 0.12);
+        overflow: hidden;
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s;
+        border: 1px solid rgba(148, 163, 184, 0.2);
       }
 
-      /* fallback / loading indicator — adaptive */
-      .chart-fallback {
-        background: #0b1120;
+      .rmi-live-root .video-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 18px 32px -14px rgba(0, 0, 0, 0.15);
+      }
+
+      .rmi-live-root .video-container {
+        position: relative;
         width: 100%;
-        min-height: clamp(380px, 55vw, 560px);
+        background: #030712;
+        aspect-ratio: 16 / 9;
+        cursor: pointer;
+        overflow: hidden;
+      }
+
+      .rmi-live-root .video-thumb {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+        display: block;
+      }
+
+      .rmi-live-root .video-container:hover .video-thumb {
+        transform: scale(1.02);
+      }
+
+      .rmi-live-root .play-overlay-main {
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.35);
+        backdrop-filter: blur(2px);
         display: flex;
         align-items: center;
         justify-content: center;
-        border-radius: 24px;
-        color: #94a3b8;
-        font-size: 14px;
-        text-align: center;
+        transition: background 0.2s;
+      }
+
+      .rmi-live-root .play-btn-large {
+        width: 58px;
+        height: 58px;
+        background: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        color: #0f172a;
+        box-shadow: 0 10px 22px -8px rgba(0, 0, 0, 0.35);
+        transition: all 0.2s ease;
+      }
+
+      .rmi-live-root .play-btn-large i {
+        margin-left: 3px;
+      }
+
+      .rmi-live-root .video-container:hover .play-btn-large {
+        transform: scale(1.06);
+        color: #2563eb;
+        background: #ffffff;
+      }
+
+      .rmi-live-root iframe {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        border: 0;
+      }
+
+      /* PLAYLIST - no margin/padding issues */
+      .rmi-live-root .rmi-playlist {
+        display: flex;
         flex-direction: column;
-        gap: 12px;
+        gap: 0.85rem;
       }
 
-      /* footer */
-      .rmi-footer-note {
-        text-align: center;
-        margin-top: clamp(20px, 5vw, 32px);
+      .rmi-live-root .playlist-item {
+        background: #ffffff;
+        border-radius: 18px;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        cursor: pointer;
+        transition: all 0.2s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+        box-shadow:
+          0 1px 3px rgba(0, 0, 0, 0.02),
+          0 1px 2px rgba(0, 0, 0, 0.01);
+        border: 1px solid #eef2ff;
+        overflow: hidden;
+        padding: 0.3rem 0.3rem 0.3rem 0;
       }
 
-      .rmi-credit {
-        font-size: clamp(10px, 3vw, 13px);
-        color: #6b7280;
-        background: #f9fafb;
-        padding: 6px 18px;
-        border-radius: 40px;
-        display: inline-block;
-        backdrop-filter: blur(2px);
-        letter-spacing: 0.2px;
+      .rmi-live-root .playlist-item:hover {
+        transform: translateX(4px);
+        border-color: #bbd7fb;
+        background: #fefeff;
+        box-shadow: 0 8px 18px -10px rgba(37, 99, 235, 0.15);
       }
 
-      /* optional hover & interactions */
-      .rmi-tag-item:hover {
-        border-color: #cbd5e1;
+      .rmi-live-root .playlist-item.active-temp {
+        border-left: 4px solid #3b82f6;
+        background: #f8faff;
+      }
+
+      .rmi-live-root .item-thumb {
+        position: relative;
+        width: 88px;
+        flex-shrink: 0;
+        aspect-ratio: 16 / 9;
+        background: #0f172a;
+        border-radius: 12px;
+        overflow: hidden;
+        margin-left: 0.35rem;
+      }
+
+      .rmi-live-root .item-thumb img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      .rmi-live-root .small-play-icon {
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.45);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.2s ease;
+      }
+
+      .rmi-live-root .playlist-item:hover .small-play-icon {
+        opacity: 1;
+      }
+
+      .rmi-live-root .small-play-icon i {
+        background: white;
+        border-radius: 50%;
+        padding: 5px;
+        font-size: 11px;
+        width: 28px;
+        height: 28px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #0f172a;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+      }
+
+      .rmi-live-root .item-info {
+        flex: 1;
+        padding-right: 0.4rem;
+      }
+
+      .rmi-live-root .item-info h4 {
+        font-size: 0.82rem;
+        font-weight: 700;
+        margin-bottom: 0.2rem;
+        color: #0f172a;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        flex-wrap: wrap;
+      }
+
+      .rmi-live-root .item-info h4 i {
+        color: #2563eb;
+        font-size: 0.75rem;
+      }
+
+      .rmi-live-root .item-info p {
+        font-size: 0.65rem;
+        color: #475569;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        flex-wrap: wrap;
+      }
+
+      .rmi-live-root .duration-chip {
+        background: #eef2ff;
+        padding: 2px 7px;
+        border-radius: 30px;
+        font-size: 0.6rem;
+        font-weight: 600;
+      }
+
+      .rmi-live-root .rmi-footer {
+        margin-top: 1.8rem;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        border-top: 1px solid #e0e7ff;
+        padding-top: 1rem;
+        font-size: 0.75rem;
+        color: #334155;
+        gap: 1rem;
+      }
+
+      .rmi-live-root .live-status {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
         background: #f1f5f9;
-        transform: translateY(-1px);
+        padding: 5px 16px;
+        border-radius: 40px;
+        font-weight: 600;
+        font-size: 0.7rem;
       }
 
-      /* tablet & small tweaks */
+      /* Responsive - preserve no margin/padding leaks */
+      @media (max-width: 1024px) {
+        .rmi-live-root .rmi-live-section {
+          padding: 1.8rem 1.8rem 1.5rem;
+        }
+        .rmi-live-root .rmi-header h1 {
+          font-size: 2rem;
+        }
+        .rmi-live-root .item-thumb {
+          width: 82px;
+        }
+      }
+      @media (max-width: 880px) {
+        .rmi-live-root .rmi-header h1 {
+          font-size: 1.8rem;
+        }
+        .rmi-live-root .item-thumb {
+          width: 78px;
+        }
+        .rmi-live-root .play-btn-large {
+          width: 52px;
+          height: 52px;
+          font-size: 22px;
+        }
+      }
+      @media (max-width: 780px) {
+        .rmi-live-root .rmi-grid {
+          grid-template-columns: 1fr;
+          gap: 1.2rem;
+        }
+        .rmi-live-root .rmi-playlist {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 0.85rem;
+        }
+        .rmi-live-root .playlist-item {
+          flex-direction: row;
+          padding: 0.25rem 0.25rem 0.25rem 0;
+        }
+        .rmi-live-root .item-thumb {
+          width: 85px;
+        }
+        .rmi-live-root .rmi-header h1 {
+          font-size: 1.7rem;
+        }
+      }
       @media (max-width: 640px) {
-        .rmi-chart-wrapper {
-          border-radius: 20px;
+        .rmi-live-root .rmi-live-section {
+          padding: 1.2rem 1.2rem 1.2rem;
         }
-        .rmi-badge svg {
-          width: 16px;
-          height: 16px;
+        .rmi-live-root .rmi-header h1 {
+          font-size: 1.5rem;
         }
-        .badge-text {
-          font-size: 0.75rem;
+        .rmi-live-root .rmi-playlist {
+          grid-template-columns: 1fr;
+          gap: 0.75rem;
+        }
+        .rmi-live-root .playlist-item {
+          flex-direction: row;
+        }
+        .rmi-live-root .item-thumb {
+          width: 90px;
+        }
+        .rmi-live-root .play-btn-large {
+          width: 48px;
+          height: 48px;
+          font-size: 20px;
         }
       }
-
-      /* landscape orientation fix */
-      @media (max-height: 500px) and (orientation: landscape) {
-        .rmi-market-intel {
-          padding: 16px 20px 24px;
+      @media (max-width: 480px) {
+        .rmi-live-root .playlist-item {
+          flex-direction: row;
         }
-        .tradingview-widget-container {
-          min-height: 320px;
+        .rmi-live-root .item-thumb {
+          width: 85px;
         }
-        .rmi-main-title {
-          margin-bottom: 8px;
+        .rmi-live-root .rmi-header h1 {
+          font-size: 1.35rem;
         }
-        .rmi-tagline {
-          margin-bottom: 12px;
+        .rmi-live-root .header-sub {
+          font-size: 0.78rem;
+          padding-left: 0.7rem;
+        }
+        .rmi-live-root .play-btn-large {
+          width: 44px;
+          height: 44px;
+          font-size: 18px;
+        }
+      }
+      @media (max-width: 380px) {
+        .rmi-live-root .item-thumb {
+          width: 75px;
+        }
+        .rmi-live-root .item-info h4 {
+          font-size: 0.72rem;
         }
       }
     </style>
   </head>
-  <body>
-    <section class="rmi-market-intel">
-      <div class="rmi-container">
-        <!-- Header Section — fully fluid typography & spacing -->
+
+    <!-- 
+    ======================================================
+    FULLY SELF-CONTAINED RMI LIVE SECTION
+    * NO left/right extra margins or padding affecting layout
+    * NO hammering your existing code
+    * Everything is reset inside .rmi-live-root
+    ======================================================
+  -->
+    <div class="rmi-live-root">
+      <div class="rmi-live-section">
         <div class="rmi-header">
-          <h1 class="rmi-main-title">Live Market Intelligence</h1>
-
-          <div class="rmi-tagline">
-            <div class="rmi-tag-item">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.8"
-              >
-                <path d="M12 2a10 10 0 1 0 9.5 6.5" />
-                <path d="M12 8a4 4 0 1 0 3.5 5.5" />
-                <circle cx="12" cy="12" r="2" />
-                <path d="M21 3v6h-6" />
-              </svg>
-              <span>RMI Real-Time Clarity</span>
-            </div>
-            <div class="rmi-tag-item">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.8"
-              >
-                <path d="M2 20L22 20" />
-                <path d="M6 16L6 10" />
-                <path d="M12 16L12 6" />
-                <path d="M18 16L18 12" />
-                <circle cx="18" cy="8" r="2" />
-              </svg>
-              <span>Institutional-Grade Signals</span>
-            </div>
-            <div class="rmi-tag-item">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.8"
-              >
-                <circle cx="12" cy="12" r="10" />
-                <path d="M10 8l6 4-6 4V8z" />
-                <path d="M2 12h2M22 12h-2M12 2v2M12 20v2" />
-              </svg>
-              <span>Live Walkthrough</span>
-            </div>
+          <div class="live-badge">
+            <span class="pulse-dot"></span>
+            <i class="fas fa-broadcast-tower"></i>
+            <span>LIVE DEMO • RMI ENGINE ACTIVE</span>
           </div>
-
-          <div class="rmi-badge">
-            <div class="live-pulse">
-              <span class="pulse-dot"></span>
-              <span class="badge-text">LIVE</span>
-            </div>
-            <svg
-              width="18"
-              height="18"
-              viewBox="0 0 24 24"
-              fill="none"
-              style="flex-shrink: 0"
+          <h1>
+            RMI in Real Time:<br />
+            The Future of Risk is Live
+          </h1>
+          <div class="header-sub">
+            <i class="fas fa-microchip"></i>
+            <span
+              >See our AI engine scan, score, and stop risks before they become
+              incidents — no staging, no delays.</span
             >
-              <path
-                d="M12 2L2 7L12 12L22 7L12 2Z"
-                stroke="#60a5fa"
-                stroke-width="1.5"
+          </div>
+          <div class="metrics-row">
+            <span class="metric-pill"
+              ><i class="fas fa-chart-line"></i> Real‑time scoring</span
+            >
+            <span class="metric-pill"
+              ><i class="fas fa-shield-alt"></i> 47% fewer incidents</span
+            >
+            <span class="metric-pill"
+              ><i class="fas fa-bolt"></i> Sub‑200ms latency</span
+            >
+          </div>
+        </div>
+
+        <div class="rmi-grid">
+          <!-- MAIN VIDEO PLAYER -->
+          <div class="video-card">
+            <div
+              class="video-container"
+              id="rmiMainPlayerRoot"
+              data-video-id="-wdroTF0O-I"
+            >
+              <img
+                class="video-thumb"
+                src="https://img.youtube.com/vi/-wdroTF0O-I/maxresdefault.jpg"
+                alt="RMI live risk scanner demo"
               />
-              <path d="M2 17L12 22L22 17" stroke="#60a5fa" stroke-width="1.5" />
-              <path d="M2 12L12 17L22 12" stroke="#c084fc" stroke-width="1.5" />
-              <circle cx="12" cy="12" r="1.5" fill="#c084fc" />
-            </svg>
-            <span class="badge-text"
-              ><span class="engine-highlight">RMI ENGINE</span></span
+              <div class="play-overlay-main" id="mainPlayOverlayRoot">
+                <div class="play-btn-large">
+                  <i class="fas fa-play"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- PLAYLIST: fully responsive, clean -->
+          <div class="rmi-playlist">
+            <div
+              class="playlist-item"
+              data-video-id="t5LuooQyEzw"
+              data-thumb="https://img.youtube.com/vi/t5LuooQyEzw/mqdefault.jpg"
             >
+              <div class="item-thumb">
+                <img
+                  src="https://img.youtube.com/vi/t5LuooQyEzw/mqdefault.jpg"
+                  alt="AI risk scan"
+                />
+                <div class="small-play-icon"><i class="fas fa-play"></i></div>
+              </div>
+              <div class="item-info">
+                <h4><i class="fas fa-radar"></i> AI Risk Scan & Score</h4>
+                <p>
+                  <i class="far fa-clock"></i> 12 min
+                  <span class="duration-chip"
+                    ><i class="fas fa-chart-simple"></i> live metrics</span
+                  >
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="playlist-item"
+              data-video-id="ZIq89QKPl_Y"
+              data-thumb="https://img.youtube.com/vi/ZIq89QKPl_Y/mqdefault.jpg"
+            >
+              <div class="item-thumb">
+                <img
+                  src="https://img.youtube.com/vi/ZIq89QKPl_Y/mqdefault.jpg"
+                  alt="Compliance monitor"
+                />
+                <div class="small-play-icon"><i class="fas fa-play"></i></div>
+              </div>
+              <div class="item-info">
+                <h4><i class="fas fa-gavel"></i> Compliance Auto‑Monitor</h4>
+                <p>
+                  <i class="far fa-clock"></i> 8 min
+                  <span class="duration-chip"
+                    ><i class="fas fa-bell"></i> instant alerts</span
+                  >
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="playlist-item"
+              data-video-id="8d0vjfQt7Lg"
+              data-thumb="https://img.youtube.com/vi/8d0vjfQt7Lg/mqdefault.jpg"
+            >
+              <div class="item-thumb">
+                <img
+                  src="https://img.youtube.com/vi/8d0vjfQt7Lg/mqdefault.jpg"
+                  alt="Predictive prevention"
+                />
+                <div class="small-play-icon"><i class="fas fa-play"></i></div>
+              </div>
+              <div class="item-info">
+                <h4><i class="fas fa-brain"></i> Predictive Prevention</h4>
+                <p>
+                  <i class="far fa-clock"></i> 15 min
+                  <span class="duration-chip"
+                    ><i class="fas fa-chart-line"></i> AI forecast</span
+                  >
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="playlist-item"
+              data-video-id="5vk8ua0uHWY"
+              data-thumb="https://img.youtube.com/vi/5vk8ua0uHWY/mqdefault.jpg"
+            >
+              <div class="item-thumb">
+                <img
+                  src="https://img.youtube.com/vi/5vk8ua0uHWY/mqdefault.jpg"
+                  alt="Zero delay RMI"
+                />
+                <div class="small-play-icon"><i class="fas fa-play"></i></div>
+              </div>
+              <div class="item-info">
+                <h4>
+                  <i class="fas fa-tachometer-alt"></i> Zero‑Delay Intelligence
+                </h4>
+                <p>
+                  <i class="far fa-clock"></i> 22 min
+                  <span class="duration-chip"
+                    ><i class="fas fa-plug"></i> live feed</span
+                  >
+                </p>
+              </div>
+            </div>
           </div>
         </div>
 
-        <!-- LIVE CHART — fully responsive dynamic widget with resize resilience -->
-        <div class="rmi-chart-wrapper">
-          <div class="tradingview-widget-container" id="tv-container-main">
-            <div id="tradingview-root"></div>
-            <!-- TradingView Embed: symbol overview with modern area chart, dark theme, auto-sizing -->
-            <script type="text/javascript">
-              (function initTradingView() {
-                // Avoid double init if script runs again
-                if (window.tvWidgetLoaded) return;
-                window.tvWidgetLoaded = true;
-
-                // Create container script
-                const script = document.createElement("script");
-                script.src =
-                  "https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js";
-                script.async = true;
-                script.type = "text/javascript";
-                script.innerHTML = JSON.stringify({
-                  symbols: [
-                    ["Gold", "OANDA:XAUUSD|1D"],
-                    ["Bitcoin", "BITSTAMP:BTCUSD|1D"],
-                    ["Crude Oil", "TVC:USOIL|1D"],
-                  ],
-                  chartType: "area",
-                  lineWidth: 2,
-                  colorTheme: "dark",
-                  backgroundColor: "#0b1120",
-                  widgetFontColor: "#DBDBDB",
-                  autosize: true,
-                  width: "100%",
-                  height: "100%",
-                  locale: "en",
-                });
-
-                const container =
-                  document.getElementById("tradingview-root")?.parentNode ||
-                  document.querySelector(".tradingview-widget-container");
-                if (container) {
-                  // clear any potential fallback before adding
-                  const existingFallback =
-                    container.querySelector(".chart-fallback");
-                  if (existingFallback) existingFallback.remove();
-                  container.appendChild(script);
-                } else {
-                  // fallback if container missing
-                  document
-                    .querySelector("#tv-container-main")
-                    ?.appendChild(script);
-                }
-
-                // handle resize propagation: ensures widget iframe adapts to container size changes (orientation, window resize)
-                window.addEventListener("resize", function () {
-                  const iframes = document.querySelectorAll(
-                    ".tradingview-widget-container iframe",
-                  );
-                  iframes.forEach((iframe) => {
-                    try {
-                      // trigger reflow by resetting min-height style communication
-                      if (iframe.contentWindow && iframe.style) {
-                        const currentHeight = iframe.clientHeight;
-                        iframe.style.height = currentHeight + "px";
-                        setTimeout(() => {
-                          iframe.style.height = "100%";
-                        }, 50);
-                      }
-                    } catch (e) {
-                      /* cross-origin limitations are fine */
-                    }
-                  });
-                });
-              })();
-            </script>
+        <div class="rmi-footer">
+          <div class="live-status">
+            <i
+              class="fas fa-circle"
+              style="font-size: 0.5rem; color: #10b981"
+            ></i>
+            <i class="fas fa-sync-alt"></i>
+            <span>RMI engine — real‑time inference</span>
           </div>
-        </div>
-
-        <!-- Footer with responsive style -->
-        <div class="rmi-footer-note">
-          <span class="rmi-credit">
-            ⚡ Real-time data via TradingView • RMI Engine active • Live
-            institutional feeds
-          </span>
+          <div>
+            <i class="fas fa-share-nodes"></i> Share demo &nbsp;|&nbsp;
+            <i class="fas fa-database"></i> No staging, no delays
+          </div>
         </div>
       </div>
-    </section>
+    </div>
 
-    <!-- Enhanced robust fallback & responsive check for TradingView widget -->
     <script>
       (function () {
-        // Retry mechanism to ensure chart loads and responsive iframe height is enforced
-        let retryCount = 0;
-        const maxRetries = 12;
-        let fallbackAdded = false;
+        // Strictly scoped root selector: ensure we target the correct root inside the DOM
+        const rootEl = document.querySelector(".rmi-live-root");
+        if (!rootEl) return;
 
-        function enforceResponsiveChart() {
-          const widgetFrame = document.querySelector(
-            ".tradingview-widget-container iframe",
-          );
-          const widgetDiv = document.querySelector(
-            ".tradingview-widget-container",
-          );
-          if (widgetFrame && widgetDiv) {
-            // make sure iframe dimensions fill the container fluidly
-            widgetFrame.style.width = "100%";
-            widgetFrame.style.height = "100%";
-            widgetFrame.style.minHeight = "clamp(380px, 55vw, 560px)";
-            // remove any loading artifacts
-            const existingMsg = widgetDiv.querySelector(".chart-fallback");
-            if (existingMsg) existingMsg.remove();
-            return true;
-          }
-          return false;
+        const mainContainer = rootEl.querySelector("#rmiMainPlayerRoot");
+        if (!mainContainer) return;
+
+        // Helper: remove iframe if exists
+        function removeExistingIframe() {
+          const oldIframe = mainContainer.querySelector("iframe");
+          if (oldIframe) oldIframe.remove();
         }
 
-        function addFriendlyFallback() {
-          if (fallbackAdded) return;
-          const container = document.querySelector(
-            ".tradingview-widget-container",
-          );
-          if (!container) return;
-          // avoid double fallback
-          if (container.querySelector(".chart-fallback")) return;
-
-          const fallbackDiv = document.createElement("div");
-          fallbackDiv.className = "chart-fallback";
-          fallbackDiv.setAttribute("aria-label", "Chart loading fallback");
-          fallbackDiv.style.cssText =
-            "background: #0b1120; width: 100%; min-height: clamp(380px, 55vw, 560px); display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 14px; border-radius: 24px; color: #cbd5e1;";
-          fallbackDiv.innerHTML = `
-          <svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="1.3">
-            <path d="M3 3v18h18" stroke="#60a5fa" stroke-linecap="round"/>
-            <path d="M18 17V9" stroke="#a78bfa" stroke-linecap="round"/>
-            <path d="M12 17V5" stroke="#60a5fa" stroke-linecap="round"/>
-            <path d="M6 17v-3" stroke="#818cf8" stroke-linecap="round"/>
-            <circle cx="18" cy="8" r="1.5" fill="#10b981" stroke="none"/>
-          </svg>
-          <p style="font-size: clamp(13px, 4vw, 15px); margin: 0;">Loading live market charts...</p>
-          <button id="retry-chart-btn" style="background: #1e293b; border: none; color: white; padding: 6px 20px; border-radius: 40px; font-size: 13px; margin-top: 6px; cursor: pointer; font-weight: 500;">↻ Refresh Chart</button>
-          <small style="font-size: 11px; opacity: 0.7;">RMI Engine • real-time data ready</small>
-        `;
-          container.appendChild(fallbackDiv);
-          fallbackAdded = true;
-
-          const retryBtn = document.getElementById("retry-chart-btn");
-          if (retryBtn) {
-            retryBtn.addEventListener("click", function (e) {
-              e.preventDefault();
-              // remove fallback and re-init widget
-              const fb = container.querySelector(".chart-fallback");
-              if (fb) fb.remove();
-              fallbackAdded = false;
-              // reinitialize TradingView script
-              const existingScripts = container.querySelectorAll(
-                'script[src*="embed-widget-symbol-overview"]',
-              );
-              existingScripts.forEach((script) => script.remove());
-              const newScript = document.createElement("script");
-              newScript.src =
-                "https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js";
-              newScript.async = true;
-              newScript.type = "text/javascript";
-              newScript.innerHTML = JSON.stringify({
-                symbols: [
-                  ["Gold", "OANDA:XAUUSD|1D"],
-                  ["Bitcoin", "BITSTAMP:BTCUSD|1D"],
-                  ["Crude Oil", "TVC:USOIL|1D"],
-                ],
-                chartType: "area",
-                lineWidth: 2,
-                colorTheme: "dark",
-                backgroundColor: "#0b1120",
-                widgetFontColor: "#DBDBDB",
-                autosize: true,
-                width: "100%",
-                height: "100%",
-                locale: "en",
-              });
-              container.appendChild(newScript);
-              setTimeout(() => enforceResponsiveChart(), 400);
-            });
+        // Function to load video with autoplay, clean replacement
+        function loadAndPlayVideo(videoId, shouldAutoPlay = true) {
+          removeExistingIframe();
+          const thumbElem = mainContainer.querySelector(".video-thumb");
+          const overlayElem = mainContainer.querySelector(".play-overlay-main");
+          // update high-res thumb for bg
+          if (thumbElem) {
+            thumbElem.src = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
           }
-        }
+          mainContainer.setAttribute("data-video-id", videoId);
 
-        // Monitor chart loading with retries
-        const interval = setInterval(() => {
-          const iframeExists = document.querySelector(
-            ".tradingview-widget-container iframe",
-          );
-          if (iframeExists) {
-            enforceResponsiveChart();
-            // also ensure any fallback is removed
-            const container = document.querySelector(
-              ".tradingview-widget-container",
+          if (shouldAutoPlay) {
+            if (thumbElem) thumbElem.style.display = "none";
+            if (overlayElem) overlayElem.style.display = "none";
+            const iframe = document.createElement("iframe");
+            iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1&playsinline=1`;
+            iframe.setAttribute(
+              "allow",
+              "autoplay; encrypted-media; fullscreen; picture-in-picture",
             );
-            if (container && container.querySelector(".chart-fallback")) {
-              container.querySelector(".chart-fallback")?.remove();
-              fallbackAdded = false;
-            }
-            clearInterval(interval);
+            iframe.setAttribute("allowfullscreen", "true");
+            iframe.style.position = "absolute";
+            iframe.style.top = "0";
+            iframe.style.left = "0";
+            iframe.style.width = "100%";
+            iframe.style.height = "100%";
+            iframe.style.border = "none";
+            mainContainer.appendChild(iframe);
           } else {
-            retryCount++;
-            if (retryCount >= maxRetries) {
-              clearInterval(interval);
-              // add interactive fallback if chart never rendered
-              if (
-                !document.querySelector(".tradingview-widget-container iframe")
-              ) {
-                addFriendlyFallback();
-              }
-            }
-          }
-        }, 700);
-
-        // Extra: Observe container size changes to ensure iframe responsiveness (ResizeObserver)
-        if (window.ResizeObserver) {
-          const chartWrapper = document.querySelector(".rmi-chart-wrapper");
-          if (chartWrapper) {
-            const resizeObserver = new ResizeObserver((entries) => {
-              const iframe = document.querySelector(
-                ".tradingview-widget-container iframe",
-              );
-              if (iframe && iframe.style) {
-                // force fluid height update
-                const containerHeight = document.querySelector(
-                  ".tradingview-widget-container",
-                )?.clientHeight;
-                if (
-                  containerHeight &&
-                  iframe.clientHeight !== containerHeight
-                ) {
-                  iframe.style.height = containerHeight + "px";
-                }
-              }
-            });
-            resizeObserver.observe(chartWrapper);
+            if (thumbElem) thumbElem.style.display = "block";
+            if (overlayElem) overlayElem.style.display = "flex";
           }
         }
 
-        // manual orientation / resize event to fix any iframe rigidity
-        window.addEventListener("orientationchange", function () {
-          setTimeout(() => {
-            const iframe = document.querySelector(
-              ".tradingview-widget-container iframe",
+        // Main play overlay click handler
+        const mainOverlay = mainContainer.querySelector(".play-overlay-main");
+        if (mainOverlay) {
+          mainOverlay.addEventListener("click", (e) => {
+            e.stopPropagation();
+            // if there's already an iframe playing, do nothing to avoid stacking
+            if (mainContainer.querySelector("iframe")) return;
+            const currentId = mainContainer.getAttribute("data-video-id");
+            if (!currentId) return;
+            // Hide thumb and overlay, create iframe
+            const thumbImg = mainContainer.querySelector(".video-thumb");
+            const overlayDiv =
+              mainContainer.querySelector(".play-overlay-main");
+            if (thumbImg) thumbImg.style.display = "none";
+            if (overlayDiv) overlayDiv.style.display = "none";
+            const newIframe = document.createElement("iframe");
+            newIframe.src = `https://www.youtube.com/embed/${currentId}?autoplay=1&rel=0&modestbranding=1&playsinline=1`;
+            newIframe.setAttribute(
+              "allow",
+              "autoplay; encrypted-media; fullscreen; picture-in-picture",
             );
-            if (iframe) {
-              iframe.style.height = "100%";
-              iframe.style.width = "100%";
-            }
-          }, 100);
+            newIframe.setAttribute("allowfullscreen", "true");
+            newIframe.style.position = "absolute";
+            newIframe.style.top = "0";
+            newIframe.style.left = "0";
+            newIframe.style.width = "100%";
+            newIframe.style.height = "100%";
+            newIframe.style.border = "none";
+            mainContainer.appendChild(newIframe);
+          });
+        }
+
+        // Get all playlist items inside root only
+        const sideItems = rootEl.querySelectorAll(".playlist-item");
+
+        function switchToVideo(videoId, targetElement) {
+          // remove any existing iframe first
+          const existingIframe = mainContainer.querySelector("iframe");
+          if (existingIframe) existingIframe.remove();
+
+          const thumbElem = mainContainer.querySelector(".video-thumb");
+          const overlayElem = mainContainer.querySelector(".play-overlay-main");
+          const newThumbUrl = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
+          if (thumbElem) thumbElem.src = newThumbUrl;
+          mainContainer.setAttribute("data-video-id", videoId);
+
+          // always hide thumb and overlay for autoplay
+          if (thumbElem) thumbElem.style.display = "none";
+          if (overlayElem) overlayElem.style.display = "none";
+
+          const freshIframe = document.createElement("iframe");
+          freshIframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1&playsinline=1`;
+          freshIframe.setAttribute(
+            "allow",
+            "autoplay; encrypted-media; fullscreen; picture-in-picture",
+          );
+          freshIframe.setAttribute("allowfullscreen", "true");
+          freshIframe.style.position = "absolute";
+          freshIframe.style.top = "0";
+          freshIframe.style.left = "0";
+          freshIframe.style.width = "100%";
+          freshIframe.style.height = "100%";
+          freshIframe.style.border = "none";
+          mainContainer.appendChild(freshIframe);
+
+          // visual active highlight (temporary)
+          sideItems.forEach((item) => {
+            item.classList.remove("active-temp");
+          });
+          if (targetElement) {
+            targetElement.classList.add("active-temp");
+            setTimeout(() => {
+              if (targetElement) targetElement.classList.remove("active-temp");
+            }, 400);
+          }
+        }
+
+        sideItems.forEach((item) => {
+          const videoId = item.getAttribute("data-video-id");
+          if (!videoId) return;
+          item.addEventListener("click", (e) => {
+            e.stopPropagation();
+            switchToVideo(videoId, item);
+          });
         });
 
-        window.addEventListener("load", function () {
-          setTimeout(() => enforceResponsiveChart(), 300);
-        });
+        // Initialize component: default video preview without autoplay, ensure no iframe left over
+        removeExistingIframe();
+        const defaultVideoId = "-wdroTF0O-I";
+        mainContainer.setAttribute("data-video-id", defaultVideoId);
+        const initThumb = mainContainer.querySelector(".video-thumb");
+        const initOverlay = mainContainer.querySelector(".play-overlay-main");
+        if (initThumb) {
+          initThumb.src = `https://img.youtube.com/vi/${defaultVideoId}/maxresdefault.jpg`;
+          initThumb.style.display = "block";
+        }
+        if (initOverlay) initOverlay.style.display = "flex";
+
+        // final sanity: if any stray iframe from previous run, clean it
+        const strayIframe = mainContainer.querySelector("iframe");
+        if (strayIframe) strayIframe.remove();
       })();
     </script>
-
-    <!-- Additional inline style to make sure iframe container uses full width dynamic height -->
-    <style>
-      /* extra overrides for perfect responsiveness on all devices */
-      .tradingview-widget-container {
-        display: flex;
-        width: 100%;
-        height: auto;
-        min-height: clamp(380px, 55vw, 560px);
-      }
-      .tradingview-widget-container iframe {
-        border-radius: 20px;
-        transition: height 0.1s ease;
-      }
-      .rmi-chart-wrapper {
-        transition: all 0.2s;
-      }
-      /* ensure no overflow on any mobile */
-      body,
-      .rmi-market-intel {
-        overflow-x: hidden;
-      }
-      button#retry-chart-btn {
-        cursor: pointer;
-        transition: 0.2s;
-        background: #2563eb;
-        border: none;
-        color: white;
-        font-weight: 500;
-      }
-      button#retry-chart-btn:hover {
-        background: #3b82f6;
-        transform: scale(0.98);
-      }
-      /* fix tiny tap targets on mobile */
-      .rmi-badge,
-      .rmi-tag-item,
-      button {
-        cursor: pointer;
-      }
-      /* better safe margins */
-      @media (max-width: 480px) {
-        .rmi-tag-item svg {
-          width: 14px;
-          height: 14px;
-        }
-        .rmi-badge svg {
-          width: 14px;
-          height: 14px;
-        }
-      }
-    </style>
   </body>
 </html>
